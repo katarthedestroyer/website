@@ -1,0 +1,4 @@
+Booking ID,Client Name,Supplier,Booking Date,Travel Date,Total Commission,Paid Amount,Balance Due,Status,Follow-up Date,Notes
+BK001,Sample Client,Hotel ABC,2026-01-15,2026-03-20,500.00,0.00,500.00,Pending,2026-02-01,Commission due 30 days after travel
+BK002,Another Client,Cruise Line XYZ,2025-12-10,2026-06-15,1200.00,600.00,600.00,Pending,2026-02-15,50% paid upfront
+BK003,Test Booking,Tour Operator,2025-11-01,2026-01-25,350.00,350.00,0.00,Paid,,-

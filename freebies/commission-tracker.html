@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commission Tracker - Kady Dennis</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #0a0a0f;
+            color: #e8e8ec;
+        }
+        h1 { color: #7c5cff; }
+        .download-box {
+            background: #12121a;
+            border: 2px dashed #7c5cff;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .btn {
+            background: #7c5cff;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .preview {
+            background: #1a1a24;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        th {
+            color: #d4a853;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>💰 Commission Tracker Template</h1>
+    <p>Never lose money to forgotten bookings again. Track what's owed, follow up on what's late.</p>
+    
+    <div class="download-box">
+        <h2>Download Your Free Template</h2>
+        <p>Available as Google Sheets, Excel, or CSV</p>
+        <br>
+        <a href="commission-tracker.csv" download class="btn">Download CSV</a>
+        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ/create" class="btn" style="margin-left: 10px; background: #4ade80;">Open in Google Sheets</a>
+    </div>
+
+    <h3>What's Included:</h3>
+    <div class="preview">
+        <table>
+            <tr>
+                <th>Column</th>
+                <th>Purpose</th>
+            </tr>
+            <tr><td>Booking ID</td><td>Unique reference for each booking</td></tr>
+            <tr><td>Client Name</td><td>Who's traveling</td></tr>
+            <tr><td>Supplier</td><td>Hotel, cruise line, tour operator</td></tr>
+            <tr><td>Booking Date</td><td>When client confirmed</td></tr>
+            <tr><td>Travel Date</td><td>When they actually travel</td></tr>
+            <tr><td>Total Commission</td><td>Full amount due to you</td></tr>
+            <tr><td>Paid Amount</td><td>What you've received so far</td></tr>
+            <tr><td>Balance Due</td><td>Auto-calculated: Total - Paid</td></tr>
+            <tr><td>Status</td><td>Pending / Paid / Overdue</td></tr>
+            <tr><td>Follow-up Date</td><td>When to chase next</td></tr>
+            <tr><td>Notes</td><td>Any special details</td></tr>
+        </table>
+    </div>
+
+    <p><strong>How to use it:</strong> Copy the template, fill in your active bookings. Sort by "Follow-up Date" to see what needs attention this week. Filter by "Status" to see what's overdue.</p>
+</body>
+</html>

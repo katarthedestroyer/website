@@ -1,0 +1,156 @@
+# 💸 SUBSCRIPTION AUDIT WORKSHEET
+
+## Instructions
+1. List every tool you pay for (even the $5/month ones)
+2. Be honest about when you last used each one
+3. Mark each as Keep, Cancel, or Consolidate
+4. Calculate your total monthly spend
+5. Review the consolidation guide for alternatives
+
+---
+
+## YOUR SUBSCRIPTIONS
+
+| Tool/Subscription | Monthly Cost | Last Used | Decision | Notes |
+|-------------------|--------------|-----------|----------|-------|
+|                   | $            |           | Keep / Cancel / Consolidate | |
+|                   | $            |           | Keep / Cancel / Consolidate | |
+|                   | $            |           | Keep / Cancel / Consolidate | |
+|                   | $            |           | Keep / Cancel / Consolidate | |
+|                   | $            |           | Keep / Cancel / Consolidate | |
+|                   | $            |           | Keep / Cancel / Consolidate | |
+|                   | $            |           | Keep / Cancel / Consolidate | |
+|                   | $            |           | Keep / Cancel / Consolidate | |
+|                   | $            |           | Keep / Cancel / Consolidate | |
+|                   | $            |           | Keep / Cancel / Consolidate | |
+
+**MONTHLY TOTAL: $________**
+**ANNUAL COST: $________**
+
+---
+
+## CONSOLIDATION GUIDE
+
+### CRM + Client Management
+**Current options:** Tern, TravelJoy, Travefy, ClientBase, HubSpot
+**Recommendation:** 
+- Solo advisor with simple needs → Tern Essentials ($99/mo)
+- Growing agency → Tern Pro or TravelJoy
+- Already deep in another → Stick with it, optimize what you have
+
+**What to cancel:** Duplicate CRMs, standalone contact managers
+
+---
+
+### Email Automation
+**Current options:** Tern sequences, Drip, Mailchimp, ConvertKit, ActiveCampaign
+**Recommendation:**
+- If on Tern → Use Tern's built-in sequences first
+- Need advanced segmentation → Drip or ConvertKit
+- Just newsletters → Mailchimp free tier
+
+**What to cancel:** Duplicate email tools, unused automation platforms
+
+---
+
+### Forms + Intake
+**Current options:** Tern forms, Typeform, Google Forms, JotForm, Paperform
+**Recommendation:**
+- Standard intake → Tern forms (included)
+- Complex logic/branching → Typeform
+- Simple and free → Google Forms
+
+**What to cancel:** Form tools you only use for basic contact forms
+
+---
+
+### Task + Project Management
+**Current options:** ClickUp, Asana, Monday, Trello, Notion
+**Recommendation:**
+- Already using one well → Stick with it
+- Barely using → Cancel, use Tern tasks
+- Need heavy collaboration → Notion (replaces docs + wiki too)
+
+**What to cancel:** PM tools you're not actively using daily
+
+---
+
+### Scheduling
+**Current options:** Calendly, Tern scheduler, SavvyCal, Acuity
+**Recommendation:**
+- On Tern Pro → Use Tern's scheduler
+- Need round-robin/team → Calendly
+- Simple and pretty → SavvyCal
+
+**What to cancel:** Duplicate schedulers
+
+---
+
+### Document Storage
+**Current options:** Google Drive, Dropbox, Notion, OneDrive
+**Recommendation:**
+- Most travel files → Google Drive ( integrates with everything)
+- Client-facing docs → Notion or Google Sites
+- Large files/videos → Dropbox
+
+**What to cancel:** Extra storage you don't need
+
+---
+
+### Design + Creative
+**Current options:** Canva Pro, Adobe Creative Cloud, Figma
+**Recommendation:**
+- Social graphics → Canva Pro ($15/mo is worth it)
+- Professional print → Adobe
+- UI/web mockups → Figma free tier
+
+**What to cancel:** Adobe if you only use Photoshop occasionally
+
+---
+
+### Communication
+**Current options:** Slack, Discord, WhatsApp Business, Telegram
+**Recommendation:**
+- Team chat → Slack free or paid depending on history needs
+- Client comms → WhatsApp Business or Telegram (free)
+- Community → Discord or Circle
+
+**What to cancel:** Duplicate chat apps, paid tiers you don't need
+
+---
+
+## QUICK WINS CHECKLIST
+
+□ Cancel anything you haven't logged into in 30+ days
+□ Consolidate duplicate functionality (2 CRMs → 1)
+□ Downgrade to free tiers where possible
+□ Annual billing for tools you're keeping (usually 20% off)
+□ Set calendar reminders before free trials end
+
+---
+
+## MY ACTION PLAN
+
+**This month I will cancel:**
+1. _________________________ (saves $____/mo)
+2. _________________________ (saves $____/mo)
+3. _________________________ (saves $____/mo)
+
+**This month I will consolidate:**
+Replace __________________ with __________________
+
+**Total monthly savings: $________**
+**Total annual savings: $________**
+
+---
+
+## Need Help?
+
+Book a free call: https://cal.com/kady-dennis/discovery
+
+I'll audit your setup and give you a personalized consolidation plan.
+
+---
+
+*Worksheet by Kady Dennis — Travel Operations Consultant*
+*Stop drowning in subscriptions. Start running a real business.*

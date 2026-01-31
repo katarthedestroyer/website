@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Audit Worksheet - Kady Dennis</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #0a0a0f;
+            color: #e8e8ec;
+            line-height: 1.6;
+        }
+        h1 { color: #7c5cff; margin-bottom: 10px; }
+        .subtitle { color: #8888a0; margin-bottom: 30px; }
+        .download-box {
+            background: linear-gradient(135deg, #12121a 0%, #1a1a24 100%);
+            border: 2px dashed #7c5cff;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .btn {
+            background: #7c5cff;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            background: #9d84ff;
+            transform: translateY(-2px);
+        }
+        .worksheet {
+            background: #12121a;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .tool-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+            font-size: 0.95rem;
+        }
+        .tool-row.header {
+            font-weight: 600;
+            color: #d4a853;
+            border-bottom: 2px solid #d4a853;
+        }
+        .highlight {
+            background: rgba(124, 92, 255, 0.1);
+            border-left: 3px solid #7c5cff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .total-box {
+            background: #1a1a24;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .savings {
+            color: #4ade80;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <h1>💸 Subscription Audit Worksheet</h1>
+    <p class="subtitle">Find the $300-500/month you're wasting on tools you don't need.</p>
+    
+    <div class="download-box">
+        <h2>Download the Full Worksheet</h2>
+        <p>PDF worksheet + consolidation guide included</p>
+        <br>
+        <a href="subscription-audit.pdf" download class="btn">Download PDF</a>
+    </div>
+
+    <div class="highlight">
+        <strong>Why this matters:</strong> Most travel advisors pay for 10+ tools that don't talk to each other. This worksheet helps you identify redundancies, find consolidation opportunities, and cut your monthly spend by 30-50%.
+    </div>
+
+    <h3>Worksheet Preview:</h3>
+    <div class="worksheet">
+        <div class="tool-row header">
+            <div>Tool/Subscription</div>
+            <div>Monthly Cost</div>
+            <div>Last Used</div>
+            <div>Keep / Cancel / Consolidate</div>
+        </div>
+        <div class="tool-row">
+            <div>Example: Tern</div>
+            <div>$99</div>
+            <div>Daily</div>
+            <div>Keep - Core CRM</div>
+        </div>
+        <div class="tool-row">
+            <div>Example: ClickUp</div>
+            <div>$19</div>
+            <div>Never</div>
+            <div>Cancel - Not needed</div>
+        </div>
+        <div class="tool-row">
+            <div>Example: Canva Pro</div>
+            <div>$15</div>
+            <div>Weekly</div>
+            <div>Keep - Use for marketing</div>
+        </div>
+        <div class="tool-row" style="border-bottom: none;">
+            <div><em>Add your tools below...</em></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        
+        <div class="total-box">
+            <strong>Monthly Total:</strong> $___<br>
+            <strong>Annual Cost:</strong> $___<br>
+            <span class="savings">Potential Savings: $___/month</span>
+        </div>
+    </div>
+
+    <h3>Consolidation Guide Included:</h3>
+    <ul>
+        <li>🔧 <strong>Tern</strong> vs TravelJoy vs Travefy — which fits your workflow?</li>
+        <li>📧 Email automation: Tern sequences vs Drip vs Mailchimp</li>
+        <li>📋 Forms: Tern forms vs Typeform vs Google Forms</li>
+        <li>💰 Commission tracking: Spreadsheet vs Tern vs dedicated tool</li>
+        <li>📅 Scheduling: Calendly vs Tern scheduler vs SavvyCal</li>
+    </ul>
+
+    <p><em>Download the PDF to fill out your own audit and get personalized consolidation recommendations.</em></p>
+</body>
+</html>
