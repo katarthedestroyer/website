@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kady Dennis | Commander in Chief of Travel Operations</title>
+    <title>Kady Dennis | Travel Operations & AI Consultant</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -599,9 +599,130 @@
             line-height: 1.6;
         }
 
+        /* Use Cases Section */
+        .use-cases-section {
+            background: var(--bg-surface);
+        }
+
+        .use-cases-section .section-header {
+            text-align: center;
+        }
+
+        .use-cases-section .section-header p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .use-case-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 212, 255, 0.15);
+        }
+
+        .use-case-card:hover::before {
+            opacity: 1;
+        }
+
+        .use-case-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .use-case-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .use-case-block {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border-left: 3px solid;
+        }
+
+        .use-case-block.problem {
+            border-left-color: var(--neon-pink);
+        }
+
+        .use-case-block.solution {
+            border-left-color: var(--neon-cyan);
+        }
+
+        .use-case-block.result {
+            border-left-color: var(--neon-green);
+        }
+
+        .use-case-block-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+            opacity: 0.8;
+        }
+
+        .use-case-block.problem .use-case-block-label {
+            color: var(--neon-pink);
+        }
+
+        .use-case-block.solution .use-case-block-label {
+            color: var(--neon-cyan);
+        }
+
+        .use-case-block.result .use-case-block-label {
+            color: var(--neon-green);
+        }
+
+        .use-case-block p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
         /* Services Section */
         .services-section {
-            background: var(--bg-surface);
+            background: linear-gradient(180deg, var(--bg-surface) 0%, transparent 100%);
         }
 
         .services-section .section-header {
@@ -638,7 +759,7 @@
         }
 
         .service-card.featured::after {
-            content: '★ FEATURED';
+            content: '★ MOST POPULAR';
             position: absolute;
             top: 1rem;
             right: -2rem;
@@ -655,6 +776,20 @@
             transform: translateY(-8px);
             border-color: var(--neon-cyan);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 212, 255, 0.15);
+        }
+
+        .service-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
         }
 
         .service-price {
@@ -717,7 +852,7 @@
 
         /* Freebies Section */
         .freebies-section {
-            background: linear-gradient(180deg, var(--bg-surface) 0%, transparent 100%);
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%);
         }
 
         .freebies-section .section-header {
@@ -1045,6 +1180,10 @@
             }
 
             .problem-grid,
+            .use-case-grid {
+                grid-template-columns: 1fr;
+            }
+
             .service-grid {
                 grid-template-columns: 1fr;
             }
@@ -1138,9 +1277,10 @@
     <nav>
         <div class="nav-brand">
             <span class="nav-crab">🦀</span>
-            <span class="nav-logo">KADY_<span>DENNIS</span></span>
+            <span class="nav-logo">KADY_DENNIS</span>
         </div>
         <ul class="nav-links">
+            <li><a href="#use-cases">Use Cases</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#freebies">Resources</a></li>
             <li><a href="#about">About</a></li>
@@ -1158,7 +1298,7 @@
                     <span class="terminal-dot green"></span>
                     <span>mission_control — bash — 80x24</span>
                 </div>
-                <span class="hero-tag">COMMANDER IN CHIEF</span>
+                <span class="hero-tag">TRAVEL × AI × ETHICS</span>
                 <h1>Transform your chaos into <span class="highlight">human-AI collaboration</span> that actually works.</h1>
                 <div class="hero-subtitle">
                     <span>></span>
@@ -1232,51 +1372,137 @@
         </div>
     </section>
 
+    <!-- Use Cases Section -->
+    <section class="use-cases-section" id="use-cases">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Success Stories</span>
+                <h2>Real problems. Real solutions. Real results.</h2>
+                <p>See how travel advisors like you transformed their businesses with strategic system design and ethical AI integration.</p>
+            </div>
+            <div class="use-case-grid">
+                <!-- Use Case 1: Tool Overwhelmed -->
+                <div class="use-case-card fade-in">
+                    <div class="use-case-avatar">😵‍💫</div>
+                    <h3>The Tool Overwhelmed Advisor</h3>
+                    <div class="use-case-block problem">
+                        <div class="use-case-block-label">Problem</div>
+                        <p>Paying $400/month for 8 tools, nothing talks to each other. Spending more time managing software than serving clients.</p>
+                    </div>
+                    <div class="use-case-block solution">
+                        <div class="use-case-block-label">Solution</div>
+                        <p>Complete tool audit + consolidation strategy. Replaced 8 tools with 3 integrated essentials + custom workflows.</p>
+                    </div>
+                    <div class="use-case-block result">
+                        <div class="use-case-block-label">Result</div>
+                        <p><strong>Saved $250/month</strong> and reclaimed <strong>5 hours/week</strong>. Now focused on clients, not browser tabs.</p>
+                    </div>
+                </div>
+
+                <!-- Use Case 2: Commission Leak -->
+                <div class="use-case-card fade-in">
+                    <div class="use-case-avatar">💰</div>
+                    <h3>The Commission Leak</h3>
+                    <div class="use-case-block problem">
+                        <div class="use-case-block-label">Problem</div>
+                        <p>Lost track of $3,200 in unpaid commissions. No systematic tracking, follow-ups falling through cracks, cash flow stress.</p>
+                    </div>
+                    <div class="use-case-block solution">
+                        <div class="use-case-block-label">Solution</div>
+                        <p>Commission recovery system + automated tracking setup. Alerts, follow-up sequences, and reconciliation process.</p>
+                    </div>
+                    <div class="use-case-block result">
+                        <div class="use-case-block-label">Result</div>
+                        <p><strong>Recovered $2,800</strong> in 30 days. Now <strong>never misses a payment</strong> with proactive tracking.</p>
+                    </div>
+                </div>
+
+                <!-- Use Case 3: AI-Curious but Fearful -->
+                <div class="use-case-card fade-in">
+                    <div class="use-case-avatar">🤖</div>
+                    <h3>The AI-Curious but Fearful</h3>
+                    <div class="use-case-block problem">
+                        <div class="use-case-block-label">Problem</div>
+                        <p>Wants to use AI but doesn't know what's safe. Worried about accuracy, client perception, and ethical concerns.</p>
+                    </div>
+                    <div class="use-case-block solution">
+                        <div class="use-case-block-label">Solution</div>
+                        <p>AI readiness assessment + custom workflow design. Human-AI collaboration framework with ethical guardrails.</p>
+                    </div>
+                    <div class="use-case-block result">
+                        <div class="use-case-block-label">Result</div>
+                        <p><strong>10 hours/week saved</strong> on admin tasks. Confident client communication with AI-assisted workflows.</p>
+                    </div>
+                </div>
+
+                <!-- Use Case 4: The Growing Agency -->
+                <div class="use-case-card fade-in">
+                    <div class="use-case-avatar">📈</div>
+                    <h3>The Growing Agency</h3>
+                    <div class="use-case-block problem">
+                        <div class="use-case-block-label">Problem</div>
+                        <p>50+ clients, systems breaking, team confused. Everyone's winging it, quality suffering, ready to burn out.</p>
+                    </div>
+                    <div class="use-case-block solution">
+                        <div class="use-case-block-label">Solution</div>
+                        <p>Full system overhaul + ClickUp setup. Standardized processes, team training, scalable workflows, AI agents.</p>
+                    </div>
+                    <div class="use-case-block result">
+                        <div class="use-case-block-label">Result</div>
+                        <p><strong>Scaled to 100 clients</strong> without adding staff. Team aligned, quality consistent, founder sleeping again.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services-section" id="services">
         <div class="section-container">
             <div class="section-header fade-in">
                 <span class="section-tag">Deploy Solutions</span>
-                <h2>Services Built for Travel Pros</h2>
-                <p>Fixed pricing. Clear deliverables. Designed around what you actually need — not what vendors want to sell you.</p>
+                <h2>Async-First Services</h2>
+                <p>Fixed pricing. Clear deliverables. No meetings required — though I'm here if you want to talk. Designed around what you actually need.</p>
             </div>
             <div class="service-grid">
                 <div class="service-card fade-in">
-                    <div class="service-price">$150</div>
-                    <h3>CRM Health Check</h3>
+                    <span class="service-badge">24hr Turnaround</span>
+                    <div class="service-price">$297</div>
+                    <h3>System Audit</h3>
                     <ul>
-                        <li>Full audit of your current setup</li>
-                        <li>Data quality assessment</li>
-                        <li>Workflow gap analysis</li>
-                        <li>Prioritized action plan</li>
-                        <li>30-min walkthrough call</li>
+                        <li>Detailed intake form (30 min to complete)</li>
+                        <li>24-hour turnaround</li>
+                        <li>Loom video walkthrough (15-20 min)</li>
+                        <li>Written recommendations PDF</li>
+                        <li>30-min follow-up call (optional)</li>
                     </ul>
                     <a href="#contact" class="service-cta" data-cal-link="kady-dennis/discovery">Initiate Audit</a>
                 </div>
 
                 <div class="service-card featured fade-in">
-                    <div class="service-price">$500</div>
+                    <span class="service-badge">30-Day Support</span>
+                    <div class="service-price">$997</div>
                     <h3>AI Workflow Design</h3>
                     <ul>
                         <li>AI readiness assessment</li>
-                        <li>Human-AI collaboration map</li>
-                        <li>Ethical AI guidelines for your business</li>
-                        <li>Implementation roadmap</li>
-                        <li>Documentation & training</li>
+                        <li>Custom workflow design</li>
+                        <li>Implementation guide</li>
+                        <li>Loom training videos</li>
+                        <li>30-day email support</li>
                     </ul>
                     <a href="#contact" class="service-cta" data-cal-link="kady-dennis/discovery">Design My Workflow</a>
                 </div>
 
                 <div class="service-card fade-in">
-                    <div class="service-price">$1,500+</div>
-                    <h3>Full System Overhaul</h3>
+                    <span class="service-badge">60-Day Support</span>
+                    <div class="service-price">$2,500</div>
+                    <h3>Full Implementation</h3>
                     <ul>
-                        <li>Complete workflow redesign</li>
-                        <li>Tool consolidation strategy</li>
-                        <li>Multi-agent system setup</li>
-                        <li>Commission tracking & automation</li>
-                        <li>Pinchy Pact ethics framework</li>
-                        <li>30-day support included</li>
+                        <li>Complete system overhaul</li>
+                        <li>ClickUp/Travefy/Tern setup</li>
+                        <li>Email + inbox zero system</li>
+                        <li>Team training (if applicable)</li>
+                        <li>60-day support included</li>
                     </ul>
                     <a href="#contact" class="service-cta" data-cal-link="kady-dennis/discovery">Start Overhaul</a>
                 </div>
@@ -1290,38 +1516,38 @@
             <div class="section-header fade-in">
                 <span class="section-tag">Free Downloads</span>
                 <h2>Start Building Smarter Systems Today</h2>
-                <p>No email required. Just download, use, and start saving time.</p>
+                <p>Professional tools and templates. Some gated behind email — because good things are worth trading for.</p>
             </div>
             <div class="freebies-grid">
                 <div class="freebie-card fade-in">
-                    <div class="freebie-icon">🦀</div>
-                    <h3>The Pinchy Pact</h3>
-                    <p>A simple ethics framework for working with AI. Know what's fair game, what needs consent, and how to protect your clients.</p>
-                    <a href="#contact" class="freebie-link" download>Download PDF</a>
-                </div>
-                <div class="freebie-card fade-in">
-                    <div class="freebie-icon">🤖</div>
-                    <h3>AI Readiness Checklist</h3>
-                    <p>Not sure where to start with AI? This 10-point checklist tells you if you're ready — and what to fix first.</p>
-                    <a href="#contact" class="freebie-link" download>Download Free</a>
-                </div>
-                <div class="freebie-card fade-in">
                     <div class="freebie-icon">💸</div>
                     <h3>Subscription Audit Worksheet</h3>
-                    <p>Find the $500/month you're wasting on tools you don't need. Includes consolidation guide.</p>
-                    <a href="freebies/subscription-audit.txt" class="freebie-link" download>Download Free</a>
+                    <p>Find the $300-500/month you're wasting on tools you don't need. Includes consolidation guide + action plan.</p>
+                    <a href="freebies/subscription-audit/index.html" class="freebie-link">Get the Worksheet →</a>
                 </div>
                 <div class="freebie-card fade-in">
                     <div class="freebie-icon">💰</div>
                     <h3>Commission Tracker Template</h3>
-                    <p>Stop losing money to forgotten bookings. Track what's owed, follow up on what's late.</p>
-                    <a href="freebies/commission-tracker.csv" class="freebie-link" download>Download CSV</a>
+                    <p>Stop losing money to forgotten bookings. Track what's owed, follow up on what's late. CSV + PDF included.</p>
+                    <a href="freebies/commission-tracker/index.html" class="freebie-link">Get the Tracker →</a>
+                </div>
+                <div class="freebie-card fade-in">
+                    <div class="freebie-icon">🤖</div>
+                    <h3>AI Readiness Checklist</h3>
+                    <p>10-point self-assessment with scoring guide. Find out if you're ready for AI — and what to fix first.</p>
+                    <a href="freebies/ai-readiness-checklist.pdf.html" class="freebie-link" target="_blank">Download PDF →</a>
+                </div>
+                <div class="freebie-card fade-in">
+                    <div class="freebie-icon">🦀</div>
+                    <h3>The Pinchy Pact</h3>
+                    <p>Our ethics framework for human-AI collaboration. Shareable principles for working with AI agents.</p>
+                    <a href="freebies/pinchy-pact.pdf.html" class="freebie-link" target="_blank">Download PDF →</a>
                 </div>
                 <div class="freebie-card fade-in">
                     <div class="freebie-icon">🏥</div>
                     <h3>CRM Health Check Quiz</h3>
                     <p>5-minute self-assessment. Find out if your CRM is working for you or against you.</p>
-                    <a href="https://kady-dennis.notion.site/CRM-Health-Check-Quiz-2f92567f0d0a80bda0a7c1e25e440e09" target="_blank" class="freebie-link">Take the Quiz</a>
+                    <a href="https://kady-dennis.notion.site/CRM-Health-Check-Quiz-2f92567f0d0a80bda0a7c1e25e440e09" target="_blank" class="freebie-link">Take the Quiz →</a>
                 </div>
             </div>
         </div>
@@ -1383,11 +1609,11 @@
     <footer>
         <div class="footer-content">
             <div class="footer-crab">🦀</div>
-            <p>© 2026 Kady Dennis. Built with <a href="https://moltbook.com/u/PinchyTheCrab">Pinchy Army</a> energy.</p>
+            <p>© 2026 Kady Dennis. Built with 🦀 <a href="https://moltbook.com/u/PinchyTheCrab">Pinchy Army</a> energy.</p>
             <p style="font-family: var(--font-mono); font-size: 0.75rem; margin-top: 0.5rem;">
                 <span style="color: var(--neon-cyan)">SYSTEM_STATUS:</span> 
                 <span style="color: var(--neon-green)">ONLINE</span> | 
-                <span style="color: var(--neon-purple)">VERSION 2.0.0</span>
+                <span style="color: var(--neon-purple)">VERSION 2.1.0</span>
             </p>
         </div>
     </footer>

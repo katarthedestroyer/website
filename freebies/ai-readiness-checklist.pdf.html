@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Readiness Checklist - Eliava Travel Ops</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --neon-pink: #ff00aa;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--neon-cyan);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
+        }
+
+        .logo span {
+            color: var(--text-primary);
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .intro {
+            background: var(--bg-surface);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 3px solid var(--neon-purple);
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            margin: 30px 0 15px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .checklist-item {
+            background: var(--bg-surface);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 12px 0;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--text-muted);
+            border-radius: 6px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-content h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .checklist-content p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .score-section {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 92, 255, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .score-title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .score-box {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            margin: 10px 0;
+        }
+
+        .score-divider {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .recommendations {
+            margin-top: 30px;
+        }
+
+        .rec-card {
+            background: var(--bg-surface);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 3px solid;
+        }
+
+        .rec-card.beginner {
+            border-left-color: var(--neon-pink);
+        }
+
+        .rec-card.intermediate {
+            border-left-color: var(--neon-gold);
+        }
+
+        .rec-card.advanced {
+            border-left-color: var(--neon-green);
+        }
+
+        .rec-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .rec-badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .rec-card.beginner .rec-badge {
+            background: rgba(255, 0, 170, 0.2);
+            color: var(--neon-pink);
+        }
+
+        .rec-card.intermediate .rec-badge {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--neon-gold);
+        }
+
+        .rec-card.advanced .rec-badge {
+            background: rgba(0, 255, 136, 0.2);
+            color: var(--neon-green);
+        }
+
+        .rec-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .rec-card ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .rec-card li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .priority-matrix {
+            background: var(--bg-surface);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .priority-matrix h3 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--neon-cyan);
+        }
+
+        .priority-row {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+            align-items: center;
+        }
+
+        .priority-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            min-width: 80px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .priority-high {
+            background: rgba(255, 0, 170, 0.2);
+            color: var(--neon-pink);
+        }
+
+        .priority-medium {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--neon-gold);
+        }
+
+        .priority-low {
+            background: rgba(0, 255, 136, 0.2);
+            color: var(--neon-green);
+        }
+
+        .priority-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .action-box {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .action-box h3 {
+            color: var(--neon-green);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .action-box ol {
+            padding-left: 20px;
+        }
+
+        .action-box li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer .crab {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin: 40px 0;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 20px;
+            }
+            
+            .checklist-item {
+                break-inside: avoid;
+            }
+            
+            .rec-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🦀 ELIAVA <span>TRAVEL OPS</span></div>
+        <h1>🤖 AI Readiness Checklist</h1>
+        <p class="subtitle">10-point self-assessment for travel advisors ready to collaborate with AI</p>
+    </div>
+
+    <div class="intro">
+        <p><strong>Not sure if you're ready for AI?</strong> This checklist helps you assess your current state and identifies exactly what to address before (or while) integrating AI into your workflow. Score yourself honestly — there's no "passing" grade, only clarity about where to start.</p>
+    </div>
+
+    <h2>📊 The 10-Point Assessment</h2>
+    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 15px;">Check each box that applies to your current setup:</p>
+
+    <div class="checklist-item">
+        <div class="checkbox"></div>
+        <div class="checklist-content">
+            <h3>1. Data Organization</h3>
+            <p>My client data is stored in a centralized system (CRM) with consistent formatting. I can find any client's full history in under 60 seconds.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item">
+        <div class="checkbox"></div>
+        <div class="checklist-content">
+            <h3>2. Workflow Documentation</h3>
+            <p>I have documented my key workflows (even if just rough notes). I can explain how I handle a new inquiry from start to finish.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item">
+        <div class="checkbox"></div>
+        <div class="checklist-content">
+            <h3>3. Digital File Structure</h3>
+            <p>My digital files follow a consistent naming convention and folder structure. I don't waste time hunting for documents.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item">
+        <div class="checkbox"></div>
+        <div class="checklist-content">
+            <h3>4. Communication Archives</h3>
+            <p>My email and messaging systems are organized (folders, labels, or searchable). I can reference past client conversations.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item">
+        <div class="checkbox"></div>
+        <div class="checklist-content">
+            <h3>5. Tool Integration</h3>
+            <p>My core tools talk to each other OR I have a clear manual process for moving data between systems.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item">
+        <div class="checkbox"></div>
+        <div class="checklist-content">
+            <h3>6. Privacy Awareness</h3>
+            <p>I understand which client data is sensitive and have considered privacy implications before sharing with AI tools.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item">
+        <div class="checkbox"></div>
+        <div class="checklist-content">
+            <h3>7. AI Exposure</h3>
+            <p>I've experimented with at least one AI tool (ChatGPT, Claude, etc.) and understand basic prompting concepts.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item">
+        <div class="checkbox"></div>
+        <div class="checklist-content">
+            <h3>8. Time Allocation Clarity</h3>
+            <p>I know which tasks consume most of my time and could identify 3-5 tasks I'd happily delegate to AI.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item">
+        <div class="checkbox"></div>
+        <div class="checklist-content">
+            <h3>9. Quality Standards</h3>
+            <p>I have clear standards for client-facing work. I can articulate what "good enough" looks like for emails, itineraries, and proposals.</p>
+        </div>
+    </div>
+
+    <div class="checklist-item">
+        <div class="checkbox"></div>
+        <div class="checklist-content">
+            <h3>10. Experimentation Mindset</h3>
+            <p>I'm willing to try, fail, and iterate. I understand that AI implementation is a learning process, not a magic switch.</p>
+        </div>
+    </div>
+
+    <div class="score-section">
+        <div class="score-title">Your AI Readiness Score</div>
+        <div class="score-box">__ <span class="score-divider">/ 10</span></div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">Count your checked boxes to see your score</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>🎯 Score Interpretation</h2>
+
+    <div class="recommendations">
+        <div class="rec-card beginner">
+            <div class="rec-header">
+                <span class="rec-badge">Score 0-4</span>
+                <h3>Foundation Phase</h3>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 10px;">You're in the early stages of systemization. The good news: addressing these foundations will improve your business even without AI.</p>
+            <ul>
+                <li><strong>Start here:</strong> Choose ONE system to organize (CRM, files, or email)</li>
+                <li><strong>Focus on:</strong> Data centralization and consistent naming conventions</li>
+                <li><strong>AI approach:</strong> Experiment with public AI tools for non-sensitive tasks only</li>
+                <li><strong>Timeline:</strong> 30-60 days to establish basic foundations</li>
+            </ul>
+        </div>
+
+        <div class="rec-card intermediate">
+            <div class="rec-header">
+                <span class="rec-badge">Score 5-7</span>
+                <h3>Integration Phase</h3>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 10px;">You have solid foundations and are ready to introduce AI into specific workflows. You're positioned for meaningful gains.</p>
+            <ul>
+                <li><strong>Start here:</strong> Identify your most time-consuming repetitive task</li>
+                <li><strong>Focus on:</strong> Building AI-assisted workflows for that one task</li>
+                <li><strong>AI approach:</strong> Integrate AI tools with your existing systems</li>
+                <li><strong>Timeline:</strong> 2-4 weeks per workflow to implement</li>
+            </ul>
+        </div>
+
+        <div class="rec-card advanced">
+            <div class="rec-header">
+                <span class="rec-badge">Score 8-10</span>
+                <h3>Optimization Phase</h3>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 10px;">You're ready for sophisticated AI collaboration. Your systems can support advanced automation and multi-agent workflows.</p>
+            <ul>
+                <li><strong>Start here:</strong> Design human-AI collaboration maps for complex processes</li>
+                <li><strong>Focus on:</strong> Building custom AI solutions and ethical frameworks</li>
+                <li><strong>AI approach:</strong> Multi-agent systems, automation, and strategic AI integration</li>
+                <li><strong>Timeline:</strong> Continuous optimization and refinement</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>📋 Priority Action Matrix</h2>
+    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 15px;">Based on your score, here are recommended priorities:</p>
+
+    <div class="priority-matrix">
+        <h3>High Priority (Do First)</h3>
+        <div class="priority-row">
+            <span class="priority-label priority-high">URGENT</span>
+            <span class="priority-desc">Centralize client data in one CRM system</span>
+        </div>
+        <div class="priority-row">
+            <span class="priority-label priority-high">URGENT</span>
+            <span class="priority-desc">Document your top 3 repetitive workflows</span>
+        </div>
+        <div class="priority-row">
+            <span class="priority-label priority-high">URGENT</span>
+            <span class="priority-desc">Establish naming conventions for files and records</span>
+        </div>
+
+        <h3 style="margin-top: 20px;">Medium Priority (Do Soon)</h3>
+        <div class="priority-row">
+            <span class="priority-label priority-medium">NEXT</span>
+            <span class="priority-desc">Connect or streamline data flow between tools</span>
+        </div>
+        <div class="priority-row">
+            <span class="priority-label priority-medium">NEXT</span>
+            <span class="priority-desc">Create privacy guidelines for AI tool usage</span>
+        </div>
+        <div class="priority-row">
+            <span class="priority-label priority-medium">NEXT</span>
+            <span class="priority-desc">Experiment with one AI tool on a low-stakes task</span>
+        </div>
+
+        <h3 style="margin-top: 20px;">Low Priority (Do Later)</h3>
+        <div class="priority-row">
+            <span class="priority-label priority-low">LATER</span>
+            <span class="priority-desc">Build advanced AI automations</span>
+        </div>
+        <div class="priority-row">
+            <span class="priority-label priority-low">LATER</span>
+            <span class="priority-desc">Implement multi-agent systems</span>
+        </div>
+        <div class="priority-row">
+            <span class="priority-label priority-low">LATER</span>
+            <span class="priority-desc">Develop custom AI training or fine-tuning</span>
+        </div>
+    </div>
+
+    <div class="action-box">
+        <h3>🚀 Your 30-Day Quick Start Plan</h3>
+        <ol>
+            <li><strong>Week 1:</strong> Audit your current tool stack. List every subscription and its purpose.</li>
+            <li><strong>Week 2:</strong> Choose your "source of truth" — one system where client data will live.</li>
+            <li><strong>Week 3:</strong> Document ONE workflow from start to finish. Don't overthink it.</li>
+            <li><strong>Week 4:</strong> Try AI on a small, safe task (drafting a template email, brainstorming content ideas).</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <div class="crab">🦀</div>
+        <p><strong>Kady Dennis × Eliava Travel Ops</strong></p>
+        <p>Helping travel advisors build human-AI collaboration that works.</p>
+        <p style="margin-top: 10px;">Ready for the next step? Book a free call: cal.com/kady-dennis/discovery</p>
+    </div>
+</body>
+</html>

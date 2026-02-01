@@ -1,0 +1,61 @@
+Booking ID,Client Name,Supplier,Booking Date,Travel Date,Booking Total,Commission %,Expected Commission,Paid Amount,Balance Due,Status,Expected Payment Date,Follow-up Date,Notes
+BK001,Smith Family,Four Seasons Resort,2026-01-15,2026-03-20,"$15,000.00",10%,"$1,500.00","$1,500.00",$0.00,Paid,2026-04-20,,"Suite upgrade confirmed; commission received within 30 days"
+BK002,Johnson Wedding,Virtuoso Cruise Line,2026-01-20,2026-07-15,"$25,000.00",10%,"$2,500.00",$0.00,"$2,500.00",Pending,2026-10-15,2026-09-15,"Group booking; commission due 90 days after travel"
+BK003,Martinez Group,Preferred Hotels,2025-12-01,2026-02-28,"$8,500.00",10%,$850.00,$0.00,$850.00,OVERDUE,2026-03-30,2026-04-15,"Follow-up sent 4/1; supplier confirmed processing delay"
+BK004,Davis Anniversary,Belmond Hotels,2026-01-10,2026-06-20,"$24,000.00",10%,"$2,400.00","$1,200.00","$1,200.00",Partial,2026-09-20,2026-09-15,"50% paid upfront per agreement; balance due post-travel"
+BK005,Thompson Honeymoon,Sandals Resort,2026-02-05,2026-05-12,"$12,500.00",12%,"$1,500.00",$0.00,"$1,500.00",Pending,2026-06-12,2026-05-27,"Honeymoon package; high commission rate due to preferred partner status"
+BK006,Williams Family,Abercrombie & Kent,2025-11-15,2026-01-20,"$35,000.00",10%,"$3,500.00","$3,500.00",$0.00,Paid,2026-02-20,,"Luxury safari; full commission received"
+BK007,Chen Business Trip,Marriott International,2026-01-25,2026-02-10,"$4,200.00",8%,$336.00,$0.00,$336.00,Pending,2026-03-10,2026-02-24,"Corporate rate; lower commission percentage"
+BK008,Rodriguez Vacation,Disney Cruise Line,2025-12-20,2026-04-05,"$18,000.00",10%,"$1,800.00",$0.00,"$1,800.00",Pending,2026-07-05,2026-06-05,"Family suite booking; commission due 90 days post-travel"
+BK009,Anderson Solo,Uniworld River Cruises,2026-01-30,2026-08-15,"$9,500.00",12%,"$1,140.00",$0.00,"$1,140.00",Pending,2026-11-15,2026-10-15,"River cruise specialist booking"
+BK010,Garcia Celebration,Ponant Yacht Cruises,2025-10-10,2026-01-05,"$22,000.00",10%,"$2,200.00",$0.00,"$2,200.00",Disputed,2026-02-05,,"Dispute: Commission percentage discrepancy; following up with BDM"
+,,,,,,,,,,,,,
+MONTHLY SUMMARY,,,,,,,,,,,,,
+Month,Total Bookings,Total Expected,Total Received,Outstanding,Collection Rate,,,,,,,,
+January 2026,5,"$8,186.00","$2,700.00","$5,486.00",33%,,,,,,,,
+February 2026,2,"$3,640.00",$0.00,"$3,640.00",0%,,,,,,,,
+December 2025,3,"$11,950.00","$3,500.00","$8,450.00",29%,,,,,,,,
+,,,,,,,,,,,,,
+SUPPLIER REPORT CARD,,,,,,,,,,,,,
+Supplier,Total Bookings,Avg Days to Pay,On-Time Rate,Notes,,,,,,,,,
+Four Seasons Resort,1,35 days,100%,Reliable payment within 30-45 days,,,,,,,,,
+Virtuoso Cruise Line,1,Pending,90% estimated,Slow but consistent; plan for 90-day cycle,,,,,,,,,
+Preferred Hotels,1,OVERDUE,60% estimated,Follow-up required; inconsistent payment timing,,,,,,,,,
+Belmond Hotels,1,Partial,85% estimated,Good communication; split payment structure normal,,,,,,,,,
+Sandals Resort,1,Pending,95% estimated,Reliable preferred partner,,,,,,,,,
+Abercrombie & Kent,1,30 days,100%,Excellent; fast commission processing,,,,,,,,,
+Marriott International,1,Pending,80% estimated,Corporate bookings can be slower,,,,,,,,,
+Disney Cruise Line,1,Pending,90% estimated,Standard 90-day payment cycle,,,,,,,,,
+Uniworld River Cruises,1,Pending,95% estimated,Reliable river cruise partner,,,,,,,,,
+Ponant Yacht Cruises,1,Disputed,70% estimated,Currently resolving percentage dispute,,,,,,,,,
+,,,,,,,,,,,,,
+STATUS KEY,,,,,,,,,,,,,
+Status,Meaning,Action Required,,,,,,,,,,,
+Pending,Waiting for payment within expected window,Monitor; no action yet,,,,,,,,,,,
+Paid,Full commission received,Archive booking record,,,,,,,,,,,
+Partial,Received less than expected,Investigate discrepancy; follow up,,,,,,,,,,,
+OVERDUE,Past expected payment date,Immediate follow-up required,,,,,,,,,,,
+Disputed,In active disagreement,Escalate to BDM; document all communication,,,,,,,,,,,
+Written Off,Won't be collected,Note reason; move to closed status,,,,,,,,,,,
+,,,,,,,,,,,,,
+FOLLOW-UP EMAIL TEMPLATE,,,,,,,,,,,,,
+Subject: Commission Inquiry - [Client Name] - Booking #[XXX],,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Hi [Supplier Contact],,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Following up on commission for the following booking:,,,,,,,,,,,,,
+- Client: [Name],,,,,,,,,,,,,
+- Travel Dates: [Dates],,,,,,,,,,,,,
+- Booking Reference: [#],,,,,,,,,,,,,
+- Booking Total: $[Amount],,,,,,,,,,,,,
+- Expected Commission: $[Amount],,,,,,,,,,,,,
+- Original Expected Payment Date: [Date],,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Could you please provide a status update on this payment?,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Thank you,,,,,,,,,,,,,
+[Your Name],,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+© 2026 Kady Dennis × Eliava Travel Ops - Commission Tracker Template,,,,,,,,,,,,,
+Instructions: Replace example data with your bookings. Update Status column as payments arrive.,,,,,,,,,,,,,

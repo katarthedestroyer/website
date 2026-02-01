@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Audit Worksheet - Eliava Travel Ops</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-gold: #d4a853;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--neon-cyan);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
+        }
+
+        .logo span {
+            color: var(--text-primary);
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--neon-gold);
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            margin: 25px 0 12px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 18px 0 8px 0;
+        }
+
+        p, li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .instructions {
+            background: var(--bg-surface);
+            border-left: 3px solid var(--neon-cyan);
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .instructions ol {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.8rem;
+        }
+
+        th {
+            background: var(--bg-surface);
+            color: var(--neon-cyan);
+            font-weight: 600;
+            text-align: left;
+            padding: 10px 8px;
+            border-bottom: 2px solid var(--neon-cyan);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 12px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: 2px solid var(--neon-cyan);
+        }
+
+        .total-row {
+            font-weight: 600;
+            color: var(--neon-gold);
+        }
+
+        .input-line {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            min-width: 150px;
+            height: 1.2em;
+            margin: 0 5px;
+        }
+
+        .checkbox {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 1px solid var(--text-muted);
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.1), rgba(212, 168, 83, 0.05));
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--neon-gold);
+            margin-top: 0;
+        }
+
+        .tip-box {
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 3px solid var(--neon-cyan);
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tip-box strong {
+            color: var(--neon-cyan);
+        }
+
+        .consolidation-section {
+            background: var(--bg-surface);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .consolidation-section h4 {
+            font-size: 0.85rem;
+            color: var(--neon-purple);
+            margin-bottom: 8px;
+            font-family: var(--font-mono);
+        }
+
+        .consolidation-section p {
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        .consolidation-section .recommendation {
+            color: var(--neon-green);
+            font-size: 0.8rem;
+        }
+
+        .action-plan {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .action-plan h3 {
+            color: var(--neon-green);
+            margin-top: 0;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer .crab {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin: 40px 0;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 20px;
+            }
+            
+            .header {
+                border-bottom-color: #00d4ff;
+            }
+            
+            h1 { color: #d4a853; }
+            h2 { color: #00d4ff; border-bottom-color: rgba(0, 212, 255, 0.3); }
+            th { color: #00d4ff; border-bottom-color: #00d4ff; }
+            .total-row { color: #d4a853; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🦀 ELIAVA <span>TRAVEL OPS</span></div>
+        <h1>💸 Subscription Audit Worksheet</h1>
+        <p class="subtitle">Find the $300-500/month you're wasting on tools you don't need</p>
+    </div>
+
+    <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+            <li>List every tool you pay for (even the $5/month ones)</li>
+            <li>Be honest about when you last used each one</li>
+            <li>Mark each as Keep, Cancel, or Consolidate</li>
+            <li>Calculate your total monthly spend</li>
+            <li>Review the consolidation guide for alternatives</li>
+        </ol>
+    </div>
+
+    <h2>📋 Your Subscriptions</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Tool/Subscription</th>
+                <th>Monthly Cost</th>
+                <th>Last Used</th>
+                <th>Decision</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr class="total-row">
+                <td colspan="4"><strong>TOTAL MONTHLY SPEND</strong></td>
+                <td>$________</td>
+            </tr>
+            <tr class="total-row">
+                <td colspan="4"><strong>TOTAL ANNUAL COST</strong></td>
+                <td>$________</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>🎯 Quick Wins Checklist</h2>
+    <ul>
+        <li><span class="checkbox"></span> Cancel anything you haven't logged into in 30+ days</li>
+        <li><span class="checkbox"></span> Consolidate duplicate functionality (2 CRMs → 1)</li>
+        <li><span class="checkbox"></span> Downgrade to free tiers where possible</li>
+        <li><span class="checkbox"></span> Switch to annual billing for tools you're keeping (usually 20% off)</li>
+        <li><span class="checkbox"></span> Set calendar reminders before free trials end</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>📦 Consolidation Guide</h2>
+
+    <div class="consolidation-section">
+        <h4>CRM + Client Management</h4>
+        <p><strong>Current options:</strong> Tern, TravelJoy, Travefy, ClientBase, HubSpot</p>
+        <p class="recommendation">✓ Solo advisor → Tern Essentials ($99/mo)</p>
+        <p class="recommendation">✓ Growing agency → Tern Pro or TravelJoy</p>
+        <p><strong>Cancel:</strong> Duplicate CRMs, standalone contact managers</p>
+    </div>
+
+    <div class="consolidation-section">
+        <h4>Email Automation</h4>
+        <p><strong>Current options:</strong> Tern sequences, Drip, Mailchimp, ConvertKit</p>
+        <p class="recommendation">✓ On Tern → Use built-in sequences first</p>
+        <p class="recommendation">✓ Need advanced → Drip or ConvertKit</p>
+        <p class="recommendation">✓ Just newsletters → Mailchimp free tier</p>
+        <p><strong>Cancel:</strong> Duplicate email tools, unused automation</p>
+    </div>
+
+    <div class="consolidation-section">
+        <h4>Forms + Intake</h4>
+        <p><strong>Current options:</strong> Tern forms, Typeform, Google Forms, JotForm</p>
+        <p class="recommendation">✓ Standard intake → Tern forms (included)</p>
+        <p class="recommendation">✓ Complex logic → Typeform</p>
+        <p class="recommendation">✓ Simple & free → Google Forms</p>
+        <p><strong>Cancel:</strong> Form tools for basic contact forms only</p>
+    </div>
+
+    <div class="consolidation-section">
+        <h4>Task + Project Management</h4>
+        <p><strong>Current options:</strong> ClickUp, Asana, Monday, Trello, Notion</p>
+        <p class="recommendation">✓ Using one well → Stick with it</p>
+        <p class="recommendation">✓ Barely using → Cancel, use Tern tasks</p>
+        <p class="recommendation">✓ Heavy collaboration → Notion (replaces docs too)</p>
+        <p><strong>Cancel:</strong> PM tools not used daily</p>
+    </div>
+
+    <div class="consolidation-section">
+        <h4>Scheduling</h4>
+        <p><strong>Current options:</strong> Calendly, Tern scheduler, SavvyCal, Acuity</p>
+        <p class="recommendation">✓ On Tern Pro → Use Tern scheduler</p>
+        <p class="recommendation">✓ Need round-robin → Calendly</p>
+        <p class="recommendation">✓ Simple & pretty → SavvyCal</p>
+        <p><strong>Cancel:</strong> Duplicate schedulers</p>
+    </div>
+
+    <div class="consolidation-section">
+        <h4>Document Storage</h4>
+        <p><strong>Current options:</strong> Google Drive, Dropbox, Notion, OneDrive</p>
+        <p class="recommendation">✓ Most travel files → Google Drive (integrates with everything)</p>
+        <p class="recommendation">✓ Client-facing docs → Notion or Google Sites</p>
+        <p class="recommendation">✓ Large files/videos → Dropbox</p>
+        <p><strong>Cancel:</strong> Extra storage you don't need</p>
+    </div>
+
+    <h2>💰 Savings Calculator</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Tool to Cancel/Downgrade</th>
+                <th>Current Monthly</th>
+                <th>New Monthly</th>
+                <th>Monthly Savings</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr class="total-row">
+                <td colspan="3"><strong>TOTAL MONTHLY SAVINGS</strong></td>
+                <td>$________</td>
+            </tr>
+            <tr class="total-row">
+                <td colspan="3"><strong>TOTAL ANNUAL SAVINGS</strong></td>
+                <td>$________</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="action-plan">
+        <h3>🎯 My Action Plan</h3>
+        <p><strong>This month I will cancel:</strong></p>
+        <ol>
+            <li>_________________________ (saves $____/mo)</li>
+            <li>_________________________ (saves $____/mo)</li>
+            <li>_________________________ (saves $____/mo)</li>
+        </ol>
+        <p style="margin-top: 15px;"><strong>This month I will consolidate:</strong></p>
+        <p>Replace __________________ with __________________</p>
+        <p style="margin-top: 15px; color: var(--neon-gold);"><strong>Total monthly savings: $________</strong></p>
+        <p style="color: var(--neon-gold);"><strong>Total annual savings: $________</strong></p>
+    </div>
+
+    <div class="highlight-box">
+        <h3>🚨 The True Cost</h3>
+        <p>It's not just subscription fees:</p>
+        <ul>
+            <li><strong>Mental load</strong> — switching between 8+ different logins</li>
+            <li><strong>Data silos</strong> — client info scattered everywhere</li>
+            <li><strong>Manual work</strong> — copying data between systems</li>
+            <li><strong>Missed commissions</strong> — no single source of truth</li>
+        </ul>
+    </div>
+
+    <div class="tip-box">
+        <strong>💡 Pro Tip:</strong> After completing this audit, you have 3 options:
+        <ol style="margin-top: 8px;">
+            <li><strong>DIY</strong> — Cancel the bloat, consolidate what's left</li>
+            <li><strong>Get a second opinion</strong> — Have someone review your stack</li>
+            <li><strong>Full overhaul</strong> — Rebuild systems from scratch, the right way</li>
+        </ol>
+    </div>
+
+    <div class="footer">
+        <div class="crab">🦀</div>
+        <p><strong>Kady Dennis × Eliava Travel Ops</strong></p>
+        <p>Stop drowning in subscriptions. Start running a real business.</p>
+        <p style="margin-top: 10px;">Need help? Book a free call: cal.com/kady-dennis/discovery</p>
+    </div>
+</body>
+</html>

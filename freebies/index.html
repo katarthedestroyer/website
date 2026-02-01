@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Resources | Kady Dennis × Eliava Travel Ops</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover { color: var(--neon-cyan); }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-3px);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .resource-link:hover {
+            gap: 0.75rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .badge-email { background: rgba(212, 168, 83, 0.2); color: var(--neon-gold); }
+        .badge-instant { background: rgba(0, 255, 136, 0.2); color: var(--neon-green); }
+        .badge-external { background: rgba(124, 92, 255, 0.2); color: var(--neon-purple); }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer-crab {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../index.html" class="back-link">← Back to Home</a>
+            <div class="logo">🦀 ELIAVA TRAVEL OPS</div>
+            <h1>Free Resources</h1>
+            <p class="subtitle">Professional tools and templates for travel advisors</p>
+        </header>
+
+        <div class="resources-grid">
+            <div class="resource-card">
+                <span class="badge badge-email">Email Required</span>
+                <div class="resource-icon">💸</div>
+                <h2>Subscription Audit Worksheet</h2>
+                <p>Find the $300-500/month you're wasting on tools you don't need. Includes consolidation guide + action plan.</p>
+                <a href="subscription-audit/index.html" class="resource-link">Get the Worksheet →</a>
+            </div>
+
+            <div class="resource-card">
+                <span class="badge badge-instant">Instant Download</span>
+                <div class="resource-icon">💰</div>
+                <h2>Commission Tracker Template</h2>
+                <p>Stop losing money to forgotten bookings. Track what's owed, follow up on what's late.</p>
+                <a href="commission-tracker/index.html" class="resource-link">Get the Tracker →</a>
+            </div>
+
+            <div class="resource-card">
+                <span class="badge badge-instant">Instant Download</span>
+                <div class="resource-icon">🤖</div>
+                <h2>AI Readiness Checklist</h2>
+                <p>10-point self-assessment with scoring guide. Find out if you're ready for AI — and what to fix first.</p>
+                <a href="ai-readiness-checklist.pdf.html" class="resource-link" target="_blank">View PDF →</a>
+            </div>
+
+            <div class="resource-card">
+                <span class="badge badge-instant">Instant Download</span>
+                <div class="resource-icon">🦀</div>
+                <h2>The Pinchy Pact</h2>
+                <p>Our ethics framework for human-AI collaboration. Shareable principles for working with AI agents.</p>
+                <a href="pinchy-pact.pdf.html" class="resource-link" target="_blank">View PDF →</a>
+            </div>
+
+            <div class="resource-card">
+                <span class="badge badge-external">External Link</span>
+                <div class="resource-icon">🏥</div>
+                <h2>CRM Health Check Quiz</h2>
+                <p>5-minute self-assessment. Find out if your CRM is working for you or against you.</p>
+                <a href="https://kady-dennis.notion.site/CRM-Health-Check-Quiz-2f92567f0d0a80bda0a7c1e25e440e09" class="resource-link" target="_blank">Take the Quiz →</a>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-crab">🦀</div>
+            <p>© 2026 Kady Dennis × Eliava Travel Ops</p>
+            <p style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.7rem;">
+                <span style="color: var(--neon-cyan)">SYSTEM_STATUS:</span>
+                <span style="color: var(--neon-green)">ONLINE</span>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
