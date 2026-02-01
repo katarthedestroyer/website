@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>ClickUp Setup for Travel Agencies | Kady Dennis</title>
+    <meta name="description" content="Full ClickUp implementation for growing travel agencies. Custom workspace, client pipelines, automation, team training, and 60-day support. Starting at $2,500.">
+    <meta name="keywords" content="ClickUp consultant travel, ClickUp setup travel agency, travel business CRM, travel agency operations">
+    <link rel="canonical" href="https://kady-dennis.com/services/clickup-setup.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ClickUp Setup for Travel Agencies | Kady Dennis">
+    <meta property="og:description" content="Full ClickUp implementation with custom workspace, client pipelines, automation, and 60-day support.">
+    <meta property="og:url" content="https://kady-dennis.com/services/clickup-setup.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff00aa;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-crab {
+            font-size: 1.5rem;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+
+        .nav-logo span { color: var(--neon-cyan); }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--neon-cyan); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(124, 92, 255, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .breadcrumbs {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumbs a:hover { color: var(--neon-cyan); }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-green);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--neon-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-purple);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-tag::before { content: '//'; color: var(--neon-cyan); }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Who This Is For */
+        .who-for {
+            background: var(--bg-surface);
+        }
+
+        .checklist {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .checklist li:hover {
+            border-color: var(--neon-green);
+            transform: translateX(5px);
+        }
+
+        .checklist li::before {
+            content: '✓';
+            color: var(--neon-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .checklist li strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .checklist li span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Problem/Solution */
+        .problem-solution {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%, transparent 100%);
+        }
+
+        .ps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .ps-card {
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .ps-card.problem {
+            background: rgba(255, 0, 170, 0.05);
+            border-left: 4px solid var(--neon-pink);
+        }
+
+        .ps-card.solution {
+            background: rgba(0, 255, 136, 0.05);
+            border-left: 4px solid var(--neon-green);
+        }
+
+        .ps-card h3 {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .ps-card.problem h3 { color: var(--neon-pink); }
+        .ps-card.solution h3 { color: var(--neon-green); }
+
+        .ps-card p { color: var(--text-secondary); line-height: 1.7; }
+
+        /* Deliverables */
+        .deliverables {
+            background: var(--bg-surface);
+        }
+
+        .deliverable-list {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .deliverable {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .deliverable:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .deliverable-num {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--bg-primary);
+            flex-shrink: 0;
+        }
+
+        .deliverable h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .deliverable p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Process */
+        .process {
+            background: linear-gradient(180deg, var(--bg-surface) 0%, transparent 100%);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .process-step {
+            padding: 1.5rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            border-color: var(--neon-green);
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--bg-primary);
+            margin-bottom: 1rem;
+        }
+
+        .process-step h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Investment */
+        .investment {
+            background: var(--bg-surface);
+            text-align: center;
+        }
+
+        .price-tag {
+            font-family: var(--font-mono);
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-note {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--neon-cyan);
+        }
+
+        /* FAQ */
+        .faq {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 100%);
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover { color: var(--neon-green); }
+
+        .faq-question::after {
+            content: '+';
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--neon-green);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 1.5rem 1.25rem;
+        }
+
+        .faq-answer p { color: var(--text-secondary); line-height: 1.7; }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content { position: relative; z-index: 1; }
+
+        .cta h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p { color: var(--text-secondary); margin-bottom: 2rem; }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            color: var(--bg-primary);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.6), 0 0 80px rgba(0, 212, 255, 0.4);
+        }
+
+        .guarantee {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .guarantee strong { color: var(--neon-green); }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .back-link:hover {
+            color: var(--neon-green);
+            gap: 0.75rem;
+        }
+
+        .back-link::before { content: '←'; }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+        }
+
+        .footer-crab {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover { text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .ps-grid { grid-template-columns: 1fr; }
+            .price-tag { font-size: 2.5rem; }
+            .cta-container { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">
+            <span class="nav-crab">🦀</span>
+            <span class="nav-logo">Kady<span>Dennis</span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#freebies">Freebies</a></li>
+            <li><a href="/#about">About</a></li>
+        </ul>
+        <a href="#inquire" class="nav-cta">Get Quote</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="breadcrumbs">
+                <a href="/">Home</a> / <a href="/#services">Services</a> / ClickUp Setup
+            </div>
+            <div class="hero-badge">🏢 Full Implementation</div>
+            <h1>One System. <span class="highlight">Every Client.</span> Total Clarity.</h1>
+            <p class="hero-subtitle">ClickUp Setup for Growing Travel Agencies</p>
+            <p>A complete ClickUp workspace built for YOUR travel business—from intake to invoice. Custom pipelines, automated workflows, team training, and 60-day support so nothing falls through the cracks.</p>
+        </div>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="who-for">
+        <div class="section-container">
+            <div class="section-tag">Target Profile</div>
+            <h2>Who This Is For</h2>
+            <ul class="checklist">
+                <li>
+                    <div>
+                        <strong>Growing beyond spreadsheets and sticky notes</strong>
+                        <span>What worked for 5 clients doesn't work for 50</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Team is confused about processes</strong>
+                        <span>Everyone does things differently</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Client info scattered everywhere</strong>
+                        <span>Emails, texts, notes, CRM—no single source of truth</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Ready to scale but systems are breaking</strong>
+                        <span>More volume = more chaos</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Want one source of truth</strong>
+                        <span>Everything in one place, accessible to the whole team</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Problem/Solution -->
+    <section class="problem-solution">
+        <div class="section-container">
+            <div class="section-tag">The Situation</div>
+            <h2>The Problem & The Solution</h2>
+            <div class="ps-grid">
+                <div class="ps-card problem">
+                    <h3>❌ The Problem</h3>
+                    <p>Your "system" is a patchwork of spreadsheets, sticky notes, email threads, and crossed fingers. Every new client feels like starting from scratch. Your team wastes hours hunting for information. You're turning down opportunities because you can't handle more chaos—but you know you need to grow.</p>
+                </div>
+                <div class="ps-card solution">
+                    <h3>✅ The Solution</h3>
+                    <p>A custom ClickUp workspace that mirrors YOUR business process. From the moment a lead fills out your form to the final follow-up email, every step is tracked, automated, and visible to your team. Finally, a single source of truth that scales with you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables -->
+    <section class="deliverables">
+        <div class="section-container">
+            <div class="section-tag">What You Get</div>
+            <h2>10 Specific Deliverables</h2>
+            <div class="deliverable-list">
+                <div class="deliverable">
+                    <div class="deliverable-num">1</div>
+                    <div>
+                        <h4>Custom Workspace Architecture</h4>
+                        <p>Spaces, folders, and lists designed specifically for YOUR business—not a generic template.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">2</div>
+                    <div>
+                        <h4>Client Management System</h4>
+                        <p>Complete pipeline: Intake → Onboarding → Delivery → Follow-up. No client falls through the cracks.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">3</div>
+                    <div>
+                        <h4>Task Templates Library</h4>
+                        <p>10+ templates for common workflows: new booking, crisis management, supplier outreach, client follow-up, and more.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">4</div>
+                    <div>
+                        <h4>Automation Setup</h4>
+                        <p>Auto-assignments, due date reminders, status updates, and notifications so nothing gets missed.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">5</div>
+                    <div>
+                        <h4>Custom Fields Configuration</h4>
+                        <p>Commission tracking, client tiers, trip types, supplier data, and any fields unique to your business.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">6</div>
+                    <div>
+                        <h4>Dashboard Views</h4>
+                        <p>Team workload, client pipeline, financial overview, and custom dashboards for different roles.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">7</div>
+                    <div>
+                        <h4>Integration Setup</h4>
+                        <p>Email, calendar, forms, and other tools connected to ClickUp for seamless data flow.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">8</div>
+                    <div>
+                        <h4>Team Training Package</h4>
+                        <p>Loom training videos for each role + live group walkthrough session (up to 5 team members).</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">9</div>
+                    <div>
+                        <h4>SOP Documentation</h4>
+                        <p>Written how-to guides for everything: adding clients, running reports, managing templates, troubleshooting.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">10</div>
+                    <div>
+                        <h4>60-Day Support</h4>
+                        <p>Fix what breaks, answer questions, refine workflows as you use the system. I'm with you through launch and beyond.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
+        <div class="section-container">
+            <div class="section-tag">How It Works</div>
+            <h2>The Implementation Journey</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-num">1</div>
+                    <h4>Discovery Call</h4>
+                    <p>Deep dive into your current processes, pain points, and goals. We'll determine scope and pricing.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">2</div>
+                    <h4>Architecture Design</h4>
+                    <p>I map out your complete workspace structure, workflows, and automations for your approval.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">3</div>
+                    <h4>Build & Configure</h4>
+                    <p>I build your workspace, set up integrations, create templates, and configure automations.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">4</div>
+                    <h4>Data Migration</h4>
+                    <p>Import existing client data, set up custom fields, and ensure nothing is lost in transition.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">5</div>
+                    <h4>Team Training</h4>
+                    <p>Live walkthrough + recorded training videos so everyone knows how to use the new system.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">6</div>
+                    <h4>Launch & Support</h4>
+                    <p>Go live with 60 days of support to refine, troubleshoot, and optimize as you use it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment -->
+    <section class="investment" id="inquire">
+        <div class="section-container">
+            <div class="section-tag">Investment</div>
+            <h2>Ready to Scale Without Chaos?</h2>
+            <div class="price-tag">Starting at $2,500</div>
+            <p class="price-note">Custom quote based on team size, complexity, and data migration needs.<br>Payment plans available.</p>
+            <div class="timeline">🗓️ 2-3 Week Implementation Timeline</div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="section-container">
+            <div class="section-tag">FAQ</div>
+            <h2>Common Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Why ClickUp and not [other tool]?</div>
+                    <div class="faq-answer">
+                        <p>ClickUp offers the best balance of power and flexibility for travel businesses. It handles project management, CRM, documentation, and automation in one platform—no need for 5+ separate tools.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Will my team actually use this?</div>
+                    <div class="faq-answer">
+                        <p>That's why training and SOPs are included. I design the system around how your team already works, then train them thoroughly. Most teams see adoption within 2 weeks because the system actually makes their jobs easier.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What about my existing data?</div>
+                    <div class="faq-answer">
+                        <p>Data migration is included in the implementation. I'll help export from your current tools and import into ClickUp. Most travel advisors use spreadsheets, Trello, or scattered notes—all of which can be migrated.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if we need changes after launch?</div>
+                    <div class="faq-answer">
+                        <p>60 days of post-launch support is included. Need a new template? Workflow not working right? Just ask. After 60 days, ongoing support is available at a monthly retainer or hourly rate.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you do other CRM setups?</div>
+                    <div class="faq-answer">
+                        <p>Yes, though ClickUp is my specialty. If you're committed to another tool (HubSpot, Salesforce, etc.), book a discovery call and we'll discuss whether it's a good fit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Let's Build Your Command Center</h2>
+                <p>Get a custom ClickUp workspace that scales with your travel business. Book a free discovery call to discuss your needs and get a custom quote.</p>
+                <a href="https://cal.com/kady-dennis/discovery-call" class="btn-primary">
+                    📅 Book Free Discovery Call
+                </a>
+                <p class="guarantee">
+                    <strong>✓</strong> No Obligation &nbsp;|&nbsp; <strong>✓</strong> Custom Quote Within 48hrs
+                </p>
+                <a href="/#services" class="back-link">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <span class="footer-crab">🦀</span>
+            <p>Kady Dennis — Travel Operations & AI Consultant</p>
+            <p>Ethical AI workflows for travel advisors who want their time back</p>
+            <p style="margin-top: 1rem;">
+                <a href="mailto:hello@kady-dennis.com">hello@kady-dennis.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

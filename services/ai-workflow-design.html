@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>AI Workflow Design for Travel Advisors | Kady Dennis</title>
+    <meta name="description" content="Custom AI workflow design for travel advisors. Human-AI collaboration framework, ethical guidelines, prompt library, and 30-day support. Curious but fearful? Start here.">
+    <meta name="keywords" content="AI workflow consultant travel, AI for travel agents, travel advisor AI automation, ethical AI workflows">
+    <link rel="canonical" href="https://kady-dennis.com/services/ai-workflow-design.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI Workflow Design for Travel Advisors | Kady Dennis">
+    <meta property="og:description" content="Custom AI workflow design with human-AI collaboration framework, ethical guidelines, and 30-day support.">
+    <meta property="og:url" content="https://kady-dennis.com/services/ai-workflow-design.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff00aa;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-crab {
+            font-size: 1.5rem;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+
+        .nav-logo span { color: var(--neon-cyan); }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--neon-cyan); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(124, 92, 255, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .breadcrumbs {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumbs a:hover { color: var(--neon-cyan); }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(124, 92, 255, 0.1);
+            border: 1px solid rgba(124, 92, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-purple);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            color: var(--neon-purple);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-purple);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-tag::before { content: '//'; color: var(--neon-cyan); }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Who This Is For */
+        .who-for {
+            background: var(--bg-surface);
+        }
+
+        .checklist {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .checklist li:hover {
+            border-color: var(--neon-purple);
+            transform: translateX(5px);
+        }
+
+        .checklist li::before {
+            content: '✓';
+            color: var(--neon-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .checklist li strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .checklist li span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Problem/Solution */
+        .problem-solution {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%, transparent 100%);
+        }
+
+        .ps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .ps-card {
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .ps-card.problem {
+            background: rgba(255, 0, 170, 0.05);
+            border-left: 4px solid var(--neon-pink);
+        }
+
+        .ps-card.solution {
+            background: rgba(124, 92, 255, 0.05);
+            border-left: 4px solid var(--neon-purple);
+        }
+
+        .ps-card h3 {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .ps-card.problem h3 { color: var(--neon-pink); }
+        .ps-card.solution h3 { color: var(--neon-purple); }
+
+        .ps-card p { color: var(--text-secondary); line-height: 1.7; }
+
+        /* Deliverables */
+        .deliverables {
+            background: var(--bg-surface);
+        }
+
+        .deliverable-list {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .deliverable {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .deliverable:hover {
+            border-color: var(--neon-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .deliverable-num {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--bg-primary);
+            flex-shrink: 0;
+        }
+
+        .deliverable h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .deliverable p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Process */
+        .process {
+            background: linear-gradient(180deg, var(--bg-surface) 0%, transparent 100%);
+        }
+
+        .process-steps {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 160px;
+            padding: 1.5rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            border-color: var(--neon-purple);
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--neon-purple);
+            font-family: var(--font-mono);
+        }
+
+        .process-step:last-child::after { display: none; }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--bg-primary);
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Investment */
+        .investment {
+            background: var(--bg-surface);
+            text-align: center;
+        }
+
+        .price-tag {
+            font-family: var(--font-mono);
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-note {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--neon-green);
+        }
+
+        /* FAQ */
+        .faq {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 100%);
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover { color: var(--neon-purple); }
+
+        .faq-question::after {
+            content: '+';
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--neon-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 1.5rem 1.25rem;
+        }
+
+        .faq-answer p { color: var(--text-secondary); line-height: 1.7; }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(124, 92, 255, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content { position: relative; z-index: 1; }
+
+        .cta h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p { color: var(--text-secondary); margin-bottom: 2rem; }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+            color: var(--bg-primary);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(124, 92, 255, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(124, 92, 255, 0.6), 0 0 80px rgba(0, 212, 255, 0.4);
+        }
+
+        .guarantee {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .guarantee strong { color: var(--neon-green); }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .back-link:hover {
+            color: var(--neon-purple);
+            gap: 0.75rem;
+        }
+
+        .back-link::before { content: '←'; }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+        }
+
+        .footer-crab {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover { text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .ps-grid { grid-template-columns: 1fr; }
+            .process-steps { flex-direction: column; }
+            .process-step::after { display: none; }
+            .price-tag { font-size: 3rem; }
+            .cta-container { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">
+            <span class="nav-crab">🦀</span>
+            <span class="nav-logo">Kady<span>Dennis</span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#freebies">Freebies</a></li>
+            <li><a href="/#about">About</a></li>
+        </ul>
+        <a href="#book" class="nav-cta">Book Now</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="breadcrumbs">
+                <a href="/">Home</a> / <a href="/#services">Services</a> / AI Workflow Design
+            </div>
+            <div class="hero-badge">🤖 Human-AI Collaboration</div>
+            <h1>Finally Understand <span class="highlight">How to Use AI</span> Without Losing the Human Touch</h1>
+            <p class="hero-subtitle">AI Workflow Design for the Curious but Cautious</p>
+            <p>Custom AI workflows that automate the boring stuff while keeping your client relationships authentically human. Includes ethical guidelines, a prompt library, and 30-day support so you never feel lost.</p>
+        </div>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="who-for">
+        <div class="section-container">
+            <div class="section-tag">Target Profile</div>
+            <h2>Who This Is For</h2>
+            <ul class="checklist">
+                <li>
+                    <div>
+                        <strong>Curious about AI but overwhelmed by options</strong>
+                        <span>ChatGPT, Claude, Gemini—where do you even start?</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Worried about client data privacy</strong>
+                        <span>You need clear boundaries on what goes into AI</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Don't know what to automate first</strong>
+                        <span>Everything feels automatable (spoiler: it's not)</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Tried AI tools but they created more work</strong>
+                        <span>Generic outputs that needed heavy editing</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Want competitive edge without losing human touch</strong>
+                        <span>AI for efficiency, you for relationships</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Problem/Solution -->
+    <section class="problem-solution">
+        <div class="section-container">
+            <div class="section-tag">The Situation</div>
+            <h2>The Problem & The Solution</h2>
+            <div class="ps-grid">
+                <div class="ps-card problem">
+                    <h3>❌ The Problem</h3>
+                    <p>You're hearing everyone talk about AI, but every tool you try gives generic, robotic outputs that need more editing than writing from scratch. You're worried about putting client data into systems you don't understand. Meanwhile, competitors seem to be getting ahead while you're stuck Googling "best AI for travel agents."</p>
+                </div>
+                <div class="ps-card solution">
+                    <h3>✅ The Solution</h3>
+                    <p>A custom human-AI collaboration framework designed specifically for YOUR workflows. Clear ethical guidelines so you know exactly what goes in and what stays out. A library of battle-tested prompts that sound like you, not a robot. Implementation roadmap so you're not figuring it out alone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables -->
+    <section class="deliverables">
+        <div class="section-container">
+            <div class="section-tag">What You Get</div>
+            <h2>8 Specific Deliverables</h2>
+            <div class="deliverable-list">
+                <div class="deliverable">
+                    <div class="deliverable-num">1</div>
+                    <div>
+                        <h4>AI Readiness Score</h4>
+                        <p>10-point assessment of your current setup, processes, and tech stack. Know exactly where you stand before diving in.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">2</div>
+                    <div>
+                        <h4>Human-AI Collaboration Map</h4>
+                        <p>Visual diagram showing what tasks stay human (client calls, complex negotiations) vs. what gets automated (first drafts, research, formatting).</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">3</div>
+                    <div>
+                        <h4>Ethical AI Guidelines</h4>
+                        <p>Your personal "what goes in AI / what doesn't" policy. Client data boundaries, PII protocols, and compliance checklist.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">4</div>
+                    <div>
+                        <h4>Tool Recommendations</h4>
+                        <p>Specific AI tools for your exact workflows—no generic lists. Includes free alternatives and paid upgrades based on your budget.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">5</div>
+                    <div>
+                        <h4>Prompt Library</h4>
+                        <p>10+ copy-paste prompts tailored to your common scenarios: email responses, itinerary descriptions, supplier outreach, social content, and more.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">6</div>
+                    <div>
+                        <h4>Implementation Roadmap</h4>
+                        <p>Week-by-week rollout plan. Start with one workflow, master it, then expand. No overwhelm, just steady progress.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">7</div>
+                    <div>
+                        <h4>Loom Training Videos</h4>
+                        <p>Screen recordings showing exactly how to use each recommended AI tool—click by click, with your actual use cases.</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <div class="deliverable-num">8</div>
+                    <div>
+                        <h4>30-Day Email Support</h4>
+                        <p>Questions as you implement? Stuck on a prompt? Email me anytime for 30 days after delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
+        <div class="section-container">
+            <div class="section-tag">How It Works</div>
+            <h2>The 4-Week Journey</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-num">1</div>
+                    <h4>Discovery</h4>
+                    <p>Deep-dive questionnaire + optional 30-min call to understand your workflows</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">2</div>
+                    <h4>Design</h4>
+                    <p>I build your custom AI framework, prompt library, and implementation plan</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">3</div>
+                    <h4>Deliver</h4>
+                    <p>You receive all deliverables + Loom walkthroughs within 1 week</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">4</div>
+                    <h4>Support</h4>
+                    <p>30 days of email support as you implement and refine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment -->
+    <section class="investment" id="book">
+        <div class="section-container">
+            <div class="section-tag">Investment</div>
+            <h2>Ready to Work Smarter?</h2>
+            <div class="price-tag">$997</div>
+            <p class="price-note">One-time payment. Includes 30-day support. Optional follow-up call available.</p>
+            <div class="timeline">🗓️ 1 Week Turnaround</div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="section-container">
+            <div class="section-tag">FAQ</div>
+            <h2>Common Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Will this make my work sound robotic?</div>
+                    <div class="faq-answer">
+                        <p>No. The prompts I create are designed to sound like YOU, not generic AI. I study your existing communications and build prompts that amplify your voice, not replace it.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if I put client data in the wrong place?</div>
+                    <div class="faq-answer">
+                        <p>Your Ethical AI Guidelines spell out exactly what client information can and cannot go into AI tools. I also recommend privacy-compliant alternatives for sensitive workflows.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do I need to be tech-savvy?</div>
+                    <div class="faq-answer">
+                        <p>No. The Loom videos show every click. If you can use email, you can use these AI tools. The hard part (prompt engineering) is already done for you.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I use this with my team?</div>
+                    <div class="faq-answer">
+                        <p>Yes. The deliverables are designed for solo advisors but scale to small teams. Add team training for an additional fee if needed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if AI tools change?</div>
+                    <div class="faq-answer">
+                        <p>Your prompt strategies are tool-agnostic—they work across ChatGPT, Claude, Gemini, and whatever comes next. I'll also send you updates if major changes affect your workflows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Stop Guessing. Start Automating.</h2>
+                <p>Get a custom AI workflow designed for YOUR business—with ethical guardrails and 30-day support.</p>
+                <a href="https://buy.stripe.com/ai-workflow-placeholder" class="btn-primary">
+                    🤖 Book AI Workflow Design — $997
+                </a>
+                <p class="guarantee">
+                    <strong>✓</strong> Secure Stripe Checkout &nbsp;|&nbsp; <strong>✓</strong> 30-Day Support Included
+                </p>
+                <a href="/#services" class="back-link">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <span class="footer-crab">🦀</span>
+            <p>Kady Dennis — Travel Operations & AI Consultant</p>
+            <p>Ethical AI workflows for travel advisors who want their time back</p>
+            <p style="margin-top: 1rem;">
+                <a href="mailto:hello@kady-dennis.com">hello@kady-dennis.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
