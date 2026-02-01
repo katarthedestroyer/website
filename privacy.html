@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>Privacy Policy | Kady Dennis</title>
+    <meta name="description" content="Privacy Policy for Kady Dennis Consulting. Learn how we collect, use, and protect your personal data. GDPR and CCPA compliant.">
+    <meta name="keywords" content="privacy policy, GDPR, CCPA, data protection, Kady Dennis">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kadydennis.com/privacy.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Privacy Policy | Kady Dennis">
+    <meta property="og:description" content="Learn how we collect, use, and protect your personal data.">
+    <meta property="og:url" content="https://kadydennis.com/privacy.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff00aa;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .glow-orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--neon-purple);
+            top: -100px;
+            right: -100px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--neon-cyan);
+            bottom: 10%;
+            left: -100px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 10px) scale(1.05); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-crab {
+            font-size: 1.5rem;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+
+        .nav-back {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-back:hover { color: var(--neon-cyan); }
+
+        /* Main Content */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .page-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .page-tag::before {
+            content: '//';
+            color: var(--neon-purple);
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .last-updated {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+        }
+
+        /* Privacy Sections */
+        .privacy-section {
+            margin-bottom: 3rem;
+        }
+
+        .privacy-section h2 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .privacy-section h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
+            border-radius: 2px;
+        }
+
+        .privacy-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .privacy-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .privacy-section ul, .privacy-section ol {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-section li::marker {
+            color: var(--neon-cyan);
+        }
+
+        .privacy-section a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .privacy-section a:hover {
+            border-bottom-color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .privacy-section strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box.highlight {
+            border-color: rgba(0, 212, 255, 0.3);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .info-box h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--neon-cyan);
+            margin-bottom: 0.75rem;
+            font-family: var(--font-mono);
+        }
+
+        /* Rights Grid */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .rights-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .rights-card h4 {
+            font-size: 0.9rem;
+            color: var(--neon-cyan);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rights-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 92, 255, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-box h2 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .contact-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(124, 92, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+        }
+
+        .footer-crab {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: text-shadow 0.3s ease;
+        }
+
+        footer a:hover {
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            main { padding: 7rem 1.5rem 3rem; }
+            .rights-grid { grid-template-columns: 1fr; }
+            .contact-box { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="nav-brand">
+            <span class="nav-crab" aria-hidden="true">🦀</span>
+            <span class="nav-logo">KADY_DENNIS</span>
+        </a>
+        <a href="/" class="nav-back">← Back to Home</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <header class="page-header">
+            <span class="page-tag">Legal</span>
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: <span id="update-date"></span></p>
+        </header>
+
+        <!-- Introduction -->
+        <section class="privacy-section">
+            <h2>Introduction</h2>
+            <p>
+                Welcome! I'm <strong>Kady Dennis</strong>, and I operate this website (kadydennis.com) as a sole proprietorship 
+                providing systems consulting and AI workflow design services for travel advisors.
+            </p>
+            <p>
+                This Privacy Policy explains how I collect, use, store, and protect your personal information 
+                when you visit this website or use my services. I believe in transparency and minimal data collection. 
+                I only gather what is necessary to provide you with the best possible service.
+            </p>
+            <p>
+                By using this website, you agree to the collection and use of information in accordance with this policy. 
+                This policy is designed to comply with the <strong>General Data Protection Regulation (GDPR)</strong> for 
+                visitors from the European Union and the <strong>California Consumer Privacy Act (CCPA)</strong> for 
+                California residents.
+            </p>
+        </section>
+
+        <!-- Information We Collect -->
+        <section class="privacy-section">
+            <h2>Information We Collect</h2>
+            <p>I collect minimal information to provide and improve my services:</p>
+            
+            <h3>Information You Provide Directly</h3>
+            <ul>
+                <li><strong>Contact Information:</strong> Name, email address, and phone number when you fill out contact forms or book consultations</li>
+                <li><strong>Business Information:</strong> Details about your travel business to help tailor my services to your needs</li>
+                <li><strong>Payment Information:</strong> Processed securely through Stripe — I never store your full credit card details</li>
+                <li><strong>Communications:</strong> Any information you provide in emails, consultation calls, or feedback</li>
+            </ul>
+
+            <h3>Information Collected Automatically</h3>
+            <ul>
+                <li><strong>Cookies:</strong> Essential cookies required for site functionality (see Cookies section below)</li>
+                <li><strong>Log Data:</strong> Basic server logs including IP address, browser type, and pages visited</li>
+                <li><strong>Device Information:</strong> Browser type, operating system, and device type for optimizing your experience</li>
+            </ul>
+
+            <div class="info-box highlight">
+                <h4>🍪 Important Note</h4>
+                <p>I do <strong>not</strong> use tracking cookies, advertising cookies, or third-party analytics that monitor your behavior across the web. I believe your privacy matters.</p>
+            </div>
+        </section>
+
+        <!-- How We Use Information -->
+        <section class="privacy-section">
+            <h2>How We Use Your Information</h2>
+            <p>I use the collected information for the following purposes:</p>
+            <ul>
+                <li><strong>Service Delivery:</strong> To provide the consulting services you've requested</li>
+                <li><strong>Communication:</strong> To respond to your inquiries and provide customer support</li>
+                <li><strong>Payment Processing:</strong> To process payments for services through Stripe</li>
+                <li><strong>Project Management:</strong> To organize and track project deliverables using ClickUp</li>
+                <li><strong>Legal Compliance:</strong> To comply with applicable laws and regulations</li>
+                <li><strong>Website Improvement:</strong> To understand basic site usage and improve functionality</li>
+            </ul>
+            <p>I <strong>do not</strong> sell, rent, or trade your personal information to third parties for marketing purposes.</p>
+        </section>
+
+        <!-- Cookies -->
+        <section class="privacy-section">
+            <h2>Cookies & Tracking Technologies</h2>
+            <p>Cookies are small text files stored on your device that help websites function properly.</p>
+            
+            <h3>Essential Cookies (Always Active)</h3>
+            <p>These cookies are necessary for the website to function and cannot be disabled:</p>
+            <ul>
+                <li><strong>Cookie Consent:</strong> Records your cookie preference choice</li>
+                <li><strong>Session Management:</strong> Maintains your session state during visits</li>
+                <li><strong>Security:</strong> Helps protect the site from malicious activity</li>
+            </ul>
+
+            <h3>What I Don't Use</h3>
+            <p>I intentionally do <strong>not</strong> use:</p>
+            <ul>
+                <li>❌ Google Analytics or similar tracking services</li>
+                <li>❌ Facebook Pixel or social media tracking</li>
+                <li>❌ Advertising or remarketing cookies</li>
+                <li>❌ Third-party marketing tools that track your behavior</li>
+            </ul>
+
+            <p>You can manage your cookie preferences at any time by clicking the cookie icon in the bottom corner of the page, or by clearing your browser cookies.</p>
+        </section>
+
+        <!-- Third-Party Services -->
+        <section class="privacy-section">
+            <h2>Third-Party Services</h2>
+            <p>I use a limited number of trusted third-party services to operate my business:</p>
+
+            <div class="info-box">
+                <h4>💳 Stripe</h4>
+                <p><strong>Purpose:</strong> Secure payment processing<br>
+                <strong>Data Shared:</strong> Payment information (processed directly by Stripe)<br>
+                <strong>Privacy:</strong> <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe Privacy Policy</a></p>
+            </div>
+
+            <div class="info-box">
+                <h4>📋 ClickUp</h4>
+                <p><strong>Purpose:</strong> Project management and client collaboration<br>
+                <strong>Data Shared:</strong> Project details, deliverables, and communications<br>
+                <strong>Privacy:</strong> <a href="https://clickup.com/privacy" target="_blank" rel="noopener">ClickUp Privacy Policy</a></p>
+            </div>
+
+            <div class="info-box">
+                <h4>🌐 GitHub Pages</h4>
+                <p><strong>Purpose:</strong> Website hosting<br>
+                <strong>Data Shared:</strong> Basic server logs and IP addresses<br>
+                <strong>Privacy:</strong> <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a></p>
+            </div>
+
+            <p>Each of these services has their own privacy policies, and I encourage you to review them. I only share the minimum information necessary for these services to function.</p>
+        </section>
+
+        <!-- Your Rights -->
+        <section class="privacy-section">
+            <h2>Your Rights</h2>
+            <p>Depending on your location, you have specific rights regarding your personal data:</p>
+
+            <h3>GDPR Rights (EU Residents)</h3>
+            <div class="rights-grid">
+                <div class="rights-card">
+                    <h4>🔍 Right to Access</h4>
+                    <p>You can request a copy of all personal data I hold about you.</p>
+                </div>
+                <div class="rights-card">
+                    <h4>✏️ Right to Rectification</h4>
+                    <p>You can request corrections to inaccurate or incomplete data.</p>
+                </div>
+                <div class="rights-card">
+                    <h4>🗑️ Right to Erasure</h4>
+                    <p>You can request deletion of your personal data ("Right to be Forgotten").</p>
+                </div>
+                <div class="rights-card">
+                    <h4>⏸️ Right to Restrict</h4>
+                    <p>You can request limitation of how your data is processed.</p>
+                </div>
+                <div class="rights-card">
+                    <h4>📦 Right to Portability</h4>
+                    <p>You can receive your data in a machine-readable format.</p>
+                </div>
+                <div class="rights-card">
+                    <h4>🚫 Right to Object</h4>
+                    <p>You can object to processing based on legitimate interests.</p>
+                </div>
+            </div>
+
+            <h3>CCPA Rights (California Residents)</h3>
+            <ul>
+                <li><strong>Right to Know:</strong> What personal information is collected, used, shared, or sold</li>
+                <li><strong>Right to Delete:</strong> Request deletion of personal information collected from you</li>
+                <li><strong>Right to Opt-Out:</strong> Opt-out of the sale of personal information (Note: I do not sell personal information)</li>
+                <li><strong>Right to Non-Discrimination:</strong> Exercise your rights without facing discrimination</li>
+            </ul>
+
+            <p>To exercise any of these rights, please contact me using the information below. I will respond within 30 days of receiving your request.</p>
+        </section>
+
+        <!-- Data Retention -->
+        <section class="privacy-section">
+            <h2>Data Retention</h2>
+            <p>I retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy:</p>
+            <ul>
+                <li><strong>Client Records:</strong> Retained for 7 years for tax and legal compliance</li>
+                <li><strong>Communication History:</strong> Retained for 3 years after project completion</li>
+                <li><strong>Website Logs:</strong> Retained for 30 days</li>
+                <li><strong>Cookie Preferences:</strong> Retained for 1 year</li>
+            </ul>
+            <p>When your information is no longer needed, it is securely deleted or anonymized.</p>
+        </section>
+
+        <!-- Security -->
+        <section class="privacy-section">
+            <h2>Data Security</h2>
+            <p>I take the security of your data seriously and implement appropriate technical and organizational measures:</p>
+            <ul>
+                <li>🔐 <strong>HTTPS Encryption:</strong> All data transmitted to and from this website is encrypted</li>
+                <li>🔒 <strong>Secure Payment Processing:</strong> All payments handled by PCI-compliant Stripe</li>
+                <li>🛡️ <strong>Access Controls:</strong> Limited access to personal data on a need-to-know basis</li>
+                <li>📝 <strong>Regular Reviews:</strong> Periodic security assessments and policy updates</li>
+            </ul>
+            <p>While I strive to use commercially acceptable means to protect your personal information, no method of transmission over the Internet or electronic storage is 100% secure. I cannot guarantee absolute security.</p>
+        </section>
+
+        <!-- Children's Privacy -->
+        <section class="privacy-section">
+            <h2>Children's Privacy</h2>
+            <p>My services are not intended for use by children under the age of 16. I do not knowingly collect personal information from children. If you are a parent or guardian and believe your child has provided me with personal information, please contact me, and I will promptly delete such information.</p>
+        </section>
+
+        <!-- Changes to Policy -->
+        <section class="privacy-section">
+            <h2>Changes to This Policy</h2>
+            <p>I may update this Privacy Policy from time to time to reflect changes in my practices or for legal, operational, or regulatory reasons. I will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+            <p>I encourage you to review this Privacy Policy periodically for any changes. Changes are effective when they are posted on this page.</p>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact-box">
+            <h2>Contact Us</h2>
+            <p>Questions about this Privacy Policy? Need to exercise your data rights?<br>I'm here to help.</p>
+            <a href="mailto:pinchy@eliavatravel.com" class="contact-email">
+                📧 pinchy@eliavatravel.com
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <span class="footer-crab" aria-hidden="true">🦀</span>
+        <p>© <span id="year"></span> Kady Dennis. All rights reserved.</p>
+        <p><a href="/">Back to Home</a> · <a href="/privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <!-- Cookie Consent Script -->
+    <script src="/js/cookie-consent.js"></script>
+
+    <!-- Date Scripts -->
+    <script>
+        // Auto-update last updated date
+        document.getElementById('update-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Auto-update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
