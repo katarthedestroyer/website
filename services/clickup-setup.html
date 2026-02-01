@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO -->
-    <title>ClickUp Setup for Travel Agencies | Kady Dennis</title>
-    <meta name="description" content="Full ClickUp implementation for growing travel agencies. Custom workspace, client pipelines, automation, team training, and 60-day support. Starting at $2,500.">
-    <meta name="keywords" content="ClickUp consultant travel, ClickUp setup travel agency, travel business CRM, travel agency operations">
+    <title>ClickUp Setup for Luxury Travel Advisors | Eliava Travel Systems</title>
+    <meta name="description" content="From inquiry to post-trip — one system, total clarity. End-to-end ClickUp implementation for travel advisors at scale who need a superior, tailored experience. Starting at $2,500.">
+    <meta name="keywords" content="ClickUp setup travel advisor, luxury travel CRM, end-to-end travel system, custom travel workflow">
     <link rel="canonical" href="https://kady-dennis.com/services/clickup-setup.html">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="ClickUp Setup for Travel Agencies | Kady Dennis">
-    <meta property="og:description" content="Full ClickUp implementation with custom workspace, client pipelines, automation, and 60-day support.">
+    <meta property="og:title" content="ClickUp Setup for Luxury Travel Advisors | Eliava Travel Systems">
+    <meta property="og:description" content="From inquiry to post-trip — one system, total clarity. End-to-end ClickUp implementation for established travel advisors.">
     <meta property="og:url" content="https://kady-dennis.com/services/clickup-setup.html">
     
     <!-- Favicon -->
@@ -268,6 +268,34 @@
             background: var(--bg-surface);
         }
 
+        .target-banner {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 255, 136, 0.05));
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .target-banner-icon {
+            font-size: 2rem;
+        }
+
+        .target-banner-text {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--neon-green);
+        }
+
+        .target-banner-text strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
         .checklist {
             list-style: none;
             display: grid;
@@ -307,6 +335,96 @@
         .checklist li span {
             color: var(--text-secondary);
             font-size: 0.9rem;
+        }
+
+        /* The Bridge Section */
+        .bridge-section {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%, transparent 100%);
+            text-align: center;
+        }
+
+        .bridge-section h2 {
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .bridge-section > .section-container > p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .bridge-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .bridge-side {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 300px;
+            text-align: left;
+        }
+
+        .bridge-side h3 {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+            color: var(--neon-pink);
+        }
+
+        .bridge-side.better h3 {
+            color: var(--neon-green);
+        }
+
+        .bridge-side ul {
+            list-style: none;
+        }
+
+        .bridge-side li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .bridge-side li:last-child {
+            border-bottom: none;
+        }
+
+        .bridge-arrow {
+            font-size: 3rem;
+            color: var(--neon-cyan);
+        }
+
+        .bridge-result {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 92, 255, 0.1));
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bridge-result h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .bridge-result p {
+            color: var(--text-secondary);
         }
 
         /* Problem/Solution */
@@ -662,8 +780,11 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .ps-grid { grid-template-columns: 1fr; }
+            .bridge-visual { flex-direction: column; }
+            .bridge-arrow { transform: rotate(90deg); }
             .price-tag { font-size: 2.5rem; }
             .cta-container { padding: 2rem; }
+            .target-banner { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -676,8 +797,8 @@
         </div>
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
-            <li><a href="/#services">Services</a></li>
-            <li><a href="/#freebies">Freebies</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/resources/index.html">Resources</a></li>
             <li><a href="/#about">About</a></li>
         </ul>
         <a href="#inquire" class="nav-cta">Get Quote</a>
@@ -689,10 +810,10 @@
             <div class="breadcrumbs">
                 <a href="/">Home</a> / <a href="/#services">Services</a> / ClickUp Setup
             </div>
-            <div class="hero-badge">🏢 Full Implementation</div>
-            <h1>One System. <span class="highlight">Every Client.</span> Total Clarity.</h1>
-            <p class="hero-subtitle">ClickUp Setup for Growing Travel Agencies</p>
-            <p>A complete ClickUp workspace built for YOUR travel business—from intake to invoice. Custom pipelines, automated workflows, team training, and 60-day support so nothing falls through the cracks.</p>
+            <div class="hero-badge">🏢 End-to-End Implementation</div>
+            <h1>From Inquiry to <span class="highlight">Post-Trip</span> — One System, Total Clarity.</h1>
+            <p class="hero-subtitle">ClickUp Setup for End-to-End System Seekers</p>
+            <p>You're done with patchwork solutions. Done with CRMs that force you into workflows designed for someone else's business. You want a superior, tailored experience—end-to-end visibility from the moment a lead inquires to the final post-trip follow-up. One source of truth. Total clarity. Finally.</p>
         </div>
     </section>
 
@@ -701,38 +822,85 @@
         <div class="section-container">
             <div class="section-tag">Target Profile</div>
             <h2>Who This Is For</h2>
+            
+            <div class="target-banner">
+                <span class="target-banner-icon">🎯</span>
+                <span class="target-banner-text">
+                    <strong>End-to-end system seekers</strong>
+                    Ready to bridge the gap between outdated CRMs and custom solutions
+                </span>
+            </div>
+
             <ul class="checklist">
                 <li>
                     <div>
-                        <strong>Growing beyond spreadsheets and sticky notes</strong>
-                        <span>What worked for 5 clients doesn't work for 50</span>
+                        <strong>Your current CRM is fighting you</strong>
+                        <span>Forced workflows, missing features, workarounds for basic luxury travel needs</span>
                     </div>
                 </li>
                 <li>
                     <div>
-                        <strong>Team is confused about processes</strong>
-                        <span>Everyone does things differently</span>
+                        <strong>Client data lives in 5+ places</strong>
+                        <span>Emails, texts, spreadsheets, notes apps, your memory—no single source of truth</span>
                     </div>
                 </li>
                 <li>
                     <div>
-                        <strong>Client info scattered everywhere</strong>
-                        <span>Emails, texts, notes, CRM—no single source of truth</span>
+                        <strong>You're ready to invest in a system that actually fits</strong>
+                        <span>No more compromises. You want workflows designed around YOUR process, not the other way around</span>
                     </div>
                 </li>
                 <li>
                     <div>
-                        <strong>Ready to scale but systems are breaking</strong>
-                        <span>More volume = more chaos</span>
+                        <strong>Your team (or future team) needs clarity</strong>
+                        <span>Everyone doing things differently is no longer sustainable</span>
                     </div>
                 </li>
                 <li>
                     <div>
-                        <strong>Want one source of truth</strong>
-                        <span>Everything in one place, accessible to the whole team</span>
+                        <strong>You want visibility across the entire client journey</strong>
+                        <span>Inquiry → proposal → booking → travel → post-trip—all tracked, nothing missed</span>
                     </div>
                 </li>
             </ul>
+        </div>
+    </section>
+
+    <!-- The Bridge Section -->
+    <section class="bridge-section">
+        <div class="section-container">
+            <div class="section-tag">Our Approach</div>
+            <h2>We Bridge The Gap Between Outdated, Clunky "All In One" CRMs And Custom Solutions</h2>
+            <p>You've outgrown the beginner tools. But enterprise travel CRMs cost $10K+ and still force you into their way of working. We build the middle path: a superior, tailored experience that gives you enterprise power with boutique service.</p>
+            
+            <div class="bridge-visual">
+                <div class="bridge-side">
+                    <h3>❌ What You're Leaving</h3>
+                    <ul>
+                        <li>Generic travel CRMs</li>
+                        <li>Forced workflows</li>
+                        <li>Limited customization</li>
+                        <li>Poor support</li>
+                        <li>Feature bloat</li>
+                    </ul>
+                </div>
+                <div class="bridge-arrow">→</div>
+                <div class="bridge-side better">
+                    <h3>✅ What You Get</h3>
+                    <ul>
+                        <li>Custom-built workspace</li>
+                        <li>Your exact workflows</li>
+                        <li>Unlimited flexibility</li>
+                        <li>White-glove setup</li>
+                        <li>Only what you need</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bridge-result">
+                <h3>The Result: End-to-End Clarity</h3>
+                <p>One system that tracks every client from first inquiry to post-trip follow-up. Automations that actually save time. Dashboards that show you what matters. And the flexibility to evolve as your business grows.</p>
+            </div>
         </div>
     </section>
 
@@ -744,11 +912,11 @@
             <div class="ps-grid">
                 <div class="ps-card problem">
                     <h3>❌ The Problem</h3>
-                    <p>Your "system" is a patchwork of spreadsheets, sticky notes, email threads, and crossed fingers. Every new client feels like starting from scratch. Your team wastes hours hunting for information. You're turning down opportunities because you can't handle more chaos—but you know you need to grow.</p>
+                    <p>You've built a $3M+ practice on determination and exceptional service—but your systems are held together with duct tape. Client details are scattered across email, texts, spreadsheets, and sticky notes. Your "CRM" forces you to work around it instead of with it. You're turning down opportunities because you can't handle more chaos. And you're tired of paying premium prices for tools that treat luxury travel like commodity bookings.</p>
                 </div>
                 <div class="ps-card solution">
                     <h3>✅ The Solution</h3>
-                    <p>A custom ClickUp workspace that mirrors YOUR business process. From the moment a lead fills out your form to the final follow-up email, every step is tracked, automated, and visible to your team. Finally, a single source of truth that scales with you.</p>
+                    <p>A completely custom ClickUp workspace designed around YOUR end-to-end process. From inquiry form to post-trip follow-up, every step is tracked, automated, and visible. No more workarounds. No more "close enough." Just a superior, tailored experience that matches the quality of service you deliver to clients.</p>
                 </div>
             </div>
         </div>
@@ -764,56 +932,56 @@
                     <div class="deliverable-num">1</div>
                     <div>
                         <h4>Custom Workspace Architecture</h4>
-                        <p>Spaces, folders, and lists designed specifically for YOUR business—not a generic template.</p>
+                        <p>Spaces, folders, and lists designed specifically for YOUR business—not a template. Built for luxury travel workflows.</p>
                     </div>
                 </div>
                 <div class="deliverable">
                     <div class="deliverable-num">2</div>
                     <div>
-                        <h4>Client Management System</h4>
-                        <p>Complete pipeline: Intake → Onboarding → Delivery → Follow-up. No client falls through the cracks.</p>
+                        <h4>End-to-End Client Pipeline</h4>
+                        <p>Complete tracking from inquiry → proposal → booking → pre-trip → travel → post-trip. No client falls through the cracks.</p>
                     </div>
                 </div>
                 <div class="deliverable">
                     <div class="deliverable-num">3</div>
                     <div>
                         <h4>Task Templates Library</h4>
-                        <p>10+ templates for common workflows: new booking, crisis management, supplier outreach, client follow-up, and more.</p>
+                        <p>10+ templates for common workflows: complex bookings, crisis management, supplier outreach, VIP client follow-up, and more.</p>
                     </div>
                 </div>
                 <div class="deliverable">
                     <div class="deliverable-num">4</div>
                     <div>
-                        <h4>Automation Setup</h4>
-                        <p>Auto-assignments, due date reminders, status updates, and notifications so nothing gets missed.</p>
+                        <h4>Smart Automation Setup</h4>
+                        <p>Auto-assignments, due date reminders, status updates, and notifications—customized to your exact process.</p>
                     </div>
                 </div>
                 <div class="deliverable">
                     <div class="deliverable-num">5</div>
                     <div>
                         <h4>Custom Fields Configuration</h4>
-                        <p>Commission tracking, client tiers, trip types, supplier data, and any fields unique to your business.</p>
+                        <p>Commission tracking, client tiers, trip types, supplier data, and any fields unique to your luxury travel practice.</p>
                     </div>
                 </div>
                 <div class="deliverable">
                     <div class="deliverable-num">6</div>
                     <div>
-                        <h4>Dashboard Views</h4>
-                        <p>Team workload, client pipeline, financial overview, and custom dashboards for different roles.</p>
+                        <h4>Executive Dashboard Views</h4>
+                        <p>Team workload, client pipeline, financial overview, and custom dashboards designed for how you actually run your business.</p>
                     </div>
                 </div>
                 <div class="deliverable">
                     <div class="deliverable-num">7</div>
                     <div>
-                        <h4>Integration Setup</h4>
-                        <p>Email, calendar, forms, and other tools connected to ClickUp for seamless data flow.</p>
+                        <h4>Integration Ecosystem</h4>
+                        <p>Email, calendar, forms, and other tools connected to ClickUp for seamless data flow—no more copy-pasting.</p>
                     </div>
                 </div>
                 <div class="deliverable">
                     <div class="deliverable-num">8</div>
                     <div>
                         <h4>Team Training Package</h4>
-                        <p>Loom training videos for each role + live group walkthrough session (up to 5 team members).</p>
+                        <p>Loom training videos for each role + live group walkthrough session (up to 5 team members included).</p>
                     </div>
                 </div>
                 <div class="deliverable">
@@ -826,8 +994,8 @@
                 <div class="deliverable">
                     <div class="deliverable-num">10</div>
                     <div>
-                        <h4>60-Day Support</h4>
-                        <p>Fix what breaks, answer questions, refine workflows as you use the system. I'm with you through launch and beyond.</p>
+                        <h4>60-Day Post-Launch Support</h4>
+                        <p>Fix what breaks, answer questions, refine workflows as you use the system. We're your systems partner through launch and beyond.</p>
                     </div>
                 </div>
             </div>
@@ -878,9 +1046,9 @@
     <section class="investment" id="inquire">
         <div class="section-container">
             <div class="section-tag">Investment</div>
-            <h2>Ready to Scale Without Chaos?</h2>
+            <h2>Ready for Total Clarity?</h2>
             <div class="price-tag">Starting at $2,500</div>
-            <p class="price-note">Custom quote based on team size, complexity, and data migration needs.<br>Payment plans available.</p>
+            <p class="price-note">Custom quote based on team size, complexity, and data migration needs.<br>Payment plans available for established advisors.</p>
             <div class="timeline">🗓️ 2-3 Week Implementation Timeline</div>
         </div>
     </section>
@@ -892,9 +1060,9 @@
             <h2>Common Questions</h2>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <div class="faq-question">Why ClickUp and not [other tool]?</div>
+                    <div class="faq-question">Why ClickUp instead of a travel-specific CRM?</div>
                     <div class="faq-answer">
-                        <p>ClickUp offers the best balance of power and flexibility for travel businesses. It handles project management, CRM, documentation, and automation in one platform—no need for 5+ separate tools.</p>
+                        <p>Travel CRMs force you into their workflows. ClickUp gives us a blank canvas to build YOUR exact process—from inquiry to post-trip. You get the flexibility of a custom solution without the $10K+ price tag of enterprise travel platforms.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -904,9 +1072,9 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">What about my existing data?</div>
+                    <div class="faq-question">What about my existing client data?</div>
                     <div class="faq-answer">
-                        <p>Data migration is included in the implementation. I'll help export from your current tools and import into ClickUp. Most travel advisors use spreadsheets, Trello, or scattered notes—all of which can be migrated.</p>
+                        <p>Data migration is included. I'll help export from your current tools—spreadsheets, Trello, other CRMs—and import into ClickUp. We ensure nothing is lost in the transition.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -916,9 +1084,9 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">Do you do other CRM setups?</div>
+                    <div class="faq-question">Can you integrate with my existing tools?</div>
                     <div class="faq-answer">
-                        <p>Yes, though ClickUp is my specialty. If you're committed to another tool (HubSpot, Salesforce, etc.), book a discovery call and we'll discuss whether it's a good fit.</p>
+                        <p>Yes. ClickUp integrates with most major tools: Gmail, Outlook, Google Calendar, Calendly, Typeform, Zapier, and many more. During discovery, we'll map your current stack and design integrations that eliminate manual work.</p>
                     </div>
                 </div>
             </div>
@@ -930,14 +1098,14 @@
         <div class="cta-container">
             <div class="cta-content">
                 <h2>Let's Build Your Command Center</h2>
-                <p>Get a custom ClickUp workspace that scales with your travel business. Book a free discovery call to discuss your needs and get a custom quote.</p>
+                <p>Get a custom end-to-end system that matches the quality of your travel practice. Book a free discovery call to discuss your needs.</p>
                 <a href="https://cal.com/kady-dennis/discovery-call" class="btn-primary">
                     📅 Book Free Discovery Call
                 </a>
                 <p class="guarantee">
                     <strong>✓</strong> No Obligation &nbsp;|&nbsp; <strong>✓</strong> Custom Quote Within 48hrs
                 </p>
-                <a href="/#services" class="back-link">View All Services</a>
+                <a href="/" class="back-link">Back to Home</a>
             </div>
         </div>
     </section>
@@ -946,10 +1114,10 @@
     <footer>
         <div class="footer-content">
             <span class="footer-crab">🦀</span>
-            <p>Kady Dennis — Travel Operations & AI Consultant</p>
-            <p>Ethical AI workflows for travel advisors who want their time back</p>
+            <p>Eliava Travel Systems — Your Systems Partner</p>
+            <p>We help established travel advisors escape forced, clunky CRM workflows.</p>
             <p style="margin-top: 1rem;">
-                <a href="mailto:hello@kady-dennis.com">hello@kady-dennis.com</a>
+                <a href="mailto:hello@eliavatravel.com">hello@eliavatravel.com</a>
             </p>
         </div>
     </footer>

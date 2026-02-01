@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>How We Work | Eliava Travel Systems</title>
+    <meta name="description" content="Async-first systems consulting for luxury travel advisors. No unnecessary calls. Clear timelines. Superior, tailored results. Learn our process from intake to ongoing support.">
+    <meta name="keywords" content="travel advisor consultant process, async consulting, systems implementation travel">
+    <link rel="canonical" href="https://kady-dennis.com/how-we-work.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="How We Work | Eliava Travel Systems">
+    <meta property="og:description" content="Async-first systems consulting for luxury travel advisors. No unnecessary calls. Clear timelines. Superior, tailored results.">
+    <meta property="og:url" content="https://kady-dennis.com/how-we-work.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff00aa;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-crab {
+            font-size: 1.5rem;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+
+        .nav-logo span { color: var(--neon-cyan); }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--neon-cyan); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(124, 92, 255, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-purple);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-tag::before { content: '//'; color: var(--neon-cyan); }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: var(--bg-surface);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .philosophy-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .philosophy-card:hover {
+            border-color: var(--neon-cyan);
+            transform: translateY(-5px);
+        }
+
+        .philosophy-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .philosophy-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Process Section */
+        .process-section {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%, transparent 100%);
+        }
+
+        .process-timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple), var(--neon-green));
+        }
+
+        .process-step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-marker {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-surface);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .step-marker.purple { border-color: var(--neon-purple); color: var(--neon-purple); }
+        .step-marker.green { border-color: var(--neon-green); color: var(--neon-green); }
+        .step-marker.gold { border-color: var(--neon-gold); color: var(--neon-gold); }
+
+        .step-content {
+            flex: 1;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .step-content:hover {
+            border-color: var(--border-glow);
+        }
+
+        .step-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .step-content h3 .badge {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            color: var(--neon-cyan);
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .step-details {
+            list-style: none;
+        }
+
+        .step-details li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .step-details li:last-child {
+            border-bottom: none;
+        }
+
+        .step-details li::before {
+            content: '›';
+            color: var(--neon-cyan);
+            font-weight: bold;
+        }
+
+        /* Timeline Section */
+        .timelines {
+            background: var(--bg-surface);
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .timeline-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            border-color: var(--neon-cyan);
+        }
+
+        .timeline-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-time {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Expectations Section */
+        .expectations {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 100%);
+        }
+
+        .expect-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .expect-card {
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .expect-card.do {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .expect-card.dont {
+            background: rgba(255, 0, 170, 0.05);
+            border: 1px solid rgba(255, 0, 170, 0.2);
+        }
+
+        .expect-card h3 {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .expect-card.do h3 { color: var(--neon-green); }
+        .expect-card.dont h3 { color: var(--neon-pink); }
+
+        .expect-list {
+            list-style: none;
+        }
+
+        .expect-list li {
+            padding: 0.75rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-glass);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .expect-list li:last-child { border-bottom: none; }
+
+        .expect-card.do .expect-list li::before {
+            content: '✓';
+            color: var(--neon-green);
+            font-weight: bold;
+        }
+
+        .expect-card.dont .expect-list li::before {
+            content: '✗';
+            color: var(--neon-pink);
+            font-weight: bold;
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--bg-surface);
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover { color: var(--neon-cyan); }
+
+        .faq-question::after {
+            content: '+';
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 1.5rem 1.25rem;
+        }
+
+        .faq-answer p { color: var(--text-secondary); line-height: 1.7; }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content { position: relative; z-index: 1; }
+
+        .cta h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p { color: var(--text-secondary); margin-bottom: 2rem; }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 80px rgba(124, 92, 255, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-glass);
+            border-color: var(--neon-cyan);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+        }
+
+        .footer-crab {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover { text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .philosophy-grid { grid-template-columns: 1fr; }
+            .timeline-grid { grid-template-columns: 1fr; }
+            .expect-grid { grid-template-columns: 1fr; }
+            .process-timeline::before { left: 30px; }
+            .step-marker { width: 60px; height: 60px; font-size: 1.2rem; }
+            .cta-container { padding: 2rem; }
+            .btn-secondary { margin-left: 0; margin-top: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">
+            <span class="nav-crab">🦀</span>
+            <span class="nav-logo">Kady<span>Dennis</span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/resources/index.html">Resources</a></li>
+            <li><a href="/#about">About</a></li>
+        </ul>
+        <a href="/#services" class="nav-cta">View Services</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">🤝 Our Approach</div>
+            <h1>Async-First. <span class="highlight">Results-Focused.</span> Zero Fluff.</h1>
+            <p>We believe your time is too valuable for unnecessary meetings. Here's exactly how we work together to build systems that match your $3M+ practice—and what to expect at every step.</p>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="section-container">
+            <div class="section-tag">Our Philosophy</div>
+            <h2>How We're Different</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; line-height: 1.7;">We're not consultants who bill by the hour and drag things out. We're your systems partner—invested in getting you results, not meetings.</p>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="icon">⚡</div>
+                    <h3>Async-First</h3>
+                    <p>Detailed questionnaires and Loom videos instead of endless discovery calls. Your time is for clients, not calendar blocks.</p>
+                </div>
+                <div class="philosophy-card">
+                    <div class="icon">🎯</div>
+                    <h3>Fixed Pricing</h3>
+                    <p>Know exactly what you're paying upfront. No hourly surprises. No scope creep charges. The quote is the quote.</p>
+                </div>
+                <div class="philosophy-card">
+                    <div class="icon">🤝</div>
+                    <h3>Partnership Mindset</h3>
+                    <p>We're not delivering a project and disappearing. Every engagement includes support because systems need refinement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="section-container">
+            <div class="section-tag">The Process</div>
+            <h2>From Inquiry to Ongoing Partnership</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; line-height: 1.7; margin-bottom: 1rem;">Every engagement follows this flow. Clear stages. Clear deliverables. No mystery.</p>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-marker">1</div>
+                    <div class="step-content">
+                        <h3>Intake <span class="badge">Day 0</span></h3>
+                        <p>You book a service or request a discovery call. I send you a detailed questionnaire—this replaces 2-3 discovery calls and gets me everything I need to actually help you.</p>
+                        <ul class="step-details">
+                            <li>Complete intake form (15-30 min depending on service)</li>
+                            <li>Share relevant access (tool logins, screenshots, etc.)</li>
+                            <li>Outline your biggest pain points and goals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-marker purple">2</div>
+                    <div class="step-content">
+                        <h3>Analysis & Design <span class="badge">Days 1-3</span></h3>
+                        <p>I dive deep into your situation. For audits, this means mapping your entire stack. For implementations, this means designing your custom architecture.</p>
+                        <ul class="step-details">
+                            <li>Review all submitted materials</li>
+                            <li>Research your specific needs</li>
+                            <li>Design recommendations/architecture</li>
+                            <li>Prepare deliverables</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-marker green">3</div>
+                    <div class="step-content">
+                        <h3>Delivery <span class="badge">Varies by Service</span></h3>
+                        <p>You receive everything promised—usually via Loom video walkthrough + written documentation. No vague advice. Specific, actionable deliverables.</p>
+                        <ul class="step-details">
+                            <li>Personalized Loom video explaining findings/setup</li>
+                            <li>Written documentation (PDFs, SOPs, guides)</li>
+                            <li>Implementation files/templates where applicable</li>
+                            <li>Clear next steps</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-marker gold">4</div>
+                    <div class="step-content">
+                        <h3>Support <span class="badge">30-60 Days</span></h3>
+                        <p>Every service includes post-delivery support. Questions? Stuck on something? Need refinements? I'm here. This is where the partnership actually happens.</p>
+                        <ul class="step-details">
+                            <li>Email support for questions and troubleshooting</li>
+                            <li>Adjustments and refinements as needed</li>
+                            <li>Ongoing check-ins (implementation clients)</li>
+                            <li>Priority access for follow-up services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timelines Section -->
+    <section class="timelines">
+        <div class="section-container">
+            <div class="section-tag">Timeline Expectations</div>
+            <h2>When You'll Get Results</h2>
+            
+            <div class="timeline-grid">
+                <div class="timeline-card">
+                    <h3>System Audit</h3>
+                    <div class="timeline-time">24 hrs</div>
+                    <p>Turnaround after intake submission. Loom + PDF delivered to your inbox.</p>
+                </div>
+                <div class="timeline-card">
+                    <h3>AI Workflow Design</h3>
+                    <div class="timeline-time">1 week</div>
+                    <p>Complete framework, prompts, and training delivered. Then 30 days support.</p>
+                </div>
+                <div class="timeline-card">
+                    <h3>ClickUp Setup</h3>
+                    <div class="timeline-time">2-3 weeks</div>
+                    <p>Full implementation including training. Then 60 days support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expectations Section -->
+    <section class="expectations">
+        <div class="section-container">
+            <div class="section-tag">What to Expect</div>
+            <h2>Setting Clear Expectations</h2>
+            
+            <div class="expect-grid">
+                <div class="expect-card do">
+                    <h3>✅ What You Can Expect From Me</h3>
+                    <ul class="expect-list">
+                        <li>Clear communication at every stage</li>
+                        <li>Deadlines hit (or early notice if something changes)</li>
+                        <li>Honest recommendations—even if it means less scope</li>
+                        <li>Deliverables you can actually use, not generic templates</li>
+                        <li>Support that doesn't disappear after delivery</li>
+                        <li>Respect for your time and expertise</li>
+                    </ul>
+                </div>
+                <div class="expect-card dont">
+                    <h3>❌ What I Don't Do</h3>
+                    <ul class="expect-list">
+                        <li>Unnecessary calls that could be emails/Looms</li>
+                        <li>Vague advice without specific action items</li>
+                        <li>Cookie-cutter solutions from a template library</li>
+                        <li>Upselling you on things you don't need</li>
+                        <li>Ghosting after the project ends</li>
+                        <li>Hidden fees or surprise scope additions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="section-container">
+            <div class="section-tag">FAQ</div>
+            <h2>Common Questions About Working Together</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Do I have to get on a call?</div>
+                    <div class="faq-answer">
+                        <p>For audits and AI workflow design—no calls required. Everything is async. For ClickUp implementations, we start with one discovery call to ensure alignment on scope, then everything else is async with optional check-ins.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if I need something outside standard services?</div>
+                    <div class="faq-answer">
+                        <p>Email me. I regularly take on custom projects for established travel advisors—ongoing support retainers, specific tool migrations, training for teams. If it's systems-related and I can help, we'll figure out scope together.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I communicate with you during a project?</div>
+                    <div class="faq-answer">
+                        <p>Email is primary. For larger implementations, I may set up a shared Slack channel or ClickUp workspace. You'll always have a clear way to reach me—and I respond within 24 hours on business days.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if the recommendations don't work for my situation?</div>
+                    <div class="faq-answer">
+                        <p>That's what the support period is for. If something isn't working, we'll adjust. I'm not here to deliver and disappear—I'm invested in your success. If my recommendations truly miss the mark, I'll make it right.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer payment plans?</div>
+                    <div class="faq-answer">
+                        <p>For ClickUp implementations ($2,500+), yes—typically 50% upfront, 50% at completion. For smaller services ($297-$997), payment is due at booking. Need something different? Just ask.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What happens after the support period ends?</div>
+                    <div class="faq-answer">
+                        <p>You're not cut off. I offer ongoing support retainers for clients who want continued access. And you'll always get priority booking for future services as a past client.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Choose a service or book a discovery call if you're not sure where to begin.</p>
+                <a href="/#services" class="btn-primary">
+                    View Services
+                </a>
+                <a href="https://cal.com/kady-dennis/discovery-call" class="btn-secondary">
+                    📅 Book Discovery Call
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <span class="footer-crab">🦀</span>
+            <p>Eliava Travel Systems — Your Systems Partner</p>
+            <p>We help established travel advisors escape forced, clunky CRM workflows.</p>
+            <p style="margin-top: 1rem;">
+                <a href="mailto:hello@eliavatravel.com">hello@eliavatravel.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
