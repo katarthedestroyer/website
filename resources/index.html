@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Resources | Kady Dennis - Free Tools for Travel Advisors</title>
+    <meta name="description" content="Free resources for travel advisors: guides, templates, tools, and training to help you scale your travel business. From startup to $3M+.">
+    <meta name="keywords" content="travel advisor resources, free travel business tools, travel agent templates, commission tracking, travel advisor guides">
+    <meta name="author" content="Kady Dennis">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kady-dennis.com/resources/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Resources for Travel Advisors | Kady Dennis">
+    <meta property="og:description" content="Guides, tools, and templates to help travel advisors scale from startup to $3M+.">
+    <meta property="og:url" content="https://kady-dennis.com/resources/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff00aa;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Glowing Orbs */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .glow-orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--neon-purple);
+            top: -100px;
+            right: -100px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--neon-cyan);
+            bottom: 10%;
+            left: -100px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 10px) scale(1.05); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-crab {
+            font-size: 1.5rem;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+
+        .nav-logo span {
+            color: var(--neon-cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--neon-cyan);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(124, 92, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .terminal-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-tag::before {
+            content: '◉';
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-muted);
+        }
+
+        .breadcrumb-current {
+            color: var(--neon-cyan);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-purple);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-tag::before {
+            content: '//';
+            color: var(--neon-cyan);
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+
+        /* Resources Grid */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .resource-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .resource-card:hover::before {
+            opacity: 1;
+        }
+
+        .resource-card.coming-soon {
+            opacity: 0.7;
+        }
+
+        .resource-card.coming-soon:hover {
+            opacity: 1;
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .resource-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .resource-badge.free {
+            background: rgba(0, 255, 136, 0.15);
+            color: var(--neon-green);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .resource-badge.soon {
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--neon-gold);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+        }
+
+        .resource-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .resource-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            gap: 0.75rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .resource-link::after {
+            content: '→';
+        }
+
+        .resource-link.disabled {
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .resource-link.disabled::after {
+            content: '◷';
+        }
+
+        /* Section Backgrounds */
+        .guides-section {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%, transparent 100%);
+        }
+
+        .articles-section {
+            background: var(--bg-surface);
+        }
+
+        .templates-section {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%, transparent 100%);
+        }
+
+        .video-section {
+            background: var(--bg-surface);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 80px rgba(124, 92, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-crab {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 50vh;
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .resource-card {
+                padding: 1.5rem;
+            }
+
+            .cta-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="nav-brand">
+            <span class="nav-crab" aria-label="Pinchy the Crab mascot">🦀</span>
+            <span class="nav-logo">KADY_DENNIS</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/resources/" class="active">Resources</a></li>
+            <li><a href="/#about">About</a></li>
+        </ul>
+        <a href="/#contact" class="nav-cta">INITIATE_CONTACT</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span>resources_hub — bash — 80x24</span>
+            </div>
+            
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Resources</span>
+            </div>
+
+            <span class="hero-tag">FREE TOOLS & GUIDES</span>
+            <h1>Free Resources for <span class="highlight">Travel Advisors</span></h1>
+            <p>Whether you're just starting out or scaling to $3M+, these guides and tools are here to help you systematize, automate, and grow.</p>
+        </div>
+    </section>
+
+    <!-- Guides & Downloads Section -->
+    <section class="guides-section" id="guides">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Guides & Downloads</span>
+                <h2>Ready-to-Use Resources</h2>
+                <p>Practical tools you can implement today to start saving time and money.</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <span class="resource-badge free">Free</span>
+                    <div class="resource-icon">📊</div>
+                    <h3>Subscription Audit Tool</h3>
+                    <p>Discover how much you're really spending on software subscriptions. Most travel advisors save $200-500/month after running this audit.</p>
+                    <a href="/freebies/subscription-audit.html" class="resource-link">Get the Audit Tool</a>
+                </div>
+                <div class="resource-card">
+                    <span class="resource-badge free">Free</span>
+                    <div class="resource-icon">💰</div>
+                    <h3>Commission Tracker</h3>
+                    <p>Simple spreadsheet template to track expected vs. received commissions. Never lose a commission payment again.</p>
+                    <a href="/freebies/commission-tracker.html" class="resource-link">Get the Tracker</a>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">🤖</div>
+                    <h3>AI Readiness Checklist</h3>
+                    <p>Assess your business's readiness for AI implementation. Identify quick wins and long-term opportunities.</p>
+                    <span class="resource-link disabled">Coming Soon</span>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">📋</div>
+                    <h3>Client Onboarding Guide</h3>
+                    <p>A complete framework for onboarding new travel clients, from initial inquiry to trip delivery.</p>
+                    <span class="resource-link disabled">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles & How-Tos Section -->
+    <section class="articles-section" id="articles">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Articles & How-Tos</span>
+                <h2>Knowledge Base</h2>
+                <p>Deep dives into travel business operations, AI workflows, and system design.</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">📝</div>
+                    <h3>The Real Cost of Tool Chaos</h3>
+                    <p>Why subscription overload is silently killing your profit margins—and what to do about it.</p>
+                    <span class="resource-link disabled">Read Article</span>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">🎯</div>
+                    <h3>Building Your First AI Workflow</h3>
+                    <p>A step-by-step guide to designing ethical AI workflows that enhance (not replace) your expertise.</p>
+                    <span class="resource-link disabled">Read Article</span>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">⚡</div>
+                    <h3>ClickUp for Travel Advisors</h3>
+                    <p>How to set up ClickUp specifically for travel businesses: pipelines, automations, and integrations.</p>
+                    <span class="resource-link disabled">Read Article</span>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">🔒</div>
+                    <h3>Ethical AI Guidelines</h3>
+                    <p>Building trust with clients while leveraging AI. Transparency frameworks and best practices.</p>
+                    <span class="resource-link disabled">Read Article</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section class="templates-section" id="templates">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Templates</span>
+                <h2>ClickUp & SOP Templates</h2>
+                <p>Pre-built systems you can import and customize for your travel business.</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">📁</div>
+                    <h3>Travel Client Pipeline</h3>
+                    <p>Complete ClickUp workspace template with stages from inquiry to post-trip follow-up.</p>
+                    <span class="resource-link disabled">Get Template</span>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">📄</div>
+                    <h3>Commission Tracking SOP</h3>
+                    <p>Standard operating procedure for tracking, following up, and reconciling commission payments.</p>
+                    <span class="resource-link disabled">Get SOP</span>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">✉️</div>
+                    <h3>Email Automation Templates</h3>
+                    <p>Pre-written email sequences for onboarding, trip updates, and post-trip engagement.</p>
+                    <span class="resource-link disabled">Get Templates</span>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">👥</div>
+                    <h3>Team Onboarding System</h3>
+                    <p>ClickUp template for training new team members with checklists, docs, and timelines.</p>
+                    <span class="resource-link disabled">Get Template</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Training Section -->
+    <section class="video-section" id="videos">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Video Training</span>
+                <h2>Loom Walkthroughs</h2>
+                <p>Screen recordings showing exactly how to implement systems and workflows.</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">🎥</div>
+                    <h3>Setting Up Your Commission Tracker</h3>
+                    <p>Step-by-step walkthrough of the commission tracker template. 15 minutes to full implementation.</p>
+                    <span class="resource-link disabled">Watch Video</span>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">🎥</div>
+                    <h3>ClickUp Automations 101</h3>
+                    <p>Learn the basics of ClickUp automations specifically for travel business workflows.</p>
+                    <span class="resource-link disabled">Watch Video</span>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">🎥</div>
+                    <h3>AI Prompt Engineering for Travel</h3>
+                    <p>How to write effective prompts for travel research, client communications, and content creation.</p>
+                    <span class="resource-link disabled">Watch Video</span>
+                </div>
+                <div class="resource-card coming-soon">
+                    <span class="resource-badge soon">Coming Soon</span>
+                    <div class="resource-icon">🎥</div>
+                    <h3>System Audit Methodology</h3>
+                    <p>The exact process I use to audit travel business systems. Do it yourself or hire me.</p>
+                    <span class="resource-link disabled">Watch Video</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Ready for a custom solution?</h2>
+                <p>These resources are just the starting point. Let's build systems tailored specifically to your travel business.</p>
+                <a href="/services/" class="btn-primary">View Our Services →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <span class="footer-crab" aria-label="Pinchy">🦀</span>
+            <p>Built with caffeine and ethical AI by <a href="/">Kady Dennis</a></p>
+            <p>© 2026 All rights reserved. Part of the 🦀 Pinchy Army.</p>
+        </div>
+    </footer>
+</body>
+</html>
