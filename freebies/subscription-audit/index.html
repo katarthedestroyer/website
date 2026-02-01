@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription Audit Worksheet | Kady Dennis × Eliava Travel Ops</title>
+    <title>Subscription Audit Worksheet | Kady Dennis</title>
+    <meta name="description" content="Free subscription audit worksheet for travel advisors. Find the $300-500/month you're wasting on tools you don't need. Includes consolidation guide + action plan.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kady-dennis.com/freebies/subscription-audit/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Subscription Audit Worksheet | Kady Dennis">
+    <meta property="og:description" content="Free worksheet to find the $300-500/month you're wasting on travel tools. Includes consolidation guide.">
+    <meta property="og:url" content="https://kady-dennis.com/freebies/subscription-audit/">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -670,7 +680,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-crab">🦀</div>
-        <p>© 2026 Kady Dennis × Eliava Travel Ops. Built with Pinchy Army energy.</p>
+        <p>© 2026 Kady Dennis. Built with Pinchy Army energy.</p>
         <p style="font-family: var(--font-mono); font-size: 0.75rem; margin-top: 0.5rem;">
             <span style="color: var(--neon-cyan)">SYSTEM_STATUS:</span> 
             <span style="color: var(--neon-green)">ONLINE</span>
@@ -695,13 +705,13 @@
             const submitBtn = document.getElementById('submitBtn');
             
             // Store email
-            let emails = JSON.parse(localStorage.getItem('eliava_emails') || '[]');
+            let emails = JSON.parse(localStorage.getItem('kady_emails') || '[]');
             emails.push({
                 email: email,
                 freebie: 'subscription-audit',
                 date: new Date().toISOString()
             });
-            localStorage.setItem('eliava_emails', JSON.stringify(emails));
+            localStorage.setItem('kady_emails', JSON.stringify(emails));
             localStorage.setItem('subscription_audit_submitted', 'true');
             localStorage.setItem('subscription_audit_email', email);
             
@@ -722,12 +732,12 @@
 
         function trackDownload() {
             // Track download for analytics
-            const downloads = JSON.parse(localStorage.getItem('eliava_downloads') || '[]');
+            const downloads = JSON.parse(localStorage.getItem('kady_downloads') || '[]');
             downloads.push({
                 freebie: 'subscription-audit',
                 date: new Date().toISOString()
             });
-            localStorage.setItem('eliava_downloads', JSON.stringify(downloads));
+            localStorage.setItem('kady_downloads', JSON.stringify(downloads));
         }
     </script>
 </body>
