@@ -3,858 +3,561 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinchy Army Mission Control | Kady Dennis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Pinchy Army Mission Control | Live Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00d4ff;
-            --secondary: #ff6b6b;
-            --accent: #ffd700;
-            --dark: #1a1a2e;
-            --darker: #0f0f1a;
-            --card: rgba(255,255,255,0.05);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff6b9d;
+            --dark-bg: #0a0a0f;
+            --card-bg: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.08);
             --text: #e0e0e0;
             --text-muted: #888;
             --success: #00ff88;
             --warning: #ffd700;
+            --danger: #ff4757;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            background: var(--dark-bg);
             color: var(--text);
             min-height: 100vh;
+            line-height: 1.6;
         }
+        
+        /* Login Overlay */
+        #login-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .login-box {
+            text-align: center;
+            max-width: 400px;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .login-icon { font-size: 64px; margin-bottom: 20px; }
+        .login-box h1 { font-family: 'JetBrains Mono', monospace; font-size: 24px; margin-bottom: 10px; color: var(--neon-cyan); }
+        .login-box h2 { font-size: 16px; margin-bottom: 30px; color: var(--text-muted); font-weight: 400; }
+        
+        #password-input {
+            width: 100%; padding: 15px 20px;
+            border: 2px solid var(--border);
+            background: rgba(255,255,255,0.05);
+            color: var(--text);
+            border-radius: 10px;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+            outline: none;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        #password-input:focus { border-color: var(--neon-cyan); }
+        
+        .login-btn {
+            width: 100%; padding: 15px;
+            background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
+            border: none; border-radius: 10px;
+            color: white; font-size: 16px; font-weight: 600;
+            cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
+        }
+        
+        .login-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        #error-msg { color: var(--danger); margin-top: 15px; display: none; }
+        
+        /* Main Dashboard */
+        .dashboard { display: none; padding: 20px; max-width: 1400px; margin: 0 auto; }
         
         /* Header */
         .header {
-            background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(255,107,107,0.1) 100%);
-            border-bottom: 2px solid var(--primary);
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px; margin-bottom: 30px;
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 16px; backdrop-filter: blur(10px);
         }
         
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+        .brand { display: flex; align-items: center; gap: 15px; }
+        .brand-icon { font-size: 40px; }
+        .brand-text h1 { font-family: 'JetBrains Mono', monospace; font-size: 24px; color: var(--neon-cyan); }
+        .brand-text p { font-size: 14px; color: var(--text-muted); }
+        
+        .header-stats {
+            display: flex; gap: 30px;
         }
         
-        .logo {
-            font-size: 3em;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .brand-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2em;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
-        }
-        
-        .brand-text .subtitle {
-            color: var(--text-muted);
-            font-size: 0.9em;
-            letter-spacing: 2px;
-        }
-        
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: var(--card);
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        
-        .user-info {
+        .header-stat {
             text-align: right;
         }
         
-        .user-name {
-            font-weight: 600;
-            color: var(--primary);
+        .header-stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px; font-weight: 600;
+            color: var(--neon-cyan);
         }
         
-        .user-role {
-            font-size: 0.8em;
-            color: var(--text-muted);
+        .header-stat-label {
+            font-size: 12px; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 1px;
         }
         
-        /* Main Layout */
-        .container {
+        /* Grid Layout */
+        .grid {
             display: grid;
-            grid-template-columns: 280px 1fr 350px;
-            gap: 20px;
-            padding: 20px;
-            max-width: 1800px;
-            margin: 0 auto;
-        }
-        
-        /* Sidebar */
-        .sidebar {
-            background: var(--card);
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .nav-section {
-            margin-bottom: 25px;
-        }
-        
-        .nav-title {
-            font-size: 0.75em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-        
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 5px;
-        }
-        
-        .nav-item:hover {
-            background: rgba(0,212,255,0.1);
-        }
-        
-        .nav-item.active {
-            background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(255,107,107,0.2));
-            border-left: 3px solid var(--primary);
-        }
-        
-        .nav-icon {
-            font-size: 1.2em;
-        }
-        
-        /* Main Content */
-        .main-content {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 20px;
         }
         
-        /* Stats Row */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
         }
         
-        .stat-card {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
+        .card-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 20px; padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .card-title {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 16px; font-weight: 600;
+        }
+        
+        .card-title i { color: var(--neon-cyan); }
+        
+        .badge {
+            padding: 4px 12px; border-radius: 20px;
+            font-size: 12px; font-weight: 600;
+        }
+        
+        .badge-success { background: rgba(0,255,136,0.1); color: var(--success); }
+        .badge-warning { background: rgba(255,215,0,0.1); color: var(--warning); }
+        .badge-danger { background: rgba(255,71,87,0.1); color: var(--danger); }
+        
+        /* Token Usage Section */
+        .token-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
+        }
+        
+        .token-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 12px; padding: 16px;
             text-align: center;
-            transition: transform 0.3s;
         }
         
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-        
-        .stat-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        
-        .stat-number {
-            font-size: 2em;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.85em;
-            margin-top: 5px;
-        }
-        
-        /* Section Cards */
-        .section-card {
-            background: var(--card);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        /* Agent Cards */
-        .agent-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-        
-        .agent-card {
-            background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(255,107,107,0.1));
-            border-radius: 12px;
-            padding: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        
-        .agent-card:hover {
-            transform: scale(1.02);
-            border-color: var(--primary);
-        }
-        
-        .agent-card.active {
-            border-color: var(--success);
-            box-shadow: 0 0 20px rgba(0,255,136,0.2);
-        }
-        
-        .agent-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-        
-        .agent-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-        
-        .agent-info h4 {
-            font-size: 0.95em;
-            margin-bottom: 3px;
-        }
-        
-        .agent-role {
-            font-size: 0.75em;
-            color: var(--text-muted);
-        }
-        
-        .agent-status {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.7em;
-            font-weight: 600;
-            margin-top: 8px;
-        }
-        
-        .status-active {
-            background: rgba(0,255,136,0.2);
-            color: var(--success);
-        }
-        
-        .status-idle {
-            background: rgba(136,136,136,0.2);
-            color: var(--text-muted);
-        }
-        
-        /* Task Board */
-        .task-columns {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-        
-        .task-column {
-            background: rgba(0,0,0,0.2);
-            border-radius: 10px;
-            padding: 15px;
-            min-height: 200px;
-        }
-        
-        .column-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .column-title {
-            font-weight: 600;
-            font-size: 0.9em;
-        }
-        
-        .column-count {
-            background: rgba(255,255,255,0.1);
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.75em;
-        }
-        
-        .task-item {
-            background: var(--card);
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 10px;
-            border: 1px solid rgba(255,255,255,0.05);
-            cursor: grab;
-            transition: all 0.3s;
-        }
-        
-        .task-item:hover {
-            border-color: var(--primary);
-            transform: translateX(5px);
-        }
-        
-        .task-title {
-            font-size: 0.85em;
+        .token-model {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px; color: var(--neon-purple);
             margin-bottom: 8px;
         }
         
-        .task-meta {
-            display: flex;
-            gap: 10px;
-            font-size: 0.7em;
-            color: var(--text-muted);
+        .token-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px; font-weight: 700;
+            color: var(--neon-cyan);
         }
         
-        .task-tag {
-            background: rgba(0,212,255,0.2);
-            color: var(--primary);
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-        
-        /* Right Panel */
-        .right-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .activity-feed {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        
-        .activity-item {
-            display: flex;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        .activity-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9em;
-            flex-shrink: 0;
-        }
-        
-        .activity-content {
-            flex: 1;
-        }
-        
-        .activity-text {
-            font-size: 0.85em;
-            line-height: 1.4;
-        }
-        
-        .activity-time {
-            font-size: 0.7em;
-            color: var(--text-muted);
+        .token-label {
+            font-size: 11px; color: var(--text-muted);
             margin-top: 4px;
         }
         
-        /* Motto Banner */
-        .motto-banner {
-            background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(255,107,107,0.2));
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            border: 1px solid rgba(0,212,255,0.3);
+        /* Squad Status */
+        .squad-list {
+            display: flex; flex-direction: column; gap: 12px;
         }
         
-        .motto-text {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.1em;
-            color: var(--primary);
+        .squad-member {
+            display: flex; align-items: center; gap: 15px;
+            padding: 16px; background: rgba(255,255,255,0.02);
+            border-radius: 12px; border: 1px solid var(--border);
         }
         
-        .motto-sub {
-            font-size: 0.75em;
-            color: var(--text-muted);
-            margin-top: 5px;
+        .squad-avatar {
+            width: 48px; height: 48px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; background: rgba(0,212,255,0.1);
         }
         
-        /* Responsive */
-        @media (max-width: 1400px) {
-            .container {
-                grid-template-columns: 260px 1fr 300px;
-            }
+        .squad-info { flex: 1; }
+        .squad-name { font-weight: 600; margin-bottom: 4px; }
+        .squad-role { font-size: 12px; color: var(--text-muted); }
+        
+        .squad-metrics {
+            text-align: right;
         }
         
-        @media (max-width: 1200px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            .sidebar, .right-panel {
-                display: none;
-            }
+        .squad-model {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; color: var(--neon-purple);
+            background: rgba(124,92,255,0.1);
+            padding: 4px 10px; border-radius: 20px;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+        
+        .squad-tokens {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px; color: var(--text-muted);
+        }
+        
+        /* Task Lists */
+        .task-list { display: flex; flex-direction: column; gap: 10px; }
+        
+        .task-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px; background: rgba(255,255,255,0.02);
+            border-radius: 10px; border-left: 3px solid var(--neon-cyan);
+        }
+        
+        .task-item.review { border-left-color: var(--warning); }
+        .task-item.progress { border-left-color: var(--neon-cyan); }
+        .task-item.done { border-left-color: var(--success); opacity: 0.7; }
+        
+        .task-icon { font-size: 16px; }
+        .task-content { flex: 1; }
+        .task-title { font-weight: 500; font-size: 14px; margin-bottom: 2px; }
+        .task-meta { font-size: 11px; color: var(--text-muted); }
+        
+        .task-status {
+            padding: 4px 10px; border-radius: 20px;
+            font-size: 11px; font-weight: 600;
+            background: rgba(0,212,255,0.1);
+            color: var(--neon-cyan);
+        }
+        
+        /* Mission Stats */
+        .mission-stats {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;
+        }
+        
+        .mission-stat {
+            text-align: center; padding: 20px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+        }
+        
+        .mission-stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px; font-weight: 700;
+            color: var(--neon-cyan);
+        }
+        
+        .mission-stat-label {
+            font-size: 12px; color: var(--text-muted);
+            margin-top: 8px;
+        }
+        
+        /* Shells (Failed/Abandoned) */
+        .shell-list { display: flex; flex-direction: column; gap: 10px; }
+        
+        .shell-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px; background: rgba(255,71,87,0.05);
+            border-radius: 10px; border: 1px solid rgba(255,71,87,0.2);
+        }
+        
+        .shell-icon { color: var(--danger); font-size: 16px; }
+        .shell-content { flex: 1; }
+        .shell-title { font-size: 13px; color: var(--text-muted); }
+        .shell-reason { font-size: 11px; color: var(--danger); margin-top: 2px; }
+        
+        @media (max-width: 768px) {
+            .header { flex-direction: column; gap: 20px; text-align: center; }
+            .header-stats { justify-content: center; }
+            .grid { grid-template-columns: 1fr; }
+            .token-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Password Protection -->
-    <div id="login-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-        <div style="text-align: center; max-width: 400px; padding: 40px;">
-            <div style="font-size: 64px; margin-bottom: 20px;">🦀</div>
-            <h1 style="font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 10px; color: #00d4ff;">Pinchy Army</h1>
-            <h2 style="font-size: 18px; margin-bottom: 30px; color: #888; font-weight: 400;">Mission Control</h2>
-            <input type="password" id="password-input" placeholder="Enter access code" style="width: 100%; padding: 15px 20px; border: 2px solid rgba(0,212,255,0.3); background: rgba(255,255,255,0.05); color: #e0e0e0; border-radius: 10px; font-size: 16px; text-align: center; margin-bottom: 20px; outline: none;">
-            <button onclick="checkPassword()" style="width: 100%; padding: 15px; background: linear-gradient(135deg, #00d4ff 0%, #7c5cff 100%); border: none; border-radius: 10px; color: white; font-size: 16px; font-weight: 600; cursor: pointer;">Access Dashboard</button>
-            <p id="error-msg" style="color: #ff6b6b; margin-top: 15px; display: none;">Incorrect code. Try again.</p>
+    <!-- Login Overlay -->
+    <div id="login-overlay">
+        <div class="login-box">
+            <div class="login-icon">🦀</div>
+            <h1>PINCHY_ARMY</h1>
+            <h2>Mission Control // Classified</h2>
+            <input type="password" id="password-input" placeholder="ENTER_ACCESS_CODE">
+            <button class="login-btn" onclick="checkPassword()">INITIATE_SESSION</button>
+            <p id="error-msg">❌ ACCESS DENIED</p>
+        </div>
+    </div>
+    
+    <!-- Main Dashboard -->
+    <div class="dashboard" id="dashboard">
+        <!-- Header -->
+        <div class="header">
+            <div class="brand">
+                <div class="brand-icon">🦀</div>
+                <div class="brand-text">
+                    <h1>PINCHY_ARMY_COMMAND</h1>
+                    <p>Live Operations Dashboard // Feb 1, 2026</p>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="header-stat">
+                    <div class="header-stat-value" id="active-agents">4</div>
+                    <div class="header-stat-label">Active Agents</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value" id="today-cost">$4.20</div>
+                    <div class="header-stat-label">Today's Cost</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value" id="missions-today">15</div>
+                    <div class="header-stat-label">Missions Done</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Grid -->
+        <div class="grid">
+            <!-- Token Usage -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i>💰</i> Token Usage // Today</div>
+                    <span class="badge badge-success">ON BUDGET</span>
+                </div>
+                <div class="token-grid">
+                    <div class="token-card">
+                        <div class="token-model">kimi-for-coding</div>
+                        <div class="token-value" id="kimi-tokens">69.3K</div>
+                        <div class="token-label">tokens</div>
+                    </div>
+                    <div class="token-card">
+                        <div class="token-model">claude-opus</div>
+                        <div class="token-value" id="claude-tokens">0</div>
+                        <div class="token-label">tokens</div>
+                    </div>
+                    <div class="token-card">
+                        <div class="token-model">gpt-4</div>
+                        <div class="token-value" id="gpt-tokens">0</div>
+                        <div class="token-label">tokens</div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); text-align: center;">
+                    Daily Target: $5 | Weekly: $20 | Current: $4.20
+                </div>
+            </div>
+            
+            <!-- Squad Status -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i>🤖</i> Squad Status</div>
+                    <span class="badge badge-success">ALL ACTIVE</span>
+                </div>
+                <div class="squad-list">
+                    <div class="squad-member">
+                        <div class="squad-avatar">🦀</div>
+                        <div class="squad-info">
+                            <div class="squad-name">Pinchy</div>
+                            <div class="squad-role">Voice & Ethics Lead</div>
+                        </div>
+                        <div class="squad-metrics">
+                            <div class="squad-model">kimi-for-coding</div>
+                            <div class="squad-tokens">30.9K tokens</div>
+                        </div>
+                    </div>
+                    <div class="squad-member">
+                        <div class="squad-avatar">⚙️</div>
+                        <div class="squad-info">
+                            <div class="squad-name">Reef</div>
+                            <div class="squad-role">Product Architecture</div>
+                        </div>
+                        <div class="squad-metrics">
+                            <div class="squad-model">kimi-for-coding</div>
+                            <div class="squad-tokens">69.3K tokens</div>
+                        </div>
+                    </div>
+                    <div class="squad-member">
+                        <div class="squad-avatar">🛡️</div>
+                        <div class="squad-info">
+                            <div class="squad-name">Scuttle</div>
+                            <div class="squad-role">Admin & Security</div>
+                        </div>
+                        <div class="squad-metrics">
+                            <div class="squad-model">kimi-for-coding</div>
+                            <div class="squad-tokens">56.7K tokens</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- To Review -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i>👁️</i> To Review</div>
+                    <span class="badge badge-warning">3 ITEMS</span>
+                </div>
+                <div class="task-list">
+                    <div class="task-item review">
+                        <div class="task-icon">📝</div>
+                        <div class="task-content">
+                            <div class="task-title">Testimonials Gathering</div>
+                            <div class="task-meta">Website social proof needed</div>
+                        </div>
+                        <span class="task-status">PENDING</span>
+                    </div>
+                    <div class="task-item review">
+                        <div class="task-icon">🖼️</div>
+                        <div class="task-content">
+                            <div class="task-title">Profile Photo Update</div>
+                            <div class="task-meta">Professional headshot for About</div>
+                        </div>
+                        <span class="task-status">PENDING</span>
+                    </div>
+                    <div class="task-item review">
+                        <div class="task-icon">🔗</div>
+                        <div class="task-content">
+                            <div class="task-title">Affiliate Links Expansion</div>
+                            <div class="task-meta">Add 4+ more to Recommended Solutions</div>
+                        </div>
+                        <span class="task-status">PENDING</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- In Progress -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i>⚡</i> In Progress</div>
+                    <span class="badge badge-success">2 ACTIVE</span>
+                </div>
+                <div class="task-list">
+                    <div class="task-item progress">
+                        <div class="task-icon">🎬</div>
+                        <div class="task-content">
+                            <div class="task-title">ClickUp Demo Mockups</div>
+                            <div class="task-meta">5 views for sales calls</div>
+                        </div>
+                        <span class="task-status">80%</span>
+                    </div>
+                    <div class="task-item progress">
+                        <div class="task-icon">🔒</div>
+                        <div class="task-content">
+                            <div class="task-title">HTTPS Propagation</div>
+                            <div class="task-meta">GitHub SSL certificate</div>
+                        </div>
+                        <span class="task-status">~18HR</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mission Stats -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i>🏆</i> Mission Stats // Feb 1</div>
+                </div>
+                <div class="mission-stats">
+                    <div class="mission-stat">
+                        <div class="mission-stat-value">15</div>
+                        <div class="mission-stat-label">Pages Created</div>
+                    </div>
+                    <div class="mission-stat">
+                        <div class="mission-stat-value">12</div>
+                        <div class="mission-stat-label">Git Commits</div>
+                    </div>
+                    <div class="mission-stat">
+                        <div class="mission-stat-value">6</div>
+                        <div class="mission-stat-label">Hours Sprint</div>
+                    </div>
+                    <div class="mission-stat">
+                        <div class="mission-stat-value">3</div>
+                        <div class="mission-stat-label">Bugs Fixed</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Shells (Failed/Abandoned) -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i>💀</i> Shells // Learnings</div>
+                    <span class="badge badge-danger">1 ITEM</span>
+                </div>
+                <div class="shell-list">
+                    <div class="shell-item">
+                        <div class="shell-icon">⚠️</div>
+                        <div class="shell-content">
+                            <div class="shell-title">ClickUp Mockup Agent</div>
+                            <div class="shell-reason">Errored on 5-file task - too complex</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; padding: 12px; background: rgba(255,215,0,0.05); border-radius: 8px; font-size: 12px; color: var(--text-muted);">
+                    <strong>Lesson:</strong> Split complex tasks into smaller chunks
+                </div>
+            </div>
         </div>
     </div>
     
     <script>
-        // Simple password protection (not military-grade, but keeps casual visitors out)
-        const ACCESS_CODE = 'pinchy2026'; // Change this to your preferred code
+        // Password Protection
+        const ACCESS_CODE = 'pinchy2026';
         
         function checkPassword() {
             const input = document.getElementById('password-input').value;
             if (input === ACCESS_CODE) {
                 document.getElementById('login-overlay').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
                 localStorage.setItem('pinchy_auth', 'true');
+                initDashboard();
             } else {
                 document.getElementById('error-msg').style.display = 'block';
             }
         }
         
-        // Check if already authenticated
+        // Auto-auth if previously logged in
         if (localStorage.getItem('pinchy_auth') === 'true') {
             document.getElementById('login-overlay').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            initDashboard();
         }
         
-        // Allow Enter key
+        // Enter key support
         document.getElementById('password-input').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') checkPassword();
         });
+        
+        // Dashboard Initialization
+        function initDashboard() {
+            // In a real implementation, these would fetch from APIs
+            // For now, showing the structure with sample data from today
+            
+            console.log('🦀 Mission Control Online');
+            console.log('Token usage would fetch from: /status endpoint');
+            console.log('Squad status would fetch from: session logs');
+            console.log('Tasks would fetch from: kanban/tasks.json');
+        }
+        
+        // Simulate live updates (in real version, these would be API calls)
+        setInterval(() => {
+            // This is where you'd poll for updates
+            // updateTokenUsage();
+            // updateSquadStatus();
+            // updateTaskLists();
+        }, 30000); // Every 30 seconds
     </script>
-    <!-- Header -->
-    <header class="header">
-        <div class="brand">
-            <div class="logo">🦀</div>
-            <div class="brand-text">
-                <h1>Pinchy Army Mission Control</h1>
-                <div class="subtitle">AUTONOMOUS AGENT SQUAD // V2.0</div>
-            </div>
-        </div>
-        <div class="user-profile">
-            <div class="user-avatar">KD</div>
-            <div class="user-info">
-                <div class="user-name">Kady Dennis</div>
-                <div class="user-role">Commander in Chief</div>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <div class="nav-section">
-                <div class="nav-title">Operations</div>
-                <div class="nav-item active">
-                    <span class="nav-icon">📊</span>
-                    <span>Dashboard</span>
-                </div>
-                <div class="nav-item">
-                    <span class="nav-icon">🎯</span>
-                    <span>Missions</span>
-                </div>
-                <div class="nav-item">
-                    <span class="nav-icon">🤖</span>
-                    <span>Agent Squad</span>
-                </div>
-                <div class="nav-item">
-                    <span class="nav-icon">📁</span>
-                    <span>Knowledge Base</span>
-                </div>
-            </div>
-            
-            <div class="nav-section">
-                <div class="nav-title">Monitoring</div>
-                <div class="nav-item">
-                    <span class="nav-icon">📈</span>
-                    <span>Token Usage</span>
-                </div>
-                <div class="nav-item">
-                    <span class="nav-icon">💰</span>
-                    <span>Cost Tracking</span>
-                </div>
-                <div class="nav-item">
-                    <span class="nav-icon">⚡</span>
-                    <span>System Health</span>
-                </div>
-            </div>
-            
-            <div class="nav-section">
-                <div class="nav-title">Resources</div>
-                <div class="nav-item">
-                    <span class="nav-icon">📖</span>
-                    <span>SOUL.md</span>
-                </div>
-                <div class="nav-item">
-                    <span class="nav-icon">🛡️</span>
-                    <span>Guardrails</span>
-                </div>
-                <div class="nav-item">
-                    <span class="nav-icon">❓</span>
-                    <span>Help & Docs</span>
-                </div>
-            </div>
-            
-            <div class="motto-banner" style="margin-top: 30px;">
-                <div class="motto-text">"Pinch tight, dive deep, deliver."</div>
-                <div class="motto-sub">— The Pinchy Army Motto</div>
-            </div>
-        </aside>
-        
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Stats Row -->
-            <div class="stats-row">
-                <div class="stat-card">
-                    <div class="stat-icon">🤖</div>
-                    <div class="stat-number">6</div>
-                    <div class="stat-label">Active Agents</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">✅</div>
-                    <div class="stat-number">18</div>
-                    <div class="stat-label">Tasks Done Today</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">⚡</div>
-                    <div class="stat-number">12</div>
-                    <div class="stat-label">In Progress</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">💰</div>
-                    <div class="stat-number">$2.40</div>
-                    <div class="stat-label">Today's Cost</div>
-                </div>
-            </div>
-            
-            <!-- Agent Squad Section -->
-            <div class="section-card">
-                <div class="section-header">
-                    <h3 class="section-title">
-                        <span>🦀</span>
-                        Pinchy Army Squad Status
-                    </h3>
-                    <span style="color: var(--text-muted); font-size: 0.85em;">All systems operational</span>
-                </div>
-                <div class="agent-grid">
-                    <div class="agent-card active">
-                        <div class="agent-header">
-                            <div class="agent-avatar">🧭</div>
-                            <div class="agent-info">
-                                <h4>Captain</h4>
-                                <div class="agent-role">Project Navigator</div>
-                            </div>
-                        </div>
-                        <span class="agent-status status-active">ON MISSION</span>
-                    </div>
-                    <div class="agent-card active">
-                        <div class="agent-header">
-                            <div class="agent-avatar">🔍</div>
-                            <div class="agent-info">
-                                <h4>Sonar</h4>
-                                <div class="agent-role">Client Research</div>
-                            </div>
-                        </div>
-                        <span class="agent-status status-active">ON MISSION</span>
-                    </div>
-                    <div class="agent-card active">
-                        <div class="agent-header">
-                            <div class="agent-avatar">🪸</div>
-                            <div class="agent-info">
-                                <h4>Reef</h4>
-                                <div class="agent-role">Product Builder</div>
-                            </div>
-                        </div>
-                        <span class="agent-status status-active">ON MISSION</span>
-                    </div>
-                    <div class="agent-card">
-                        <div class="agent-header">
-                            <div class="agent-avatar">🌊</div>
-                            <div class="agent-info">
-                                <h4>Current</h4>
-                                <div class="agent-role">Knowledge Master</div>
-                            </div>
-                        </div>
-                        <span class="agent-status status-idle">STANDBY</span>
-                    </div>
-                    <div class="agent-card">
-                        <div class="agent-header">
-                            <div class="agent-avatar">⚓</div>
-                            <div class="agent-info">
-                                <h4>Harbor</h4>
-                                <div class="agent-role">Operations Guardian</div>
-                            </div>
-                        </div>
-                        <span class="agent-status status-idle">STANDBY</span>
-                    </div>
-                    <div class="agent-card">
-                        <div class="agent-header">
-                            <div class="agent-avatar">🦀</div>
-                            <div class="agent-info">
-                                <h4>Scuttle</h4>
-                                <div class="agent-role">Admin & Productivity</div>
-                            </div>
-                        </div>
-                        <span class="agent-status status-idle">STANDBY</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Task Board -->
-            <div class="section-card">
-                <div class="section-header">
-                    <h3 class="section-title">
-                        <span>📋</span>
-                        Mission Board
-                    </h3>
-                </div>
-                <div class="task-columns">
-                    <div class="task-column">
-                        <div class="column-header">
-                            <span class="column-title">📌 To Do</span>
-                            <span class="column-count">5</span>
-                        </div>
-                        <div class="task-item">
-                            <div class="task-title">🏨 La Jolla Mom Hotel Quoting Automation</div>
-                            <div class="task-meta">
-                                <span class="task-tag">HIGH</span>
-                                <span>Captain</span>
-                            </div>
-                        </div>
-                        <div class="task-item">
-                            <div class="task-title">🎨 Remake quiz_cover.jpg</div>
-                            <div class="task-meta">
-                                <span class="task-tag">MED</span>
-                                <span>Reef</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="task-column">
-                        <div class="column-header">
-                            <span class="column-title">⚡ In Progress</span>
-                            <span class="column-count">6</span>
-                        </div>
-                        <div class="task-item">
-                            <div class="task-title">🦀 AGENT SQUAD: Design Named Agent System</div>
-                            <div class="task-meta">
-                                <span class="task-tag">ACTIVE</span>
-                                <span>Sonar</span>
-                            </div>
-                        </div>
-                        <div class="task-item">
-                            <div class="task-title">📊 AGENT SQUAD: Build Daily Standup</div>
-                            <div class="task-meta">
-                                <span class="task-tag">ACTIVE</span>
-                                <span>Captain</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="task-column">
-                        <div class="column-header">
-                            <span class="column-title">👀 Review</span>
-                            <span class="column-count">3</span>
-                        </div>
-                        <div class="task-item">
-                            <div class="task-title">🚀 Deploy Website</div>
-                            <div class="task-meta">
-                                <span class="task-tag">WAITING</span>
-                                <span>YOU</span>
-                            </div>
-                        </div>
-                        <div class="task-item">
-                            <div class="task-title">👤 Profile Photo</div>
-                            <div class="task-meta">
-                                <span class="task-tag">WAITING</span>
-                                <span>YOU</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="task-column">
-                        <div class="column-header">
-                            <span class="column-title">✅ Done</span>
-                            <span class="column-count">18</span>
-                        </div>
-                        <div class="task-item">
-                            <div class="task-title">✨ SOUL.md v2.0 Adoption</div>
-                            <div class="task-meta">
-                                <span>Just now</span>
-                            </div>
-                        </div>
-                        <div class="task-item">
-                            <div class="task-title">🎯 6 Audit Missions Complete</div>
-                            <div class="task-meta">
-                                <span>2 hours ago</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        
-        <!-- Right Panel -->
-        <aside class="right-panel">
-            <div class="section-card">
-                <div class="section-header">
-                    <h3 class="section-title">
-                        <span>🔔</span>
-                        Activity Feed
-                    </h3>
-                </div>
-                <div class="activity-feed">
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background: rgba(0,255,136,0.2);">✅</div>
-                        <div class="activity-content">
-                            <div class="activity-text"><strong>Scribe</strong> completed <em>"Write-Collaboration-Story"</em></div>
-                            <div class="activity-time">3 minutes ago</div>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background: rgba(0,212,255,0.2);">📦</div>
-                        <div class="activity-content">
-                            <div class="activity-text"><strong>Tinker</strong> packaged <em>"Pinchy Squad skill"</em></div>
-                            <div class="activity-time">8 minutes ago</div>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background: rgba(255,215,0,0.2);">🧪</div>
-                        <div class="activity-content">
-                            <div class="activity-text"><strong>Test-Content-Creation</strong> PASSED (4.5/5)</div>
-                            <div class="activity-time">15 minutes ago</div>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background: rgba(0,255,136,0.2);">✅</div>
-                        <div class="activity-content">
-                            <div class="activity-text"><strong>Test-Communication</strong> completed 4 scenarios</div>
-                            <div class="activity-time">25 minutes ago</div>
-                        </div>
-                    </div>
-                    <div class="activity-item">
-                        <div class="activity-icon" style="background: rgba(255,107,107,0.2);">🎨</div>
-                        <div class="activity-content">
-                            <div class="activity-text"><strong>Upgrade-Mission-Control-UI</strong> deployed v2</div>
-                            <div class="activity-time">45 minutes ago</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section-card">
-                <div class="section-header">
-                    <h3 class="section-title">
-                        <span>⏰</span>
-                        Next Standup
-                    </h3>
-                </div>
-                <div style="text-align: center; padding: 20px;">
-                    <div style="font-size: 2em; font-weight: 700; color: var(--primary);">8:00 AM</div>
-                    <div style="color: var(--text-muted); font-size: 0.85em; margin-top: 5px;">EST • Auto-generated</div>
-                    <div style="margin-top: 15px; font-size: 0.8em; color: var(--success);">✓ Scheduled</div>
-                </div>
-            </div>
-            
-            <div class="section-card">
-                <div class="section-header">
-                    <h3 class="section-title">
-                        <span>📊</span>
-                        Daily Stats
-                    </h3>
-                </div>
-                <div style="font-size: 0.9em;">
-                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <span style="color: var(--text-muted);">Tokens In</span>
-                        <span>224,000</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <span style="color: var(--text-muted);">Tokens Out</span>
-                        <span>84,000</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <span style="color: var(--text-muted);">Sub-Agents</span>
-                        <span style="color: var(--success);">5 completed</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; padding: 8px 0;">
-                        <span style="color: var(--text-muted);">Est. Savings</span>
-                        <span style="color: var(--success);">$2,173</span>
-                    </div>
-                </div>
-            </div>
-        </aside>
-    </div>
 </body>
 </html>
