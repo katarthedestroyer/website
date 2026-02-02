@@ -1468,6 +1468,86 @@
             font-size: 1.1rem;
         }
 
+        /* Tech Achievements Section */
+        .tech-achievements-section {
+            padding: var(--section-padding) 2rem;
+            background: linear-gradient(135deg, var(--bg-surface) 0%, transparent 50%);
+            position: relative;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-align: center;
+        }
+
+        .tech-card h3 {
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .tech-card p {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .tech-card a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .tech-card a:hover {
+            text-decoration: underline;
+        }
+
+        .resource-category {
+            margin-bottom: 3rem;
+        }
+
+        .resource-category:last-child {
+            margin-bottom: 0;
+        }
+
         /* Footer */
         footer {
             padding: 3rem 2rem;
@@ -1739,7 +1819,8 @@
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#use-cases">Success Stories</a></li>
-            <li><a href="#freebies">Resources</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -1797,6 +1878,10 @@
                     <div class="status-line">
                         <span class="status-indicator"></span>
                         <span>GROWTH_OPPORTUNITY: IDENTIFIED</span>
+                    </div>
+                    <div class="status-line">
+                        <span class="status-indicator"></span>
+                        <span>ADMIN_DASHBOARD: <a href="/admin/" style="color: var(--neon-cyan); text-decoration: none;">LIVE</a></span>
                     </div>
                 </div>
             </div>
@@ -1958,6 +2043,49 @@
         </div>
     </section>
 
+    <!-- Technical Achievements Section -->
+    <section class="tech-achievements-section">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Built for Scale</span>
+                <h2>Systems That Actually Work</h2>
+                <p>Built with the same rigor we bring to client projects—ethical AI, privacy-first design, and real-time monitoring.</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">📊</div>
+                    <h3>Real-Time Monitoring</h3>
+                    <p>Live cost tracking and system health monitoring at <a href="/admin/" style="color: var(--neon-cyan);">kadydennis.com/admin</a>. See exactly what's happening in your systems.</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">🛡️</div>
+                    <h3>Privacy-First Design</h3>
+                    <p>All resources self-hosted. No third-party tracking. Security audit completed with comprehensive .gitignore protection.</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">🤖</div>
+                    <h3>Ethical AI Framework</h3>
+                    <p>4 comprehensive guides on responsible AI use. Built with the same <a href="/resources/pinchy-pact.html" style="color: var(--neon-cyan);">ethical framework</a> we teach clients.</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">📈</div>
+                    <h3>SEO-Optimized Content</h3>
+                    <p>17 JSON-LD schema files for better search visibility. Performance optimized for speed and accessibility.</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">📝</div>
+                    <h3>Active Content Hub</h3>
+                    <p><a href="/blog/" style="color: var(--neon-cyan);">Blog system</a> with 3 posts and RSS feed. Regular updates on travel tech, AI ethics, and system optimization.</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <div class="tech-icon">🔗</div>
+                    <h3>Integrated Resources</h3>
+                    <p>Complete resource hub at <a href="/resources/" style="color: var(--neon-cyan);">kadydennis.com/resources</a> with 6 tools and guides, all live and functional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services-section" id="services">
         <div class="section-container">
@@ -2012,45 +2140,77 @@
         </div>
     </section>
 
-    <!-- Freebies Section -->
-    <section class="freebies-section" id="freebies">
+    <!-- Resources Section -->
+    <section class="freebies-section" id="resources">
         <div class="section-container">
             <div class="section-header fade-in">
-                <span class="section-tag">Free Resources</span>
+                <span class="section-tag">Resources</span>
                 <h2>Resources for Every Stage</h2>
                 <p>Whether you're just starting out or scaling past $3M—there's something here for you.</p>
             </div>
-            <div class="freebies-grid">
-                <div class="freebie-card fade-in">
-                    <div class="freebie-icon">💸</div>
-                    <h3>Subscription Audit Worksheet</h3>
-                    <p>Find the $300-500/month you're wasting on tools you don't need. Includes consolidation guide + action plan.</p>
-                    <a href="#" class="freebie-link" onclick="alert('Coming soon!'); return false;">Get the Worksheet →</a>
+            
+            <!-- Ethical AI Resources -->
+            <div class="resource-category">
+                <h3 style="color: var(--neon-cyan); margin-bottom: 1.5rem; font-size: 1.2rem;">🤖 Ethical AI Resources</h3>
+                <div class="freebies-grid">
+                    <div class="freebie-card fade-in">
+                        <div class="freebie-icon">🦀</div>
+                        <h3>The Pinchy Pact</h3>
+                        <p>Our ethics framework for human-AI collaboration. Shareable principles for working with AI agents.</p>
+                        <a href="/resources/pinchy-pact.html" class="freebie-link">Read the Guide →</a>
+                    </div>
+                    <div class="freebie-card fade-in">
+                        <div class="freebie-icon">🔒</div>
+                        <h3>Data Security Guide</h3>
+                        <p>PCI compliance and safe workflows for travel advisors. Protect your clients and your business.</p>
+                        <a href="/resources/data-security-guide.html" class="freebie-link">Read the Guide →</a>
+                    </div>
+                    <div class="freebie-card fade-in">
+                        <div class="freebie-icon">🛡️</div>
+                        <h3>AI Guardrails</h3>
+                        <p>Technical implementation of ethical AI boundaries. Build safe, responsible AI workflows.</p>
+                        <a href="/resources/ai-guardrails.html" class="freebie-link">Read the Guide →</a>
+                    </div>
+                    <div class="freebie-card fade-in">
+                        <div class="freebie-icon">✅</div>
+                        <h3>Data Risk Checklist</h3>
+                        <p>Interactive audit tool for assessing AI workflow risks. Ensure your data stays protected.</p>
+                        <a href="/resources/data-risk-checklist.html" class="freebie-link">Use the Tool →</a>
+                    </div>
                 </div>
-                <div class="freebie-card fade-in">
-                    <div class="freebie-icon">💰</div>
-                    <h3>Commission Tracker Template</h3>
-                    <p>Stop losing money to forgotten bookings. Track what's owed, follow up on what's late. CSV + PDF included.</p>
-                    <a href="#" class="freebie-link" onclick="alert('Coming soon!'); return false;">Get the Tracker →</a>
+            </div>
+            
+            <!-- Business Tools -->
+            <div class="resource-category">
+                <h3 style="color: var(--neon-green); margin-bottom: 1.5rem; font-size: 1.2rem;">💼 Business Tools</h3>
+                <div class="freebies-grid">
+                    <div class="freebie-card fade-in">
+                        <div class="freebie-icon">💸</div>
+                        <h3>Subscription Audit Worksheet</h3>
+                        <p>Find the $300-500/month you're wasting on tools you don't need. Includes consolidation guide + action plan.</p>
+                        <a href="/freebies/subscription-audit.html" class="freebie-link">Get the Worksheet →</a>
+                    </div>
+                    <div class="freebie-card fade-in">
+                        <div class="freebie-icon">💰</div>
+                        <h3>Commission Tracker Template</h3>
+                        <p>Stop losing money to forgotten bookings. Track what's owed, follow up on what's late. CSV + PDF included.</p>
+                        <a href="/freebies/commission-tracker.html" class="freebie-link">Get the Tracker →</a>
+                    </div>
+                    <div class="freebie-card fade-in">
+                        <div class="freebie-icon">🏥</div>
+                        <h3>CRM Health Check Quiz</h3>
+                        <p>5-minute self-assessment. Find out if your CRM is working for you or against you.</p>
+                        <a href="https://kady-dennis.notion.site/CRM-Health-Check-Quiz-2f92567f0d0a80bda0a7c1e25e440e09" target="_blank" rel="noopener" class="freebie-link">Take the Quiz →</a>
+                    </div>
                 </div>
-                <div class="freebie-card fade-in">
-                    <div class="freebie-icon">🤖</div>
-                    <h3>AI Readiness Checklist</h3>
-                    <p>10-point self-assessment with scoring guide. Find out if you're ready for AI — and what to fix first.</p>
-                    <a href="#" class="freebie-link" onclick="alert('Coming soon!'); return false;">Download PDF →</a>
-                </div>
-                <div class="freebie-card fade-in">
-                    <div class="freebie-icon">🦀</div>
-                    <h3>The Pinchy Pact</h3>
-                    <p>Our ethics framework for human-AI collaboration. Shareable principles for working with AI agents.</p>
-                    <a href="#" class="freebie-link" onclick="alert('Coming soon!'); return false;">Download PDF →</a>
-                </div>
-                <div class="freebie-card fade-in">
-                    <div class="freebie-icon">🏥</div>
-                    <h3>CRM Health Check Quiz</h3>
-                    <p>5-minute self-assessment. Find out if your CRM is working for you or against you.</p>
-                    <a href="https://kady-dennis.notion.site/CRM-Health-Check-Quiz-2f92567f0d0a80bda0a7c1e25e440e09" target="_blank" rel="noopener" class="freebie-link">Take the Quiz →</a>
-                </div>
+            </div>
+            
+            <!-- Additional Resources Link -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Looking for more?</p>
+                <a href="/resources/" class="btn btn-secondary">
+                    <span>📚</span> View All Resources
+                </a>
             </div>
         </div>
     </section>
@@ -2180,15 +2340,16 @@
             <p>© 2026 Kady Dennis — Your Systems Partner</p>
             <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">We help established travel advisors escape forced, clunky CRM workflows.</p>
             <p class="footer-links">
-                <a href="#">Ethics</a> • 
-                <a href="#freebies">Resources</a> • 
+                <a href="/admin/">Mission Control</a> •
+                <a href="/blog/">Blog</a> •
+                <a href="#resources">Resources</a> • 
                 <a href="#services">Services</a> •
                 <a href="#">Tools We Trust</a>
             </p>
             <p class="footer-status">
                 <span style="color: var(--neon-cyan)">SYSTEM_STATUS:</span> 
                 <span style="color: var(--neon-green)">ONLINE</span> | 
-                <span style="color: var(--neon-purple)">VERSION 2.0.0</span>
+                <span style="color: var(--neon-purple)">VERSION 2.1.0</span>
             </p>
         </div>
     </footer>
