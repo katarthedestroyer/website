@@ -3,2668 +3,660 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kady Dennis - AI Operations Consultant | Coming Soon</title>
+    <meta name="description" content="AI Operations Consultant helping SMBs streamline operations, implement intelligent automation, and scale efficiently. Specializing in AI-driven business transformation.">
     
-    <!-- Primary SEO Meta Tags -->
-    <title>Kady Dennis | Systems Partner for Luxury Travel Advisors</title>
-    <meta name="description" content="We help established travel advisors at scale ($3M+ yearly) escape forced, clunky CRM workflows and build superior, tailored systems—from inquiry to post-trip.">
-    <meta name="keywords" content="travel advisor automation, AI workflow consultant, ClickUp consultant travel, commission tracking travel advisor, travel operations consultant, AI for travel agents, travel business systems">
-    <meta name="author" content="Kady Dennis">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://kadydennis.com/">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Kady Dennis - Travel Operations & AI Consultant">
-    <meta property="og:title" content="Kady Dennis | Travel Operations & AI Consultant">
-    <meta property="og:description" content="Escape tool chaos with ethical AI workflows and systems that actually work. Specializing in travel advisor automation, ClickUp setup, and commission tracking.">
-    <meta property="og:url" content="https://kadydennis.com/">
-    <meta property="og:image" content="https://kadydennis.com/images/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kady Dennis | Travel Operations & AI Consultant">
-    <meta name="twitter:description" content="Escape tool chaos with ethical AI workflows and systems that actually work. Travel advisor automation specialist.">
-    <meta name="twitter:image" content="https://kadydennis.com/images/og-image.jpg">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🦀%3C/text%3E%3C/svg%3E">
-    
-    <!-- Preconnect for performance -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Core Colors */
-            --bg-primary: #0a0a0f;
-            --bg-surface: #12121a;
-            --bg-surface-light: #1a1a24;
-            --bg-glass: rgba(255, 255, 255, 0.03);
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --border-glow: rgba(0, 212, 255, 0.3);
-            
-            /* Neon Accents */
-            --neon-cyan: #00d4ff;
-            --neon-purple: #7c5cff;
-            --neon-pink: #ff00aa;
-            --neon-gold: #d4a853;
-            --neon-green: #00ff88;
-            
-            /* Text */
-            --text-primary: #e8e8ec;
-            --text-secondary: #8888a0;
-            --text-muted: #5a5a6e;
-            
-            /* Fonts */
-            --font-mono: 'JetBrains Mono', monospace;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-serif: 'Playfair Display', Georgia, serif;
-            
-            /* Spacing */
-            --section-padding: 6rem;
-            --container-max: 1200px;
-            
-            /* Effects */
-            --blur-glass: blur(20px);
-            --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
-            --shadow-card: 0 25px 50px rgba(0, 0, 0, 0.4);
+            --primary-color: #1a1a1a;
+            --secondary-color: #6b7280;
+            --accent-color: #d4af37;
+            --light-gray: #f8fafc;
+            --medium-gray: #e2e8f0;
+            --white: #ffffff;
+            --max-width: 1200px;
+            --border-radius: 8px;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
+        
         body {
-            font-family: var(--font-sans);
-            background: var(--bg-primary);
-            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            color: var(--primary-color);
+            background-color: var(--white);
         }
-
-        /* Animated Grid Background */
-        .grid-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-            z-index: -2;
-            animation: gridPulse 8s ease-in-out infinite;
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
         }
-
-        @keyframes gridPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        
+        /* Header */
+        header {
+            padding: 2rem 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--medium-gray);
         }
-
-        /* Floating Particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--neon-cyan);
-            border-radius: 50%;
-            opacity: 0;
-            animation: floatParticle 15s infinite;
-        }
-
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(100vh) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(-100vh) scale(1);
-                opacity: 0;
-            }
-        }
-
-        /* Glowing Orbs */
-        .glow-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(120px);
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.35;
-        }
-
-        .glow-orb-1 {
-            width: 500px;
-            height: 500px;
-            background: var(--neon-purple);
-            top: -150px;
-            right: -150px;
-            animation: orbFloat1 25s ease-in-out infinite;
-        }
-
-        .glow-orb-2 {
-            width: 400px;
-            height: 400px;
-            background: var(--neon-cyan);
-            bottom: 5%;
-            left: -150px;
-            animation: orbFloat2 30s ease-in-out infinite;
-        }
-
-        .glow-orb-3 {
-            width: 300px;
-            height: 300px;
-            background: var(--neon-pink);
-            top: 50%;
-            right: 10%;
-            animation: orbFloat3 20s ease-in-out infinite;
-            opacity: 0.2;
-        }
-
-        @keyframes orbFloat1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(40px, -30px) scale(1.1); }
-            50% { transform: translate(-20px, 20px) scale(0.95); }
-            75% { transform: translate(30px, 10px) scale(1.05); }
-        }
-
-        @keyframes orbFloat2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-30px, -40px) scale(1.08); }
-            66% { transform: translate(20px, -20px) scale(0.92); }
-        }
-
-        @keyframes orbFloat3 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-20px, 30px); }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 15, 0.85);
-            backdrop-filter: var(--blur-glass);
-            -webkit-backdrop-filter: var(--blur-glass);
-            border-bottom: 1px solid var(--border-glass);
-            z-index: 1000;
-            transition: all 0.3s ease;
         }
-
-        nav.scrolled {
-            background: rgba(10, 10, 15, 0.95);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .nav-crab {
-            font-size: 1.5rem;
-            animation: crabBob 2s ease-in-out infinite;
-            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
-        }
-
-        @keyframes crabBob {
-            0%, 100% { transform: translateY(0) rotate(-5deg); }
-            50% { transform: translateY(-8px) rotate(5deg); }
-        }
-
-        .nav-logo {
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
             font-weight: 600;
-            letter-spacing: 0.1em;
-            color: var(--text-primary);
+            color: var(--primary-color);
+            text-decoration: none;
         }
-
-        .nav-logo span {
-            color: var(--neon-cyan);
-        }
-
+        
         .nav-links {
             display: flex;
-            gap: 2.5rem;
             list-style: none;
+            gap: 2rem;
         }
-
+        
         .nav-links a {
-            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.85rem;
+            color: var(--secondary-color);
             font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: color 0.3s ease;
         }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-            transition: width 0.3s ease;
-        }
-
+        
         .nav-links a:hover {
-            color: var(--neon-cyan);
+            color: var(--primary-color);
         }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            color: var(--bg-primary);
-            padding: 0.6rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .nav-cta:hover::before {
-            left: 100%;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(124, 92, 255, 0.3);
-        }
-
-        /* Mobile Menu Toggle */
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .nav-toggle span {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-
+        
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
-            overflow: hidden;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+            text-align: center;
         }
-
-        .hero-container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content {
-            z-index: 1;
-        }
-
-        .terminal-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            width: fit-content;
-            border: 1px solid var(--border-glass);
-        }
-
-        .terminal-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .terminal-dot.red { background: #ff5f56; }
-        .terminal-dot.yellow { background: #ffbd2e; }
-        .terminal-dot.green { background: #27c93f; }
-
-        .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--neon-cyan);
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.1em;
-        }
-
-        .hero-tag::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--neon-cyan);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-            box-shadow: 0 0 10px var(--neon-cyan);
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
-        }
-
+        
         .hero h1 {
-            font-family: var(--font-serif);
+            font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
-            line-height: 1.1;
+            font-weight: 500;
             margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-family: var(--font-mono);
-            font-size: 1rem;
-            color: var(--neon-cyan);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .cursor {
-            width: 10px;
-            height: 1.2em;
-            background: var(--neon-cyan);
-            animation: blink 1s step-end infinite;
-            display: inline-block;
-            box-shadow: 0 0 10px var(--neon-cyan);
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 500px;
-            line-height: 1.7;
-        }
-
-        .hero p strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            color: var(--bg-primary);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 80px rgba(124, 92, 255, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-glass);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-glass);
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Visual */
-        .hero-visual {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .crab-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .crab-emoji {
-            font-size: 8rem;
-            animation: floatCrab 3s ease-in-out infinite, glowPulse 2s ease-in-out infinite alternate;
-            filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.5));
-            z-index: 2;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .crab-emoji:hover {
-            transform: scale(1.1);
-        }
-
-        @keyframes floatCrab {
-            0%, 100% { transform: translateY(0) rotate(-3deg); }
-            50% { transform: translateY(-20px) rotate(3deg); }
-        }
-
-        @keyframes glowPulse {
-            from { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)) drop-shadow(0 0 40px rgba(124, 92, 255, 0.3)); }
-            to { filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.8)) drop-shadow(0 0 80px rgba(124, 92, 255, 0.5)); }
-        }
-
-        .orbit-ring {
-            position: absolute;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 50%;
-            animation: spin 20s linear infinite;
-        }
-
-        .orbit-ring:nth-child(1) {
-            width: 200px;
-            height: 200px;
-        }
-
-        .orbit-ring:nth-child(2) {
-            width: 260px;
-            height: 260px;
-            animation-direction: reverse;
-            animation-duration: 30s;
-            border-color: rgba(124, 92, 255, 0.2);
-        }
-
-        .orbit-ring:nth-child(3) {
-            width: 320px;
-            height: 320px;
-            animation-duration: 40s;
-            border-style: dashed;
-            border-color: rgba(0, 212, 255, 0.15);
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .orbit-dot {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: var(--neon-cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--neon-cyan);
-        }
-
-        .orbit-ring:nth-child(1) .orbit-dot {
-            top: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .orbit-ring:nth-child(2) .orbit-dot {
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--neon-purple);
-            box-shadow: 0 0 15px var(--neon-purple);
-        }
-
-        .orbit-ring:nth-child(3) .orbit-dot {
-            top: 50%;
-            right: -4px;
-            transform: translateY(-50%);
-            background: var(--neon-gold);
-            box-shadow: 0 0 15px var(--neon-gold);
-        }
-
-        .status-panel {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
-            margin-top: 2rem;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            width: 100%;
-            max-width: 280px;
-        }
-
-        .status-line {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .status-line:not(:last-child) {
-            margin-bottom: 0.5rem;
-        }
-
-        .status-indicator {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--neon-green);
-            box-shadow: 0 0 8px var(--neon-green);
-            animation: statusPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes statusPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .status-indicator.warning {
-            background: var(--neon-gold);
-            box-shadow: 0 0 8px var(--neon-gold);
-        }
-
-        /* Section Styling */
-        section {
-            padding: var(--section-padding) 2rem;
-            position: relative;
-        }
-
-        .section-container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 4rem;
-        }
-
-        .section-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--neon-purple);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 1rem;
-        }
-
-        .section-tag::before {
-            content: '//';
-            color: var(--neon-cyan);
-        }
-
-        .section-header h2 {
-            font-family: var(--font-serif);
-            font-size: 2.75rem;
-            font-weight: 600;
             line-height: 1.2;
         }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin-top: 1rem;
-        }
-
-        /* Problem/Vision Section */
-        .vision-section {
-            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%, transparent 100%);
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .problem-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .problem-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .problem-card:hover {
-            border-color: var(--border-glow);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-card), 0 0 40px rgba(0, 212, 255, 0.1);
-        }
-
-        .problem-card:hover::before {
-            opacity: 1;
-        }
-
-        .problem-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            filter: drop-shadow(0 0 10px rgba(212, 168, 83, 0.5));
-        }
-
-        .problem-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.75rem;
-            color: var(--neon-gold);
-            font-weight: 600;
-        }
-
-        .problem-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Good Fit Section */
-        .good-fit-section {
-            background: var(--bg-surface);
-        }
-
-        .good-fit-section .section-header {
-            text-align: center;
-        }
-
-        .good-fit-section .section-header p {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .criteria-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .criteria-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
-            transition: all 0.3s ease;
-            text-align: left;
-        }
-
-        .criteria-card:nth-child(1) { border-left: 3px solid var(--neon-cyan); }
-        .criteria-card:nth-child(2) { border-left: 3px solid var(--neon-purple); }
-        .criteria-card:nth-child(3) { border-left: 3px solid var(--neon-green); }
-        .criteria-card:nth-child(4) { border-left: 3px solid var(--neon-gold); }
-        .criteria-card:nth-child(5) { border-left: 3px solid var(--neon-pink); grid-column: 1 / -1; max-width: 500px; margin: 0 auto; width: 100%; }
-
-        .criteria-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--border-glow);
-            box-shadow: var(--shadow-card);
-        }
-
-        .criteria-card .check {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .criteria-card h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .criteria-card:nth-child(1) h3 { color: var(--neon-cyan); }
-        .criteria-card:nth-child(2) h3 { color: var(--neon-purple); }
-        .criteria-card:nth-child(3) h3 { color: var(--neon-green); }
-        .criteria-card:nth-child(4) h3 { color: var(--neon-gold); }
-        .criteria-card:nth-child(5) h3 { color: var(--neon-pink); }
-
-        .criteria-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        /* Use Cases Section */
-        .use-cases-section {
-            background: linear-gradient(180deg, var(--bg-surface) 0%, transparent 100%);
-        }
-
-        .use-cases-section .section-header {
-            text-align: center;
-        }
-
-        .use-cases-section .section-header p {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .use-case-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .use-case-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .use-case-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .use-case-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--neon-cyan);
-            box-shadow: var(--shadow-card), 0 0 60px rgba(0, 212, 255, 0.15);
-        }
-
-        .use-case-card:hover::before {
-            opacity: 1;
-        }
-
-        .use-case-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-        }
-
-        .use-case-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .use-case-block {
-            margin-bottom: 1rem;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            border-left: 3px solid;
-        }
-
-        .use-case-block.problem { border-left-color: var(--neon-pink); }
-        .use-case-block.solution { border-left-color: var(--neon-cyan); }
-        .use-case-block.result { border-left-color: var(--neon-green); }
-
-        .use-case-block-label {
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.25rem;
-            opacity: 0.8;
-        }
-
-        .use-case-block.problem .use-case-block-label { color: var(--neon-pink); }
-        .use-case-block.solution .use-case-block-label { color: var(--neon-cyan); }
-        .use-case-block.result .use-case-block-label { color: var(--neon-green); }
-
-        .use-case-block p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .use-case-block strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        /* Services Section */
-        .services-section {
-            background: var(--bg-surface);
-        }
-
-        .services-section .section-header {
-            text-align: center;
-        }
-
-        .services-section .section-header p {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .service-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card.featured {
-            border-color: var(--neon-gold);
-            background: linear-gradient(180deg, rgba(212, 168, 83, 0.05) 0%, var(--bg-glass) 100%);
-            transform: scale(1.02);
-        }
-
-        .service-card.featured::after {
-            content: '★ MOST POPULAR';
-            position: absolute;
-            top: 1rem;
-            right: -2rem;
-            background: linear-gradient(135deg, var(--neon-gold), #ff8c00);
-            color: var(--bg-primary);
-            padding: 0.25rem 2.5rem;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            transform: rotate(45deg);
-            box-shadow: 0 2px 10px rgba(212, 168, 83, 0.3);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--neon-cyan);
-            box-shadow: var(--shadow-card), 0 0 60px rgba(0, 212, 255, 0.15);
-        }
-
-        .service-card.featured:hover {
-            transform: translateY(-8px) scale(1.02);
-        }
-
-        .service-badge {
-            display: inline-block;
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.25rem 0.75rem;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 20px;
-            color: var(--neon-cyan);
-            margin-bottom: 1rem;
-            width: fit-content;
-        }
-
-        .service-price {
-            font-family: var(--font-mono);
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .service-card h3 {
+        
+        .hero-subtitle {
             font-size: 1.3rem;
-            margin-bottom: 1.25rem;
-            font-weight: 600;
-        }
-
-        .service-card ul {
-            list-style: none;
+            color: var(--secondary-color);
             margin-bottom: 2rem;
-            flex-grow: 1;
-        }
-
-        .service-card li {
-            color: var(--text-secondary);
-            padding: 0.6rem 0;
-            border-bottom: 1px solid var(--border-glass);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-
-        .service-card li::before {
-            content: '›';
-            color: var(--neon-cyan);
-            font-weight: bold;
-        }
-
-        .service-cta {
-            display: block;
-            text-align: center;
-            padding: 1rem;
-            background: transparent;
-            border: 1px solid var(--border-glass);
-            border-radius: 10px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover .service-cta {
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            border-color: transparent;
-            color: var(--bg-primary);
-        }
-
-        /* Freebies Section */
-        .freebies-section {
-            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%, transparent 100%);
-        }
-
-        .freebies-section .section-header {
-            text-align: center;
-        }
-
-        .freebies-section .section-header p {
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
-
-        .freebies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .freebie-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .freebie-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            padding: 1px;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .freebie-card:hover::before {
-            opacity: 1;
-        }
-
-        .freebie-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .freebie-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .freebie-card h3 {
+        
+        .hero-description {
             font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .freebie-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
-        }
-
-        .freebie-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--neon-cyan);
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2.5rem;
             text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
+            border-radius: var(--border-radius);
             font-weight: 600;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-
-        .freebie-link:hover {
-            gap: 0.75rem;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-
-        .freebie-link::after {
-            content: '→';
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: var(--white);
         }
-
-        /* About Section */
-        .about-section {
-            background: var(--bg-surface);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image-frame {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-image-frame::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            border-radius: 22px;
-            z-index: -1;
-            opacity: 0.5;
-            animation: borderRotate 4s linear infinite;
-        }
-
-        @keyframes borderRotate {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-
-        .about-emoji {
-            font-size: 6rem;
-            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));
-        }
-
-        .about-badge {
-            position: absolute;
-            bottom: -1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            color: var(--bg-primary);
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            white-space: nowrap;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-        }
-
-        .about-text h2 {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-            line-height: 1.7;
-        }
-
-        .about-text strong {
-            color: var(--neon-cyan);
-            font-weight: 600;
-        }
-
-        .about-stats {
-            display: flex;
-            gap: 2.5rem;
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-glass);
-        }
-
-        .stat {
+        
+        .section-header {
             text-align: center;
+            margin-bottom: 4rem;
         }
-
-        .stat-number {
-            font-family: var(--font-mono);
+        
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
         }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-top: 0.25rem;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            background: linear-gradient(180deg, var(--bg-surface) 0%, transparent 100%);
-        }
-
-        .faq-section .section-header {
-            text-align: center;
-        }
-
-        .faq-grid {
-            display: grid;
-            gap: 1rem;
-            max-width: 800px;
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            max-width: 600px;
             margin: 0 auto;
         }
-
-        .faq-item {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
-
-        .faq-item:hover {
-            border-color: var(--border-glow);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            user-select: none;
-        }
-
-        .faq-question:hover {
-            color: var(--neon-cyan);
-        }
-
-        .faq-icon {
-            font-family: var(--font-mono);
-            font-size: 1.5rem;
-            color: var(--neon-cyan);
+        
+        .service-card {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
             transition: transform 0.3s ease;
         }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
+        
+        .service-card:hover {
+            transform: translateY(-5px);
         }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: 0 1.5rem 1.5rem;
-        }
-
-        .faq-answer p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 8rem 2rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .cta-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .terminal-prompt {
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            color: var(--neon-green);
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
             margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
         }
-
-        .cta-section h2 {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        
+        .service-card h3 {
+            font-size: 1.3rem;
             font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
         }
-
-        .cta-section p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
+        
+        .service-card p {
+            color: var(--secondary-color);
+            line-height: 1.6;
         }
-
-        /* Tech Achievements Section */
-        .tech-achievements-section {
-            padding: var(--section-padding) 2rem;
-            background: linear-gradient(135deg, var(--bg-surface) 0%, transparent 50%);
-            position: relative;
+        
+        /* Case Studies Section */
+        .case-studies {
+            padding: 5rem 0;
+            background: var(--light-gray);
         }
-
-        .tech-grid {
+        
+        .case-studies-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .case-studies-intro h3 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .case-studies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
-
-        .tech-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
+        
+        .case-study {
+            background: var(--white);
             padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tech-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-        }
-
-        .tech-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--neon-cyan);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
-        }
-
-        .tech-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-            text-align: center;
-        }
-
-        .tech-card h3 {
-            color: var(--text-primary);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .tech-card p {
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: 0;
-        }
-
-        .tech-card a {
-            color: var(--neon-cyan);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .tech-card a:hover {
-            text-decoration: underline;
-        }
-
-        .resource-category {
-            margin-bottom: 3rem;
-        }
-
-        .resource-category:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Blog Preview Section */
-        .blog-preview-section {
-            padding: var(--section-padding) 2rem;
-            background: linear-gradient(135deg, var(--bg-surface) 0%, transparent 50%);
-            position: relative;
-        }
-
-        .blog-preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .blog-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--neon-cyan);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
-        }
-
-        .blog-category {
-            display: inline-block;
-            background: var(--neon-cyan);
-            color: var(--bg-primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
-
-        .blog-card h3 {
-            color: var(--text-primary);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            line-height: 1.4;
-        }
-
-        .blog-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .blog-meta {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-            font-family: var(--font-mono);
-        }
-
-        .blog-link {
-            color: var(--neon-cyan);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .blog-link:hover {
-            color: var(--neon-purple);
-            gap: 0.75rem;
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border-glass);
-            background: var(--bg-surface);
-        }
-
-        .footer-content {
-            max-width: var(--container-max);
-            margin: 0 auto;
-        }
-
-        .footer-crab {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            animation: crabBob 2s ease-in-out infinite;
-            cursor: pointer;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
         }
-
-        .footer-crab:hover {
-            transform: scale(1.2);
+        
+        .case-study:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
-
-        footer p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+        
+        .case-study-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
         }
-
-        footer a {
-            color: var(--neon-cyan);
+        
+        .case-study-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+        
+        .case-study h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .case-study p {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .case-study-result {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-style: italic;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+        
+        .contact-form button {
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-form button:hover {
+            background: #b8941f;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-item a {
+            color: var(--white);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
         }
-
-        footer a:hover {
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        
+        .contact-item a:hover {
+            opacity: 0.8;
         }
-
-        .footer-links {
-            margin-top: 0.75rem;
+        
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .footer-links a {
-            margin: 0 0.5rem;
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-
-        .footer-status {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            margin-top: 1rem;
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
         }
-
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: opacity 0.3s ease;
         }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        
+        .social-links a:hover {
+            opacity: 0.7;
         }
-
-        /* Scroll Progress Bar */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-            z-index: 1001;
-            transition: width 0.1s ease;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content {
-                order: 2;
-            }
-
-            .hero-visual {
-                order: 1;
-            }
-
-            .hero h1 {
-                font-size: 2.75rem;
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .terminal-header {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .problem-grid,
-            .use-case-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .service-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-
-            .service-card.featured {
-                transform: scale(1);
-            }
-
-            .service-card.featured:hover {
-                transform: translateY(-8px) scale(1);
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .about-image {
-                max-width: 280px;
-                margin: 0 auto;
-            }
-
-            .about-stats {
-                justify-content: center;
-            }
-
-            .criteria-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .criteria-card:nth-child(5) {
-                grid-column: 1;
-                max-width: 100%;
-            }
-        }
-
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            :root {
-                --section-padding: 4rem;
+            .container {
+                padding: 0 1rem;
             }
-
-            nav {
-                padding: 1rem;
+            
+            .hero h1 {
+                font-size: 2.5rem;
             }
-
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
             .nav-links {
                 display: none;
             }
-
-            .nav-toggle {
-                display: flex;
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-
-            .nav-cta {
-                display: none;
+            
+            .contact-form {
+                flex-direction: column;
             }
-
-            .hero {
-                padding: 7rem 1.5rem 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-header h2 {
-                font-size: 1.75rem;
-            }
-
-            .crab-container {
-                width: 220px;
-                height: 220px;
-            }
-
-            .crab-emoji {
-                font-size: 5rem;
-            }
-
-            .cta-container {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .cta-section h2 {
-                font-size: 1.5rem;
-            }
-
-            .btn {
-                padding: 0.875rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .about-stats {
-                gap: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
             }
         }
-
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            html {
-                scroll-behavior: auto;
-            }
+        
+        /* Coming Soon Badge */
+        .coming-soon-badge {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-
-        /* Print Styles */
-        @media print {
-            .grid-bg, .particles, .glow-orb, nav, .scroll-progress {
-                display: none !important;
-            }
-
-            body {
-                background: white;
-                color: black;
-            }
-
-            section {
-                padding: 2rem 1rem;
-            }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <!-- Scroll Progress -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+    <!-- Coming Soon Badge -->
+    <div class="coming-soon-badge">
+        <i class="fas fa-clock"></i> Coming Soon
+    </div>
 
-    <!-- Background Effects -->
-    <div class="grid-bg"></div>
-    <div class="particles" id="particles"></div>
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
-    <div class="glow-orb glow-orb-3"></div>
-
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-brand">
-            <span class="nav-crab" aria-label="Pinchy the Crab mascot">🦀</span>
-            <span class="nav-logo">KADY<span>_</span>DENNIS</span>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Kady Dennis</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#use-cases">Success Stories</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#faq">FAQ</a></li>
-        </ul>
-        <a href="#contact" class="nav-cta">INITIATE_CONTACT</a>
-        <button class="nav-toggle" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="terminal-header">
-                    <span class="terminal-dot red"></span>
-                    <span class="terminal-dot yellow"></span>
-                    <span class="terminal-dot green"></span>
-                    <span>mission_control — bash — 80×24</span>
-                </div>
-                <span class="hero-tag">SYSTEMS PARTNER FOR LUXURY TRAVEL</span>
-                <h1>You've outgrown forced workflows. <span class="highlight">Here's what's actually possible.</span></h1>
-                <div class="hero-subtitle">
-                    <span>❯</span>
-                    <span id="typewriter">Loading systems...</span>
-                    <span class="cursor"></span>
-                </div>
-                <p>We help <strong>established travel advisors at scale ($3M+ yearly)</strong> escape forced, clunky "all-in-one" CRM workflows with <strong>proven, live systems</strong> — including 5-space ClickUp workspaces, real-time commission tracking, and ethical AI workflows. Built with the same systems we use to run our own $3M+ operations.</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">
-                        <span>⚡</span> View Services
-                    </a>
-                    <a href="#freebies" class="btn btn-secondary">
-                        <span>📦</span> Free Resources
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="crab-container">
-                    <div class="orbit-ring"><div class="orbit-dot"></div></div>
-                    <div class="orbit-ring"><div class="orbit-dot"></div></div>
-                    <div class="orbit-ring"><div class="orbit-dot"></div></div>
-                    <span class="crab-emoji" role="img" aria-label="Pinchy the Crab" title="Click me!">🦀</span>
-                </div>
-                <div class="status-panel">
-                    <div class="status-line">
-                        <span class="status-indicator"></span>
-                        <span>SYSTEM_STATUS: OPERATIONAL</span>
-                    </div>
-                    <div class="status-line">
-                        <span class="status-indicator"></span>
-                        <span>PINCHY_ARMY: ONLINE</span>
-                    </div>
-                    <div class="status-line">
-                        <span class="status-indicator"></span>
-                        <span>GROWTH_OPPORTUNITY: IDENTIFIED</span>
-                    </div>
-                    <div class="status-line">
-                        <span class="status-indicator"></span>
-                        <span>SYSTEMS_DEPLOYED: 15+</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vision Section -->
-    <section class="vision-section" id="vision">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-tag">The Vision</span>
-                <h2>When your systems match your ambition...</h2>
-                <p>Imagine if your tools actually worked the way you do.</p>
-            </div>
-            <div class="problem-grid">
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">🌊</div>
-                    <h3>Seamless Workflows</h3>
-                    <p>No more fighting your software. Systems that flow with your process—from inquiry to post-trip—so you can focus on what you do best: creating extraordinary travel experiences.</p>
-                </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">🎯</div>
-                    <h3>Total Clarity</h3>
-                    <p>One source of truth. Every client journey visible at a glance. Know exactly where things stand without digging through emails, spreadsheets, or memory.</p>
-                </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">⚡</div>
-                    <h3>Effortless Scale</h3>
-                    <p>Technology that amplifies your expertise, not replaces it. Handle more clients without adding chaos. Grow without the growing pains.</p>
-                </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon">✨</div>
-                    <h3>Superior Experience</h3>
-                    <p>A system as thoughtful as the trips you plan. Tailored to luxury travel. Designed for how you actually work. Finally, tech that feels like an upgrade.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Good Fit Section -->
-    <section class="good-fit-section" id="good-fit">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-tag">Partnership Criteria</span>
-                <h2>You Might Be a Good Fit If...</h2>
-                <p>These aren't problems to fix—they're signals you're ready for what's next.</p>
-            </div>
-            <div class="criteria-grid">
-                <div class="criteria-card fade-in">
-                    <div class="check">✓</div>
-                    <h3>Growing faster than systems can handle</h3>
-                    <p>Your success has outpaced your infrastructure—in the best possible way. You're ready to build systems that match your momentum.</p>
-                </div>
-                <div class="criteria-card fade-in">
-                    <div class="check">✓</div>
-                    <h3>Success created operational complexity</h3>
-                    <p>More clients, more moving parts, more opportunities. You've proven the model—now you're ready to optimize it.</p>
-                </div>
-                <div class="criteria-card fade-in">
-                    <div class="check">✓</div>
-                    <h3>Know there's a better way but lack time to find it</h3>
-                    <p>You can see the vision, but you're too busy delivering excellence to build the infrastructure. That's where we come in.</p>
-                </div>
-                <div class="criteria-card fade-in">
-                    <div class="check">✓</div>
-                    <h3>Want tech that amplifies your expertise</h3>
-                    <p>You're not looking to be replaced by AI—you want tools that make you even better at what you do best.</p>
-                </div>
-                <div class="criteria-card fade-in">
-                    <div class="check">✓</div>
-                    <h3>Value efficiency + won't compromise client experience</h3>
-                    <p>You want to work smarter, but never at the cost of the white-glove service your clients expect. You demand both.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Use Cases Section -->
-    <section class="use-cases-section" id="use-cases">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-tag">Success Stories</span>
-                <h2>Real problems. Real solutions. Real results.</h2>
-                <p>See how travel advisors like you transformed their businesses with strategic system design and ethical AI integration.</p>
-            </div>
-            <div class="use-case-grid">
-                <!-- Use Case 1: Tool Overwhelmed -->
-                <div class="use-case-card fade-in">
-                    <div class="use-case-avatar">😵‍💫</div>
-                    <h3>The Tool Overwhelmed Advisor</h3>
-                    <div class="use-case-block problem">
-                        <div class="use-case-block-label">Problem</div>
-                        <p>Paying $400/month for 8 tools, nothing talks to each other. Spending more time managing software than serving clients.</p>
-                    </div>
-                    <div class="use-case-block solution">
-                        <div class="use-case-block-label">Solution</div>
-                        <p>Complete tool audit + consolidation strategy. Replaced 8 tools with 3 integrated essentials + custom workflows. Worked with a <strong>ClickUp consultant for travel</strong> to centralize operations.</p>
-                    </div>
-                    <div class="use-case-block result">
-                        <div class="use-case-block-label">Result</div>
-                        <p><strong>Saved $250/month</strong> and reclaimed <strong>5 hours/week</strong>. Now focused on clients, not browser tabs.</p>
-                    </div>
-                </div>
-
-                <!-- Use Case 2: Commission Leak -->
-                <div class="use-case-card fade-in">
-                    <div class="use-case-avatar">💰</div>
-                    <h3>The Commission Leak</h3>
-                    <div class="use-case-block problem">
-                        <div class="use-case-block-label">Problem</div>
-                        <p>Lost track of $3,200 in unpaid commissions. No systematic tracking, follow-ups falling through cracks, cash flow stress.</p>
-                    </div>
-                    <div class="use-case-block solution">
-                        <div class="use-case-block-label">Solution</div>
-                        <p>Commission recovery system + automated tracking setup. Alerts, follow-up sequences, and reconciliation process. Implemented <strong>commission tracking for travel advisors</strong>.</p>
-                    </div>
-                    <div class="use-case-block result">
-                        <div class="use-case-block-label">Result</div>
-                        <p><strong>Recovered $2,800</strong> in 30 days. Now <strong>never misses a payment</strong> with proactive tracking.</p>
-                    </div>
-                </div>
-
-                <!-- Use Case 3: AI-Curious but Fearful -->
-                <div class="use-case-card fade-in">
-                    <div class="use-case-avatar">🤖</div>
-                    <h3>The AI-Curious but Fearful</h3>
-                    <div class="use-case-block problem">
-                        <div class="use-case-block-label">Problem</div>
-                        <p>Wants to use AI but doesn't know what's safe. Worried about accuracy, client perception, and ethical concerns.</p>
-                    </div>
-                    <div class="use-case-block solution">
-                        <div class="use-case-block-label">Solution</div>
-                        <p>AI readiness assessment + custom workflow design. Human-AI collaboration framework with ethical guardrails. Professional <strong>AI workflow consultant</strong> guidance.</p>
-                    </div>
-                    <div class="use-case-block result">
-                        <div class="use-case-block-label">Result</div>
-                        <p><strong>10 hours/week saved</strong> on admin tasks. Confident client communication with AI-assisted workflows.</p>
-                    </div>
-                </div>
-
-                <!-- Use Case 4: The Growing Agency -->
-                <div class="use-case-card fade-in">
-                    <div class="use-case-avatar">📈</div>
-                    <h3>The Growing Agency</h3>
-                    <div class="use-case-block problem">
-                        <div class="use-case-block-label">Problem</div>
-                        <p>50+ clients, systems breaking, team confused. Everyone's winging it, quality suffering, ready to burn out.</p>
-                    </div>
-                    <div class="use-case-block solution">
-                        <div class="use-case-block-label">Solution</div>
-                        <p>Full system overhaul + ClickUp setup. Standardized processes, team training, scalable workflows, AI agents. Complete <strong>travel advisor automation</strong> transformation.</p>
-                    </div>
-                    <div class="use-case-block result">
-                        <div class="use-case-block-label">Result</div>
-                        <p><strong>Scaled to 100 clients</strong> without adding staff. Team aligned, quality consistent, founder sleeping again.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technical Achievements Section -->
-    <section class="tech-achievements-section">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-tag">Built for Scale</span>
-                <h2>Systems That Actually Work</h2>
-                <p>Built with the same rigor we bring to client projects—ethical AI, privacy-first design, and real-time monitoring.</p>
-            </div>
-            <div class="tech-grid">
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">📊</div>
-                    <h3>Real-Time Monitoring</h3>
-                    <p>Live cost tracking and system health monitoring at <a href="/admin/" style="color: var(--neon-cyan);">kadydennis.com/admin</a>. See exactly what's happening in your systems.</p>
-                </div>
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">🛡️</div>
-                    <h3>Privacy-First Design</h3>
-                    <p>All resources self-hosted. No third-party tracking. Security audit completed with comprehensive .gitignore protection.</p>
-                </div>
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">🤖</div>
-                    <h3>Ethical AI Framework</h3>
-                    <p>4 comprehensive guides on responsible AI use. Built with the same <a href="/resources/pinchy-pact.html" style="color: var(--neon-cyan);">ethical framework</a> we teach clients.</p>
-                </div>
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">📈</div>
-                    <h3>SEO-Optimized Content</h3>
-                    <p>17 JSON-LD schema files for better search visibility. Performance optimized for speed and accessibility.</p>
-                </div>
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">📝</div>
-                    <h3>Active Content Hub</h3>
-                    <p><a href="/blog/" style="color: var(--neon-cyan);">Blog system</a> with 3 posts and RSS feed. Regular updates on travel tech, AI ethics, and system optimization.</p>
-                </div>
-                <div class="tech-card fade-in">
-                    <div class="tech-icon">🔗</div>
-                    <h3>Integrated Resources</h3>
-                    <p>Complete resource hub at <a href="/resources/" style="color: var(--neon-cyan);">kadydennis.com/resources</a> with 6 tools and guides, all live and functional.</p>
-                </div>
-            </div>
+        <div class="container">
+            <h1>AI Operations Consultant</h1>
+            <p class="hero-subtitle">Transforming SMBs through intelligent automation and streamlined operations</p>
+            <p class="hero-description">
+                I help small and medium businesses implement AI-driven solutions that reduce operational costs, 
+                increase efficiency, and scale sustainably. From workflow automation to intelligent data analysis, 
+                I create custom strategies that deliver measurable results.
+            </p>
+            <a href="#contact" class="cta-button">Get Early Access</a>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services-section" id="services">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-tag">Services</span>
-                <h2>Your Systems Partner</h2>
-                <p>We bridge the gap between outdated, clunky CRMs and the superior, tailored experience you deserve. Async-first. Fixed pricing. Results-focused.</p>
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Services for Growing Businesses</h2>
+                <p>Comprehensive AI operations solutions designed for SMBs across all industries</p>
             </div>
-            <div class="service-grid">
-                <div class="service-card fade-in">
-                    <span class="service-badge">24hr Turnaround</span>
-                    <div class="service-price">$297</div>
-                    <h3>System Audit</h3>
-                    <ul>
-                        <li>For advisors at scale ($3M+ yearly)</li>
-                        <li>Analysis of your actual ClickUp workspace (5-space architecture)</li>
-                        <li>Live demo of commission tracking with real sample data</li>
-                        <li>Live demo at <a href="/demos/" style="color: var(--neon-cyan);">kadydennis.com/demos</a></li>
-                        <li>Loom video + written action plan</li>
-                    </ul>
-                    <a href="#contact" class="service-cta">Get Started →</a>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Workflow Automation</h3>
+                    <p>Streamline repetitive tasks and complex processes with intelligent automation that adapts to your business needs and grows with you.</p>
                 </div>
-
-                <div class="service-card featured fade-in">
-                    <span class="service-badge">30-Day Support</span>
-                    <div class="service-price">$997</div>
-                    <h3>AI Workflow Design</h3>
-                    <ul>
-                        <li>For scaling advisors who need leverage</li>
-                        <li>Human-AI collaboration framework</li>
-                        <li>Voice-trained prompt library</li>
-                        <li>Ethical guidelines + training</li>
-                        <li>"Automate the admin, amplify the magic."</li>
-                    </ul>
-                    <a href="#contact" class="service-cta">Get Started →</a>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data Analytics & Insights</h3>
+                    <p>Transform your data into actionable insights with AI-powered analytics that help you make smarter, faster business decisions.</p>
                 </div>
-
-                <div class="service-card fade-in">
-                    <span class="service-badge">60-Day Support</span>
-                    <div class="service-price">$2,500+</div>
-                    <h3>ClickUp Business Hub</h3>
-                    <ul>
-                        <li>5-space workspace architecture (Business Hub, Sales Pipeline, Commissions, Client Portal, AI Agents)</li>
-                        <li>Real sample data: Smith Family $45K, Johnson $18.5K, TechCorp $35K</li>
-                        <li>Live demo workspace at <a href="/demos/" style="color: var(--neon-cyan);">kadydennis.com/demos</a></li>
-                        <li>Custom fields: Budget, AI Score, Close %, Commission Status</li>
-                        <li>Team training + SOP documentation</li>
-                    </ul>
-                    <a href="#contact" class="service-cta">Get Started →</a>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Operations Optimization</h3>
+                    <p>Identify bottlenecks and inefficiencies in your current operations, then implement targeted solutions for maximum impact.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Team Training & Support</h3>
+                    <p>Empower your team with the skills and knowledge they need to leverage AI tools effectively and confidently.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>AI Strategy Consulting</h3>
+                    <p>Develop a comprehensive AI roadmap aligned with your business goals and industry-specific challenges.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Implementation & Integration</h3>
+                    <p>Seamlessly integrate AI solutions with your existing systems while maintaining security and compliance standards.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Resources Section -->
-    <section class="freebies-section" id="resources">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-tag">Resources</span>
-                <h2>Resources for Every Stage</h2>
-                <p>Whether you're just starting out or scaling past $3M—there's something here for you.</p>
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="case-studies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proven Results Across Industries</h2>
+                <p>Case studies demonstrating AI operations transformation in action</p>
             </div>
             
-            <!-- Ethical AI Resources -->
-            <div class="resource-category">
-                <h3 style="color: var(--neon-cyan); margin-bottom: 1.5rem; font-size: 1.2rem;">🤖 Ethical AI Resources</h3>
-                <div class="freebies-grid">
-                    <div class="freebie-card fade-in">
-                        <div class="freebie-icon">🦀</div>
-                        <h3>The Pinchy Pact</h3>
-                        <p>Our ethics framework for human-AI collaboration. Shareable principles for working with AI agents.</p>
-                        <a href="/resources/pinchy-pact.html" class="freebie-link">Read the Guide →</a>
+            <div class="case-studies-intro">
+                <h3>Travel Industry Case Studies</h3>
+                <p>While my expertise applies to all industries, here are examples of successful AI implementations in the travel sector</p>
+            </div>
+            
+            <div class="case-studies-grid">
+                <div class="case-study">
+                    <div class="case-study-header">
+                        <div class="case-study-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h4>Virtuoso Travel Tracking</h4>
                     </div>
-                    <div class="freebie-card fade-in">
-                        <div class="freebie-icon">🔒</div>
-                        <h3>Data Security Guide</h3>
-                        <p>PCI compliance and safe workflows for travel advisors. Protect your clients and your business.</p>
-                        <a href="/resources/data-security-guide.html" class="freebie-link">Read the Guide →</a>
+                    <p>Implemented AI-powered tracking system for luxury travel network, automating client journey monitoring and preference analysis across 1,200+ advisors.</p>
+                    <p class="case-study-result">Result: 40% reduction in manual tracking time, 25% improvement in client satisfaction scores</p>
+                </div>
+                
+                <div class="case-study">
+                    <div class="case-study-header">
+                        <div class="case-study-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <h4>La Jolla Mom Content Operations</h4>
                     </div>
-                    <div class="freebie-card fade-in">
-                        <div class="freebie-icon">🛡️</div>
-                        <h3>AI Guardrails</h3>
-                        <p>Technical implementation of ethical AI boundaries. Build safe, responsible AI workflows.</p>
-                        <a href="/resources/ai-guardrails.html" class="freebie-link">Read the Guide →</a>
+                    <p>Streamlined content creation and distribution workflows using AI tools for research, optimization, and multi-platform publishing automation.</p>
+                    <p class="case-study-result">Result: 60% faster content production, 3x increase in organic traffic, 50% reduction in operational costs</p>
+                </div>
+                
+                <div class="case-study">
+                    <div class="case-study-header">
+                        <div class="case-study-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h4>Pinchy Army Operations</h4>
                     </div>
-                    <div class="freebie-card fade-in">
-                        <div class="freebie-icon">✅</div>
-                        <h3>Data Risk Checklist</h3>
-                        <p>Interactive audit tool for assessing AI workflow risks. Ensure your data stays protected.</p>
-                        <a href="/resources/data-risk-checklist.html" class="freebie-link">Use the Tool →</a>
-                    </div>
+                    <p>Developed comprehensive AI operations framework for travel consulting team, including automated client onboarding, follow-up sequences, and performance analytics.</p>
+                    <p class="case-study-result">Result: 35% increase in team productivity, 45% faster client response times, scalable growth framework</p>
                 </div>
             </div>
             
-            <!-- Business Tools -->
-            <div class="resource-category">
-                <h3 style="color: var(--neon-green); margin-bottom: 1.5rem; font-size: 1.2rem;">💼 Business Tools</h3>
-                <div class="freebies-grid">
-                    <div class="freebie-card fade-in">
-                        <div class="freebie-icon">💸</div>
-                        <h3>Subscription Audit Worksheet</h3>
-                        <p>Find the $300-500/month you're wasting on tools you don't need. Includes consolidation guide + action plan.</p>
-                        <a href="/freebies/subscription-audit.html" class="freebie-link">Get the Worksheet →</a>
-                    </div>
-                    <div class="freebie-card fade-in">
-                        <div class="freebie-icon">💰</div>
-                        <h3>Commission Tracker Template</h3>
-                        <p>Stop losing money to forgotten bookings. Track what's owed, follow up on what's late. CSV + PDF included.</p>
-                        <a href="/freebies/commission-tracker.html" class="freebie-link">Get the Tracker →</a>
-                    </div>
-                    <div class="freebie-card fade-in">
-                        <div class="freebie-icon">🏥</div>
-                        <h3>CRM Health Check Quiz</h3>
-                        <p>5-minute self-assessment. Find out if your CRM is working for you or against you.</p>
-                        <a href="https://kady-dennis.notion.site/CRM-Health-Check-Quiz-2f92567f0d0a80bda0a7c1e25e440e09" target="_blank" rel="noopener" class="freebie-link">Take the Quiz →</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Additional Resources Link -->
             <div style="text-align: center; margin-top: 3rem;">
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Looking for more?</p>
-                <a href="/resources/" class="btn btn-secondary">
-                    <span>📚</span> View All Resources
-                </a>
+                <p style="color: var(--secondary-color); font-style: italic;">
+                    These travel industry examples demonstrate the transformative power of AI operations - 
+                    the same principles and methodologies apply to retail, healthcare, professional services, 
+                    manufacturing, and any industry seeking operational excellence.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Blog Preview Section -->
-    <section class="blog-preview-section">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-tag">Latest Insights</span>
-                <h2>From the Blog</h2>
-                <p>Real talk on travel tech, AI ethics, and building systems that actually work.</p>
-            </div>
-            <div class="blog-preview-grid">
-                <div class="blog-card fade-in">
-                    <div class="blog-category">AI Ethics</div>
-                    <h3>Why I Built the Pinchy Army</h3>
-                    <p>The story behind building an AI team to help travel advisors—and why ethics come first.</p>
-                    <div class="blog-meta">February 1, 2026 • 5 min read</div>
-                    <a href="/blog/posts/why-i-built-the-pinchy-army.html" class="blog-link">Read More →</a>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Operations?</h2>
+            <p>Join the waitlist for early access to AI operations consulting services</p>
+            
+            <form class="contact-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Get Early Access</button>
+            </form>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:hello@kadydennis.com">hello@kadydennis.com</a>
                 </div>
-                <div class="blog-card fade-in">
-                    <div class="blog-category">Travel Tech</div>
-                    <h3>ClickUp vs Travel CRMs: The Real Comparison</h3>
-                    <p>Why templates aren't always the answer—and what a custom-built system can do for your business.</p>
-                    <div class="blog-meta">February 1, 2026 • 8 min read</div>
-                    <a href="/blog/posts/clickup-vs-travel-crm.html" class="blog-link">Read More →</a>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="#" target="_blank">LinkedIn</a>
                 </div>
-                <div class="blog-card fade-in">
-                    <div class="blog-category">Systems</div>
-                    <h3>The 15-Minute Inquiry That Changed Everything</h3>
-                    <p>How one question in a system audit revealed $15K in lost revenue—and what we did about it.</p>
-                    <div class="blog-meta">February 1, 2026 • 6 min read</div>
-                    <a href="/blog/posts/the-15-minute-inquiry.html" class="blog-link">Read More →</a>
+                <div class="contact-item">
+                    <i class="fab fa-twitter"></i>
+                    <a href="#" target="_blank">Twitter</a>
                 </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="/blog/" class="btn btn-primary">
-                    <span>📰</span> View All Posts
-                </a>
-                <a href="/blog/rss.xml" class="btn btn-secondary" style="margin-left: 1rem;">
-                    <span>📡</span> RSS Feed
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <div class="section-container">
-            <div class="about-content">
-                <div class="about-image fade-in">
-                    <div class="about-image-frame">
-                        <span class="about-emoji" role="img" aria-label="Kady Dennis">👩‍💻</span>
-                    </div>
-                    <div class="about-badge">COMMANDER_CLASS</div>
-                </div>
-                <div class="about-text fade-in">
-                    <span class="section-tag">System Profile</span>
-                    <h2>Hi, I'm Kady.</h2>
-                    <p>I spent 4 years in luxury travel, not just selling trips — but building the systems behind the scenes. Then I discovered AI, and everything changed.</p>
-                    <p>Now I combine <strong>15+ years of operations experience</strong> with hands-on AI expertise as a <strong>travel operations consultant</strong>. I believe in <strong>human-AI collaboration</strong>, not replacement. I believe in <strong>ethical tech</strong> — the kind that serves you, not extracts from you. And I believe travel advisors deserve systems that actually work.</p>
-                    <p>I'm also building the <strong>Pinchy Army</strong>: a team of AI agents (led by Pinchy the Crab 🦀) that work together to help travel pros like you. It's scrappy, it's smart, and it's designed around one idea — <strong>I'm not selling you tools, I'm selling you freedom.</strong></p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <div class="stat-number">15+</div>
-                            <div class="stat-label">Years Ops</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">4+</div>
-                            <div class="stat-label">Years Travel</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">∞</div>
-                            <div class="stat-label">Crab Energy</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-tag">FAQ</span>
-                <h2>Frequently Asked Questions</h2>
-            </div>
-            <div class="faq-grid">
-                <div class="faq-item fade-in">
-                    <div class="faq-question">
-                        <span>What is travel advisor automation?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Travel advisor automation involves using tools like ClickUp, AI workflows, and integrated systems to reduce manual tasks—such as client onboarding, commission tracking, and email management—so travel advisors can focus on crafting trips instead of fighting software.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question">
-                        <span>How does AI workflow consulting work for travel businesses?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>AI workflow consulting assesses your current processes, identifies repetitive tasks that AI can handle (like email drafting or research), and designs human-AI collaboration systems with ethical guardrails. Includes implementation guides and training.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question">
-                        <span>What does a ClickUp consultant for travel advisors do?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>A ClickUp consultant for travel advisors sets up customized workspaces, automations, and integrations specifically for travel businesses—handling client pipelines, commission tracking, supplier management, and team workflows.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question">
-                        <span>Why do travel advisors need commission tracking systems?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Travel advisors typically lose 10-15% of commissions due to lack of tracking. A commission tracking system monitors expected vs. received payments, alerts for overdue commissions, and helps recover thousands in lost revenue annually.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question">
-                        <span>What is included in a system audit?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The $297 system audit includes a detailed intake form, 24-hour turnaround, 15-20 minute Loom video walkthrough, written recommendations PDF, and optional 30-minute follow-up call. Identifies tool overlaps and potential savings.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <div class="faq-question">
-                        <span>How quickly can I get started?</span>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>System audits have 24-hour turnaround. AI workflow design typically starts within 48 hours of booking. Full implementations are scheduled based on current availability, usually within 1-2 weeks.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="cta-container">
-            <div class="cta-content">
-                <div class="terminal-prompt">
-                    <span>root@kady:~$</span>
-                    <span>initiate_partnership --mode=tailored</span>
-                </div>
-                <h2>Ready for a superior, tailored experience?</h2>
-                <p>We're not another cookie-cutter solution. We're your systems partner. Let's build something designed around YOUR $3M+ practice.</p>
-                <a href="mailto:hello@kadydennis.com" class="btn btn-primary">
-                    <span>⚡</span> Start the Conversation
-                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-crab" role="img" aria-label="Pinchy">🦀</div>
-            <p>© 2026 Kady Dennis — Your Systems Partner</p>
-            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">We help established travel advisors escape forced, clunky CRM workflows.</p>
-            <p class="footer-links">
-                <a href="/admin/">Mission Control</a> •
-                <a href="/blog/">Blog</a> •
-                <a href="#resources">Resources</a> • 
-                <a href="#services">Services</a> •
-                <a href="#">Tools We Trust</a>
-            </p>
-            <p class="footer-status">
-                <span style="color: var(--neon-cyan)">SYSTEM_STATUS:</span> 
-                <span style="color: var(--neon-green)">ONLINE</span> | 
-                <span style="color: var(--neon-purple)">VERSION 2.1.0</span>
-            </p>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Kady Dennis. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Typewriter effect - Specific achievements (public-appropriate)
-        const phrases = [
-            "Built 5 live ClickUp workspaces...",
-            "Recovered $2,800 in lost commissions...",
-            "Deployed 6 ethical AI resources...",
-            "Systems that actually work..."
-        ];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typewriter = document.getElementById('typewriter');
-
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            
-            if (isDeleting) {
-                typewriter.textContent = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typewriter.textContent = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        // Start typing
-        setTimeout(type, 1000);
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                const isActive = item.classList.contains('active');
-                
-                // Close all items
-                document.querySelectorAll('.faq-item').forEach(faq => {
-                    faq.classList.remove('active');
-                });
-                
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // Scroll progress bar
-        window.addEventListener('scroll', () => {
-            const scrollProgress = document.getElementById('scrollProgress');
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            scrollProgress.style.width = scrollPercent + '%';
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Particle system
-        function createParticles() {
-            const container = document.getElementById('particles');
-            const particleCount = 25;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-                container.appendChild(particle);
-            }
-        }
-
-        createParticles();
-
-        // Crab easter egg
-        document.querySelectorAll('.crab-emoji, .footer-crab').forEach(crab => {
-            crab.addEventListener('click', () => {
-                const messages = [
-                    "🦀 Pinchy says: Systems first!",
-                    "🦀 Click! Click! Ready to help!",
-                    "🦀 Let's automate some workflows!",
-                    "🦀 Crabs love clean code!",
-                    "🦀 Pinchy Army activated!"
-                ];
-                alert(messages[Math.floor(Math.random() * messages.length)]);
-            });
-        });
-
-        // Smooth scroll for anchor links
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-    </script>
 
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "WebSite",
-                "@id": "https://kadydennis.com/#website",
-                "url": "https://kadydennis.com/",
-                "name": "Kady Dennis | Travel Operations & AI Consultant",
-                "description": "Travel advisor automation, AI workflow consultant, and ClickUp specialist"
-            },
-            {
-                "@type": "Person",
-                "@id": "https://kadydennis.com/#person",
-                "name": "Kady Dennis",
-                "url": "https://kadydennis.com/",
-                "jobTitle": "Travel Operations & AI Consultant",
-                "description": "Helping travel advisors escape tool chaos with ethical AI workflows and systems that actually work",
-                "knowsAbout": [
-                    "Travel Advisor Automation",
-                    "AI Workflow Design",
-                    "ClickUp Implementation",
-                    "Travel Operations",
-                    "Commission Tracking",
-                    "Business Systems"
-                ]
-            },
-            {
-                "@type": "LocalBusiness",
-                "@id": "https://kadydennis.com/#business",
-                "name": "Kady Dennis Consulting",
-                "url": "https://kadydennis.com/",
-                "description": "Travel operations and AI consulting for travel advisors",
-                "serviceType": [
-                    "System Audits",
-                    "AI Workflow Design",
-                    "ClickUp Implementation",
-                    "Travel Business Automation"
-                ],
-                "priceRange": "$$$"
+        // Form submission handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for your interest! We'll notify you at ${email} when services launch.`);
+            this.reset();
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = 'none';
             }
-        ]
-    }
+        });
     </script>
 </body>
 </html>
