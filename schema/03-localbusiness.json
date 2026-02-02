@@ -1,0 +1,56 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://kadydennis.com/#localbusiness",
+  "name": "Kady Dennis - Travel Tech Specialist",
+  "image": "https://kadydennis.com/og-image.jpg",
+  "url": "https://kadydennis.com",
+  "telephone": "",
+  "email": "hello@kadydennis.com",
+  "priceRange": "$75 - $1500",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Credit Card, PayPal, Bank Transfer",
+  "description": "Travel tech specialist helping travel advisors optimize Tern CRM, migrate systems, and automate workflows. AI-powered consulting for travel businesses.",
+  "founder": {
+    "@type": "Person",
+    "name": "Kady Dennis"
+  },
+  "foundingDate": "2024",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      "Tern Setup & Optimization",
+      "CRM Migration",
+      "Workflow Automation",
+      "Training & Support"
+    ]
+  },
+  "knowsAbout": [
+    "Tern CRM",
+    "Travel Agency Technology",
+    "CRM Migration",
+    "Workflow Automation",
+    "AI Consulting"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/kadydennis",
+    "https://letslucia.com/copilot"
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "17:00"
+  }
+}

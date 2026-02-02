@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://kadydennis.com/services/workflow-automation#service",
+  "serviceType": "Workflow Automation",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://kadydennis.com/#organization"
+  },
+  "name": "Workflow Automation",
+  "description": "Custom automation for travel advisors. Client journey workflows, automated email sequences, task triggers, follow-up systems, and integrations that save hours every week.",
+  "url": "https://kadydennis.com/services/workflow-automation",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Travel Advisors, Travel Agents, Travel Agency Owners"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Automation Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Workflow Automation - Hourly",
+        "description": "Custom automation design and implementation billed hourly",
+        "price": "75.00",
+        "priceCurrency": "USD",
+        "unitText": "per hour",
+        "availability": "https://schema.org/InStock"
+      }
+    ]
+  },
+  "termsOfService": "https://kadydennis.com/terms"
+}

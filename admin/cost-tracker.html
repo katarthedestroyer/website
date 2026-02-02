@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Tracker | Pinchy Army</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #00d4ff;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .budget-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .budget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .budget-label {
+            font-size: 14px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .budget-amount {
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        .budget-amount .spent {
+            color: #e0e0e0;
+        }
+        
+        .budget-amount .limit {
+            color: #666;
+            font-size: 20px;
+            font-weight: 400;
+        }
+        
+        .progress-container {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            height: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            border-radius: 8px;
+            transition: width 0.5s ease, background-color 0.3s ease;
+            position: relative;
+        }
+        
+        .progress-bar.green {
+            background: linear-gradient(90deg, #00ff88, #00cc6a);
+        }
+        
+        .progress-bar.yellow {
+            background: linear-gradient(90deg, #ffd700, #ffb800);
+        }
+        
+        .progress-bar.red {
+            background: linear-gradient(90deg, #ff4757, #ff2e43);
+        }
+        
+        .progress-text {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            font-weight: 600;
+            color: #000;
+            text-shadow: 0 0 2px rgba(255,255,255,0.5);
+        }
+        
+        .status-message {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-message.good {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid rgba(0,255,136,0.2);
+            color: #00ff88;
+        }
+        
+        .status-message.warning {
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.2);
+            color: #ffd700;
+        }
+        
+        .status-message.danger {
+            background: rgba(255,71,87,0.1);
+            border: 1px solid rgba(255,71,87,0.2);
+            color: #ff4757;
+        }
+        
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .model-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 18px;
+        }
+        
+        .model-card.claude {
+            border-left: 3px solid #d4a574;
+        }
+        
+        .model-card.kimi {
+            border-left: 3px solid #00d4ff;
+        }
+        
+        .model-card.gpt4 {
+            border-left: 3px solid #10a37f;
+        }
+        
+        .model-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .model-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .model-cost {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00d4ff;
+        }
+        
+        .model-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 12px;
+            color: #888;
+        }
+        
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-value {
+            color: #e0e0e0;
+            font-weight: 500;
+            font-size: 13px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .last-update {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .refresh-btn {
+            background: rgba(0,212,255,0.1);
+            border: 1px solid rgba(0,212,255,0.3);
+            color: #00d4ff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .refresh-btn:hover {
+            background: rgba(0,212,255,0.2);
+        }
+        
+        .refresh-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(0,212,255,0.3);
+            border-top-color: #00d4ff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .error-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255,71,87,0.9);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            display: none;
+        }
+        
+        .error-toast.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Dashboard</a>
+        
+        <header>
+            <h1>💰 Cost Tracker</h1>
+            <div class="subtitle">Daily API Budget Monitor</div>
+        </header>
+        
+        <div class="budget-card">
+            <div class="budget-header">
+                <div class="budget-label">Today's Spending</div>
+                <div class="budget-amount">
+                    <span class="spent" id="spent-amount">$0.00</span>
+                    <span class="limit">/ $5.00</span>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar green" id="progress-bar" style="width: 0%">
+                    <span class="progress-text" id="progress-text">0%</span>
+                </div>
+            </div>
+            
+            <div class="status-message good" id="status-message">
+                <span>✓</span>
+                <span>Within budget - spending looks healthy</span>
+            </div>
+        </div>
+        
+        <div class="models-grid" id="models-grid">
+            <div class="model-card claude">
+                <div class="model-header">
+                    <div class="model-name">Claude</div>
+                    <div class="model-cost" id="claude-cost">$0.00</div>
+                </div>
+                <div class="model-stats">
+                    <div class="stat">
+                        <span>Input Tokens</span>
+                        <span class="stat-value" id="claude-input">0</span>
+                    </div>
+                    <div class="stat">
+                        <span>Output Tokens</span>
+                        <span class="stat-value" id="claude-output">0</span>
+                    </div>
+                    <div class="stat">
+                        <span>API Calls</span>
+                        <span class="stat-value" id="claude-calls">0</span>
+                    </div>
+                    <div class="stat">
+                        <span>% of Budget</span>
+                        <span class="stat-value" id="claude-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="model-card kimi">
+                <div class="model-header">
+                    <div class="model-name">Kimi</div>
+                    <div class="model-cost" id="kimi-cost">$0.00</div>
+                </div>
+                <div class="model-stats">
+                    <div class="stat">
+                        <span>Input Tokens</span>
+                        <span class="stat-value" id="kimi-input">0</span>
+                    </div>
+                    <div class="stat">
+                        <span>Output Tokens</span>
+                        <span class="stat-value" id="kimi-output">0</span>
+                    </div>
+                    <div class="stat">
+                        <span>API Calls</span>
+                        <span class="stat-value" id="kimi-calls">0</span>
+                    </div>
+                    <div class="stat">
+                        <span>% of Budget</span>
+                        <span class="stat-value" id="kimi-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="model-card gpt4">
+                <div class="model-header">
+                    <div class="model-name">GPT-4</div>
+                    <div class="model-cost" id="gpt4-cost">$0.00</div>
+                </div>
+                <div class="model-stats">
+                    <div class="stat">
+                        <span>Input Tokens</span>
+                        <span class="stat-value" id="gpt4-input">0</span>
+                    </div>
+                    <div class="stat">
+                        <span>Output Tokens</span>
+                        <span class="stat-value" id="gpt4-output">0</span>
+                    </div>
+                    <div class="stat">
+                        <span>API Calls</span>
+                        <span class="stat-value" id="gpt4-calls">0</span>
+                    </div>
+                    <div class="stat">
+                        <span>% of Budget</span>
+                        <span class="stat-value" id="gpt4-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="last-update" id="last-update">Last updated: --</div>
+            <button class="refresh-btn" id="refresh-btn" onclick="refreshData()">
+                Refresh Now
+            </button>
+        </div>
+    </div>
+    
+    <div class="error-toast" id="error-toast"></div>
+    
+    <script>
+        let autoRefreshInterval;
+        
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(2) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num.toLocaleString();
+        }
+        
+        function formatCurrency(amount) {
+            return '$' + amount.toFixed(4);
+        }
+        
+        function updateProgressBar(percent) {
+            const bar = document.getElementById('progress-bar');
+            const text = document.getElementById('progress-text');
+            const statusMsg = document.getElementById('status-message');
+            
+            // Cap at 100% for display but show actual percent
+            const displayPercent = Math.min(percent, 100);
+            bar.style.width = displayPercent + '%';
+            text.textContent = percent.toFixed(1) + '%';
+            
+            // Update color based on threshold
+            bar.className = 'progress-bar';
+            statusMsg.className = 'status-message';
+            
+            if (percent <= 60) {
+                bar.classList.add('green');
+                statusMsg.classList.add('good');
+                statusMsg.innerHTML = '<span>✓</span><span>Within budget - spending looks healthy</span>';
+            } else if (percent <= 85) {
+                bar.classList.add('yellow');
+                statusMsg.classList.add('warning');
+                statusMsg.innerHTML = '<span>⚠</span><span>Approaching budget limit - monitor usage</span>';
+            } else {
+                bar.classList.add('red');
+                statusMsg.classList.add('danger');
+                if (percent > 100) {
+                    statusMsg.innerHTML = '<span>🚨</span><span>Budget exceeded! Consider switching to cheaper models</span>';
+                } else {
+                    statusMsg.innerHTML = '<span>⚠</span><span>Critical - very close to budget limit</span>';
+                }
+            }
+        }
+        
+        function updateModelCard(model, data, totalBudget) {
+            const costEl = document.getElementById(model + '-cost');
+            const inputEl = document.getElementById(model + '-input');
+            const outputEl = document.getElementById(model + '-output');
+            const callsEl = document.getElementById(model + '-calls');
+            const percentEl = document.getElementById(model + '-percent');
+            
+            if (costEl) costEl.textContent = formatCurrency(data.cost);
+            if (inputEl) inputEl.textContent = formatNumber(data.input);
+            if (outputEl) outputEl.textContent = formatNumber(data.output);
+            if (callsEl) callsEl.textContent = formatNumber(data.calls);
+            if (percentEl) percentEl.textContent = ((data.cost / totalBudget) * 100).toFixed(1) + '%';
+        }
+        
+        async function loadData() {
+            try {
+                const response = await fetch('cost-data.json?' + Date.now());
+                if (!response.ok) throw new Error('Failed to load cost data');
+                
+                const data = await response.json();
+                
+                // Update budget display
+                document.getElementById('spent-amount').textContent = formatCurrency(data.budget.spent);
+                updateProgressBar(data.budget.percent_used);
+                
+                // Update model cards
+                if (data.models.claude) {
+                    updateModelCard('claude', data.models.claude, data.budget.daily);
+                }
+                if (data.models.kimi) {
+                    updateModelCard('kimi', data.models.kimi, data.budget.daily);
+                }
+                if (data.models.gpt4) {
+                    updateModelCard('gpt4', data.models.gpt4, data.budget.daily);
+                }
+                
+                // Update timestamp
+                const generated = new Date(data.generated);
+                document.getElementById('last-update').textContent = 
+                    'Last updated: ' + generated.toLocaleTimeString();
+                
+            } catch (error) {
+                console.error('Error loading cost data:', error);
+                showError('Failed to load cost data. Make sure cost-data.json exists.');
+            }
+        }
+        
+        async function refreshData() {
+            const btn = document.getElementById('refresh-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Refreshing...';
+            
+            try {
+                // Trigger Python script to regenerate data
+                const response = await fetch('update-costs.py', { method: 'HEAD' });
+                // Note: In production, you'd have a server endpoint to run the script
+                // For now, just reload the data file
+                await loadData();
+            } catch (error) {
+                console.log('Running update locally...');
+            }
+            
+            // Reload data
+            await loadData();
+            
+            btn.disabled = false;
+            btn.textContent = 'Refresh Now';
+        }
+        
+        function showError(message) {
+            const toast = document.getElementById('error-toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 5000);
+        }
+        
+        function startAutoRefresh() {
+            // Refresh every 60 seconds
+            autoRefreshInterval = setInterval(loadData, 60000);
+        }
+        
+        // Initial load
+        loadData();
+        
+        // Start auto-refresh
+        startAutoRefresh();
+        
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (autoRefreshInterval) clearInterval(autoRefreshInterval);
+        });
+    </script>
+</body>
+</html>

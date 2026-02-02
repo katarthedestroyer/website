@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Kady Dennis — Travel Operations & AI Insights</title>
+    <meta name="description" content="Thoughts on AI workflows, travel operations, and building systems that actually work for luxury travel advisors.">
+    <meta name="author" content="Kady Dennis">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kadydennis.com/blog/">
+    <link rel="alternate" type="application/rss+xml" title="Kady Dennis Blog" href="/blog/rss.xml">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kady Dennis Blog">
+    <meta property="og:title" content="Blog | Kady Dennis — Travel Operations & AI Insights">
+    <meta property="og:description" content="Thoughts on AI workflows, travel operations, and building systems that actually work.">
+    <meta property="og:url" content="https://kadydennis.com/blog/">
+    
+    <link rel="stylesheet" href="/css/fonts.css">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff00aa;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+        }
+        .glow-orb-1 {
+            width: 400px; height: 400px;
+            background: var(--neon-purple);
+            top: -100px; right: -100px;
+            animation: float 20s ease-in-out infinite;
+        }
+        .glow-orb-2 {
+            width: 300px; height: 300px;
+            background: var(--neon-cyan);
+            bottom: 10%; left: -100px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .nav-crab {
+            font-size: 1.5rem;
+            animation: bob 2s ease-in-out infinite;
+        }
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+        .nav-logo span { color: var(--neon-cyan); }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--neon-cyan); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Header Section */
+        .blog-header {
+            padding: 10rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .terminal-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+        }
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+
+        .blog-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .blog-tag::before {
+            content: '◉';
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .blog-header h1 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .blog-header h1 .highlight {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blog-header p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            max-width: 600px;
+        }
+
+        /* RSS Subscribe */
+        .rss-subscribe {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .rss-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--neon-gold);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .rss-link:hover {
+            background: rgba(212, 168, 83, 0.1);
+            box-shadow: 0 0 20px rgba(212, 168, 83, 0.3);
+        }
+
+        /* Blog Grid */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Blog Card */
+        .blog-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-glow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 212, 255, 0.1);
+        }
+        .blog-card.featured {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        @media (max-width: 768px) {
+            .blog-card.featured {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .blog-card-image {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--bg-surface-light), var(--bg-surface));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-card.featured .blog-card-image {
+            aspect-ratio: auto;
+            height: 100%;
+        }
+        .blog-card-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 92, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .blog-card:hover .blog-card-image::before {
+            opacity: 1;
+        }
+
+        .blog-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        .blog-category {
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .blog-date::before {
+            content: '//';
+            margin-right: 0.5rem;
+            color: var(--neon-purple);
+        }
+
+        .blog-card h2 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        .blog-card h2 a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .blog-card h2 a:hover {
+            color: var(--neon-cyan);
+        }
+        .blog-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        .blog-card.featured h2 {
+            font-size: 1.75rem;
+        }
+        .blog-card.featured p {
+            font-size: 1rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .read-more:hover {
+            gap: 0.75rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        .read-more::after {
+            content: '→';
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+        }
+        .footer-crab {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bob 2s ease-in-out infinite;
+        }
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .blog-header h1 { font-size: 2rem; }
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <nav>
+        <a href="/" class="nav-brand">
+            <span class="nav-crab">🦀</span>
+            <span class="nav-logo">KADY_DENNIS</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/resources/">Resources</a></li>
+            <li><a href="/blog/">Blog</a></li>
+        </ul>
+        <a href="/#contact" class="nav-cta">INITIATE_CONTACT</a>
+    </nav>
+
+    <header class="blog-header">
+        <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span>blog/mission_logs — bash — 80x24</span>
+        </div>
+        <span class="blog-tag">Mission Logs</span>
+        <h1>Thoughts on <span class="highlight">AI, systems,</span> and the future of travel operations.</h1>
+        <p>Raw notes from the field, lessons learned building the Pinchy Army, and frameworks for luxury travel advisors ready to escape tool chaos.</p>
+        
+        <div class="rss-subscribe">
+            <a href="/blog/rss.xml" class="rss-link">
+                <span>📡</span> RSS Feed
+            </a>
+        </div>
+    </header>
+
+    <main class="blog-container">
+        <div class="blog-grid">
+            <!-- Featured Post -->
+            <article class="blog-card featured">
+                <div class="blog-card-image">🦀</div>
+                <div class="blog-card-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">AI & Automation</span>
+                        <span class="blog-date">February 1, 2026</span>
+                    </div>
+                    <h2><a href="/blog/posts/why-i-built-the-pinchy-army.html">Why I Built the Pinchy Army: A Travel Advisor's Journey into AI</a></h2>
+                    <p>The real story behind Pinchy, my AI army, and why I believe every travel advisor needs a digital partner—not a replacement, but an extension of what makes them extraordinary at their craft.</p>
+                    <a href="/blog/posts/why-i-built-the-pinchy-army.html" class="read-more">Read Mission Log</a>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="blog-card">
+                <div class="blog-card-image">⚡</div>
+                <div class="blog-card-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Workflows</span>
+                        <span class="blog-date">January 28, 2026</span>
+                    </div>
+                    <h2><a href="/blog/posts/clickup-vs-travel-crm.html">Why I Chose ClickUp Over Every Travel-Specific CRM</a></h2>
+                    <p>The uncomfortable truth about "industry-specific" software and why flexibility beats features every single time. Plus: my exact ClickUp workspace setup for $3M+ travel advisors.</p>
+                    <a href="/blog/posts/clickup-vs-travel-crm.html" class="read-more">Read Mission Log</a>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="blog-card">
+                <div class="blog-card-image">🎯</div>
+                <div class="blog-card-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Strategy</span>
+                        <span class="blog-date">January 20, 2026</span>
+                    </div>
+                    <h2><a href="/blog/posts/the-15-minute-inquiry.html">The 15-Minute Inquiry Response That Books 40% More Trips</a></h2>
+                    <p>How luxury travelers actually choose their advisors, and the AI-assisted workflow that lets you respond with genuine personalization in under 15 minutes—without sounding robotic.</p>
+                    <a href="/blog/posts/the-15-minute-inquiry.html" class="read-more">Read Mission Log</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <span class="footer-crab">🦀</span>
+        <p>Built with 💙 and a small army of AI assistants</p>
+        <p>© 2026 Kady Dennis | <a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/rss.xml">RSS</a></p>
+    </footer>
+</body>
+</html>

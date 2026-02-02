@@ -1,0 +1,52 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://kadydennis.com/services/tern-setup#service",
+  "serviceType": "Tern Setup & Optimization",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://kadydennis.com/#organization"
+  },
+  "name": "Tern Setup & Optimization",
+  "description": "Complete Tern CRM setup and optimization for travel advisors. Custom workflows, automated emails, forms, and training to get your system working the way it should.",
+  "url": "https://kadydennis.com/services/tern-setup",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Travel Advisors, Travel Agents, Travel Agency Owners"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Tern Setup Packages",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Tern Health Check",
+        "description": "60-minute audit + recommendations report",
+        "price": "150.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Essentials Setup",
+        "description": "Account config + 3 workflows + 5 emails + 1-hour training",
+        "price": "500.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro Setup",
+        "description": "Full setup + 6 workflows + 10 emails + 2 training calls + 30 days support",
+        "price": "1000.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    ]
+  },
+  "termsOfService": "https://kadydennis.com/terms"
+}

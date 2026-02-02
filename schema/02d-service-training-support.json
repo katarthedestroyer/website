@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://kadydennis.com/services/training-support#service",
+  "serviceType": "Training & Support",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://kadydennis.com/#organization"
+  },
+  "name": "Training & Support",
+  "description": "1:1 training sessions, Tern health checks, ongoing support, and monthly retainers. Get expert help when you need it to maximize your travel tech investment.",
+  "url": "https://kadydennis.com/services/training-support",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Travel Advisors, Travel Agents, Travel Agency Owners"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Training & Support Options",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "1:1 Training Session",
+        "description": "Screen share sessions customized to your setup and questions",
+        "price": "75.00",
+        "priceCurrency": "USD",
+        "unitText": "per hour",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Tern Health Check",
+        "description": "60-minute audit call with written recommendations report",
+        "price": "150.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Ongoing Support",
+        "description": "As-needed help and quick questions answered",
+        "price": "75.00",
+        "priceCurrency": "USD",
+        "unitText": "per hour",
+        "availability": "https://schema.org/InStock"
+      }
+    ]
+  },
+  "termsOfService": "https://kadydennis.com/terms"
+}

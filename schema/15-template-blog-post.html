@@ -1,0 +1,122 @@
+<!-- ============================================ -->
+<!-- BLOG POST JSON-LD TEMPLATE - Copy into <head> -->
+<!-- ============================================ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://kadydennis.com/#organization",
+      "name": "Kady Dennis",
+      "alternateName": "Kady Dennis - Travel Tech Specialist",
+      "url": "https://kadydennis.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/og-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Travel Tech Specialist helping travel advisors optimize Tern, migrate CRMs, and automate workflows.",
+      "sameAs": [
+        "https://www.linkedin.com/in/kadydennis",
+        "https://letslucia.com/copilot"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kadydennis.com/#website",
+      "url": "https://kadydennis.com",
+      "name": "Kady Dennis - Travel Tech Specialist",
+      "publisher": {
+        "@id": "https://kadydennis.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://kadydennis.com/blog/POST-SLUG/#webpage",
+      "url": "https://kadydennis.com/blog/POST-SLUG/",
+      "name": "POST TITLE | Kady Dennis",
+      "description": "POST META DESCRIPTION",
+      "isPartOf": {
+        "@id": "https://kadydennis.com/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://kadydennis.com/blog/POST-SLUG/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://kadydennis.com/blog/POST-SLUG/#blogpost",
+      "headline": "POST TITLE",
+      "description": "POST DESCRIPTION",
+      "url": "https://kadydennis.com/blog/POST-SLUG/",
+      "datePublished": "2026-02-01T10:00:00-05:00",
+      "dateModified": "2026-02-01T10:00:00-05:00",
+      "author": {
+        "@type": "Person",
+        "name": "Kady Dennis",
+        "url": "https://kadydennis.com/about/"
+      },
+      "publisher": {
+        "@id": "https://kadydennis.com/#organization"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/blog/images/POST-IMAGE.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://kadydennis.com/blog/POST-SLUG/"
+      },
+      "articleSection": "Travel Technology",
+      "keywords": ["Tern", "Travel CRM", "Workflow Automation", "Travel Advisors"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://kadydennis.com/blog/POST-SLUG/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kadydennis.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://kadydennis.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "POST TITLE",
+          "item": "https://kadydennis.com/blog/POST-SLUG/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!--
+CUSTOMIZATION INSTRUCTIONS:
+1. Replace POST-SLUG with the URL-friendly slug (e.g., "tern-setup-guide")
+2. Replace POST TITLE with the actual blog post title
+3. Replace POST META DESCRIPTION with SEO meta description (150-160 chars)
+4. Replace POST DESCRIPTION with a summary of the article
+5. Update datePublished and dateModified with actual dates (ISO 8601 format)
+6. Replace POST-IMAGE.jpg with the actual featured image filename
+7. Update articleSection if needed (e.g., "CRM Migration", "Workflow Automation")
+8. Update keywords array with relevant terms for this specific post
+-->

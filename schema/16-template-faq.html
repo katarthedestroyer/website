@@ -1,0 +1,144 @@
+<!-- ============================================ -->
+<!-- FAQ PAGE JSON-LD TEMPLATE - Copy into <head> -->
+<!-- ============================================ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://kadydennis.com/#organization",
+      "name": "Kady Dennis",
+      "alternateName": "Kady Dennis - Travel Tech Specialist",
+      "url": "https://kadydennis.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Travel Tech Specialist helping travel advisors optimize Tern, migrate CRMs, and automate workflows.",
+      "sameAs": [
+        "https://www.linkedin.com/in/kadydennis",
+        "https://letslucia.com/copilot"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "hello@kadydennis.com"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kadydennis.com/#website",
+      "url": "https://kadydennis.com",
+      "name": "Kady Dennis - Travel Tech Specialist",
+      "publisher": {
+        "@id": "https://kadydennis.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://kadydennis.com/faq/#webpage",
+      "url": "https://kadydennis.com/faq/",
+      "name": "FAQ | Kady Dennis - Travel Tech Specialist",
+      "description": "Frequently asked questions about Tern setup, CRM migration, workflow automation, and working with Kady Dennis.",
+      "isPartOf": {
+        "@id": "https://kadydennis.com/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://kadydennis.com/faq/#breadcrumb"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://kadydennis.com/faq/#faqpage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a typical Tern setup take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Essentials Setup package takes about 1 week to complete. The Pro Setup package typically takes 2 weeks. Timeline depends on your specific needs and how quickly you can provide feedback during the process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you migrate data from any CRM to Tern?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I can migrate data from most major travel CRMs including TravelJoy, Travefy, ClientBase, and others. The process involves exporting your data, cleaning and formatting it for Tern, importing, and recreating your workflows. I'll let you know if your specific CRM has any limitations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer ongoing support after the initial setup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! I offer hourly support at $75/hour for as-needed help. The Pro Setup package includes 30 days of email support. I also offer monthly retainers for advisors who want dedicated support hours each month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's included in a Tern Health Check?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Tern Health Check is a 60-minute audit of your current Tern setup. We'll review your workflows, automations, forms, and overall configuration. After the call, you'll receive a written recommendations report with specific action items to optimize your system."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the discovery call work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The free 15-minute discovery call is a no-pressure conversation about your needs. We'll discuss what's not working in your current setup, your goals, and whether I'm the right fit to help. If we decide to work together, I'll send a proposal. If not, no hard feelings!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What payment methods do you accept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I accept credit cards, PayPal, and bank transfers. For packages over $500, I typically require a 50% deposit to begin work, with the balance due upon completion."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://kadydennis.com/faq/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kadydennis.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://kadydennis.com/faq/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!--
+TO ADD MORE FAQ ITEMS:
+Copy the Question/Answer block and customize:
+
+{
+  "@type": "Question",
+  "name": "YOUR QUESTION HERE?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "YOUR ANSWER HERE"
+  }
+}
+
+Make sure to add a comma after the closing brace of the previous question block.
+-->

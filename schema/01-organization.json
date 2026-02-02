@@ -1,0 +1,90 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://kadydennis.com/#organization",
+  "name": "Kady Dennis",
+  "alternateName": "Kady Dennis - Travel Tech Specialist",
+  "url": "https://kadydennis.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://kadydennis.com/logo.png",
+    "width": 512,
+    "height": 512
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://kadydennis.com/og-image.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "description": "Travel Tech Specialist helping travel advisors optimize Tern, migrate CRMs, and automate workflows. AI-powered efficiency for travel businesses.",
+  "slogan": "Your Travel Tech Co-Pilot",
+  "founder": {
+    "@type": "Person",
+    "@id": "https://kadydennis.com/#person",
+    "name": "Kady Dennis",
+    "jobTitle": "Travel Tech Specialist",
+    "description": "Travel industry native with 4+ years experience. Specializes in Tern setup, CRM migration, and workflow automation for travel advisors.",
+    "sameAs": [
+      "https://www.linkedin.com/in/kadydennis",
+      "https://letslucia.com/copilot"
+    ]
+  },
+  "foundingDate": "2024",
+  "sameAs": [
+    "https://www.linkedin.com/in/kadydennis",
+    "https://letslucia.com/copilot"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "email": "hello@kadydennis.com",
+    "availableLanguage": ["English"]
+  },
+  "knowsAbout": [
+    "Travel Technology",
+    "Tern CRM",
+    "CRM Migration",
+    "Workflow Automation",
+    "Travel Agency Systems",
+    "AI-Powered Consulting"
+  ],
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Travel Tech Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Tern Setup & Optimization"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "CRM Migration"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Workflow Automation"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Training & Support"
+        }
+      }
+    ]
+  }
+}

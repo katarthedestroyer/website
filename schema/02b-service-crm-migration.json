@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://kadydennis.com/services/crm-migration#service",
+  "serviceType": "CRM Migration",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://kadydennis.com/#organization"
+  },
+  "name": "CRM Migration Services",
+  "description": "Seamless migration from TravelJoy, Travefy, ClientBase, and other CRMs to Tern. Full data export, cleanup, import, workflow recreation, and post-migration support.",
+  "url": "https://kadydennis.com/services/crm-migration",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Travel Advisors, Travel Agents, Travel Agency Owners"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Migration Packages",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Full Migration Package",
+        "description": "Complete data migration including contacts, trips, and history + workflow rebuild + 2 training sessions + 30 days support",
+        "price": "1500.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    ]
+  },
+  "termsOfService": "https://kadydennis.com/terms"
+}

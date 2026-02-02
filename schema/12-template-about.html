@@ -1,0 +1,118 @@
+<!-- ============================================ -->
+<!-- ABOUT PAGE JSON-LD TEMPLATE - Copy into <head> -->
+<!-- ============================================ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://kadydennis.com/#organization",
+      "name": "Kady Dennis",
+      "alternateName": "Kady Dennis - Travel Tech Specialist",
+      "url": "https://kadydennis.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/og-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Travel Tech Specialist helping travel advisors optimize Tern, migrate CRMs, and automate workflows. AI-powered efficiency for travel businesses.",
+      "sameAs": [
+        "https://www.linkedin.com/in/kadydennis",
+        "https://letslucia.com/copilot"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "hello@kadydennis.com",
+        "availableLanguage": ["English"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kadydennis.com/#website",
+      "url": "https://kadydennis.com",
+      "name": "Kady Dennis - Travel Tech Specialist",
+      "publisher": {
+        "@id": "https://kadydennis.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://kadydennis.com/about/#webpage",
+      "url": "https://kadydennis.com/about/",
+      "name": "About | Kady Dennis - Travel Tech Specialist",
+      "description": "Learn about Kady Dennis - travel tech specialist with 4+ years in the industry. Tern expert, CRM migrator, and workflow automation architect.",
+      "isPartOf": {
+        "@id": "https://kadydennis.com/#website"
+      },
+      "about": {
+        "@id": "https://kadydennis.com/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://kadydennis.com/about/#breadcrumb"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://kadydennis.com/about/#person",
+      "name": "Kady Dennis",
+      "jobTitle": "Travel Tech Specialist",
+      "description": "Travel tech specialist helping travel advisors optimize Tern, migrate CRMs, and automate workflows. 4+ years in the travel industry.",
+      "url": "https://kadydennis.com/about/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/images/kady-dennis.jpg",
+        "width": 800,
+        "height": 800
+      },
+      "worksFor": {
+        "@id": "https://kadydennis.com/#organization"
+      },
+      "knowsAbout": [
+        "Travel Technology",
+        "Tern CRM",
+        "CRM Migration",
+        "Workflow Automation",
+        "Travel Agency Systems",
+        "AI Consulting",
+        "Process Optimization"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/kadydennis",
+        "https://letslucia.com/copilot"
+      ],
+      "alumniOf": {
+        "@type": "Organization",
+        "name": "Fora Travel"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://kadydennis.com/about/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kadydennis.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://kadydennis.com/about/"
+        }
+      ]
+    }
+  ]
+}
+</script>

@@ -1,0 +1,29 @@
+{
+  "generated": "2026-02-01T22:34:14.301556Z",
+  "budget": {
+    "daily": 5.0,
+    "spent": 73.8163,
+    "remaining": 0,
+    "percent_used": 1476.33
+  },
+  "models": {
+    "claude": {
+      "input": 9594,
+      "output": 373980,
+      "cost": 28.1924,
+      "calls": 1404
+    },
+    "kimi": {
+      "input": 300764204,
+      "output": 848708,
+      "cost": 45.6239,
+      "calls": 2473
+    },
+    "gpt4": {
+      "input": 0,
+      "output": 0,
+      "cost": 0.0,
+      "calls": 4
+    }
+  }
+}

@@ -1,0 +1,2387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Kady Dennis | Systems Partner for Luxury Travel Advisors</title>
+    <meta name="description" content="We help established travel advisors at scale ($3M+ yearly) escape forced, clunky CRM workflows and build superior, tailored systems—from inquiry to post-trip.">
+    <meta name="keywords" content="travel advisor automation, AI workflow consultant, ClickUp consultant travel, commission tracking travel advisor, travel operations consultant, AI for travel agents, travel business systems">
+    <meta name="author" content="Kady Dennis">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://kadydennis.com/">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kady Dennis - Travel Operations & AI Consultant">
+    <meta property="og:title" content="Kady Dennis | Travel Operations & AI Consultant">
+    <meta property="og:description" content="Escape tool chaos with ethical AI workflows and systems that actually work. Specializing in travel advisor automation, ClickUp setup, and commission tracking.">
+    <meta property="og:url" content="https://kadydennis.com/">
+    <meta property="og:image" content="https://kadydennis.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kady Dennis | Travel Operations & AI Consultant">
+    <meta name="twitter:description" content="Escape tool chaos with ethical AI workflows and systems that actually work. Travel advisor automation specialist.">
+    <meta name="twitter:image" content="https://kadydennis.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🦀%3C/text%3E%3C/svg%3E">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Core Colors */
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            
+            /* Neon Accents */
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff00aa;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            
+            /* Text */
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            
+            /* Fonts */
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            
+            /* Spacing */
+            --section-padding: 6rem;
+            --container-max: 1200px;
+            
+            /* Effects */
+            --blur-glass: blur(20px);
+            --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+            --shadow-card: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Animated Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -2;
+            animation: gridPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatParticle 15s infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing Orbs */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.35;
+        }
+
+        .glow-orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--neon-purple);
+            top: -150px;
+            right: -150px;
+            animation: orbFloat1 25s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--neon-cyan);
+            bottom: 5%;
+            left: -150px;
+            animation: orbFloat2 30s ease-in-out infinite;
+        }
+
+        .glow-orb-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--neon-pink);
+            top: 50%;
+            right: 10%;
+            animation: orbFloat3 20s ease-in-out infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes orbFloat1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(40px, -30px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(30px, 10px) scale(1.05); }
+        }
+
+        @keyframes orbFloat2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-30px, -40px) scale(1.08); }
+            66% { transform: translate(20px, -20px) scale(0.92); }
+        }
+
+        @keyframes orbFloat3 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 30px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: var(--blur-glass);
+            -webkit-backdrop-filter: var(--blur-glass);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 15, 0.95);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-crab {
+            font-size: 1.5rem;
+            animation: crabBob 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+        }
+
+        @keyframes crabBob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+
+        .nav-logo span {
+            color: var(--neon-cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-cta:hover::before {
+            left: 100%;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(124, 92, 255, 0.3);
+        }
+
+        /* Mobile Menu Toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            width: fit-content;
+            border: 1px solid var(--border-glass);
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cursor {
+            width: 10px;
+            height: 1.2em;
+            background: var(--neon-cyan);
+            animation: blink 1s step-end infinite;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        .hero p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 80px rgba(124, 92, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-glass);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-glass);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .crab-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .crab-emoji {
+            font-size: 8rem;
+            animation: floatCrab 3s ease-in-out infinite, glowPulse 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.5));
+            z-index: 2;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .crab-emoji:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes floatCrab {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
+        }
+
+        @keyframes glowPulse {
+            from { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)) drop-shadow(0 0 40px rgba(124, 92, 255, 0.3)); }
+            to { filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.8)) drop-shadow(0 0 80px rgba(124, 92, 255, 0.5)); }
+        }
+
+        .orbit-ring {
+            position: absolute;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+        }
+
+        .orbit-ring:nth-child(1) {
+            width: 200px;
+            height: 200px;
+        }
+
+        .orbit-ring:nth-child(2) {
+            width: 260px;
+            height: 260px;
+            animation-direction: reverse;
+            animation-duration: 30s;
+            border-color: rgba(124, 92, 255, 0.2);
+        }
+
+        .orbit-ring:nth-child(3) {
+            width: 320px;
+            height: 320px;
+            animation-duration: 40s;
+            border-style: dashed;
+            border-color: rgba(0, 212, 255, 0.15);
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .orbit-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        .orbit-ring:nth-child(1) .orbit-dot {
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .orbit-ring:nth-child(2) .orbit-dot {
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--neon-purple);
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+
+        .orbit-ring:nth-child(3) .orbit-dot {
+            top: 50%;
+            right: -4px;
+            transform: translateY(-50%);
+            background: var(--neon-gold);
+            box-shadow: 0 0 15px var(--neon-gold);
+        }
+
+        .status-panel {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-top: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .status-line {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .status-line:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+
+        .status-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--neon-green);
+            box-shadow: 0 0 8px var(--neon-green);
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .status-indicator.warning {
+            background: var(--neon-gold);
+            box-shadow: 0 0 8px var(--neon-gold);
+        }
+
+        /* Section Styling */
+        section {
+            padding: var(--section-padding) 2rem;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-purple);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-tag::before {
+            content: '//';
+            color: var(--neon-cyan);
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2.75rem;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-top: 1rem;
+        }
+
+        /* Problem/Vision Section */
+        .vision-section {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%, transparent 100%);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .problem-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .problem-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-card), 0 0 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .problem-card:hover::before {
+            opacity: 1;
+        }
+
+        .problem-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px rgba(212, 168, 83, 0.5));
+        }
+
+        .problem-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: var(--neon-gold);
+            font-weight: 600;
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Good Fit Section */
+        .good-fit-section {
+            background: var(--bg-surface);
+        }
+
+        .good-fit-section .section-header {
+            text-align: center;
+        }
+
+        .good-fit-section .section-header p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .criteria-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .criteria-card:nth-child(1) { border-left: 3px solid var(--neon-cyan); }
+        .criteria-card:nth-child(2) { border-left: 3px solid var(--neon-purple); }
+        .criteria-card:nth-child(3) { border-left: 3px solid var(--neon-green); }
+        .criteria-card:nth-child(4) { border-left: 3px solid var(--neon-gold); }
+        .criteria-card:nth-child(5) { border-left: 3px solid var(--neon-pink); grid-column: 1 / -1; max-width: 500px; margin: 0 auto; width: 100%; }
+
+        .criteria-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-glow);
+            box-shadow: var(--shadow-card);
+        }
+
+        .criteria-card .check {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .criteria-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .criteria-card:nth-child(1) h3 { color: var(--neon-cyan); }
+        .criteria-card:nth-child(2) h3 { color: var(--neon-purple); }
+        .criteria-card:nth-child(3) h3 { color: var(--neon-green); }
+        .criteria-card:nth-child(4) h3 { color: var(--neon-gold); }
+        .criteria-card:nth-child(5) h3 { color: var(--neon-pink); }
+
+        .criteria-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Use Cases Section */
+        .use-cases-section {
+            background: linear-gradient(180deg, var(--bg-surface) 0%, transparent 100%);
+        }
+
+        .use-cases-section .section-header {
+            text-align: center;
+        }
+
+        .use-cases-section .section-header p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .use-case-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--neon-cyan);
+            box-shadow: var(--shadow-card), 0 0 60px rgba(0, 212, 255, 0.15);
+        }
+
+        .use-case-card:hover::before {
+            opacity: 1;
+        }
+
+        .use-case-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .use-case-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .use-case-block {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border-left: 3px solid;
+        }
+
+        .use-case-block.problem { border-left-color: var(--neon-pink); }
+        .use-case-block.solution { border-left-color: var(--neon-cyan); }
+        .use-case-block.result { border-left-color: var(--neon-green); }
+
+        .use-case-block-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+            opacity: 0.8;
+        }
+
+        .use-case-block.problem .use-case-block-label { color: var(--neon-pink); }
+        .use-case-block.solution .use-case-block-label { color: var(--neon-cyan); }
+        .use-case-block.result .use-case-block-label { color: var(--neon-green); }
+
+        .use-case-block p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .use-case-block strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: var(--bg-surface);
+        }
+
+        .services-section .section-header {
+            text-align: center;
+        }
+
+        .services-section .section-header p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card.featured {
+            border-color: var(--neon-gold);
+            background: linear-gradient(180deg, rgba(212, 168, 83, 0.05) 0%, var(--bg-glass) 100%);
+            transform: scale(1.02);
+        }
+
+        .service-card.featured::after {
+            content: '★ MOST POPULAR';
+            position: absolute;
+            top: 1rem;
+            right: -2rem;
+            background: linear-gradient(135deg, var(--neon-gold), #ff8c00);
+            color: var(--bg-primary);
+            padding: 0.25rem 2.5rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 10px rgba(212, 168, 83, 0.3);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--neon-cyan);
+            box-shadow: var(--shadow-card), 0 0 60px rgba(0, 212, 255, 0.15);
+        }
+
+        .service-card.featured:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .service-badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .service-price {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .service-card li {
+            color: var(--text-secondary);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border-glass);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .service-card li::before {
+            content: '›';
+            color: var(--neon-cyan);
+            font-weight: bold;
+        }
+
+        .service-cta {
+            display: block;
+            text-align: center;
+            padding: 1rem;
+            background: transparent;
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border-color: transparent;
+            color: var(--bg-primary);
+        }
+
+        /* Freebies Section */
+        .freebies-section {
+            background: linear-gradient(180deg, transparent 0%, var(--bg-surface) 50%, transparent 100%);
+        }
+
+        .freebies-section .section-header {
+            text-align: center;
+        }
+
+        .freebies-section .section-header p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .freebies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .freebie-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .freebie-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .freebie-card:hover::before {
+            opacity: 1;
+        }
+
+        .freebie-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .freebie-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .freebie-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .freebie-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .freebie-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .freebie-link:hover {
+            gap: 0.75rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .freebie-link::after {
+            content: '→';
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--bg-surface);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-frame {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-frame::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0.5;
+            animation: borderRotate 4s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .about-emoji {
+            font-size: 6rem;
+            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .about-text h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .about-text strong {
+            color: var(--neon-cyan);
+            font-weight: 600;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(180deg, var(--bg-surface) 0%, transparent 100%);
+        }
+
+        .faq-section .section-header {
+            text-align: center;
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--border-glow);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            color: var(--neon-cyan);
+        }
+
+        .faq-icon {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .terminal-prompt {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--neon-green);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+        }
+
+        .footer-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .footer-crab {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: crabBob 2s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-crab:hover {
+            transform: scale(1.2);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .footer-links {
+            margin-top: 0.75rem;
+        }
+
+        .footer-links a {
+            margin: 0 0.5rem;
+        }
+
+        .footer-status {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .hero-visual {
+                order: 1;
+            }
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .terminal-header {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .problem-grid,
+            .use-case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .service-card.featured {
+                transform: scale(1);
+            }
+
+            .service-card.featured:hover {
+                transform: translateY(-8px) scale(1);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .about-stats {
+                justify-content: center;
+            }
+
+            .criteria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .criteria-card:nth-child(5) {
+                grid-column: 1;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 4rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .crab-container {
+                width: 220px;
+                height: 220px;
+            }
+
+            .crab-emoji {
+                font-size: 5rem;
+            }
+
+            .cta-container {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .about-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .grid-bg, .particles, .glow-orb, nav, .scroll-progress {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Background Effects -->
+    <div class="grid-bg"></div>
+    <div class="particles" id="particles"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-brand">
+            <span class="nav-crab" aria-label="Pinchy the Crab mascot">🦀</span>
+            <span class="nav-logo">KADY<span>_</span>DENNIS</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#use-cases">Success Stories</a></li>
+            <li><a href="#freebies">Resources</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">INITIATE_CONTACT</a>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span>mission_control — bash — 80×24</span>
+                </div>
+                <span class="hero-tag">SYSTEMS PARTNER FOR LUXURY TRAVEL</span>
+                <h1>You've outgrown forced workflows. <span class="highlight">Here's what's actually possible.</span></h1>
+                <div class="hero-subtitle">
+                    <span>❯</span>
+                    <span id="typewriter">Loading systems...</span>
+                    <span class="cursor"></span>
+                </div>
+                <p>We help <strong>established travel advisors at scale ($3M+ yearly)</strong> escape forced, clunky "all-in-one" CRM workflows and build <strong>superior, tailored systems</strong> — from first inquiry to post-trip follow-up. No more settling for software that wasn't built for luxury travel.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">
+                        <span>⚡</span> View Services
+                    </a>
+                    <a href="#freebies" class="btn btn-secondary">
+                        <span>📦</span> Free Resources
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="crab-container">
+                    <div class="orbit-ring"><div class="orbit-dot"></div></div>
+                    <div class="orbit-ring"><div class="orbit-dot"></div></div>
+                    <div class="orbit-ring"><div class="orbit-dot"></div></div>
+                    <span class="crab-emoji" role="img" aria-label="Pinchy the Crab" title="Click me!">🦀</span>
+                </div>
+                <div class="status-panel">
+                    <div class="status-line">
+                        <span class="status-indicator"></span>
+                        <span>SYSTEM_STATUS: OPERATIONAL</span>
+                    </div>
+                    <div class="status-line">
+                        <span class="status-indicator"></span>
+                        <span>PINCHY_ARMY: ONLINE</span>
+                    </div>
+                    <div class="status-line">
+                        <span class="status-indicator"></span>
+                        <span>GROWTH_OPPORTUNITY: IDENTIFIED</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section" id="vision">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">The Vision</span>
+                <h2>When your systems match your ambition...</h2>
+                <p>Imagine if your tools actually worked the way you do.</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">🌊</div>
+                    <h3>Seamless Workflows</h3>
+                    <p>No more fighting your software. Systems that flow with your process—from inquiry to post-trip—so you can focus on what you do best: creating extraordinary travel experiences.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">🎯</div>
+                    <h3>Total Clarity</h3>
+                    <p>One source of truth. Every client journey visible at a glance. Know exactly where things stand without digging through emails, spreadsheets, or memory.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">⚡</div>
+                    <h3>Effortless Scale</h3>
+                    <p>Technology that amplifies your expertise, not replaces it. Handle more clients without adding chaos. Grow without the growing pains.</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">✨</div>
+                    <h3>Superior Experience</h3>
+                    <p>A system as thoughtful as the trips you plan. Tailored to luxury travel. Designed for how you actually work. Finally, tech that feels like an upgrade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Good Fit Section -->
+    <section class="good-fit-section" id="good-fit">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Partnership Criteria</span>
+                <h2>You Might Be a Good Fit If...</h2>
+                <p>These aren't problems to fix—they're signals you're ready for what's next.</p>
+            </div>
+            <div class="criteria-grid">
+                <div class="criteria-card fade-in">
+                    <div class="check">✓</div>
+                    <h3>Growing faster than systems can handle</h3>
+                    <p>Your success has outpaced your infrastructure—in the best possible way. You're ready to build systems that match your momentum.</p>
+                </div>
+                <div class="criteria-card fade-in">
+                    <div class="check">✓</div>
+                    <h3>Success created operational complexity</h3>
+                    <p>More clients, more moving parts, more opportunities. You've proven the model—now you're ready to optimize it.</p>
+                </div>
+                <div class="criteria-card fade-in">
+                    <div class="check">✓</div>
+                    <h3>Know there's a better way but lack time to find it</h3>
+                    <p>You can see the vision, but you're too busy delivering excellence to build the infrastructure. That's where we come in.</p>
+                </div>
+                <div class="criteria-card fade-in">
+                    <div class="check">✓</div>
+                    <h3>Want tech that amplifies your expertise</h3>
+                    <p>You're not looking to be replaced by AI—you want tools that make you even better at what you do best.</p>
+                </div>
+                <div class="criteria-card fade-in">
+                    <div class="check">✓</div>
+                    <h3>Value efficiency + won't compromise client experience</h3>
+                    <p>You want to work smarter, but never at the cost of the white-glove service your clients expect. You demand both.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases-section" id="use-cases">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Success Stories</span>
+                <h2>Real problems. Real solutions. Real results.</h2>
+                <p>See how travel advisors like you transformed their businesses with strategic system design and ethical AI integration.</p>
+            </div>
+            <div class="use-case-grid">
+                <!-- Use Case 1: Tool Overwhelmed -->
+                <div class="use-case-card fade-in">
+                    <div class="use-case-avatar">😵‍💫</div>
+                    <h3>The Tool Overwhelmed Advisor</h3>
+                    <div class="use-case-block problem">
+                        <div class="use-case-block-label">Problem</div>
+                        <p>Paying $400/month for 8 tools, nothing talks to each other. Spending more time managing software than serving clients.</p>
+                    </div>
+                    <div class="use-case-block solution">
+                        <div class="use-case-block-label">Solution</div>
+                        <p>Complete tool audit + consolidation strategy. Replaced 8 tools with 3 integrated essentials + custom workflows. Worked with a <strong>ClickUp consultant for travel</strong> to centralize operations.</p>
+                    </div>
+                    <div class="use-case-block result">
+                        <div class="use-case-block-label">Result</div>
+                        <p><strong>Saved $250/month</strong> and reclaimed <strong>5 hours/week</strong>. Now focused on clients, not browser tabs.</p>
+                    </div>
+                </div>
+
+                <!-- Use Case 2: Commission Leak -->
+                <div class="use-case-card fade-in">
+                    <div class="use-case-avatar">💰</div>
+                    <h3>The Commission Leak</h3>
+                    <div class="use-case-block problem">
+                        <div class="use-case-block-label">Problem</div>
+                        <p>Lost track of $3,200 in unpaid commissions. No systematic tracking, follow-ups falling through cracks, cash flow stress.</p>
+                    </div>
+                    <div class="use-case-block solution">
+                        <div class="use-case-block-label">Solution</div>
+                        <p>Commission recovery system + automated tracking setup. Alerts, follow-up sequences, and reconciliation process. Implemented <strong>commission tracking for travel advisors</strong>.</p>
+                    </div>
+                    <div class="use-case-block result">
+                        <div class="use-case-block-label">Result</div>
+                        <p><strong>Recovered $2,800</strong> in 30 days. Now <strong>never misses a payment</strong> with proactive tracking.</p>
+                    </div>
+                </div>
+
+                <!-- Use Case 3: AI-Curious but Fearful -->
+                <div class="use-case-card fade-in">
+                    <div class="use-case-avatar">🤖</div>
+                    <h3>The AI-Curious but Fearful</h3>
+                    <div class="use-case-block problem">
+                        <div class="use-case-block-label">Problem</div>
+                        <p>Wants to use AI but doesn't know what's safe. Worried about accuracy, client perception, and ethical concerns.</p>
+                    </div>
+                    <div class="use-case-block solution">
+                        <div class="use-case-block-label">Solution</div>
+                        <p>AI readiness assessment + custom workflow design. Human-AI collaboration framework with ethical guardrails. Professional <strong>AI workflow consultant</strong> guidance.</p>
+                    </div>
+                    <div class="use-case-block result">
+                        <div class="use-case-block-label">Result</div>
+                        <p><strong>10 hours/week saved</strong> on admin tasks. Confident client communication with AI-assisted workflows.</p>
+                    </div>
+                </div>
+
+                <!-- Use Case 4: The Growing Agency -->
+                <div class="use-case-card fade-in">
+                    <div class="use-case-avatar">📈</div>
+                    <h3>The Growing Agency</h3>
+                    <div class="use-case-block problem">
+                        <div class="use-case-block-label">Problem</div>
+                        <p>50+ clients, systems breaking, team confused. Everyone's winging it, quality suffering, ready to burn out.</p>
+                    </div>
+                    <div class="use-case-block solution">
+                        <div class="use-case-block-label">Solution</div>
+                        <p>Full system overhaul + ClickUp setup. Standardized processes, team training, scalable workflows, AI agents. Complete <strong>travel advisor automation</strong> transformation.</p>
+                    </div>
+                    <div class="use-case-block result">
+                        <div class="use-case-block-label">Result</div>
+                        <p><strong>Scaled to 100 clients</strong> without adding staff. Team aligned, quality consistent, founder sleeping again.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Services</span>
+                <h2>Your Systems Partner</h2>
+                <p>We bridge the gap between outdated, clunky CRMs and the superior, tailored experience you deserve. Async-first. Fixed pricing. Results-focused.</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card fade-in">
+                    <span class="service-badge">24hr Turnaround</span>
+                    <div class="service-price">$297</div>
+                    <h3>System Audit</h3>
+                    <ul>
+                        <li>For advisors at scale ($3M+ yearly)</li>
+                        <li>Complete tech stack analysis</li>
+                        <li>Custom systems roadmap</li>
+                        <li>Loom video + written action plan</li>
+                        <li>"Your success created this chaos. Let's fix it."</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Started →</a>
+                </div>
+
+                <div class="service-card featured fade-in">
+                    <span class="service-badge">30-Day Support</span>
+                    <div class="service-price">$997</div>
+                    <h3>AI Workflow Design</h3>
+                    <ul>
+                        <li>For scaling advisors who need leverage</li>
+                        <li>Human-AI collaboration framework</li>
+                        <li>Voice-trained prompt library</li>
+                        <li>Ethical guidelines + training</li>
+                        <li>"Automate the admin, amplify the magic."</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Started →</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <span class="service-badge">60-Day Support</span>
+                    <div class="service-price">$2,500+</div>
+                    <h3>ClickUp Setup</h3>
+                    <ul>
+                        <li>For end-to-end system seekers</li>
+                        <li>Custom workspace architecture</li>
+                        <li>Inquiry to post-trip pipeline</li>
+                        <li>Team training + SOP docs</li>
+                        <li>"One system, total clarity."</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Get Started →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Freebies Section -->
+    <section class="freebies-section" id="freebies">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Free Resources</span>
+                <h2>Resources for Every Stage</h2>
+                <p>Whether you're just starting out or scaling past $3M—there's something here for you.</p>
+            </div>
+            <div class="freebies-grid">
+                <div class="freebie-card fade-in">
+                    <div class="freebie-icon">💸</div>
+                    <h3>Subscription Audit Worksheet</h3>
+                    <p>Find the $300-500/month you're wasting on tools you don't need. Includes consolidation guide + action plan.</p>
+                    <a href="#" class="freebie-link" onclick="alert('Coming soon!'); return false;">Get the Worksheet →</a>
+                </div>
+                <div class="freebie-card fade-in">
+                    <div class="freebie-icon">💰</div>
+                    <h3>Commission Tracker Template</h3>
+                    <p>Stop losing money to forgotten bookings. Track what's owed, follow up on what's late. CSV + PDF included.</p>
+                    <a href="#" class="freebie-link" onclick="alert('Coming soon!'); return false;">Get the Tracker →</a>
+                </div>
+                <div class="freebie-card fade-in">
+                    <div class="freebie-icon">🤖</div>
+                    <h3>AI Readiness Checklist</h3>
+                    <p>10-point self-assessment with scoring guide. Find out if you're ready for AI — and what to fix first.</p>
+                    <a href="#" class="freebie-link" onclick="alert('Coming soon!'); return false;">Download PDF →</a>
+                </div>
+                <div class="freebie-card fade-in">
+                    <div class="freebie-icon">🦀</div>
+                    <h3>The Pinchy Pact</h3>
+                    <p>Our ethics framework for human-AI collaboration. Shareable principles for working with AI agents.</p>
+                    <a href="#" class="freebie-link" onclick="alert('Coming soon!'); return false;">Download PDF →</a>
+                </div>
+                <div class="freebie-card fade-in">
+                    <div class="freebie-icon">🏥</div>
+                    <h3>CRM Health Check Quiz</h3>
+                    <p>5-minute self-assessment. Find out if your CRM is working for you or against you.</p>
+                    <a href="https://kady-dennis.notion.site/CRM-Health-Check-Quiz-2f92567f0d0a80bda0a7c1e25e440e09" target="_blank" rel="noopener" class="freebie-link">Take the Quiz →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-container">
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <div class="about-image-frame">
+                        <span class="about-emoji" role="img" aria-label="Kady Dennis">👩‍💻</span>
+                    </div>
+                    <div class="about-badge">COMMANDER_CLASS</div>
+                </div>
+                <div class="about-text fade-in">
+                    <span class="section-tag">System Profile</span>
+                    <h2>Hi, I'm Kady.</h2>
+                    <p>I spent 4 years in luxury travel, not just selling trips — but building the systems behind the scenes. Then I discovered AI, and everything changed.</p>
+                    <p>Now I combine <strong>15+ years of operations experience</strong> with hands-on AI expertise as a <strong>travel operations consultant</strong>. I believe in <strong>human-AI collaboration</strong>, not replacement. I believe in <strong>ethical tech</strong> — the kind that serves you, not extracts from you. And I believe travel advisors deserve systems that actually work.</p>
+                    <p>I'm also building the <strong>Pinchy Army</strong>: a team of AI agents (led by Pinchy the Crab 🦀) that work together to help travel pros like you. It's scrappy, it's smart, and it's designed around one idea — <strong>I'm not selling you tools, I'm selling you freedom.</strong></p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Years Ops</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">Years Travel</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Crab Energy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">FAQ</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>What is travel advisor automation?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Travel advisor automation involves using tools like ClickUp, AI workflows, and integrated systems to reduce manual tasks—such as client onboarding, commission tracking, and email management—so travel advisors can focus on crafting trips instead of fighting software.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>How does AI workflow consulting work for travel businesses?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>AI workflow consulting assesses your current processes, identifies repetitive tasks that AI can handle (like email drafting or research), and designs human-AI collaboration systems with ethical guardrails. Includes implementation guides and training.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>What does a ClickUp consultant for travel advisors do?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A ClickUp consultant for travel advisors sets up customized workspaces, automations, and integrations specifically for travel businesses—handling client pipelines, commission tracking, supplier management, and team workflows.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Why do travel advisors need commission tracking systems?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Travel advisors typically lose 10-15% of commissions due to lack of tracking. A commission tracking system monitors expected vs. received payments, alerts for overdue commissions, and helps recover thousands in lost revenue annually.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>What is included in a system audit?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The $297 system audit includes a detailed intake form, 24-hour turnaround, 15-20 minute Loom video walkthrough, written recommendations PDF, and optional 30-minute follow-up call. Identifies tool overlaps and potential savings.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>How quickly can I get started?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>System audits have 24-hour turnaround. AI workflow design typically starts within 48 hours of booking. Full implementations are scheduled based on current availability, usually within 1-2 weeks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-container">
+            <div class="cta-content">
+                <div class="terminal-prompt">
+                    <span>root@kady:~$</span>
+                    <span>initiate_partnership --mode=tailored</span>
+                </div>
+                <h2>Ready for a superior, tailored experience?</h2>
+                <p>We're not another cookie-cutter solution. We're your systems partner. Let's build something designed around YOUR $3M+ practice.</p>
+                <a href="mailto:hello@kadydennis.com" class="btn btn-primary">
+                    <span>⚡</span> Start the Conversation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-crab" role="img" aria-label="Pinchy">🦀</div>
+            <p>© 2026 Kady Dennis — Your Systems Partner</p>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">We help established travel advisors escape forced, clunky CRM workflows.</p>
+            <p class="footer-links">
+                <a href="#">Ethics</a> • 
+                <a href="#freebies">Resources</a> • 
+                <a href="#services">Services</a> •
+                <a href="#">Tools We Trust</a>
+            </p>
+            <p class="footer-status">
+                <span style="color: var(--neon-cyan)">SYSTEM_STATUS:</span> 
+                <span style="color: var(--neon-green)">ONLINE</span> | 
+                <span style="color: var(--neon-purple)">VERSION 2.0.0</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Typewriter effect
+        const phrases = [
+            "Analyzing workflows...",
+            "Optimizing systems...",
+            "Deploying solutions...",
+            "Ready to collaborate."
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriter = document.getElementById('typewriter');
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typewriter.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriter.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Start typing
+        setTimeout(type, 1000);
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Particle system
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 25;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // Crab easter egg
+        document.querySelectorAll('.crab-emoji, .footer-crab').forEach(crab => {
+            crab.addEventListener('click', () => {
+                const messages = [
+                    "🦀 Pinchy says: Systems first!",
+                    "🦀 Click! Click! Ready to help!",
+                    "🦀 Let's automate some workflows!",
+                    "🦀 Crabs love clean code!",
+                    "🦀 Pinchy Army activated!"
+                ];
+                alert(messages[Math.floor(Math.random() * messages.length)]);
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://kadydennis.com/#website",
+                "url": "https://kadydennis.com/",
+                "name": "Kady Dennis | Travel Operations & AI Consultant",
+                "description": "Travel advisor automation, AI workflow consultant, and ClickUp specialist"
+            },
+            {
+                "@type": "Person",
+                "@id": "https://kadydennis.com/#person",
+                "name": "Kady Dennis",
+                "url": "https://kadydennis.com/",
+                "jobTitle": "Travel Operations & AI Consultant",
+                "description": "Helping travel advisors escape tool chaos with ethical AI workflows and systems that actually work",
+                "knowsAbout": [
+                    "Travel Advisor Automation",
+                    "AI Workflow Design",
+                    "ClickUp Implementation",
+                    "Travel Operations",
+                    "Commission Tracking",
+                    "Business Systems"
+                ]
+            },
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://kadydennis.com/#business",
+                "name": "Kady Dennis Consulting",
+                "url": "https://kadydennis.com/",
+                "description": "Travel operations and AI consulting for travel advisors",
+                "serviceType": [
+                    "System Audits",
+                    "AI Workflow Design",
+                    "ClickUp Implementation",
+                    "Travel Business Automation"
+                ],
+                "priceRange": "$$$"
+            }
+        ]
+    }
+    </script>
+</body>
+</html>

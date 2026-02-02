@@ -1,0 +1,235 @@
+<!-- ============================================ -->
+<!-- SERVICES PAGE JSON-LD TEMPLATE - Copy into <head> -->
+<!-- ============================================ -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://kadydennis.com/#organization",
+      "name": "Kady Dennis",
+      "alternateName": "Kady Dennis - Travel Tech Specialist",
+      "url": "https://kadydennis.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/og-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Travel Tech Specialist helping travel advisors optimize Tern, migrate CRMs, and automate workflows. AI-powered efficiency for travel businesses.",
+      "sameAs": [
+        "https://www.linkedin.com/in/kadydennis",
+        "https://letslucia.com/copilot"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "hello@kadydennis.com",
+        "availableLanguage": ["English"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kadydennis.com/#website",
+      "url": "https://kadydennis.com",
+      "name": "Kady Dennis - Travel Tech Specialist",
+      "publisher": {
+        "@id": "https://kadydennis.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://kadydennis.com/services/#webpage",
+      "url": "https://kadydennis.com/services/",
+      "name": "Services | Kady Dennis - Travel Tech Specialist",
+      "description": "Tern setup, CRM migration, workflow automation, and training services for travel advisors. Build systems that actually work.",
+      "isPartOf": {
+        "@id": "https://kadydennis.com/#website"
+      },
+      "about": {
+        "@id": "https://kadydennis.com/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://kadydennis.com/services/#breadcrumb"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kadydennis.com/services/tern-setup#service",
+      "serviceType": "Tern Setup & Optimization",
+      "provider": {
+        "@id": "https://kadydennis.com/#organization"
+      },
+      "name": "Tern Setup & Optimization",
+      "description": "Complete Tern CRM setup and optimization for travel advisors. Custom workflows, automated emails, forms, and training.",
+      "url": "https://kadydennis.com/services/tern-setup",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Tern Setup Packages",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Tern Health Check",
+            "description": "60-minute audit + recommendations report",
+            "price": "150.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Essentials Setup",
+            "description": "Account config + 3 workflows + 5 emails + training",
+            "price": "500.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro Setup",
+            "description": "Full setup + 6 workflows + 10 emails + support",
+            "price": "1000.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kadydennis.com/services/crm-migration#service",
+      "serviceType": "CRM Migration",
+      "provider": {
+        "@id": "https://kadydennis.com/#organization"
+      },
+      "name": "CRM Migration Services",
+      "description": "Seamless migration from TravelJoy, Travefy, ClientBase, and other CRMs to Tern. Full data export, cleanup, import, workflow recreation, and support.",
+      "url": "https://kadydennis.com/services/crm-migration",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Migration Packages",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Full Migration Package",
+            "description": "Complete data migration + workflow rebuild + training + 30 days support",
+            "price": "1500.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kadydennis.com/services/workflow-automation#service",
+      "serviceType": "Workflow Automation",
+      "provider": {
+        "@id": "https://kadydennis.com/#organization"
+      },
+      "name": "Workflow Automation",
+      "description": "Custom automation for travel advisors. Client journey workflows, automated email sequences, task triggers, follow-up systems, and integrations.",
+      "url": "https://kadydennis.com/services/workflow-automation",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Automation Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Workflow Automation - Hourly",
+            "description": "Custom automation design and implementation",
+            "price": "75.00",
+            "priceCurrency": "USD",
+            "unitText": "per hour",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kadydennis.com/services/training-support#service",
+      "serviceType": "Training & Support",
+      "provider": {
+        "@id": "https://kadydennis.com/#organization"
+      },
+      "name": "Training & Support",
+      "description": "1:1 training sessions, Tern health checks, ongoing support, and monthly retainers for travel advisors.",
+      "url": "https://kadydennis.com/services/training-support",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Training & Support Options",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "1:1 Training Session",
+            "description": "Screen share sessions customized to your setup",
+            "price": "75.00",
+            "priceCurrency": "USD",
+            "unitText": "per hour",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Tern Health Check",
+            "description": "60-minute audit call with written recommendations",
+            "price": "150.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Ongoing Support",
+            "description": "As-needed help and quick questions",
+            "price": "75.00",
+            "priceCurrency": "USD",
+            "unitText": "per hour",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://kadydennis.com/services/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kadydennis.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://kadydennis.com/services/"
+        }
+      ]
+    }
+  ]
+}
+</script>

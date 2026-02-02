@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://kadydennis.com/services/tern-setup/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://kadydennis.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://kadydennis.com/services/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Tern Setup & Optimization",
+      "item": "https://kadydennis.com/services/tern-setup/"
+    }
+  ]
+}

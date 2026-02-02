@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Kady Dennis — Mission Logs</title>
+    <link>https://kadydennis.com/blog/</link>
+    <description>Thoughts on AI workflows, travel operations, and building systems that actually work for luxury travel advisors.</description>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 01 Feb 2026 05:00:00 GMT</lastBuildDate>
+    <atom:link href="https://kadydennis.com/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://kadydennis.com/images/og-image.jpg</url>
+      <title>Kady Dennis — Mission Logs</title>
+      <link>https://kadydennis.com/blog/</link>
+    </image>
+
+    <item>
+      <title>Why I Built the Pinchy Army: A Travel Advisor's Journey into AI</title>
+      <link>https://kadydennis.com/blog/posts/why-i-built-the-pinchy-army.html</link>
+      <guid isPermaLink="true">https://kadydennis.com/blog/posts/why-i-built-the-pinchy-army.html</guid>
+      <pubDate>Sun, 01 Feb 2026 05:00:00 GMT</pubDate>
+      <author>kady@eliavatravel.com (Kady Dennis)</author>
+      <category>AI &amp; Automation</category>
+      <description>The real story behind Pinchy, my AI army, and why I believe every travel advisor needs a digital partner—not a replacement, but an extension of what makes them extraordinary at their craft.</description>
+      <content:encoded><![CDATA[
+        <p>The first time I watched Pinchy write an email that sounded exactly like me, I felt a strange mix of awe and existential dread. <strong>Was I about to make myself obsolete?</strong></p>
+        <p>It was 3 AM. I'd been wrestling with a client's complex multi-generational safari trip for hours. The research was done, the lodges selected, the itinerary mapped—but I still had to craft the proposal email.</p>
+        <p>I typed a quick prompt into my AI assistant. Thirty seconds later, I had an email that captured my voice, referenced the client's specific concerns about traveling with teenagers, and wove in the personal touches I'd normally spend an hour perfecting.</p>
+        <p><a href="https://kadydennis.com/blog/posts/why-i-built-the-pinchy-army.html">Read the full mission log →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>Why I Chose ClickUp Over Every Travel-Specific CRM</title>
+      <link>https://kadydennis.com/blog/posts/clickup-vs-travel-crm.html</link>
+      <guid isPermaLink="true">https://kadydennis.com/blog/posts/clickup-vs-travel-crm.html</guid>
+      <pubDate>Wed, 28 Jan 2026 05:00:00 GMT</pubDate>
+      <author>kady@eliavatravel.com (Kady Dennis)</author>
+      <category>Workflows</category>
+      <description>The uncomfortable truth about "industry-specific" software and why flexibility beats features every single time. Plus: my exact ClickUp workspace setup for $3M+ travel advisors.</description>
+      <content:encoded><![CDATA[
+        <p>I've tried them all. TravelJoy. Travefy. ClientBase. The big names, the niche players, the "built specifically for travel advisors" solutions that promise the world.</p>
+        <p>They all failed me. Not because they're bad products—some are genuinely well-designed—but because they make a fundamental error: <strong>they assume all travel advisors work the same way.</strong></p>
+        <p>Here's the dirty secret: every successful luxury travel advisor I know has a unique workflow.</p>
+        <p><a href="https://kadydennis.com/blog/posts/clickup-vs-travel-crm.html">Read the full mission log →</a></p>
+      ]]></content:encoded>
+    </item>
+
+    <item>
+      <title>The 15-Minute Inquiry Response That Books 40% More Trips</title>
+      <link>https://kadydennis.com/blog/posts/the-15-minute-inquiry.html</link>
+      <guid isPermaLink="true">https://kadydennis.com/blog/posts/the-15-minute-inquiry.html</guid>
+      <pubDate>Tue, 20 Jan 2026 05:00:00 GMT</pubDate>
+      <author>kady@eliavatravel.com (Kady Dennis)</author>
+      <category>Strategy</category>
+      <description>How luxury travelers actually choose their advisors, and the AI-assisted workflow that lets you respond with genuine personalization in under 15 minutes—without sounding robotic.</description>
+      <content:encoded><![CDATA[
+        <p>Here's a number that should terrify every luxury travel advisor: <strong>the advisor who responds first wins the client 70% of the time.</strong></p>
+        <p>Not the cheapest. Not the most experienced. The fastest.</p>
+        <p>But there's a catch—luxury travelers can smell a template from a mile away.</p>
+        <p>So how do you balance speed with personalization? I spent two years A/B testing this. Here's the system that converted 40% more inquiries.</p>
+        <p><a href="https://kadydennis.com/blog/posts/the-15-minute-inquiry.html">Read the full mission log →</a></p>
+      ]]></content:encoded>
+    </item>
+
+  </channel>
+</rss>

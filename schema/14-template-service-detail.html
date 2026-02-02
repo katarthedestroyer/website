@@ -1,0 +1,143 @@
+<!-- ============================================ -->
+<!-- SERVICE DETAIL PAGE JSON-LD TEMPLATE - Copy into <head> -->
+<!-- ============================================ -->
+<!-- Use this template for individual service pages -->
+<!-- Customize the serviceType, name, and description for each service -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://kadydennis.com/#organization",
+      "name": "Kady Dennis",
+      "alternateName": "Kady Dennis - Travel Tech Specialist",
+      "url": "https://kadydennis.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://kadydennis.com/og-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Travel Tech Specialist helping travel advisors optimize Tern, migrate CRMs, and automate workflows. AI-powered efficiency for travel businesses.",
+      "sameAs": [
+        "https://www.linkedin.com/in/kadydennis",
+        "https://letslucia.com/copilot"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "hello@kadydennis.com",
+        "availableLanguage": ["English"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kadydennis.com/#website",
+      "url": "https://kadydennis.com",
+      "name": "Kady Dennis - Travel Tech Specialist",
+      "publisher": {
+        "@id": "https://kadydennis.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://kadydennis.com/services/SERVICE-NAME/#webpage",
+      "url": "https://kadydennis.com/services/SERVICE-NAME/",
+      "name": "SERVICE TITLE | Kady Dennis - Travel Tech Specialist",
+      "description": "SERVICE DESCRIPTION - Customize this for each service page.",
+      "isPartOf": {
+        "@id": "https://kadydennis.com/#website"
+      },
+      "about": {
+        "@id": "https://kadydennis.com/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://kadydennis.com/services/SERVICE-NAME/#breadcrumb"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://kadydennis.com/services/SERVICE-NAME/#service",
+      "serviceType": "SERVICE TYPE NAME",
+      "provider": {
+        "@id": "https://kadydennis.com/#organization"
+      },
+      "name": "SERVICE NAME",
+      "description": "DETAILED SERVICE DESCRIPTION - Explain what this service includes and who it's for.",
+      "url": "https://kadydennis.com/services/SERVICE-NAME/",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Travel Advisors, Travel Agents, Travel Agency Owners"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Service Packages",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "PACKAGE NAME 1",
+            "description": "PACKAGE DESCRIPTION",
+            "price": "PRICE",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "PACKAGE NAME 2",
+            "description": "PACKAGE DESCRIPTION",
+            "price": "PRICE",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://kadydennis.com/services/SERVICE-NAME/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kadydennis.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://kadydennis.com/services/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SERVICE NAME",
+          "item": "https://kadydennis.com/services/SERVICE-NAME/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- 
+CUSTOMIZATION INSTRUCTIONS:
+1. Replace SERVICE-NAME with the URL slug (e.g., "tern-setup", "crm-migration")
+2. Replace SERVICE TITLE with the page title (e.g., "Tern Setup & Optimization")
+3. Replace SERVICE DESCRIPTION with a compelling description (150-160 chars)
+4. Replace SERVICE TYPE NAME with the category (e.g., "CRM Migration")
+5. Update the OfferCatalog items with actual packages and pricing
+6. Update breadcrumb item 3 name to match the service name
+-->
