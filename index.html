@@ -1548,6 +1548,86 @@
             margin-bottom: 0;
         }
 
+        /* Blog Preview Section */
+        .blog-preview-section {
+            padding: var(--section-padding) 2rem;
+            background: linear-gradient(135deg, var(--bg-surface) 0%, transparent 50%);
+            position: relative;
+        }
+
+        .blog-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: var(--neon-cyan);
+            color: var(--bg-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card h3 {
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .blog-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-mono);
+        }
+
+        .blog-link {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .blog-link:hover {
+            color: var(--neon-purple);
+            gap: 0.75rem;
+        }
+
         /* Footer */
         footer {
             padding: 3rem 2rem;
@@ -1849,7 +1929,7 @@
                     <span id="typewriter">Loading systems...</span>
                     <span class="cursor"></span>
                 </div>
-                <p>We help <strong>established travel advisors at scale ($3M+ yearly)</strong> escape forced, clunky "all-in-one" CRM workflows and build <strong>superior, tailored systems</strong> — from first inquiry to post-trip follow-up. No more settling for software that wasn't built for luxury travel.</p>
+                <p>We help <strong>established travel advisors at scale ($3M+ yearly)</strong> escape forced, clunky "all-in-one" CRM workflows with <strong>proven, live systems</strong> — including 5-space ClickUp workspaces, real-time commission tracking, and ethical AI workflows. See exactly what's possible at <strong>kadydennis.com/admin</strong> with live monitoring of your systems.</p>
                 <div class="hero-buttons">
                     <a href="#services" class="btn btn-primary">
                         <span>⚡</span> View Services
@@ -2101,10 +2181,10 @@
                     <h3>System Audit</h3>
                     <ul>
                         <li>For advisors at scale ($3M+ yearly)</li>
-                        <li>Complete tech stack analysis</li>
-                        <li>Custom systems roadmap</li>
+                        <li>Analysis of your actual ClickUp workspace (5-space architecture)</li>
+                        <li>Live demo of commission tracking with real sample data</li>
+                        <li>Live demo at <a href="/demos/" style="color: var(--neon-cyan);">kadydennis.com/demos</a></li>
                         <li>Loom video + written action plan</li>
-                        <li>"Your success created this chaos. Let's fix it."</li>
                     </ul>
                     <a href="#contact" class="service-cta">Get Started →</a>
                 </div>
@@ -2126,13 +2206,13 @@
                 <div class="service-card fade-in">
                     <span class="service-badge">60-Day Support</span>
                     <div class="service-price">$2,500+</div>
-                    <h3>ClickUp Setup</h3>
+                    <h3>ClickUp Business Hub</h3>
                     <ul>
-                        <li>For end-to-end system seekers</li>
-                        <li>Custom workspace architecture</li>
-                        <li>Inquiry to post-trip pipeline</li>
-                        <li>Team training + SOP docs</li>
-                        <li>"One system, total clarity."</li>
+                        <li>5-space workspace architecture (Business Hub, Sales Pipeline, Commissions, Client Portal, AI Agents)</li>
+                        <li>Real sample data: Smith Family $45K, Johnson $18.5K, TechCorp $35K</li>
+                        <li>Live demo workspace at <a href="/demos/" style="color: var(--neon-cyan);">kadydennis.com/demos</a></li>
+                        <li>Custom fields: Budget, AI Score, Close %, Commission Status</li>
+                        <li>Team training + SOP documentation</li>
                     </ul>
                     <a href="#contact" class="service-cta">Get Started →</a>
                 </div>
@@ -2210,6 +2290,48 @@
                 <p style="color: var(--text-secondary); margin-bottom: 1rem;">Looking for more?</p>
                 <a href="/resources/" class="btn btn-secondary">
                     <span>📚</span> View All Resources
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section class="blog-preview-section">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Latest Insights</span>
+                <h2>From the Blog</h2>
+                <p>Real talk on travel tech, AI ethics, and building systems that actually work.</p>
+            </div>
+            <div class="blog-preview-grid">
+                <div class="blog-card fade-in">
+                    <div class="blog-category">AI Ethics</div>
+                    <h3>Why I Built the Pinchy Army</h3>
+                    <p>The story behind building an AI team to help travel advisors—and why ethics come first.</p>
+                    <div class="blog-meta">February 1, 2026 • 5 min read</div>
+                    <a href="/blog/posts/why-i-built-the-pinchy-army.html" class="blog-link">Read More →</a>
+                </div>
+                <div class="blog-card fade-in">
+                    <div class="blog-category">Travel Tech</div>
+                    <h3>ClickUp vs Travel CRMs: The Real Comparison</h3>
+                    <p>Why templates aren't always the answer—and what a custom-built system can do for your business.</p>
+                    <div class="blog-meta">February 1, 2026 • 8 min read</div>
+                    <a href="/blog/posts/clickup-vs-travel-crm.html" class="blog-link">Read More →</a>
+                </div>
+                <div class="blog-card fade-in">
+                    <div class="blog-category">Systems</div>
+                    <h3>The 15-Minute Inquiry That Changed Everything</h3>
+                    <p>How one question in a system audit revealed $15K in lost revenue—and what we did about it.</p>
+                    <div class="blog-meta">February 1, 2026 • 6 min read</div>
+                    <a href="/blog/posts/the-15-minute-inquiry.html" class="blog-link">Read More →</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/blog/" class="btn btn-primary">
+                    <span>📰</span> View All Posts
+                </a>
+                <a href="/blog/rss.xml" class="btn btn-secondary" style="margin-left: 1rem;">
+                    <span>📡</span> RSS Feed
                 </a>
             </div>
         </div>
@@ -2355,12 +2477,12 @@
     </footer>
 
     <script>
-        // Typewriter effect
+        // Typewriter effect - Specific achievements
         const phrases = [
-            "Analyzing workflows...",
-            "Optimizing systems...",
-            "Deploying solutions...",
-            "Ready to collaborate."
+            "Built 5 live ClickUp workspaces...",
+            "Recovered $2,800 in lost commissions...",
+            "Deployed 6 ethical AI resources...",
+            "Monitoring systems in real-time..."
         ];
         let phraseIndex = 0;
         let charIndex = 0;
