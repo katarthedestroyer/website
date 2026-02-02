@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinchy Army Mission Control | Live Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>PINCHY_ARMY :: MISSION_CONTROL</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --neon-cyan: #00d4ff;
@@ -18,16 +18,35 @@
             --success: #00ff88;
             --warning: #ffd700;
             --danger: #ff4757;
+            --glow-cyan: 0 0 20px rgba(0,212,255,0.3);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'JetBrains Mono', monospace;
             background: var(--dark-bg);
             color: var(--text);
             min-height: 100vh;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* CRT Scanline Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0,0,0,0.15),
+                rgba(0,0,0,0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.3;
         }
         
         /* Login Overlay */
@@ -42,64 +61,153 @@
             flex-direction: column;
         }
         
-        .login-box {
-            text-align: center;
-            max-width: 400px;
+        .login-terminal {
+            background: rgba(0,0,0,0.8);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 8px;
             padding: 40px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--glow-cyan);
         }
         
-        .login-icon { font-size: 64px; margin-bottom: 20px; }
-        .login-box h1 { font-family: 'JetBrains Mono', monospace; font-size: 24px; margin-bottom: 10px; color: var(--neon-cyan); }
-        .login-box h2 { font-size: 16px; margin-bottom: 30px; color: var(--text-muted); font-weight: 400; }
+        .terminal-header {
+            color: var(--neon-cyan);
+            font-size: 12px;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+        
+        .login-prompt {
+            margin-bottom: 15px;
+        }
+        
+        .login-label {
+            color: var(--neon-purple);
+            margin-bottom: 8px;
+        }
         
         #password-input {
-            width: 100%; padding: 15px 20px;
-            border: 2px solid var(--border);
-            background: rgba(255,255,255,0.05);
-            color: var(--text);
-            border-radius: 10px;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 20px;
-            outline: none;
+            width: 100%;
+            padding: 12px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+            color: var(--neon-cyan);
             font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            outline: none;
         }
         
-        #password-input:focus { border-color: var(--neon-cyan); }
+        #password-input:focus {
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+        }
         
         .login-btn {
-            width: 100%; padding: 15px;
-            background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
-            border: none; border-radius: 10px;
-            color: white; font-size: 16px; font-weight: 600;
-            cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
         }
         
-        .login-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-        #error-msg { color: var(--danger); margin-top: 15px; display: none; }
+        .login-btn:hover {
+            background: var(--neon-cyan);
+            color: var(--dark-bg);
+            box-shadow: var(--glow-cyan);
+        }
+        
+        #error-msg {
+            color: var(--danger);
+            margin-top: 15px;
+            display: none;
+        }
         
         /* Main Dashboard */
-        .dashboard { display: none; padding: 20px; max-width: 1400px; margin: 0 auto; }
+        .dashboard {
+            display: none;
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
         
         /* Header */
         .header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px; margin-bottom: 30px;
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 16px; backdrop-filter: blur(10px);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 30px;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--neon-cyan);
         }
         
-        .brand { display: flex; align-items: center; gap: 15px; }
-        .brand-icon { font-size: 40px; }
-        .brand-text h1 { font-family: 'JetBrains Mono', monospace; font-size: 24px; color: var(--neon-cyan); }
-        .brand-text p { font-size: 14px; color: var(--text-muted); }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .brand-icon {
+            font-size: 40px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .brand-text h1 {
+            font-size: 20px;
+            color: var(--neon-cyan);
+            letter-spacing: 2px;
+        }
+        
+        .brand-text p {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-self: center;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        .status-text {
+            font-size: 11px;
+            color: var(--success);
+            text-transform: uppercase;
+        }
         
         .header-stats {
-            display: flex; gap: 30px;
+            display: flex;
+            gap: 30px;
         }
         
         .header-stat {
@@ -107,204 +215,405 @@
         }
         
         .header-stat-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 24px; font-weight: 600;
+            font-size: 24px;
+            font-weight: 700;
             color: var(--neon-cyan);
         }
         
         .header-stat-label {
-            font-size: 12px; color: var(--text-muted);
-            text-transform: uppercase; letter-spacing: 1px;
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        /* Grid Layout */
-        .grid {
+        /* Live Update Indicator */
+        .live-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 11px;
+            z-index: 100;
+        }
+        
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+        
+        /* Main Grid */
+        .main-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
+            margin-bottom: 20px;
         }
         
-        /* Cards */
-        .card {
+        @media (max-width: 1200px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .header { grid-template-columns: 1fr; gap: 15px; text-align: center; }
+            .header-stats { justify-content: center; }
+        }
+        
+        /* Terminal Window */
+        .terminal-window {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            overflow: hidden;
         }
         
-        .card-header {
-            display: flex; align-items: center; justify-content: space-between;
-            margin-bottom: 20px; padding-bottom: 15px;
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            background: rgba(0,0,0,0.3);
             border-bottom: 1px solid var(--border);
         }
         
-        .card-title {
-            display: flex; align-items: center; gap: 10px;
-            font-size: 16px; font-weight: 600;
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
         }
         
-        .card-title i { color: var(--neon-cyan); }
+        .terminal-btn.red { background: var(--danger); }
+        .terminal-btn.yellow { background: var(--warning); }
+        .terminal-btn.green { background: var(--success); }
         
-        .badge {
-            padding: 4px 12px; border-radius: 20px;
-            font-size: 12px; font-weight: 600;
+        .terminal-title {
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
         }
         
-        .badge-success { background: rgba(0,255,136,0.1); color: var(--success); }
-        .badge-warning { background: rgba(255,215,0,0.1); color: var(--warning); }
-        .badge-danger { background: rgba(255,71,87,0.1); color: var(--danger); }
+        .terminal-body {
+            padding: 20px;
+            font-size: 13px;
+        }
         
-        /* Token Usage Section */
+        /* Token Monitor */
         .token-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
         .token-card {
-            background: rgba(255,255,255,0.02);
+            background: rgba(0,0,0,0.3);
             border: 1px solid var(--border);
-            border-radius: 12px; padding: 16px;
+            border-radius: 6px;
+            padding: 15px;
             text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .token-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+        
+        .token-card.active {
+            border-color: var(--neon-cyan);
+            background: rgba(0,212,255,0.05);
         }
         
         .token-model {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px; color: var(--neon-purple);
+            font-size: 10px;
+            color: var(--neon-purple);
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 8px;
         }
         
         .token-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 28px; font-weight: 700;
+            font-size: 20px;
+            font-weight: 700;
             color: var(--neon-cyan);
+            margin-bottom: 5px;
         }
         
-        .token-label {
-            font-size: 11px; color: var(--text-muted);
-            margin-top: 4px;
+        .token-cost {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        
+        /* Budget Bar */
+        .budget-bar {
+            margin-top: 15px;
+        }
+        
+        .budget-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+        
+        .budget-track {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .budget-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success) 0%, var(--warning) 70%, var(--danger) 100%);
+            border-radius: 3px;
+            transition: width 0.5s ease;
         }
         
         /* Squad Status */
         .squad-list {
-            display: flex; flex-direction: column; gap: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         
-        .squad-member {
-            display: flex; align-items: center; gap: 15px;
-            padding: 16px; background: rgba(255,255,255,0.02);
-            border-radius: 12px; border: 1px solid var(--border);
+        .squad-row {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 15px;
+            align-items: center;
+            padding: 12px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 6px;
+            border-left: 3px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .squad-row:hover {
+            background: rgba(0,0,0,0.3);
+            border-left-color: var(--neon-cyan);
+        }
+        
+        .squad-row.active {
+            border-left-color: var(--success);
         }
         
         .squad-avatar {
-            width: 48px; height: 48px; border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px; background: rgba(0,212,255,0.1);
+            font-size: 24px;
         }
         
-        .squad-info { flex: 1; }
-        .squad-name { font-weight: 600; margin-bottom: 4px; }
-        .squad-role { font-size: 12px; color: var(--text-muted); }
+        .squad-info {
+            min-width: 0;
+        }
         
-        .squad-metrics {
-            text-align: right;
+        .squad-name {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+        
+        .squad-role {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
         }
         
         .squad-model {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px; color: var(--neon-purple);
+            font-size: 10px;
+            color: var(--neon-purple);
             background: rgba(124,92,255,0.1);
-            padding: 4px 10px; border-radius: 20px;
-            margin-bottom: 6px;
-            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 10px;
+            text-transform: uppercase;
         }
         
         .squad-tokens {
+            font-size: 12px;
+            color: var(--neon-cyan);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 14px; color: var(--text-muted);
         }
         
         /* Task Lists */
-        .task-list { display: flex; flex-direction: column; gap: 10px; }
+        .task-section {
+            margin-bottom: 15px;
+        }
+        
+        .task-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .task-count {
+            background: var(--neon-cyan);
+            color: var(--dark-bg);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
         
         .task-item {
-            display: flex; align-items: center; gap: 12px;
-            padding: 14px; background: rgba(255,255,255,0.02);
-            border-radius: 10px; border-left: 3px solid var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
         }
         
-        .task-item.review { border-left-color: var(--warning); }
-        .task-item.progress { border-left-color: var(--neon-cyan); }
-        .task-item.done { border-left-color: var(--success); opacity: 0.7; }
-        
-        .task-icon { font-size: 16px; }
-        .task-content { flex: 1; }
-        .task-title { font-weight: 500; font-size: 14px; margin-bottom: 2px; }
-        .task-meta { font-size: 11px; color: var(--text-muted); }
-        
-        .task-status {
-            padding: 4px 10px; border-radius: 20px;
-            font-size: 11px; font-weight: 600;
-            background: rgba(0,212,255,0.1);
-            color: var(--neon-cyan);
+        .task-item:hover {
+            background: rgba(0,0,0,0.3);
+            transform: translateX(5px);
         }
         
-        /* Mission Stats */
-        .mission-stats {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;
+        .task-priority {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
         }
         
-        .mission-stat {
-            text-align: center; padding: 20px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 12px;
+        .task-priority.high { background: var(--danger); }
+        .task-priority.medium { background: var(--warning); }
+        .task-priority.low { background: var(--success); }
+        
+        .task-title {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
-        .mission-stat-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 36px; font-weight: 700;
-            color: var(--neon-cyan);
+        .task-id {
+            font-size: 10px;
+            color: var(--text-muted);
         }
         
-        .mission-stat-label {
-            font-size: 12px; color: var(--text-muted);
-            margin-top: 8px;
+        /* Shells Section */
+        .shells-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        
-        /* Shells (Failed/Abandoned) */
-        .shell-list { display: flex; flex-direction: column; gap: 10px; }
         
         .shell-item {
-            display: flex; align-items: center; gap: 12px;
-            padding: 12px; background: rgba(255,71,87,0.05);
-            border-radius: 10px; border: 1px solid rgba(255,71,87,0.2);
+            display: flex;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(255,71,87,0.05);
+            border: 1px solid rgba(255,71,87,0.2);
+            border-radius: 6px;
         }
         
-        .shell-icon { color: var(--danger); font-size: 16px; }
-        .shell-content { flex: 1; }
-        .shell-title { font-size: 13px; color: var(--text-muted); }
-        .shell-reason { font-size: 11px; color: var(--danger); margin-top: 2px; }
+        .shell-icon {
+            color: var(--danger);
+        }
         
-        @media (max-width: 768px) {
-            .header { flex-direction: column; gap: 20px; text-align: center; }
-            .header-stats { justify-content: center; }
-            .grid { grid-template-columns: 1fr; }
+        .shell-content {
+            flex: 1;
+        }
+        
+        .shell-title {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        
+        .shell-lesson {
+            font-size: 11px;
+            color: var(--warning);
+            font-style: italic;
+        }
+        
+        /* Bottom Grid */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        @media (max-width: 900px) {
+            .bottom-grid { grid-template-columns: 1fr; }
             .token-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Loading State */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 40px;
+            color: var(--text-muted);
+        }
+        
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-top-color: var(--neon-cyan);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Error State */
+        .error-state {
+            text-align: center;
+            padding: 40px;
+            color: var(--danger);
+        }
+        
+        .error-state button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--danger);
+            color: var(--danger);
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <!-- Login Overlay -->
     <div id="login-overlay">
-        <div class="login-box">
-            <div class="login-icon">🦀</div>
-            <h1>PINCHY_ARMY</h1>
-            <h2>Mission Control // Classified</h2>
-            <input type="password" id="password-input" placeholder="ENTER_ACCESS_CODE">
-            <button class="login-btn" onclick="checkPassword()">INITIATE_SESSION</button>
-            <p id="error-msg">❌ ACCESS DENIED</p>
+        <div class="login-terminal">
+            <div class="terminal-header">
+                <span style="color: var(--neon-cyan);">root@pinchy-army:~$</span>
+            </div>
+            <div class="login-prompt">
+                <div class="login-label">AUTHENTICATION REQUIRED</div>
+                <input type="password" id="password-input" placeholder="_" autocomplete="off">
+            </div>
+            <button class="login-btn" onclick="authenticate()">[ ENTER ]</button>
+            <div id="error-msg">ACCESS DENIED: INVALID CREDENTIALS</div>
         </div>
     </div>
-    
+
     <!-- Main Dashboard -->
     <div class="dashboard" id="dashboard">
         <!-- Header -->
@@ -313,251 +622,387 @@
                 <div class="brand-icon">🦀</div>
                 <div class="brand-text">
                     <h1>PINCHY_ARMY_COMMAND</h1>
-                    <p>Live Operations Dashboard // Feb 1, 2026</p>
+                    <p>v2.0.1 // LIVE_DATA_FEED</p>
                 </div>
+            </div>
+            <div class="connection-status">
+                <div class="status-dot"></div>
+                <div class="status-text">LIVE CONNECTION</div>
             </div>
             <div class="header-stats">
                 <div class="header-stat">
-                    <div class="header-stat-value" id="active-agents">4</div>
+                    <div class="header-stat-value" id="stat-agents">--</div>
                     <div class="header-stat-label">Active Agents</div>
                 </div>
                 <div class="header-stat">
-                    <div class="header-stat-value" id="today-cost">$4.20</div>
+                    <div class="header-stat-value" id="stat-cost">--</div>
                     <div class="header-stat-label">Today's Cost</div>
                 </div>
                 <div class="header-stat">
-                    <div class="header-stat-value" id="missions-today">15</div>
-                    <div class="header-stat-label">Missions Done</div>
+                    <div class="header-stat-value" id="stat-missions">--</div>
+                    <div class="header-stat-label">Missions</div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Main Grid -->
-        <div class="grid">
-            <!-- Token Usage -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title"><i>💰</i> Token Usage // Today</div>
-                    <span class="badge badge-success">ON BUDGET</span>
+        <div class="main-grid">
+            <!-- Token Monitor -->
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-btn red"></div>
+                    <div class="terminal-btn yellow"></div>
+                    <div class="terminal-btn green"></div>
+                    <div class="terminal-title">TOKEN_MONITOR.exe</div>
                 </div>
-                <div class="token-grid">
-                    <div class="token-card">
-                        <div class="token-model">kimi-for-coding</div>
-                        <div class="token-value" id="kimi-tokens">69.3K</div>
-                        <div class="token-label">tokens</div>
+                <div class="terminal-body">
+                    <div class="token-grid" id="token-grid">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            <span>INITIALIZING...</span>
+                        </div>
                     </div>
-                    <div class="token-card">
-                        <div class="token-model">claude-opus</div>
-                        <div class="token-value" id="claude-tokens">0</div>
-                        <div class="token-label">tokens</div>
+                    <div class="budget-bar">
+                        <div class="budget-label">
+                            <span>DAILY BUDGET UTILIZATION</span>
+                            <span id="budget-percent">--%</span>
+                        </div>
+                        <div class="budget-track">
+                            <div class="budget-fill" id="budget-fill" style="width: 0%"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 10px; color: var(--text-muted);">
+                            <span>$0.00</span>
+                            <span>Target: $5.00</span>
+                            <span>Weekly: $20.00</span>
+                        </div>
                     </div>
-                    <div class="token-card">
-                        <div class="token-model">gpt-4</div>
-                        <div class="token-value" id="gpt-tokens">0</div>
-                        <div class="token-label">tokens</div>
-                    </div>
-                </div>
-                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); text-align: center;">
-                    Daily Target: $5 | Weekly: $20 | Current: $4.20
                 </div>
             </div>
-            
+
             <!-- Squad Status -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title"><i>🤖</i> Squad Status</div>
-                    <span class="badge badge-success">ALL ACTIVE</span>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-btn red"></div>
+                    <div class="terminal-btn yellow"></div>
+                    <div class="terminal-btn green"></div>
+                    <div class="terminal-title">SQUAD_STATUS.exe</div>
                 </div>
-                <div class="squad-list">
-                    <div class="squad-member">
-                        <div class="squad-avatar">🦀</div>
-                        <div class="squad-info">
-                            <div class="squad-name">Pinchy</div>
-                            <div class="squad-role">Voice & Ethics Lead</div>
-                        </div>
-                        <div class="squad-metrics">
-                            <div class="squad-model">kimi-for-coding</div>
-                            <div class="squad-tokens">30.9K tokens</div>
-                        </div>
-                    </div>
-                    <div class="squad-member">
-                        <div class="squad-avatar">⚙️</div>
-                        <div class="squad-info">
-                            <div class="squad-name">Reef</div>
-                            <div class="squad-role">Product Architecture</div>
-                        </div>
-                        <div class="squad-metrics">
-                            <div class="squad-model">kimi-for-coding</div>
-                            <div class="squad-tokens">69.3K tokens</div>
-                        </div>
-                    </div>
-                    <div class="squad-member">
-                        <div class="squad-avatar">🛡️</div>
-                        <div class="squad-info">
-                            <div class="squad-name">Scuttle</div>
-                            <div class="squad-role">Admin & Security</div>
-                        </div>
-                        <div class="squad-metrics">
-                            <div class="squad-model">kimi-for-coding</div>
-                            <div class="squad-tokens">56.7K tokens</div>
+                <div class="terminal-body">
+                    <div class="squad-list" id="squad-list">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            <span>LOADING SQUAD DATA...</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
+        </div>
+
+        <!-- Task Board -->
+        <div class="main-grid">
             <!-- To Review -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title"><i>👁️</i> To Review</div>
-                    <span class="badge badge-warning">3 ITEMS</span>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-btn red"></div>
+                    <div class="terminal-btn yellow"></div>
+                    <div class="terminal-btn green"></div>
+                    <div class="terminal-title">KANBAN://TO_REVIEW</div>
                 </div>
-                <div class="task-list">
-                    <div class="task-item review">
-                        <div class="task-icon">📝</div>
-                        <div class="task-content">
-                            <div class="task-title">Testimonials Gathering</div>
-                            <div class="task-meta">Website social proof needed</div>
+                <div class="terminal-body">
+                    <div class="task-list" id="todo-list">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            <span>FETCHING TASKS...</span>
                         </div>
-                        <span class="task-status">PENDING</span>
-                    </div>
-                    <div class="task-item review">
-                        <div class="task-icon">🖼️</div>
-                        <div class="task-content">
-                            <div class="task-title">Profile Photo Update</div>
-                            <div class="task-meta">Professional headshot for About</div>
-                        </div>
-                        <span class="task-status">PENDING</span>
-                    </div>
-                    <div class="task-item review">
-                        <div class="task-icon">🔗</div>
-                        <div class="task-content">
-                            <div class="task-title">Affiliate Links Expansion</div>
-                            <div class="task-meta">Add 4+ more to Recommended Solutions</div>
-                        </div>
-                        <span class="task-status">PENDING</span>
                     </div>
                 </div>
             </div>
-            
+
             <!-- In Progress -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title"><i>⚡</i> In Progress</div>
-                    <span class="badge badge-success">2 ACTIVE</span>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-btn red"></div>
+                    <div class="terminal-btn yellow"></div>
+                    <div class="terminal-btn green"></div>
+                    <div class="terminal-title">KANBAN://IN_PROGRESS</div>
                 </div>
-                <div class="task-list">
-                    <div class="task-item progress">
-                        <div class="task-icon">🎬</div>
-                        <div class="task-content">
-                            <div class="task-title">ClickUp Demo Mockups</div>
-                            <div class="task-meta">5 views for sales calls</div>
+                <div class="terminal-body">
+                    <div class="task-list" id="progress-list">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
+                            <span>FETCHING TASKS...</span>
                         </div>
-                        <span class="task-status">80%</span>
-                    </div>
-                    <div class="task-item progress">
-                        <div class="task-icon">🔒</div>
-                        <div class="task-content">
-                            <div class="task-title">HTTPS Propagation</div>
-                            <div class="task-meta">GitHub SSL certificate</div>
-                        </div>
-                        <span class="task-status">~18HR</span>
                     </div>
                 </div>
             </div>
-            
+        </div>
+
+        <!-- Bottom Grid -->
+        <div class="bottom-grid">
             <!-- Mission Stats -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title"><i>🏆</i> Mission Stats // Feb 1</div>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-btn red"></div>
+                    <div class="terminal-btn yellow"></div>
+                    <div class="terminal-btn green"></div>
+                    <div class="terminal-title">MISSION_STATS.exe</div>
                 </div>
-                <div class="mission-stats">
-                    <div class="mission-stat">
-                        <div class="mission-stat-value">15</div>
-                        <div class="mission-stat-label">Pages Created</div>
-                    </div>
-                    <div class="mission-stat">
-                        <div class="mission-stat-value">12</div>
-                        <div class="mission-stat-label">Git Commits</div>
-                    </div>
-                    <div class="mission-stat">
-                        <div class="mission-stat-value">6</div>
-                        <div class="mission-stat-label">Hours Sprint</div>
-                    </div>
-                    <div class="mission-stat">
-                        <div class="mission-stat-value">3</div>
-                        <div class="mission-stat-label">Bugs Fixed</div>
+                <div class="terminal-body" id="mission-stats">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Shells (Failed/Abandoned) -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title"><i>💀</i> Shells // Learnings</div>
-                    <span class="badge badge-danger">1 ITEM</span>
+
+            <!-- Completed -->
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-btn red"></div>
+                    <div class="terminal-btn yellow"></div>
+                    <div class="terminal-btn green"></div>
+                    <div class="terminal-title">KANBAN://COMPLETED</div>
                 </div>
-                <div class="shell-list">
-                    <div class="shell-item">
-                        <div class="shell-icon">⚠️</div>
-                        <div class="shell-content">
-                            <div class="shell-title">ClickUp Mockup Agent</div>
-                            <div class="shell-reason">Errored on 5-file task - too complex</div>
+                <div class="terminal-body">
+                    <div class="task-list" id="done-list">
+                        <div class="loading">
+                            <div class="loading-spinner"></div>
                         </div>
                     </div>
                 </div>
-                <div style="margin-top: 15px; padding: 12px; background: rgba(255,215,0,0.05); border-radius: 8px; font-size: 12px; color: var(--text-muted);">
-                    <strong>Lesson:</strong> Split complex tasks into smaller chunks
+            </div>
+
+            <!-- Shells -->
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-btn red"></div>
+                    <div class="terminal-btn yellow"></div>
+                    <div class="terminal-btn green"></div>
+                    <div class="terminal-title">SHELLS_LEARNINGS.exe</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="shells-list" id="shells-list">
+                        <div class="shell-item">
+                            <div class="shell-icon">💀</div>
+                            <div class="shell-content">
+                                <div class="shell-title">clickup-mockup-studio.jsonl</div>
+                                <div class="shell-lesson">Task too complex — split into smaller chunks next time</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <!-- Live Indicator -->
+    <div class="live-indicator">
+        <div class="live-dot"></div>
+        <span>LIVE DATA // <span id="last-update">--:--</span></span>
+    </div>
+
     <script>
-        // Password Protection
-        const ACCESS_CODE = 'pinchy2026';
-        
-        function checkPassword() {
+        // Configuration
+        const CONFIG = {
+            password: 'pinchy2026',
+            dataUrl: './data.json',
+            refreshInterval: 30000 // 30 seconds
+        };
+
+        let dashboardData = null;
+        let refreshTimer = null;
+
+        // Authentication
+        function authenticate() {
             const input = document.getElementById('password-input').value;
-            if (input === ACCESS_CODE) {
+            if (input === CONFIG.password) {
                 document.getElementById('login-overlay').style.display = 'none';
                 document.getElementById('dashboard').style.display = 'block';
                 localStorage.setItem('pinchy_auth', 'true');
                 initDashboard();
             } else {
                 document.getElementById('error-msg').style.display = 'block';
+                document.getElementById('password-input').value = '';
             }
         }
-        
-        // Auto-auth if previously logged in
+
+        // Check existing auth
         if (localStorage.getItem('pinchy_auth') === 'true') {
             document.getElementById('login-overlay').style.display = 'none';
             document.getElementById('dashboard').style.display = 'block';
             initDashboard();
         }
-        
+
         // Enter key support
-        document.getElementById('password-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') checkPassword();
+        document.getElementById('password-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') authenticate();
         });
-        
-        // Dashboard Initialization
-        function initDashboard() {
-            // In a real implementation, these would fetch from APIs
-            // For now, showing the structure with sample data from today
-            
-            console.log('🦀 Mission Control Online');
-            console.log('Token usage would fetch from: /status endpoint');
-            console.log('Squad status would fetch from: session logs');
-            console.log('Tasks would fetch from: kanban/tasks.json');
+
+        // Initialize Dashboard
+        async function initDashboard() {
+            await loadData();
+            refreshTimer = setInterval(loadData, CONFIG.refreshInterval);
         }
-        
-        // Simulate live updates (in real version, these would be API calls)
-        setInterval(() => {
-            // This is where you'd poll for updates
-            // updateTokenUsage();
-            // updateSquadStatus();
-            // updateTaskLists();
-        }, 30000); // Every 30 seconds
+
+        // Load Data from JSON
+        async function loadData() {
+            try {
+                const response = await fetch(CONFIG.dataUrl + '?t=' + Date.now());
+                if (!response.ok) throw new Error('Failed to load');
+                
+                dashboardData = await response.json();
+                renderDashboard();
+                updateTimestamp();
+                
+            } catch (error) {
+                console.error('Data load failed:', error);
+                showError();
+            }
+        }
+
+        // Render Dashboard
+        function renderDashboard() {
+            if (!dashboardData) return;
+
+            // Header Stats
+            document.getElementById('stat-agents').textContent = dashboardData.dashboard?.activeAgents || '--';
+            document.getElementById('stat-cost').textContent = dashboardData.dashboard?.todayCost || '--';
+            document.getElementById('stat-missions').textContent = dashboardData.dashboard?.missionsToday || '--';
+
+            // Token Usage
+            renderTokens(dashboardData.tokens);
+
+            // Squad Status
+            renderSquad(dashboardData.squad);
+
+            // Kanban Tasks
+            if (dashboardData.kanban) {
+                renderTaskList('todo-list', dashboardData.kanban.toReview, 'review');
+                renderTaskList('progress-list', dashboardData.kanban.inProgress, 'progress');
+                renderTaskList('done-list', dashboardData.kanban.completed, 'done');
+            }
+
+            // Mission Stats
+            renderMissionStats(dashboardData);
+        }
+
+        // Render Token Cards
+        function renderTokens(tokens) {
+            const container = document.getElementById('token-grid');
+            if (!tokens) return;
+
+            let totalCost = 0;
+            let html = '';
+
+            Object.entries(tokens).forEach(([key, data]) => {
+                const isActive = data.input > 0 || data.output > 0;
+                const cost = parseFloat(data.cost?.replace('$', '') || 0);
+                totalCost += cost;
+
+                html += `
+                    <div class="token-card ${isActive ? 'active' : ''}">
+                        <div class="token-model">${data.model}</div>
+                        <div class="token-value">${((data.input + data.output) / 1000).toFixed(1)}K</div>
+                        <div class="token-cost">${data.cost}</div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            // Update Budget Bar
+            const budgetPercent = (totalCost / 5) * 100;
+            document.getElementById('budget-percent').textContent = budgetPercent.toFixed(0) + '%';
+            document.getElementById('budget-fill').style.width = Math.min(budgetPercent, 100) + '%';
+        }
+
+        // Render Squad
+        function renderSquad(squad) {
+            const container = document.getElementById('squad-list');
+            if (!squad) return;
+
+            container.innerHTML = squad.map(agent => `
+                <div class="squad-row ${agent.status}">
+                    <div class="squad-avatar">${agent.avatar}</div>
+                    <div class="squad-info">
+                        <div class="squad-name">${agent.name}</div>
+                        <div class="squad-role">${agent.role}</div>
+                    </div>
+                    <div class="squad-model">${agent.model}</div>
+                    <div class="squad-tokens">${agent.tokens}</div>
+                </div>
+            `).join('');
+        }
+
+        // Render Task List
+        function renderTaskList(elementId, tasks, type) {
+            const container = document.getElementById(elementId);
+            if (!tasks || tasks.length === 0) {
+                container.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-muted);">NO TASKS</div>';
+                return;
+            }
+
+            container.innerHTML = tasks.map(task => `
+                <div class="task-item">
+                    <div class="task-priority ${task.priority}"></div>
+                    <div class="task-title">${task.title}</div>
+                    <div class="task-id">${task.id}</div>
+                </div>
+            `).join('');
+        }
+
+        // Render Mission Stats
+        function renderMissionStats(data) {
+            const container = document.getElementById('mission-stats');
+            const stats = data.kanban?.stats || {};
+
+            container.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div style="text-align: center; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                        <div style="font-size: 28px; color: var(--neon-cyan); font-weight: 700;">${stats.total || 0}</div>
+                        <div style="font-size: 10px; color: var(--text-muted); margin-top: 5px;">TOTAL TASKS</div>
+                    </div>
+                    <div style="text-align: center; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                        <div style="font-size: 28px; color: var(--success); font-weight: 700;">${stats.done || 0}</div>
+                        <div style="font-size: 10px; color: var(--text-muted); margin-top: 5px;">COMPLETED</div>
+                    </div>
+                    <div style="text-align: center; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                        <div style="font-size: 28px; color: var(--warning); font-weight: 700;">${stats.inProgress || 0}</div>
+                        <div style="font-size: 10px; color: var(--text-muted); margin-top: 5px;">IN PROGRESS</div>
+                    </div>
+                    <div style="text-align: center; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 6px;">
+                        <div style="font-size: 28px; color: var(--neon-purple); font-weight: 700;">${stats.todo || 0}</div>
+                        <div style="font-size: 10px; color: var(--text-muted); margin-top: 5px;">TO REVIEW</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update Timestamp
+        function updateTimestamp() {
+            const now = new Date();
+            document.getElementById('last-update').textContent = 
+                now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+        }
+
+        // Show Error
+        function showError() {
+            document.querySelectorAll('.terminal-body').forEach(el => {
+                if (el.querySelector('.loading')) {
+                    el.innerHTML = `
+                        <div class="error-state">
+                            <div style="font-size: 24px; margin-bottom: 10px;">⚠️</div>
+                            <div>DATA FEED INTERRUPTED</div>
+                            <button onclick="loadData()">[ RETRY CONNECTION ]</button>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        // Console Easter Egg
+        console.log('%c🦀 PINCHY_ARMY_COMMAND v2.0', 'color: #00d4ff; font-size: 20px; font-weight: bold;');
+        console.log('%cLIVE DATA DASHBOARD', 'color: #7c5cff; font-size: 12px;');
+        console.log('Access code: pinchy2026');
     </script>
 </body>
 </html>

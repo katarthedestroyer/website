@@ -1,0 +1,171 @@
+{
+  "generated": "2026-02-02T02:04:59.560090Z",
+  "dashboard": {
+    "activeAgents": 4,
+    "todayCost": "$4.20",
+    "missionsToday": 15,
+    "lastUpdate": "21:04"
+  },
+  "tokens": {
+    "kimi": {
+      "model": "kimi-for-coding",
+      "input": 69300,
+      "output": 2400,
+      "cost": "$0.14"
+    },
+    "claude": {
+      "model": "claude-opus-4-5",
+      "input": 0,
+      "output": 0,
+      "cost": "$0.00"
+    },
+    "gpt4": {
+      "model": "gpt-4",
+      "input": 0,
+      "output": 0,
+      "cost": "$0.00"
+    }
+  },
+  "squad": [
+    {
+      "name": "Pinchy",
+      "avatar": "\ud83e\udd80",
+      "role": "Voice & Ethics Lead",
+      "status": "active",
+      "model": "kimi-for-coding",
+      "tokens": "30.9K",
+      "missions": 3
+    },
+    {
+      "name": "Reef",
+      "avatar": "\u2699\ufe0f",
+      "role": "Product Architecture",
+      "status": "active",
+      "model": "kimi-for-coding",
+      "tokens": "69.3K",
+      "missions": 5
+    },
+    {
+      "name": "Scuttle",
+      "avatar": "\ud83d\udee1\ufe0f",
+      "role": "Admin & Security",
+      "status": "active",
+      "model": "kimi-for-coding",
+      "tokens": "56.7K",
+      "missions": 4
+    },
+    {
+      "name": "Content Squad",
+      "avatar": "\ud83d\udcdd",
+      "role": "Resource Creation",
+      "status": "idle",
+      "model": "kimi-for-coding",
+      "tokens": "51.8K",
+      "missions": 2
+    }
+  ],
+  "kanban": {
+    "toReview": [
+      {
+        "id": "task-036",
+        "title": "\ud83d\udcf1 Mission Control Mobile & Menu Bar Access",
+        "priority": "high",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-042",
+        "title": "\ud83d\udda5\ufe0f Menu Bar App (SwiftUI or Tauri)",
+        "priority": "medium",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-037",
+        "title": "\u2b50 Agent Star Rating & Reward System",
+        "priority": "low",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-038",
+        "title": "\ud83e\udde0 Model-Specific Agent Assignment",
+        "priority": "medium",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-039",
+        "title": "\ud83c\udfad Ethics Advisor Agent (Cool AF Edition)",
+        "priority": "medium",
+        "icon": "\ud83d\udccb"
+      }
+    ],
+    "inProgress": [
+      {
+        "id": "task-041",
+        "title": "\ud83d\udcca Dashboard Live Data Feeds",
+        "priority": "high",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-031",
+        "title": "\ud83e\udd80 AGENT SQUAD: Design Named Agent System",
+        "priority": "high",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-032",
+        "title": "\ud83d\udcca AGENT SQUAD: Build Daily Standup System",
+        "priority": "high",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-033",
+        "title": "\ud83e\uddf5 AGENT SQUAD: Thread Subscription System",
+        "priority": "medium",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-034",
+        "title": "\u23f0 AGENT SQUAD: Staggered Heartbeat Schedule",
+        "priority": "medium",
+        "icon": "\ud83d\udccb"
+      }
+    ],
+    "completed": [
+      {
+        "id": "task-001",
+        "title": "Competitive Freelance Analysis",
+        "priority": "high",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-010",
+        "title": "LJM Invoice Generation (2 weeks)",
+        "priority": "high",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-011",
+        "title": "Kanban Board Setup",
+        "priority": "medium",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-012",
+        "title": "RIZE API Connection",
+        "priority": "high",
+        "icon": "\ud83d\udccb"
+      },
+      {
+        "id": "task-013",
+        "title": "Config: Memory Flush + Session Search",
+        "priority": "medium",
+        "icon": "\ud83d\udccb"
+      }
+    ],
+    "stats": {
+      "total": 43,
+      "todo": 22,
+      "inProgress": 13,
+      "done": 8
+    }
+  }
+}
