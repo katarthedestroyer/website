@@ -3,85 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClickUp Business Hub Demo | Kady Dennis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Interactive Demos | Kady Dennis - ClickUp Business Hub for Travel Advisors</title>
+    <meta name="description" content="See how AI-powered ClickUp Business Hub beats TiqueHQ. Interactive demos of client portals, commission tracking, and AI workflow automation for luxury travel advisors.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff6b9d;
+            --neon-gold: #d4a853;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #FAFBFC; color: #292D34; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 40px 24px; }
-        .hub-header { text-align: center; margin-bottom: 48px; }
-        .hub-header h1 { font-size: 42px; font-weight: 700; margin-bottom: 12px; background: linear-gradient(135deg, #7B68EE 0%, #9B8AF5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hub-header p { font-size: 18px; color: #7C828D; max-width: 600px; margin: 0 auto; }
-        .brand-badge { display: inline-flex; align-items: center; gap: 8px; background: #7B68EE; color: white; padding: 10px 20px; border-radius: 50px; font-weight: 600; margin-bottom: 24px; }
-        .demos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px; }
-        .demo-card { background: white; border-radius: 16px; padding: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 2px solid transparent; }
-        .demo-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(123,104,238,0.15); border-color: #7B68EE; }
-        .demo-icon { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 20px; color: white; }
-        .demo-card:nth-child(1) .demo-icon { background: linear-gradient(135deg, #7B68EE 0%, #9B8AF5 100%); }
-        .demo-card:nth-child(2) .demo-icon { background: linear-gradient(135deg, #00C853 0%, #69F0AE 100%); }
-        .demo-card:nth-child(3) .demo-icon { background: linear-gradient(135deg, #FF9100 0%, #FFD180 100%); }
-        .demo-card:nth-child(4) .demo-icon { background: linear-gradient(135deg, #2979FF 0%, #82B1FF 100%); }
-        .demo-card:nth-child(5) .demo-icon { background: linear-gradient(135deg, #00BCD4 0%, #80DEEA 100%); }
-        .demo-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
-        .demo-card p { font-size: 15px; color: #7C828D; line-height: 1.6; flex-grow: 1; }
-        .demo-cta { display: flex; align-items: center; gap: 8px; margin-top: 20px; color: #7B68EE; font-weight: 600; }
-        .competitive-edge { background: linear-gradient(135deg, #7B68EE 0%, #5E4BC4 100%); color: white; padding: 32px; border-radius: 16px; margin-bottom: 48px; text-align: center; }
-        .competitive-edge h2 { font-size: 24px; margin-bottom: 12px; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb.cyan {
+            width: 400px; height: 400px;
+            background: var(--neon-cyan);
+            top: 10%; right: 10%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .glow-orb.purple {
+            width: 300px; height: 300px;
+            background: var(--neon-purple);
+            bottom: 20%; left: 5%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .nav-brand .crab {
+            font-size: 1.5rem;
+            animation: bob 3s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+        }
+
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 1;
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge::before {
+            content: '🦀';
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--neon-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .vs-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .vs-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .vs-card.tique {
+            opacity: 0.7;
+        }
+
+        .vs-card.kady {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .vs-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .vs-card.tique h3 { color: var(--text-secondary); }
+        .vs-card.kady h3 { color: var(--neon-cyan); }
+
+        .vs-divider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-purple);
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list .check { color: var(--neon-green); }
+        .feature-list .cross { color: var(--neon-pink); }
+        .feature-list .star { color: var(--neon-gold); }
+
+        /* Demos Grid */
+        .demos {
+            padding: 4rem 0;
+        }
+
+        .demos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .demo-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-card:hover::before {
+            opacity: 1;
+        }
+
+        .demo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .demo-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--neon-cyan);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .demo-cta::after {
+            content: '→';
+            transition: transform 0.3s;
+        }
+
+        .demo-card:hover .demo-cta::after {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--text-muted);
+        }
+
+        footer .crab {
+            font-size: 1.5rem;
+            margin: 0 0.25rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .vs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vs-divider {
+                flex-direction: row;
+                padding: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hub-header">
-            <div class="brand-badge">
-                <span>🦀</span>
-                <span>Kady Dennis Travel AI</span>
+    <div class="bg-grid"></div>
+    <div class="glow-orb cyan"></div>
+    <div class="glow-orb purple"></div>
+
+    <nav>
+        <a href="/" class="nav-brand">
+            <span class="crab">🦀</span>
+            <span>Kady Dennis</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/services/">Services</a>
+            <a href="/resources/">Resources</a>
+            <a href="/demos/" style="color: var(--neon-cyan);">Demos</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-badge">Interactive Product Demos</div>
+                <h1>See It In Action</h1>
+                <p>Experience the AI-powered ClickUp Business Hub built specifically for luxury travel advisors. Every feature demonstrated with realistic data.</p>
             </div>
-            <h1>ClickUp Business Hub Demo</h1>
-            <p>Interactive mockups showcasing AI-powered travel advisor workflow management.</p>
+        </section>
+
+        <section class="comparison">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why We Win vs TiqueHQ</h2>
+                    <p>Same price point. Completely different capabilities.</p>
+                </div>
+                
+                <div class="vs-grid">
+                    <div class="vs-card tique">
+                        <h3>❌ TiqueHQ Template</h3>
+                        <ul class="feature-list">
+                            <li><span class="check">✓</span> Basic task lists</li>
+                            <li><span class="check">✓</span> Simple CRM fields</li>
+                            <li><span class="cross">✗</span> No AI automation</li>
+                            <li><span class="cross">✗</span> No client portal</li>
+                            <li><span class="cross">✗</span> No commission tracking</li>
+                            <li><span class="cross">✗</span> One-size-fits-all</li>
+                            <li><span class="cross">✗</span> No predictive insights</li>
+                            <li><span class="cross">✗</span> Manual everything</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="vs-divider">
+                        <span>VS</span>
+                    </div>
+                    
+                    <div class="vs-card kady">
+                        <h3>🦀 Kady Dennis Custom Build</h3>
+                        <ul class="feature-list">
+                            <li><span class="star">★</span> AI-powered workflows</li>
+                            <li><span class="star">★</span> Real-time client portal</li>
+                            <li><span class="star">★</span> Automated commission tracking</li>
+                            <li><span class="star">★</span> Predictive sales forecasting</li>
+                            <li><span class="star">★</span> Multi-agent AI system</li>
+                            <li><span class="star">★</span> Custom-built for YOUR workflow</li>
+                            <li><span class="star">★</span> Ethics-first AI guardrails</li>
+                            <li><span class="star">★</span> Continuous optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="demos">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Interactive Demo Screens</h2>
+                    <p>Click any demo to explore the full interface with realistic travel advisor data.</p>
+                </div>
+                
+                <div class="demos-grid">
+                    <a href="clickup-business-hub.html" class="demo-card">
+                        <div class="demo-icon">🚀</div>
+                        <h3>Business Hub Dashboard</h3>
+                        <p>Command center with AI agents status, sales pipeline overview, and commission alerts. Dark/light mode toggle included.</p>
+                        <div class="demo-cta">Launch Demo</div>
+                    </a>
+                    
+                    <a href="client-portal.html" class="demo-card">
+                        <div class="demo-icon">👤</div>
+                        <h3>Client Portal</h3>
+                        <p>What your travelers see: trip timeline, document access, payment tracking, and direct communication channel.</p>
+                        <div class="demo-cta">Launch Demo</div>
+                    </a>
+                    
+                    <a href="ai-agents-dashboard.html" class="demo-card">
+                        <div class="demo-icon">🤖</div>
+                        <h3>AI Agents Dashboard</h3>
+                        <p>Manage your AI workforce with activity logs, performance metrics, and ethical oversight controls.</p>
+                        <div class="demo-cta">Launch Demo</div>
+                    </a>
+                    
+                    <a href="sales-pipeline.html" class="demo-card">
+                        <div class="demo-icon">📈</div>
+                        <h3>AI Sales Pipeline</h3>
+                        <p>Visual kanban with AI lead scoring, predictive forecasting, and automated follow-up tracking.</p>
+                        <div class="demo-cta">Launch Demo</div>
+                    </a>
+                    
+                    <a href="commission-tracking.html" class="demo-card">
+                        <div class="demo-icon">💰</div>
+                        <h3>Commission Tracker</h3>
+                        <p>Track expected vs received commissions by supplier, with overdue alerts and recovery workflows.</p>
+                        <div class="demo-cta">Launch Demo</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Built with <span class="crab">🦀</span> by the Pinchy Army</p>
         </div>
-        
-        <div class="competitive-edge">
-            <h2>Why We Win vs TiqueHQ</h2>
-            <p>AI-Powered Pipeline • Multi-Agent Automation • Real-Time Client Portal • Predictive Commission Tracking • Custom-Built</p>
-        </div>
-        
-        <div class="demos-grid">
-            <a href="clickup-business-hub.html" class="demo-card">
-                <div class="demo-icon"><i class="fas fa-rocket"></i></div>
-                <h3>Business Hub Dashboard</h3>
-                <p>Main command center with AI agents status, sales pipeline overview, commission alerts.</p>
-                <div class="demo-cta"><span>View Dashboard</span><i class="fas fa-arrow-right"></i></div>
-            </a>
-            
-            <a href="client-portal.html" class="demo-card">
-                <div class="demo-icon"><i class="fas fa-user"></i></div>
-                <h3>Client Portal</h3>
-                <p>What travelers see: trip timeline, document access, payment tracking, messages.</p>
-                <div class="demo-cta"><span>View Portal</span><i class="fas fa-arrow-right"></i></div>
-            </a>
-            
-            <a href="ai-agents-dashboard.html" class="demo-card">
-                <div class="demo-icon"><i class="fas fa-robot"></i></div>
-                <h3>AI Agents Dashboard</h3>
-                <p>Manage your AI workforce with activity logs and ethics monitoring.</p>
-                <div class="demo-cta"><span>View Agents</span><i class="fas fa-arrow-right"></i></div>
-            </a>
-            
-            <a href="sales-pipeline.html" class="demo-card">
-                <div class="demo-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>AI Sales Pipeline</h3>
-                <p>Visual kanban with AI lead scoring, predictive forecasting, conversion analytics.</p>
-                <div class="demo-cta"><span>View Pipeline</span><i class="fas fa-arrow-right"></i></div>
-            </a>
-            
-            <a href="commission-tracking.html" class="demo-card">
-                <div class="demo-icon"><i class="fas fa-dollar-sign"></i></div>
-                <h3>Commission Tracker</h3>
-                <p>Track expected vs received commissions, supplier breakdowns, overdue alerts.</p>
-                <div class="demo-cta"><span>View Tracker</span><i class="fas fa-arrow-right"></i></div>
-            </a>
-        </div>
-    </div>
+    </footer>
 </body>
 </html>
