@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Pipeline | AI-Powered | Mission Control</title>
+    <style>
+        :root {
+            --primary: #7B68EE;
+            --primary-light: #9B8AF7;
+            --primary-dark: #5B4BC4;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FC;
+            --bg-tertiary: #F0F1F5;
+            --text-primary: #2E2E3A;
+            --text-secondary: #6B7280;
+            --text-tertiary: #9CA3AF;
+            --border: #E5E7EB;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --info: #3B82F6;
+            --ai-glow: rgba(123, 104, 238, 0.4);
+            --shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1A1B23;
+            --bg-secondary: #232430;
+            --bg-tertiary: #2D2E3A;
+            --text-primary: #F9FAFB;
+            --text-secondary: #9CA3AF;
+            --text-tertiary: #6B7280;
+            --border: #374151;
+            --ai-glow: rgba(155, 138, 247, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            background: var(--bg-primary);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-primary);
+        }
+
+        .workspace-selector {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.2s;
+        }
+
+        .workspace-selector:hover {
+            background: var(--bg-secondary);
+        }
+
+        .workspace-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .workspace-avatar {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .nav-section {
+            padding: 16px 12px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .nav-section-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-tertiary);
+            padding: 0 8px 8px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 2px;
+            text-decoration: none;
+            color: var(--text-secondary);
+        }
+
+        .nav-item:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .nav-item.active {
+            background: rgba(123, 104, 238, 0.1);
+            color: var(--primary);
+        }
+
+        .sidebar-footer {
+            padding: 12px 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            height: 64px;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .search-bar {
+            width: 400px;
+            height: 40px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 10px;
+            color: var(--text-tertiary);
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            flex: 1;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .header-btn:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            padding: 24px;
+        }
+
+        .dashboard-header {
+            margin-bottom: 24px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .dashboard-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ai-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(123, 104, 238, 0.15), rgba(155, 138, 247, 0.1));
+            border: 1px solid var(--primary-light);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .ai-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 var(--ai-glow); }
+            50% { box-shadow: 0 0 10px 3px var(--ai-glow); }
+        }
+
+        /* Forecast Banner */
+        .forecast-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 16px;
+            padding: 24px;
+            color: white;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .forecast-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .forecast-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .forecast-info h3 {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+
+        .forecast-info .amount {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .forecast-info .detail {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .forecast-stats {
+            display: flex;
+            gap: 32px;
+        }
+
+        .forecast-stat {
+            text-align: center;
+        }
+
+        .forecast-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .forecast-stat-label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .stat-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .stat-icon.purple { background: rgba(123, 104, 238, 0.1); }
+        .stat-icon.green { background: rgba(16, 185, 129, 0.1); }
+        .stat-icon.orange { background: rgba(245, 158, 11, 0.1); }
+        .stat-icon.blue { background: rgba(59, 130, 246, 0.1); }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-change {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .stat-change.positive { color: var(--success); }
+
+        /* Pipeline Section */
+        .pipeline-section {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .pipeline-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .pipeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pipeline-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .pipeline-btn {
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg-primary);
+            font-size: 14px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .pipeline-btn:hover {
+            background: var(--bg-secondary);
+        }
+
+        .pipeline-btn.primary {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .pipeline-btn.primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .pipeline-container {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            overflow-x: auto;
+        }
+
+        .pipeline-column {
+            min-width: 280px;
+            flex: 1;
+        }
+
+        .column-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .column-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .column-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .column-dot.gray { background: var(--text-tertiary); }
+        .column-dot.blue { background: var(--info); }
+        .column-dot.orange { background: var(--warning); }
+        .column-dot.green { background: var(--success); }
+
+        .column-count {
+            background: var(--bg-primary);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .column-value {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+            padding: 0 16px;
+        }
+
+        /* Deal Cards */
+        .deal-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .deal-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .deal-card.hot {
+            border-left: 3px solid var(--danger);
+        }
+
+        .deal-card.warm {
+            border-left: 3px solid var(--warning);
+        }
+
+        .deal-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .deal-client {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .deal-trip {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .deal-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .deal-tags {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .deal-tag {
+            font-size: 10px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .deal-tag.ai {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+        }
+
+        .deal-tag.hot {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        .deal-tag.virtuoso {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .deal-tag.fourseasons {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--info);
+        }
+
+        .deal-score {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .score-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .score-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--success);
+            margin-left: auto;
+        }
+
+        .score-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success), var(--primary));
+            border-radius: 3px;
+        }
+
+        .deal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .deal-assignee {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .assignee-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .assignee-name {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .deal-date {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .deal-prediction {
+            font-size: 11px;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* AI Insights */
+        .insights-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .insights-card {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .insights-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .insights-title {
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .insights-body {
+            padding: 20px 24px;
+        }
+
+        .insight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .insight-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .insight-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .insight-icon.opportunity { background: rgba(16, 185, 129, 0.1); }
+        .insight-icon.warning { background: rgba(245, 158, 11, 0.1); }
+        .insight-icon.action { background: rgba(123, 104, 238, 0.1); }
+
+        .insight-content {
+            flex: 1;
+        }
+
+        .insight-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .insight-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .insight-meta {
+            font-size: 11px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .insight-action {
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .insight-action:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        @media (max-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .insights-section {
+                grid-template-columns: 1fr;
+            }
+            .pipeline-container {
+                overflow-x: scroll;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .forecast-banner {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-icon">⚡</div>
+            <div class="logo-text">ClickUp</div>
+        </div>
+        
+        <div class="workspace-selector">
+            <div class="workspace-name">
+                <div class="workspace-avatar">ET</div>
+                <span>Eliava Travel</span>
+            </div>
+            <span>▼</span>
+        </div>
+
+        <nav class="nav-section">
+            <div class="nav-section-title">Mission Control</div>
+            <a href="clickup-business-hub.html" class="nav-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                <span>Business Hub</span>
+            </a>
+            <a href="sales-pipeline.html" class="nav-item active">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                <span>Sales Pipeline</span>
+            </a>
+            <a href="ai-agents-dashboard.html" class="nav-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                <span>AI Agents</span>
+            </a>
+            <a href="commission-tracking.html" class="nav-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Commissions</span>
+            </a>
+            <a href="client-portal.html" class="nav-item">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                <span>Client Portal</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                <span>Mission Control Dark</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="search-bar">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <input type="text" placeholder="Search deals, clients, opportunities...">
+                    <span style="font-size: 12px; color: var(--text-tertiary);">⌘K</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="header-btn">🔔</button>
+                <button class="header-btn">❓</button>
+                <div class="user-avatar">KD</div>
+            </div>
+        </header>
+
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <div class="breadcrumb">
+                    <span>Eliava Travel</span>
+                    <span>/</span>
+                    <span style="color: var(--text-primary);">Sales Pipeline</span>
+                </div>
+                <div class="dashboard-title">
+                    Sales Pipeline
+                    <span class="ai-indicator">
+                        <span class="ai-dot"></span>
+                        AI-Powered Predictions
+                    </span>
+                </div>
+            </div>
+
+            <!-- AI Forecast Banner -->
+            <div class="forecast-banner">
+                <div class="forecast-left">
+                    <div class="forecast-icon">🔮</div>
+                    <div class="forecast-info">
+                        <h3>AI Forecast (Next 30 Days)</h3>
+                        <div class="amount">$342,500</div>
+                        <div class="detail">Based on current pipeline velocity & historical close rates</div>
+                    </div>
+                </div>
+                <div class="forecast-stats">
+                    <div class="forecast-stat">
+                        <div class="forecast-stat-value">68%</div>
+                        <div class="forecast-stat-label">Win Probability</div>
+                    </div>
+                    <div class="forecast-stat">
+                        <div class="forecast-stat-value">12</div>
+                        <div class="forecast-stat-label">Deals Expected</div>
+                    </div>
+                    <div class="forecast-stat">
+                        <div class="forecast-stat-value">18d</div>
+                        <div class="forecast-stat-label">Avg Close Time</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Pipeline Value</span>
+                        <div class="stat-icon purple">💰</div>
+                    </div>
+                    <div class="stat-value">$847,500</div>
+                    <div class="stat-change positive">
+                        <span>↑</span>
+                        <span>$124K from last month</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Active Deals</span>
+                        <div class="stat-icon green">🎯</div>
+                    </div>
+                    <div class="stat-value">12</div>
+                    <div class="stat-change positive">
+                        <span>↑</span>
+                        <span>4 new this week</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Avg Deal Size</span>
+                        <div class="stat-icon orange">📊</div>
+                    </div>
+                    <div class="stat-value">$28,450</div>
+                    <div class="stat-change positive">
+                        <span>↑</span>
+                        <span>15% increase</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-label">Conversion Rate</span>
+                        <div class="stat-icon blue">📈</div>
+                    </div>
+                    <div class="stat-value">42%</div>
+                    <div class="stat-change positive">
+                        <span>↑</span>
+                        <span>8% with AI assist</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Section -->
+            <div class="pipeline-section">
+                <div class="pipeline-header">
+                    <div class="pipeline-title">
+                        <span>📊</span>
+                        Pipeline Board
+                    </div>
+                    <div class="pipeline-actions">
+                        <button class="pipeline-btn">Filter</button>
+                        <button class="pipeline-btn">Sort</button>
+                        <button class="pipeline-btn primary">+ Add Deal</button>
+                    </div>
+                </div>
+
+                <div class="pipeline-container">
+                    <!-- New Lead Column -->
+                    <div class="pipeline-column">
+                        <div class="column-header">
+                            <span class="column-title">
+                                <span class="column-dot gray"></span>
+                                New Lead
+                            </span>
+                            <span class="column-count">3</span>
+                        </div>
+                        <div class="column-value">$75,500 total</div>
+
+                        <div class="deal-card hot">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Johnson Honeymoon</div>
+                                    <div class="deal-trip">Santorini & Mykonos</div>
+                                </div>
+                                <div class="deal-value">$45,000</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag ai">AI</span>
+                                <span class="deal-tag hot">HOT LEAD</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">AI Score</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 92%;"></div>
+                                </div>
+                                <span class="score-value">92</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Inquired 2 days ago</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px;">
+                                <span>🔮</span> 85% close probability
+                            </div>
+                        </div>
+
+                        <div class="deal-card warm">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Martinez Family</div>
+                                    <div class="deal-trip">Disney Cruise</div>
+                                </div>
+                                <div class="deal-value">$12,500</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag ai">AI</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">AI Score</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 68%;"></div>
+                                </div>
+                                <span class="score-value">68</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Inquired 5 days ago</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px;">
+                                <span>🔮</span> Follow-up recommended
+                            </div>
+                        </div>
+
+                        <div class="deal-card">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Lee Group</div>
+                                    <div class="deal-trip">Corporate Retreat</div>
+                                </div>
+                                <div class="deal-value">$18,000</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag ai">AI</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">AI Score</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 55%;"></div>
+                                </div>
+                                <span class="score-value">55</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Inquired 1 week ago</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px;">
+                                <span>🔮</span> Research needed
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proposal Sent Column -->
+                    <div class="pipeline-column">
+                        <div class="column-header">
+                            <span class="column-title">
+                                <span class="column-dot blue"></span>
+                                Proposal Sent
+                            </span>
+                            <span class="column-count">3</span>
+                        </div>
+                        <div class="column-value">$63,500 total</div>
+
+                        <div class="deal-card hot">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Smith Family</div>
+                                    <div class="deal-trip">European Adventure</div>
+                                </div>
+                                <div class="deal-value">$28,000</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag ai">AI</span>
+                                <span class="deal-tag virtuoso">Virtuoso</span>
+                                <span class="deal-tag hot">HOT</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">AI Score</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 88%;"></div>
+                                </div>
+                                <span class="score-value">88</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Proposal sent 3 days ago</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px;">
+                                <span>🔮</span> Expected close: 5 days
+                            </div>
+                        </div>
+
+                        <div class="deal-card warm">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Chen Anniversary</div>
+                                    <div class="deal-trip">Maldives Overwater</div>
+                                </div>
+                                <div class="deal-value">$18,500</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag ai">AI</span>
+                                <span class="deal-tag fourseasons">Four Seasons</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">AI Score</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 75%;"></div>
+                                </div>
+                                <span class="score-value">75</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Proposal sent 1 week ago</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px;">
+                                <span>🔮</span> Client reviewing options
+                            </div>
+                        </div>
+
+                        <div class="deal-card">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Garcia Sisters</div>
+                                    <div class="deal-trip">Girls Trip to Tulum</div>
+                                </div>
+                                <div class="deal-value">$17,000</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag ai">AI</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">AI Score</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 62%;"></div>
+                                </div>
+                                <span class="score-value">62</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Proposal sent 5 days ago</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px;">
+                                <span>🔮</span> Price negotiation likely
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- In Negotiation Column -->
+                    <div class="pipeline-column">
+                        <div class="column-header">
+                            <span class="column-title">
+                                <span class="column-dot orange"></span>
+                                In Negotiation
+                            </span>
+                            <span class="column-count">3</span>
+                        </div>
+                        <div class="column-value">$154,000 total</div>
+
+                        <div class="deal-card hot">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Williams Corporate</div>
+                                    <div class="deal-trip">Annual Retreat - Cabo</div>
+                                </div>
+                                <div class="deal-value">$67,000</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag ai">AI</span>
+                                <span class="deal-tag hot">HOT</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">AI Score</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 78%;"></div>
+                                </div>
+                                <span class="score-value">78</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Negotiating rates</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px;">
+                                <span>🔮</span> Contract expected tomorrow
+                            </div>
+                        </div>
+
+                        <div class="deal-card">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Patel Family</div>
+                                    <div class="deal-trip">India Heritage Tour</div>
+                                </div>
+                                <div class="deal-value">$52,000</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag ai">AI</span>
+                                <span class="deal-tag virtuoso">Virtuoso</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">AI Score</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 71%;"></div>
+                                </div>
+                                <span class="score-value">71</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Awaiting date confirmation</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px;">
+                                <span>🔮</span> Finalizing itinerary
+                            </div>
+                        </div>
+
+                        <div class="deal-card">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Thompson Wedding</div>
+                                    <div class="deal-trip">Destination Wedding - Jamaica</div>
+                                </div>
+                                <div class="deal-value">$35,000</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag ai">AI</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">AI Score</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 65%;"></div>
+                                </div>
+                                <span class="score-value">65</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Guest count pending</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px;">
+                                <span>🔮</span> Venue contract review
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Closed Won Column -->
+                    <div class="pipeline-column">
+                        <div class="column-header">
+                            <span class="column-title">
+                                <span class="column-dot green"></span>
+                                Closed Won
+                            </span>
+                            <span class="column-count">3</span>
+                        </div>
+                        <div class="column-value">$78,200 total</div>
+
+                        <div class="deal-card">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Brown Weekend</div>
+                                    <div class="deal-trip">Napa Valley Getaway</div>
+                                </div>
+                                <div class="deal-value">$15,200</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag fourseasons">Four Seasons</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">Won</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 100%; background: var(--success);"></div>
+                                </div>
+                                <span class="score-value" style="color: var(--success);">✓</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Closed yesterday</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px; color: var(--success);">
+                                <span>🎉</span> Commission: $1,520
+                            </div>
+                        </div>
+
+                        <div class="deal-card">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Wilson Honeymoon</div>
+                                    <div class="deal-trip">Bora Bora</div>
+                                </div>
+                                <div class="deal-value">$38,000</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag virtuoso">Virtuoso</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">Won</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 100%; background: var(--success);"></div>
+                                </div>
+                                <span class="score-value" style="color: var(--success);">✓</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Closed 3 days ago</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px; color: var(--success);">
+                                <span>🎉</span> Commission: $3,800
+                            </div>
+                        </div>
+
+                        <div class="deal-card">
+                            <div class="deal-header">
+                                <div>
+                                    <div class="deal-client">Davis Family</div>
+                                    <div class="deal-trip">Alaska Cruise</div>
+                                </div>
+                                <div class="deal-value">$25,000</div>
+                            </div>
+                            <div class="deal-tags">
+                                <span class="deal-tag">Regent</span>
+                            </div>
+                            <div class="deal-score">
+                                <span class="score-label">Won</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 100%; background: var(--success);"></div>
+                                </div>
+                                <span class="score-value" style="color: var(--success);">✓</span>
+                            </div>
+                            <div class="deal-footer">
+                                <div class="deal-assignee">
+                                    <div class="assignee-avatar">KD</div>
+                                    <span class="assignee-name">Kady</span>
+                                </div>
+                                <span class="deal-date">Closed 1 week ago</span>
+                            </div>
+                            <div class="deal-prediction" style="margin-top: 8px; color: var(--success);">
+                                <span>🎉</span> Commission: $2,500
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Insights -->
+            <div class="insights-section">
+                <div class="insights-card">
+                    <div class="insights-header">
+                        <div class="insights-title">
+                            <span>💡</span>
+                            AI Recommendations
+                        </div>
+                        <span style="font-size: 12px; color: var(--text-tertiary);">Updated just now</span>
+                    </div>
+                    <div class="insights-body">
+                        <div class="insight-item">
+                            <div class="insight-icon opportunity">🎯</div>
+                            <div class="insight-content">
+                                <div class="insight-title">Priority: Johnson Honeymoon</div>
+                                <div class="insight-desc">92 AI score indicates high conversion likelihood. Recommend sending personalized video within 2 hours.</div>
+                                <div class="insight-meta">+85% close probability • $45,000 value</div>
+                            </div>
+                            <button class="insight-action">Take Action</button>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon warning">⚠️</div>
+                            <div class="insight-content">
+                                <div class="insight-title">Follow-up Needed: Chen Anniversary</div>
+                                <div class="insight-desc">Proposal opened 5 times but no response. AI suggests alternative Maldives resort options.</div>
+                                <div class="insight-meta">Engaged but stalled • $18,500 at risk</div>
+                            </div>
+                            <button class="insight-action">Send Options</button>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon action">📞</div>
+                            <div class="insight-content">
+                                <div class="insight-title">Call Williams Corporate Today</div>
+                                <div class="insight-desc">Contract ready for signature. AI detected email opens - perfect timing for closing call.</div>
+                                <div class="insight-meta">Ready to close • $67,000 deal</div>
+                            </div>
+                            <button class="insight-action">Schedule Call</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insights-card">
+                    <div class="insights-header">
+                        <div class="insights-title">
+                            <span>📈</span>
+                            Pipeline Insights
+                        </div>
+                        <span style="font-size: 12px; color: var(--text-tertiary);">Last 30 days</span>
+                    </div>
+                    <div class="insights-body">
+                        <div class="insight-item">
+                            <div class="insight-icon opportunity" style="background: rgba(123, 104, 238, 0.1);">📊</div>
+                            <div class="insight-content">
+                                <div class="insight-title">Average Deal Velocity Improving</div>
+                                <div class="insight-desc">Your average time from lead to close decreased by 5 days with AI-assisted follow-ups.</div>
+                                <div class="insight-meta">23 days → 18 days average</div>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon opportunity" style="background: rgba(16, 185, 129, 0.1);">💰</div>
+                            <div class="insight-content">
+                                <div class="insight-title">Top Performing Source: Referrals</div>
+                                <div class="insight-desc">Referral leads are converting at 58% vs 32% average. Consider referral incentive program.</div>
+                                <div class="insight-meta">58% conversion rate</div>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon warning">⏰</div>
+                            <div class="insight-content">
+                                <div class="insight-title">Seasonal Opportunity Detected</div>
+                                <div class="insight-desc">Europe bookings spike in March. AI recommends prioritizing European proposals.</div>
+                                <div class="insight-meta">+40% booking increase predicted</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+    </script>
+</body>
+</html>
