@@ -34,7 +34,8 @@
       "status": "active",
       "model": "kimi-for-coding",
       "tokens": "30.9K",
-      "missions": 3
+      "missions": 3,
+      "lastActive": "21:16"
     },
     {
       "name": "Reef",
@@ -43,7 +44,8 @@
       "status": "active",
       "model": "kimi-for-coding",
       "tokens": "69.3K",
-      "missions": 5
+      "missions": 5,
+      "lastActive": "21:16"
     },
     {
       "name": "Scuttle",
@@ -52,7 +54,8 @@
       "status": "active",
       "model": "kimi-for-coding",
       "tokens": "56.7K",
-      "missions": 4
+      "missions": 4,
+      "lastActive": "21:16"
     },
     {
       "name": "Content Squad",
@@ -61,7 +64,8 @@
       "status": "idle",
       "model": "kimi-for-coding",
       "tokens": "51.8K",
-      "missions": 2
+      "missions": 2,
+      "lastActive": "19:58"
     }
   ],
   "kanban": {

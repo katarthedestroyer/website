@@ -440,6 +440,20 @@
             font-size: 12px;
             color: var(--neon-cyan);
             font-family: 'JetBrains Mono', monospace;
+            text-align: right;
+        }
+        
+        .squad-last-active {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-align: right;
+            margin-top: 2px;
+        }
+        
+        .squad-last-active {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
         
         /* Task Lists */
@@ -928,7 +942,10 @@
                         <div class="squad-role">${agent.role}</div>
                     </div>
                     <div class="squad-model">${agent.model}</div>
-                    <div class="squad-tokens">${agent.tokens}</div>
+                    <div>
+                        <div class="squad-tokens">${agent.tokens}</div>
+                        <div class="squad-last-active">${agent.lastActive ? 'Last: ' + agent.lastActive : ''}</div>
+                    </div>
                 </div>
             `).join('');
         }
