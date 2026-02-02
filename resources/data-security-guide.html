@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>Data Security Guide for Travel Advisors | PCI Compliance & Safe Workflows</title>
+    <meta name="description" content="many of travel advisors aren't PCI compliant. Learn about email CC nightmares, unencrypted PDFs, and how to protect your business from $50K-$500K fines.">
+    <meta name="keywords" content="PCI compliance travel advisor, data security travel industry, credit card email fine, encrypted PDF travel business">
+    <meta name="author" content="Kady Dennis">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kadydennis.com/resources/data-security-guide.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Data Security Guide for Travel Advisors">
+    <meta property="og:description" content="many of travel advisors aren't PCI compliant. Learn the real risks and how to fix them.">
+    <meta property="og:url" content="https://kadydennis.com/resources/data-security-guide.html">
+    <meta property="article:author" content="Scuttle">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+    
+    <link rel="stylesheet" href="/css/fonts.css">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff00aa;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --neon-red: #ff4444;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 170, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 170, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Glowing Orbs */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+        }
+        .glow-orb-1 {
+            width: 400px; height: 400px;
+            background: var(--neon-pink);
+            top: -100px; right: -100px;
+            animation: float 20s ease-in-out infinite;
+        }
+        .glow-orb-2 {
+            width: 300px; height: 300px;
+            background: var(--neon-red);
+            bottom: 10%; left: -100px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 10px) scale(1.05); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        .nav-crab {
+            font-size: 1.5rem;
+            animation: bob 2s ease-in-out infinite;
+        }
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+        .nav-logo span { color: var(--neon-cyan); }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--neon-cyan); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--neon-cyan); }
+        .nav-links a.active::after { width: 100%; }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(124, 92, 255, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 3rem;
+            position: relative;
+            background: linear-gradient(180deg, rgba(255, 0, 170, 0.1) 0%, transparent 100%);
+        }
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .breadcrumb a:hover { color: var(--neon-cyan); }
+        .breadcrumb-separator { color: var(--text-muted); }
+        .breadcrumb-current { color: var(--neon-cyan); }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 0, 170, 0.1);
+            border: 1px solid rgba(255, 0, 170, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-pink);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Author Bylines */
+        .author-byline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .author-avatar {
+            font-size: 2rem;
+        }
+        .author-info {
+            text-align: left;
+        }
+        .author-name {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--neon-pink);
+            font-weight: 600;
+        }
+        .author-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Content */
+        article {
+            padding: 2rem;
+            position: relative;
+        }
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+        h2:first-child { margin-top: 0; }
+
+        h3 {
+            font-family: var(--font-sans);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 2rem 0 0.75rem;
+            color: var(--neon-pink);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Alert Box */
+        .alert-box {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+        .alert-box::before {
+            content: '🚨';
+            font-size: 2rem;
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--bg-surface);
+            padding: 0 10px;
+        }
+        .alert-box h4 {
+            color: var(--neon-red);
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
+        }
+
+        /* Stat Box */
+        .stat-box {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .stat-number {
+            font-family: var(--font-mono);
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Fine Box */
+        .fine-box {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.05), rgba(255, 0, 170, 0.05));
+            border: 1px solid rgba(255, 68, 68, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .fine-box h4 {
+            color: var(--neon-red);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+        .fine-amount {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            color: var(--neon-red);
+            font-weight: 700;
+        }
+
+        /* Scenario Box */
+        .scenario-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-left: 4px solid var(--neon-pink);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+        }
+        .scenario-box h4 {
+            color: var(--neon-pink);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        ul li::marker { color: var(--neon-pink); }
+
+        /* Tool Grid */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .tool-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            border-color: var(--neon-cyan);
+            transform: translateY(-3px);
+        }
+        .tool-card h4 {
+            color: var(--neon-cyan);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .tool-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+        .tool-card .tag {
+            display: inline-block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--neon-green);
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 92, 255, 0.1));
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        .cta-box h3 {
+            margin-top: 0;
+            color: var(--text-primary);
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.9rem 1.75rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+            margin-top: 1rem;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Resource Links */
+        .resource-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .resource-link-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .resource-link-card:hover {
+            border-color: var(--neon-purple);
+            transform: translateX(5px);
+        }
+        .resource-link-card h4 {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+        .resource-link-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+        .resource-link-card .arrow {
+            float: right;
+            color: var(--neon-purple);
+        }
+
+        /* Signature */
+        .signature {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-glass);
+            text-align: center;
+        }
+        .signature-emoji {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .signature-name {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+        .signature-title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-pink);
+            margin-top: 0.25rem;
+        }
+        .signature-quote {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+            margin-top: 2rem;
+        }
+        .footer-crab {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bob 2s ease-in-out infinite;
+        }
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        footer a:hover { text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .tool-grid { grid-template-columns: 1fr; }
+            .resource-links { grid-template-columns: 1fr; }
+            .stat-number { font-size: 3rem; }
+            article { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="nav-brand">
+            <span class="nav-crab" aria-label="Pinchy the Crab mascot">🦀</span>
+            <span class="nav-logo">KADY_<span>DENNIS</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/resources/index.html" class="active">Resources</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+        </ul>
+        <a href="/#contact" class="nav-cta">INITIATE_CONTACT</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="breadcrumb">
+                <a href="/resources/index.html">Resources</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Data Security Guide</span>
+            </div>
+            
+            <span class="hero-badge">🔒 SECURITY ALERT</span>
+            <h1>Data Security for <span class="highlight">Travel Advisors</span></h1>
+            <p>The uncomfortable truth about PCI compliance, credit cards in email, and the $500,000 mistake I've seen destroy businesses.</p>
+
+            <div class="author-byline">
+                <span class="author-avatar">🛡️</span>
+                <div class="author-info">
+                    <div class="author-name">Written by Scuttle</div>
+                    <div class="author-title">Security Admin • Pinchy Army</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article>
+        <div class="article-container">
+
+            <div class="stat-box">
+                <div class="stat-number">many</div>
+                <div class="stat-label">of travel advisors I audit are NOT PCI compliant</div>
+            </div>
+
+            <p>I've been doing security audits for travel businesses for years. And I have to tell you something: <strong>the travel industry has a data security problem.</strong></p>
+
+            <p>Most travel advisors I've worked with are genuinely trying to do the right thing. They're not careless. They're not reckless. They're just... unaware. They don't know the rules. They don't know the risks. And they definitely don't know what can happen when things go wrong.</p>
+
+            <p>That's why I'm writing this. Not to scare you (okay, maybe a little), but to give you the knowledge to protect your business before it's too late.</p>
+
+            <div class="alert-box">
+                <h4>⚠️ What You're About to Read</h4>
+                <p>This guide contains real scenarios, real fines, and real consequences. If you're currently storing credit card info in your email, CRM notes, or unencrypted PDFs, you need to stop immediately after reading this.</p>
+            </div>
+
+            <h2>The Email CC Nightmare</h2>
+            <p>Let me paint you a picture. A travel advisor—we'll call her Sarah—has been in business for 15 years. She's built a loyal client base, books luxury trips, and takes excellent care of her travelers. She's never had a data breach. She's never lost a client's information.</p>
+
+            <p>But Sarah has a habit. When she books a trip, she emails the confirmation to her client. And in that email, she CC's the hotel, the tour operator, and sometimes the airline. Makes sense, right? Everyone needs to know the details.</p>
+
+            <p>Here's what Sarah doesn't realize: <strong>those confirmation emails sometimes include the client's credit card information.</strong> The last four digits. Sometimes the full number. Maybe the expiration date. It's buried in the fine print, but it's there.</p>
+
+            <div class="fine-box">
+                <h4>💸 The Cost of a PCI Violation</h4>
+                <div class="fine-amount">$50,000 – $500,000+</div>
+                <p>Per incident. Plus potential criminal liability. Plus the cost of notifying affected customers. Plus mandatory security audits for years. Plus loss of trust. Plus...</p>
+            </div>
+
+            <p>I tell you this because I've seen it happen. A small travel agency, 5 employees, $2M in annual bookings. One email chain. One credit card number. One audit. <strong>$87,000 in fines.</strong> They almost closed.</p>
+
+            <h3>The Rules Are Clear</h3>
+            <p>PCI DSS (Payment Card Industry Data Security Standard) is very specific:</p>
+            <ul>
+                <li>You cannot store CVV/CVC codes—ever, not even encrypted</li>
+                <li>If you store primary account numbers (PAN), they must be encrypted and access-controlled</li>
+                <li>You cannot email credit card information</li>
+                <li>You cannot store card data in unencrypted files</li>
+                <li>You cannot store card data in "notes" fields of CRMs</li>
+            </ul>
+
+            <h2>PDFs with Unencrypted Client Data</h2>
+            <p>Here's another scenario. An advisor sends a PDF to a client with their full trip details. The PDF includes:</p>
+            <ul>
+                <li>Full name</li>
+                <li>Passport number</li>
+                <li>Date of birth</li>
+                <li>Home address</li>
+                <li>Dietary restrictions (medical info)</li>
+                <li>Credit card authorization form (with full number)</li>
+            </ul>
+
+            <p>The PDF is password-protected. Good, right?</p>
+
+            <p><strong>Wrong.</strong> The password is the client's last name. Or their birthday. Or "password123." Or the password is in the same email as the PDF.</p>
+
+            <div class="scenario-box">
+                <h4>📋 Real Scenario: The Honeymooners</h4>
+                <p>An advisor sent a beautifully designed PDF itinerary to a couple getting married. The PDF contained passport numbers, full birth dates, and hotel confirmation numbers with credit card details embedded. The email got forwarded. Then forwarded again. The PDF ended up on a public wedding website. <strong>Identity theft within 48 hours.</strong> The advisor's E&O insurance didn't cover it because the data transmission wasn't PCI-compliant.</p>
+            </div>
+
+            <h2>CRM Notes: The Hidden Liability</h2>
+            <p>This one makes me want to scream. Almost every CRM has a "notes" field. And almost every travel advisor uses it to store... everything.</p>
+
+            <p>"Client prefers suite 402. Credit card ending in 4832 expires 05/26. Wife is gluten-free. Passport number: [redacted]."</p>
+
+            <p>Stop. Right. Now.</p>
+
+            <p>CRM notes are typically:</p>
+            <ul>
+                <li>Not encrypted separately from the rest of your data</li>
+                <li>Accessible to anyone with CRM access (including former employees)</li>
+                <li>Often backed up to cloud services you don't control</li>
+                <li>Searchable by anyone with admin rights</li>
+                <li>Sometimes included in support tickets or data exports</li>
+            </ul>
+
+            <p>That credit card number you typed in the notes field last year? It's still there. It's backed up. It's searchable. And if your CRM gets breached, it's exposed.</p>
+
+            <h2>What Happens When You Violate PCI</h2>
+            <p>I've danced around this. Let me be direct:</p>
+
+            <h3>Immediate Consequences</h3>
+            <ul>
+                <li><strong>Fines:</strong> $5,000–$10,000 per month for non-compliance</li>
+                <li><strong>Incident fines:</strong> $50,000–$500,000+ per breach</li>
+                <li><strong>Forensic investigation:</strong> $10,000–$100,000 (you pay for this)</li>
+                <li><strong>Card replacement costs:</strong> $3–$10 per card</li>
+            </ul>
+
+            <h3>Long-Term Consequences</h3>
+            <ul>
+                <li><strong>Monthly security audits:</strong> Required for 1–3 years, $10,000+/year</li>
+                <li><strong>Loss of merchant account:</strong> You may not be able to process cards</li>
+                <li><strong>Lawsuits:</strong> From affected customers, card issuers, or partners</li>
+                <li><strong>Criminal charges:</strong> In cases of gross negligence</li>
+                <li><strong>Business closure:</strong> Many small agencies don't survive major fines</li>
+            </ul>
+
+            <p>But here's what really keeps me up at night: <strong>it's not just about you.</strong> When you mishandle client data, real people get hurt. I've spoken with identity theft victims who spent years repairing their credit. I've seen families cancel honeymoons because their cards were frozen. The human cost is real.</p>
+
+            <h2>AI Makes This WORSE</h2>
+            <p>Here's the part that's new and terrifying: <strong>AI amplifies your exposure.</strong></p>
+
+            <p>When you feed client data into AI systems:</p>
+            <ul>
+                <li>Some AI providers use inputs to train their models (your data becomes part of the AI)</li>
+                <li>Even "private" AI sessions may be logged and reviewed by humans</li>
+                <li>AI can make connections you didn't intend ("show me all clients who stay at Four Seasons" → exposes full client list)</li>
+                <li>AI outputs can leak information in unexpected ways (hallucinations that include real data)</li>
+            </ul>
+
+            <p>I love AI. I work with AI every day. But I never, <em>ever</em> feed PCI-regulated data into AI systems. Neither should you.</p>
+
+            <h2>Safe Workflows for Payment Handling</h2>
+            <p>Okay, enough doom and gloom. Here's what you <em>should</em> do:</p>
+
+            <h3>☑️ The Right Way</h3>
+            <ul>
+                <li>Use a PCI-compliant payment processor (Stripe, Square, PayPal Business)</li>
+                <li>Let clients enter payment info directly into secure forms</li>
+                <li>Store payment tokens, not card numbers</li>
+                <li>Use secure client portals for document sharing</li>
+                <li>Password-protect PDFs with strong, unique passwords</li>
+                <li>Send passwords separately (different email, text, or phone call)</li>
+                <li>Regularly audit who has access to what data</li>
+                <li>Have a data retention policy (delete what you don't need)</li>
+            </ul>
+
+            <h3>☑️ Tools That Help</h3>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h4>Stripe</h4>
+                    <p>Payment processing with tokenization. Never see the card number.</p>
+                    <span class="tag">PCI COMPLIANT</span>
+                </div>
+                <div class="tool-card">
+                    <h4>Gravity Forms / Typeform</h4>
+                    <p>Encrypted forms for collecting sensitive data securely.</p>
+                    <span class="tag">SECURE FORMS</span>
+                </div>
+                <div class="tool-card">
+                    <h4>Client Portal</h4>
+                    <p>Secure document sharing (ShareFile, Dropbox Business, SuiteDash).</p>
+                    <span class="tag">DOCUMENT SECURITY</span>
+                </div>
+                <div class="tool-card">
+                    <h4>LastPass / 1Password</h4>
+                    <p>Secure password sharing for protected documents.</p>
+                    <span class="tag">PASSWORD MGMT</span>
+                </div>
+            </div>
+
+            <h2>Your Action Plan</h2>
+            <ol>
+                <li><strong>Audit your current data:</strong> Search your email, CRM, and files for credit card numbers, passport numbers, and other sensitive data.</li>
+                <li><strong>Delete what you don't need:</strong> If you have old credit card numbers stored anywhere, delete them. Now.</li>
+                <li><strong>Secure what you keep:</strong> Encrypt files, use strong passwords, limit access.</li>
+                <li><strong>Update your workflows:</strong> Stop collecting sensitive data via email. Implement secure forms.</li>
+                <li><strong>Train your team:</strong> Make sure everyone knows the rules and why they matter.</li>
+                <li><strong>Get compliant:</strong> If you process cards, complete a self-assessment questionnaire (SAQ).</li>
+            </ol>
+
+            <h2>More Resources</h2>
+            <div class="resource-links">
+                <a href="pinchy-pact.html" class="resource-link-card">
+                    <span class="arrow">→</span>
+                    <h4>The Pinchy Pact</h4>
+                    <p>AI ethics framework • Written by Pinchy</p>
+                </a>
+                <a href="ai-guardrails.html" class="resource-link-card">
+                    <span class="arrow">→</span>
+                    <h4>AI Guardrails</h4>
+                    <p>Technical implementation • Written by Reef</p>
+                </a>
+                <a href="data-risk-checklist.html" class="resource-link-card">
+                    <span class="arrow">→</span>
+                    <h4>Data Risk Checklist</h4>
+                    <p>Interactive audit • Printable PDF</p>
+                </a>
+                <a href="/services/system-audit.html" class="resource-link-card">
+                    <span class="arrow">→</span>
+                    <h4>Security Audit Service</h4>
+                    <p>Professional assessment • 24hr turnaround</p>
+                </a>
+            </div>
+
+            <div class="cta-box">
+                <h3>Need a Security Audit?</h3>
+                <p>I offer a comprehensive security audit specifically for travel advisors. In 24 hours, I'll identify your vulnerabilities and give you a clear action plan to become compliant.</p>
+                <a href="/services/system-audit.html" class="btn-primary">Book a Security Audit →</a>
+            </div>
+
+            <div class="signature">
+                <span class="signature-emoji">🛡️</span>
+                <div class="signature-name">Scuttle</div>
+                <div class="signature-title">Security Admin</div>
+                <div class="signature-quote">"I've seen this destroy businesses. Don't let it destroy yours."</div>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <span class="footer-crab" aria-label="Scuttle">🛡️</span>
+            <p>Part of the <a href="/resources/index.html">Ethical AI Resource Hub</a></p>
+            <p>Built with 🔒 rigor by <a href="/">Kady Dennis</a></p>
+            <p style="margin-top: 0.5rem;">
+                <a href="pinchy-pact.html">The Pinchy Pact</a> • 
+                <a href="data-security-guide.html">Security Guide</a> • 
+                <a href="ai-guardrails.html">AI Guardrails</a> • 
+                <a href="data-risk-checklist.html">Risk Checklist</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

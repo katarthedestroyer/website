@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>Data Risk Audit Checklist for Travel Advisors | Interactive Assessment</title>
+    <meta name="description" content="Interactive data risk checklist for travel advisors. Assess email security, file storage, CRM hygiene, AI usage, vendor assessment, and team training.">
+    <meta name="keywords" content="data risk checklist travel advisor, security audit checklist, PCI compliance checklist, AI usage audit">
+    <meta name="author" content="Kady Dennis">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kadydennis.com/resources/data-risk-checklist.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Data Risk Audit Checklist for Travel Advisors">
+    <meta property="og:description" content="Interactive security assessment. Check your email security, CRM hygiene, and AI usage.">
+    <meta property="og:url" content="https://kadydennis.com/resources/data-risk-checklist.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+    
+    <link rel="stylesheet" href="/css/fonts.css">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff00aa;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --neon-red: #ff4444;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Glowing Orbs */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+        }
+        .glow-orb-1 {
+            width: 400px; height: 400px;
+            background: var(--neon-green);
+            top: -100px; right: -100px;
+            animation: float 20s ease-in-out infinite;
+        }
+        .glow-orb-2 {
+            width: 300px; height: 300px;
+            background: var(--neon-cyan);
+            bottom: 10%; left: -100px;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(20px, 10px) scale(1.05); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        .nav-crab {
+            font-size: 1.5rem;
+            animation: bob 2s ease-in-out infinite;
+        }
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+        .nav-logo span { color: var(--neon-cyan); }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--neon-cyan); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--neon-cyan); }
+        .nav-links a.active::after { width: 100%; }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(124, 92, 255, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 3rem;
+            position: relative;
+            background: linear-gradient(180deg, rgba(0, 255, 136, 0.1) 0%, transparent 100%);
+        }
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .breadcrumb a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .breadcrumb a:hover { color: var(--neon-cyan); }
+        .breadcrumb-separator { color: var(--text-muted); }
+        .breadcrumb-current { color: var(--neon-cyan); }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-green);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            position: sticky;
+            top: 70px;
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 1rem 2rem;
+            z-index: 100;
+        }
+        .progress-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .progress-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .progress-score {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: var(--neon-cyan);
+            font-weight: 600;
+        }
+        .progress-bar {
+            height: 8px;
+            background: var(--bg-glass);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        /* Content */
+        .content {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        h2:first-child { margin-top: 0; }
+        h2 .section-icon {
+            font-size: 1.25rem;
+        }
+
+        .section-intro {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Checklist Items */
+        .checklist {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-glass);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .checklist-item:first-child {
+            padding-top: 0;
+        }
+        .checklist-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+            margin: 0 -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border-glass);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+            margin-top: 2px;
+        }
+        .checkbox:hover {
+            border-color: var(--neon-cyan);
+        }
+        .checkbox.checked {
+            background: var(--neon-green);
+            border-color: var(--neon-green);
+        }
+        .checkbox.checked::after {
+            content: '✓';
+            color: var(--bg-primary);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .checklist-content {
+            flex: 1;
+        }
+        .checklist-text {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+        .checklist-item.checked .checklist-text {
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+        .checklist-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Priority Tags */
+        .priority {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .priority.critical {
+            background: rgba(255, 68, 68, 0.15);
+            color: var(--neon-red);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+        }
+        .priority.high {
+            background: rgba(255, 136, 0, 0.15);
+            color: var(--neon-orange);
+            border: 1px solid rgba(255, 136, 0, 0.3);
+        }
+        .priority.medium {
+            background: rgba(212, 168, 83, 0.15);
+            color: var(--neon-gold);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+        }
+
+        /* Results Section */
+        .results-section {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            display: none;
+        }
+        .results-section.visible {
+            display: block;
+        }
+        .results-score {
+            font-family: var(--font-mono);
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .results-score.good {
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .results-score.warning {
+            background: linear-gradient(135deg, var(--neon-gold), var(--neon-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .results-score.danger {
+            background: linear-gradient(135deg, var(--neon-orange), var(--neon-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .results-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .results-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.9rem 1.75rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px rgba(0, 212, 255, 0.6);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 0.9rem 1.75rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            background: var(--bg-glass);
+            border-color: var(--neon-cyan);
+        }
+
+        /* Resource Links */
+        .resource-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .resource-link-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .resource-link-card:hover {
+            border-color: var(--neon-purple);
+            transform: translateX(5px);
+        }
+        .resource-link-card h4 {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+        .resource-link-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+        .resource-link-card .arrow {
+            float: right;
+            color: var(--neon-purple);
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 92, 255, 0.1));
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        .cta-box h3 {
+            margin-top: 0;
+            color: var(--text-primary);
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+        }
+        .cta-box p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+            margin-top: 2rem;
+        }
+        .footer-crab {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bob 2s ease-in-out infinite;
+        }
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        footer a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        footer a:hover { text-shadow: 0 0 10px rgba(0, 212, 255, 0.5); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .resource-links { grid-template-columns: 1fr; }
+            .content { padding: 1.5rem; }
+            .results-actions { flex-direction: column; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="nav-brand">
+            <span class="nav-crab" aria-label="Pinchy the Crab mascot">🦀</span>
+            <span class="nav-logo">KADY_<span>DENNIS</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/resources/index.html" class="active">Resources</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+        </ul>
+        <a href="/#contact" class="nav-cta">INITIATE_CONTACT</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="breadcrumb">
+                <a href="/resources/index.html">Resources</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Data Risk Checklist</span>
+            </div>
+            
+            <span class="hero-badge">✅ INTERACTIVE TOOL</span>
+            <h1>Data Risk <span class="highlight">Audit Checklist</span></h1>
+            <p>Assess your security posture across 6 critical areas. Check items off as you complete them and get your risk score.</p>
+        </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="progress-section">
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-label">COMPLETION PROGRESS</span>
+                <span class="progress-score"><span id="checked-count">0</span> / <span id="total-count">36</span></span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checklist Content -->
+    <div class="content">
+
+        <!-- Email Security -->
+        <h2><span class="section-icon">📧</span>Email Security</h2>
+        <p class="section-intro">Email is the #1 source of data breaches. These checks ensure your communications are secure.</p>
+        
+        <div class="checklist" data-section="email">
+            <div class="checklist-item" data-item="email-1">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        No credit card data sent via email
+                        <span class="priority critical">Critical</span>
+                    </div>
+                    <div class="checklist-note">Includes full numbers, partial numbers, CVV codes, and expiration dates</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="email-2">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        No passport numbers or SSNs in email
+                        <span class="priority critical">Critical</span>
+                    </div>
+                    <div class="checklist-note">Even "last 4 digits" can be problematic if combined with other data</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="email-3">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        No unencrypted PDF attachments with sensitive data
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Itineraries, confirmations, and forms should be password-protected</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="email-4">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        BCC used appropriately for group communications
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">Client emails should never be visible to other clients</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="email-5">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Email retention policy in place
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">Old emails with sensitive data should be deleted per policy</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="email-6">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Two-factor authentication enabled on email
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Gmail, Outlook, and all business email accounts</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- File Storage -->
+        <h2><span class="section-icon">📁</span>File Storage</h2>
+        <p class="section-intro">How and where you store files matters. Unprotected files are a data breach waiting to happen.</p>
+        
+        <div class="checklist" data-section="files">
+            <div class="checklist-item" data-item="files-1">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Sensitive PDFs are password-protected
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Use strong passwords (not birthdays or client names)</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="files-2">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Passwords sent separately from files
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Different email, text, or phone call—not in the same message</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="files-3">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Cloud storage uses access controls
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Not "anyone with link can view" for sensitive folders</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="files-4">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Old files with sensitive data deleted
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">If you don't need it, don't keep it</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="files-5">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        File naming doesn't include sensitive info
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">"Smith-CreditCard.pdf" is a bad filename</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="files-6">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Backup system is encrypted
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Backups are only as secure as the encryption protecting them</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CRM Hygiene -->
+        <h2><span class="section-icon">🗄️</span>CRM Hygiene</h2>
+        <p class="section-intro">Your CRM knows everything about your clients. Make sure it's not a liability.</p>
+        
+        <div class="checklist" data-section="crm">
+            <div class="checklist-item" data-item="crm-1">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        No payment data in CRM notes fields
+                        <span class="priority critical">Critical</span>
+                    </div>
+                    <div class="checklist-note">Credit card numbers, bank accounts, or payment details</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="crm-2">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        No passport numbers stored in CRM
+                        <span class="priority critical">Critical</span>
+                    </div>
+                    <div class="checklist-note">Unless your CRM is specifically designed for secure passport storage</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="crm-3">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Access controls limit who sees what
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Not everyone needs access to all client data</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="crm-4">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Former employees' access revoked
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Check this quarterly—offboarding often misses CRM access</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="crm-5">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Regular data export/access audit
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">Who downloaded what, when, and why</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="crm-6">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        CRM vendor is GDPR/CCPA compliant
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">If you serve EU or California clients, this matters</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Usage -->
+        <h2><span class="section-icon">🤖</span>AI Usage</h2>
+        <p class="section-intro">AI is powerful but risky. These checks ensure you're using it responsibly.</p>
+        
+        <div class="checklist" data-section="ai">
+            <div class="checklist-item" data-item="ai-1">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        No client PII fed into AI prompts
+                        <span class="priority critical">Critical</span>
+                    </div>
+                    <div class="checklist-note">Names, addresses, travel dates with identifying info</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="ai-2">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        No payment data in AI systems
+                        <span class="priority critical">Critical</span>
+                    </div>
+                    <div class="checklist-note">Ever. For any reason. Full stop.</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="ai-3">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        AI outputs reviewed before use
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Never send AI-generated client communications without review</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="ai-4">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        AI guardrails documented
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">SOUL.md or equivalent guiding principles in place</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="ai-5">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Training data awareness
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">You know whether your AI provider uses inputs for training</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="ai-6">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        AI decisions are reversible
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">No irreversible actions taken without human approval</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vendor Assessment -->
+        <h2><span class="section-icon">🏢</span>Vendor Assessment</h2>
+        <p class="section-intro">Your vendors' security is your security. Know who you're trusting with client data.</p>
+        
+        <div class="checklist" data-section="vendor">
+            <div class="checklist-item" data-item="vendor-1">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Payment processor is PCI compliant
+                        <span class="priority critical">Critical</span>
+                    </div>
+                    <div class="checklist-note">Stripe, Square, PayPal Business—all PCI Level 1</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="vendor-2">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        You don't store credit card numbers
+                        <span class="priority critical">Critical</span>
+                    </div>
+                    <div class="checklist-note">Use tokens, not stored card data</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="vendor-3">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Vendors have security policies published
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">SOC 2, ISO 27001, or equivalent certifications</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="vendor-4">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Data processing agreements signed
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">Required for GDPR compliance if serving EU clients</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="vendor-5">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Regular vendor security review
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">Annually, at minimum—check for breaches and policy changes</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="vendor-6">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Exit plan for vendor changes
+                        <span class="priority low">Low</span>
+                    </div>
+                    <div class="checklist-note">How would you get your data out if needed?</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Training -->
+        <h2><span class="section-icon">👥</span>Team Training</h2>
+        <p class="section-intro">Your security is only as strong as your least-trained team member.</p>
+        
+        <div class="checklist" data-section="team">
+            <div class="checklist-item" data-item="team-1">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Security policy documented
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Written rules that everyone can reference</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="team-2">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Onboarding includes security training
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Every new hire learns data security basics</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="team-3">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Regular refresher training
+                        <span class="priority medium">Medium</span>
+                    </div>
+                    <div class="checklist-note">Quarterly reminders and updates</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="team-4">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Clear incident reporting process
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Team knows who to contact if they spot a problem</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="team-5">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Password manager used by all
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">No sticky notes, no reused passwords, no exceptions</div>
+                </div>
+            </div>
+            <div class="checklist-item" data-item="team-6">
+                <div class="checkbox"></div>
+                <div class="checklist-content">
+                    <div class="checklist-text">
+                        Offboarding checklist followed
+                        <span class="priority high">High</span>
+                    </div>
+                    <div class="checklist-note">Access revoked, devices wiped, accounts closed</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="results-section">
+            <div class="results-score" id="results-score">0%</div>
+            <div class="results-label" id="results-label">Complete the checklist to see your score</div>
+            <div class="results-actions">
+                <button class="btn-secondary" onclick="resetChecklist()">Reset Checklist</button>
+                <a href="/services/system-audit.html" class="btn-primary">Get a Professional Audit →</a>
+            </div>
+        </div>
+
+        <!-- Related Resources -->
+        <h2>Related Resources</h2>
+        <div class="resource-links">
+            <a href="pinchy-pact.html" class="resource-link-card">
+                <span class="arrow">→</span>
+                <h4>The Pinchy Pact</h4>
+                <p>AI ethics framework • Written by Pinchy 🦀</p>
+            </a>
+            <a href="data-security-guide.html" class="resource-link-card">
+                <span class="arrow">→</span>
+                <h4>Data Security Guide</h4>
+                <p>PCI compliance deep dive • Written by Scuttle 🛡️</p>
+            </a>
+            <a href="ai-guardrails.html" class="resource-link-card">
+                <span class="arrow">→</span>
+                <h4>AI Guardrails</h4>
+                <p>Technical implementation • Written by Reef ⚙️</p>
+            </a>
+            <a href="/services/system-audit.html" class="resource-link-card">
+                <span class="arrow">→</span>
+                <h4>Professional Security Audit</h4>
+                <p>Complete assessment • 24hr turnaround</p>
+            </a>
+        </div>
+
+        <div class="cta-box">
+            <h3>Need Help Implementing These?</h3>
+            <p>This checklist is just the beginning. I offer a comprehensive security audit specifically for travel advisors that covers all these areas and more.</p>
+            <a href="/services/system-audit.html" class="btn-primary">Book a Security Audit →</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <span class="footer-crab" aria-label="Pinchy">🦀</span>
+            <p>Part of the <a href="/resources/index.html">Ethical AI Resource Hub</a></p>
+            <p>Built with ✅ precision by <a href="/">Kady Dennis</a></p>
+            <p style="margin-top: 0.5rem;">
+                <a href="pinchy-pact.html">The Pinchy Pact</a> • 
+                <a href="data-security-guide.html">Security Guide</a> • 
+                <a href="ai-guardrails.html">AI Guardrails</a> • 
+                <a href="data-risk-checklist.html">Risk Checklist</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Checklist functionality
+        const checklistItems = document.querySelectorAll('.checklist-item');
+        const progressFill = document.getElementById('progress-fill');
+        const checkedCountEl = document.getElementById('checked-count');
+        const totalCountEl = document.getElementById('total-count');
+        const resultsSection = document.getElementById('results-section');
+        const resultsScore = document.getElementById('results-score');
+        const resultsLabel = document.getElementById('results-label');
+
+        const totalItems = checklistItems.length;
+        totalCountEl.textContent = totalItems;
+
+        checklistItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const checkbox = item.querySelector('.checkbox');
+                checkbox.classList.toggle('checked');
+                item.classList.toggle('checked');
+                updateProgress();
+            });
+        });
+
+        function updateProgress() {
+            const checked = document.querySelectorAll('.checkbox.checked').length;
+            const percentage = Math.round((checked / totalItems) * 100);
+            
+            progressFill.style.width = percentage + '%';
+            checkedCountEl.textContent = checked;
+
+            // Show results when all items are checked
+            if (checked === totalItems) {
+                showResults(percentage);
+            } else if (checked > 0) {
+                showResults(percentage);
+            } else {
+                resultsSection.classList.remove('visible');
+            }
+        }
+
+        function showResults(percentage) {
+            resultsSection.classList.add('visible');
+            resultsScore.textContent = percentage + '%';
+            resultsScore.className = 'results-score';
+
+            let label = '';
+            if (percentage === 100) {
+                resultsScore.classList.add('good');
+                label = '🎉 Excellent! Your security posture is strong. Schedule a professional audit to verify.';
+            } else if (percentage >= 75) {
+                resultsScore.classList.add('good');
+                label = '👍 Good progress! Address the remaining items to strengthen your security.';
+            } else if (percentage >= 50) {
+                resultsScore.classList.add('warning');
+                label = '⚠️ Moderate risk. Focus on CRITICAL and HIGH priority items first.';
+            } else {
+                resultsScore.classList.add('danger');
+                label = '🚨 High risk! Address CRITICAL items immediately. Consider a professional audit.';
+            }
+            resultsLabel.textContent = label;
+        }
+
+        function resetChecklist() {
+            document.querySelectorAll('.checkbox.checked').forEach(cb => {
+                cb.classList.remove('checked');
+                cb.closest('.checklist-item').classList.remove('checked');
+            });
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
