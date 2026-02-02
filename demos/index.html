@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClickUp Business Hub Demo | Kady Dennis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FAFBFC; color: #292D34; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 24px; }
+        .hub-header { text-align: center; margin-bottom: 48px; }
+        .hub-header h1 { font-size: 42px; font-weight: 700; margin-bottom: 12px; background: linear-gradient(135deg, #7B68EE 0%, #9B8AF5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hub-header p { font-size: 18px; color: #7C828D; max-width: 600px; margin: 0 auto; }
+        .brand-badge { display: inline-flex; align-items: center; gap: 8px; background: #7B68EE; color: white; padding: 10px 20px; border-radius: 50px; font-weight: 600; margin-bottom: 24px; }
+        .demos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px; }
+        .demo-card { background: white; border-radius: 16px; padding: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: flex; flex-direction: column; border: 2px solid transparent; }
+        .demo-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(123,104,238,0.15); border-color: #7B68EE; }
+        .demo-icon { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 20px; color: white; }
+        .demo-card:nth-child(1) .demo-icon { background: linear-gradient(135deg, #7B68EE 0%, #9B8AF5 100%); }
+        .demo-card:nth-child(2) .demo-icon { background: linear-gradient(135deg, #00C853 0%, #69F0AE 100%); }
+        .demo-card:nth-child(3) .demo-icon { background: linear-gradient(135deg, #FF9100 0%, #FFD180 100%); }
+        .demo-card:nth-child(4) .demo-icon { background: linear-gradient(135deg, #2979FF 0%, #82B1FF 100%); }
+        .demo-card:nth-child(5) .demo-icon { background: linear-gradient(135deg, #00BCD4 0%, #80DEEA 100%); }
+        .demo-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+        .demo-card p { font-size: 15px; color: #7C828D; line-height: 1.6; flex-grow: 1; }
+        .demo-cta { display: flex; align-items: center; gap: 8px; margin-top: 20px; color: #7B68EE; font-weight: 600; }
+        .competitive-edge { background: linear-gradient(135deg, #7B68EE 0%, #5E4BC4 100%); color: white; padding: 32px; border-radius: 16px; margin-bottom: 48px; text-align: center; }
+        .competitive-edge h2 { font-size: 24px; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hub-header">
+            <div class="brand-badge">
+                <span>🦀</span>
+                <span>Kady Dennis Travel AI</span>
+            </div>
+            <h1>ClickUp Business Hub Demo</h1>
+            <p>Interactive mockups showcasing AI-powered travel advisor workflow management.</p>
+        </div>
+        
+        <div class="competitive-edge">
+            <h2>Why We Win vs TiqueHQ</h2>
+            <p>AI-Powered Pipeline • Multi-Agent Automation • Real-Time Client Portal • Predictive Commission Tracking • Custom-Built</p>
+        </div>
+        
+        <div class="demos-grid">
+            <a href="clickup-business-hub.html" class="demo-card">
+                <div class="demo-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Business Hub Dashboard</h3>
+                <p>Main command center with AI agents status, sales pipeline overview, commission alerts.</p>
+                <div class="demo-cta"><span>View Dashboard</span><i class="fas fa-arrow-right"></i></div>
+            </a>
+            
+            <a href="client-portal.html" class="demo-card">
+                <div class="demo-icon"><i class="fas fa-user"></i></div>
+                <h3>Client Portal</h3>
+                <p>What travelers see: trip timeline, document access, payment tracking, messages.</p>
+                <div class="demo-cta"><span>View Portal</span><i class="fas fa-arrow-right"></i></div>
+            </a>
+            
+            <a href="ai-agents-dashboard.html" class="demo-card">
+                <div class="demo-icon"><i class="fas fa-robot"></i></div>
+                <h3>AI Agents Dashboard</h3>
+                <p>Manage your AI workforce with activity logs and ethics monitoring.</p>
+                <div class="demo-cta"><span>View Agents</span><i class="fas fa-arrow-right"></i></div>
+            </a>
+            
+            <a href="sales-pipeline.html" class="demo-card">
+                <div class="demo-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>AI Sales Pipeline</h3>
+                <p>Visual kanban with AI lead scoring, predictive forecasting, conversion analytics.</p>
+                <div class="demo-cta"><span>View Pipeline</span><i class="fas fa-arrow-right"></i></div>
+            </a>
+            
+            <a href="commission-tracking.html" class="demo-card">
+                <div class="demo-icon"><i class="fas fa-dollar-sign"></i></div>
+                <h3>Commission Tracker</h3>
+                <p>Track expected vs received commissions, supplier breakdowns, overdue alerts.</p>
+                <div class="demo-cta"><span>View Tracker</span><i class="fas fa-arrow-right"></i></div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
