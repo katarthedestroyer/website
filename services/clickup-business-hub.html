@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>ClickUp Business Hub for Luxury Travel Advisors | Kady Dennis</title>
+    <meta name="description" content="The Intelligent ClickUp Hub for High-Performing Travel Advisors. AI-powered workflows, multi-agent automation, and complete business operating systems built specifically for luxury travel. Custom implementation starting at $1,297.">
+    <meta name="keywords" content="ClickUp Business Hub travel advisor, AI workflow automation travel, luxury travel CRM system, intelligent ClickUp workspace, travel advisor business operating system">
+    <link rel="canonical" href="https://kadydennis.com/services/clickup-business-hub.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ClickUp Business Hub for Luxury Travel Advisors | Kady Dennis">
+    <meta property="og:description" content="The Intelligent ClickUp Hub for High-Performing Travel Advisors. AI-powered workflows built for luxury travel.">
+    <meta property="og:url" content="https://kadydennis.com/services/clickup-business-hub.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+    
+    <link rel="stylesheet" href="/css/fonts.css">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-surface: #12121a;
+            --bg-surface-light: #1a1a24;
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 212, 255, 0.3);
+            --neon-cyan: #00d4ff;
+            --neon-purple: #7c5cff;
+            --neon-pink: #ff00aa;
+            --neon-gold: #d4a853;
+            --neon-green: #00ff88;
+            --text-primary: #e8e8ec;
+            --text-secondary: #8888a0;
+            --text-muted: #5a5a6e;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-crab {
+            font-size: 1.5rem;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+
+        .nav-logo span { color: var(--neon-cyan); }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--neon-cyan); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: 100px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge::before {
+            content: '◆';
+            color: var(--neon-gold);
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            max-width: 1000px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--neon-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+            margin-bottom: 1rem;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 60px rgba(0, 212, 255, 0.6);
+        }
+
+        .hero-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Problem Section */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+        }
+
+        .problem-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--neon-pink);
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Solution Section */
+        .solution-highlight {
+            background: linear-gradient(135deg, var(--bg-surface), var(--bg-surface-light));
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .solution-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .solution-content h3 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--neon-cyan);
+        }
+
+        .solution-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--neon-gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 100px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Deliverables Section */
+        .deliverables-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .deliverable-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .deliverable-item:hover {
+            border-color: var(--border-glow);
+            background: var(--bg-surface-light);
+        }
+
+        .deliverable-check {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .deliverable-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .deliverable-content p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Pricing Section */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--border-glow);
+        }
+
+        .pricing-tier {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--neon-green);
+            font-weight: 700;
+        }
+
+        .pricing-cta {
+            display: block;
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-surface-light);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured .pricing-cta {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            border: none;
+        }
+
+        .pricing-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-surface);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Social Proof Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-family: var(--font-serif);
+            font-size: 6rem;
+            color: var(--neon-cyan);
+            opacity: 0.2;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--neon-cyan);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bg-surface), var(--bg-surface-light));
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+            margin: 4rem auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 1px solid var(--border-glass);
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-glass);
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand .crab {
+            font-size: 1.5rem;
+        }
+
+        .footer-brand span {
+            font-family: var(--font-mono);
+            font-weight: 600;
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-glass);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .solution-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .cta-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-primary, .cta-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="nav-brand">
+            <span class="nav-crab">🦀</span>
+            <span class="nav-logo">KADY<span>DENNIS</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/how-we-work.html">How We Work</a></li>
+            <li><a href="/resources/">Resources</a></li>
+            <li><a href="/freebies/">Freebies</a></li>
+        </ul>
+        <a href="https://cal.com/kady-dennis/clickup-hub-discovery" class="nav-cta" target="_blank">Book a Call</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">Premium Implementation</div>
+        <h1>The Intelligent ClickUp Hub for High-Performing Travel Advisors</h1>
+        <p class="hero-subtitle">Where human expertise meets AI-powered workflows. A complete business operating system built specifically for luxury travel advisors ready to scale.</p>
+        <a href="https://cal.com/kady-dennis/clickup-hub-discovery" class="hero-cta" target="_blank">
+            Apply for Custom Implementation
+            <span>→</span>
+        </a>
+        <p class="hero-note">Limited to 5 clients per month • Discovery call required</p>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem">
+        <div class="section-header">
+            <p class="section-label">The Challenge</p>
+            <h2 class="section-title">You've Outgrown Forced Workflows</h2>
+            <p class="section-subtitle">Generic CRMs weren't built for luxury travel. Your business is unique—your systems should be too.</p>
+        </div>
+        
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">🔧</div>
+                <h3>Forced, Rigid Workflows</h3>
+                <p>Traditional CRMs force you into their way of working. Your luxury clients expect bespoke service, not cookie-cutter processes that don't fit how you actually work.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">📈</div>
+                <h3>Growth Outpacing Systems</h3>
+                <p>You're booking more trips, but your systems can't keep up. Leads slip through cracks, commissions go untracked, and your team spends more time managing chaos than creating experiences.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🤖</div>
+                <h3>AI Tools Without Strategy</h3>
+                <p>You've experimented with AI, but it's scattered—different tools, no integration, no system. The promise of automation feels like just another thing to manage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution">
+        <div class="section-header">
+            <p class="section-label">The Solution</p>
+            <h2 class="section-title">A Complete Business Operating System</h2>
+            <p class="section-subtitle">Not just automated—intelligent. Not just customized—transformative.</p>
+        </div>
+
+        <div class="solution-highlight">
+            <div class="solution-content">
+                <h3>The Only ClickUp Implementation with AI-Powered Intelligence</h3>
+                <p>This isn't a template you customize yourself. It's a complete, bespoke business operating system designed around how luxury travel advisors actually work—with multi-agent AI workflows that think, adapt, and scale with you.</p>
+                <div class="solution-stats">
+                    <div class="stat">
+                        <span class="stat-number">AI+</span>
+                        <span class="stat-label">Powered</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Custom</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">60-Day</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="section-header">
+            <p class="section-label">Capabilities</p>
+            <h2 class="section-title">Intelligent Features That Transform Your Operations</h2>
+            <p class="section-subtitle">Every component designed for luxury travel workflows—with AI that enhances, not replaces, your expertise.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>AI-Powered Sales Pipeline</h3>
+                <p>Intelligent lead scoring, predictive revenue forecasting, and AI-suggested next actions. Know which deals will close, when, and why—before your competitors do.</p>
+                <span class="feature-tag">Predictive Analytics</span>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>Multi-Agent Workflow Automation</h3>
+                <p>Deploy AI agents that work together on complex tasks—research, draft, analyze, approve. Your virtual team members that never sleep and always follow SOPs.</p>
+                <span class="feature-tag">AI Agents</span>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">✈️</div>
+                <h3>Intelligent Client Delivery System</h3>
+                <p>Project templates with AI-powered task generation, automated milestone tracking, and real-time client collaboration portals. Deliver luxury experiences at scale.</p>
+                <span class="feature-tag">Client Experience</span>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h3>Automated Onboarding & Training</h3>
+                <p>AI-generated learning paths for new team members, interactive SOPs with embedded guidance, and certification tracking. Onboard in days, not weeks.</p>
+                <span class="feature-tag">Team Scaling</span>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Real-Time Client Collaboration Portals</h3>
+                <p>Beautiful, branded client portals where travelers can track trip progress, approve deliverables, and communicate—all without email chaos.</p>
+                <span class="feature-tag">White-Label</span>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔗</div>
+                <h3>Integration Hub</h3>
+                <p>Pre-built connections to Zapier, Make, n8n, and 50+ travel and business tools. Your entire tech stack, seamlessly connected and intelligently orchestrated.</p>
+                <span class="feature-tag">Connectivity</span>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>AI Assistant Management</h3>
+                <p>Centralized deployment and monitoring of AI assistants across your operations. Track performance, optimize prompts, and manage costs from one command center.</p>
+                <span class="feature-tag">AI Operations</span>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Profitability Tracking by Client</h3>
+                <p>Know exactly which clients and trip types drive your profit. Real-time P&L by booking, automated commission tracking, and revenue forecasting.</p>
+                <span class="feature-tag">Financial Intelligence</span>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Commission Management</h3>
+                <p>Never miss a commission payment again. Automated tracking from booking to payment, overdue alerts, and reconciliation workflows built for travel advisors.</p>
+                <span class="feature-tag">Revenue Recovery</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section id="deliverables">
+        <div class="section-header">
+            <p class="section-label">Deliverables</p>
+            <h2 class="section-title">What You Get</h2>
+            <p class="section-subtitle">Every implementation includes everything you need to transform your operations.</p>
+        </div>
+
+        <div class="deliverables-list">
+            <div class="deliverable-item">
+                <div class="deliverable-check">✓</div>
+                <div class="deliverable-content">
+                    <h4>Custom Workspace Architecture</h4>
+                    <p>Bespoke ClickUp structure designed around your unique workflows</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-check">✓</div>
+                <div class="deliverable-content">
+                    <h4>AI Agent Setup & Training</h4>
+                    <p>Configured AI agents with custom prompts for your business</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-check">✓</div>
+                <div class="deliverable-content">
+                    <h4>Automation Workflows</h4>
+                    <p>Intelligent automations that adapt to your processes</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-check">✓</div>
+                <div class="deliverable-content">
+                    <h4>Client Portal Configuration</h4>
+                    <p>Branded, white-label portals for client collaboration</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-check">✓</div>
+                <div class="deliverable-content">
+                    <h4>Integration Setup</h4>
+                    <p>Connected to your existing tools and travel platforms</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-check">✓</div>
+                <div class="deliverable-content">
+                    <h4>Team Training (Loom + Live)</h4>
+                    <p>Recorded sessions plus live training for your team</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-check">✓</div>
+                <div class="deliverable-content">
+                    <h4>SOP Documentation</h4>
+                    <p>Complete documentation of all systems and processes</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-check">✓</div>
+                <div class="deliverable-content">
+                    <h4>60-Day Support</h4>
+                    <p>Direct access for questions, tweaks, and optimization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="investment">
+        <div class="section-header">
+            <p class="section-label">Investment</p>
+            <h2 class="section-title">Choose Your Implementation</h2>
+            <p class="section-subtitle">Custom solutions for every stage of growth. All packages include our ethical AI framework.</p>
+        </div>
+
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <p class="pricing-tier">Foundation</p>
+                <h3 class="pricing-price">$1,297</h3>
+                <p class="pricing-desc">Perfect for solo advisors ready to professionalize their operations with intelligent systems.</p>
+                <ul class="pricing-features">
+                    <li>Custom workspace architecture</li>
+                    <li>5 core AI automations</li>
+                    <li>Basic client portal setup</li>
+                    <li>Commission tracking system</li>
+                    <li>SOP library (5 templates)</li>
+                    <li>1 integration connection</li>
+                    <li>1-hour team training</li>
+                    <li>30-day email support</li>
+                </ul>
+                <a href="https://cal.com/kady-dennis/clickup-hub-discovery" class="pricing-cta" target="_blank">Apply Now</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <p class="pricing-tier">Professional</p>
+                <h3 class="pricing-price">$2,997</h3>
+                <p class="pricing-desc">For established advisors and small agencies ready for full AI-powered transformation.</p>
+                <ul class="pricing-features">
+                    <li>Everything in Foundation, plus:</li>
+                    <li>Advanced AI sales pipeline</li>
+                    <li>Multi-agent workflow setup</li>
+                    <li>White-label client portals</li>
+                    <li>SOP library (15+ templates)</li>
+                    <li>Up to 3 custom integrations</li>
+                    <li>2-hour live team training</li>
+                    <li>Custom profitability dashboards</li>
+                    <li>60-day priority support</li>
+                </ul>
+                <a href="https://cal.com/kady-dennis/clickup-hub-discovery" class="pricing-cta" target="_blank">Apply Now</a>
+            </div>
+
+            <div class="pricing-card">
+                <p class="pricing-tier">Enterprise</p>
+                <h3 class="pricing-price">Custom</h3>
+                <p class="pricing-desc">For growing agencies with complex needs and multiple team members.</p>
+                <ul class="pricing-features">
+                    <li>Everything in Professional, plus:</li>
+                    <li>Multi-workspace architecture</li>
+                    <li>Custom AI agent development</li>
+                    <li>Advanced API integrations</li>
+                    <li>Unlimited SOP development</li>
+                    <li>Data migration assistance</li>
+                    <li>4-hour comprehensive training</li>
+                    <li>Dedicated account manager</li>
+                    <li>90-day unlimited support</li>
+                </ul>
+                <a href="https://cal.com/kady-dennis/clickup-hub-discovery" class="pricing-cta" target="_blank">Contact Us</a>
+            </div>
+        </div>
+
+        <p class="pricing-note">ClickUp subscription required separately ($12-19/user/month). Payment plans available for Professional and Enterprise.</p>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="section-header">
+            <p class="section-label">Our Process</p>
+            <h2 class="section-title">From Discovery to Deployment</h2>
+            <p class="section-subtitle">A proven implementation process that gets you up and running with minimal disruption.</p>
+        </div>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <h3>Discovery Call</h3>
+                <p>We deep-dive into your workflows, pain points, and goals to design your perfect system.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <h3>Architecture Design</h3>
+                <p>Custom blueprint created specifically for your business structure and workflows.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <h3>Build & Configure</h3>
+                <p>We construct your workspace, configure AI agents, and set up all automations.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">04</div>
+                <h3>Train & Handoff</h3>
+                <p>Comprehensive training for your team with recorded sessions for future reference.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">05</div>
+                <h3>Ongoing Support</h3>
+                <p>60 days of direct support to refine, optimize, and ensure smooth adoption.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section id="testimonials">
+        <div class="section-header">
+            <p class="section-label">Results</p>
+            <h2 class="section-title">Trusted by Elite Travel Advisors</h2>
+            <p class="section-subtitle">Join advisors who've transformed their operations and reclaimed their time.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">The AI-powered pipeline alone saved me 10 hours a week. I now know exactly which leads to prioritize, and the automated follow-ups have increased my conversion rate by 40%.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">✈️</div>
+                    <div class="author-info">
+                        <h4>Sarah M.</h4>
+                        <p>Luxury Travel Advisor, $2M+ Bookings</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">We were drowning in tool chaos. Kady's team built us a command center that actually makes sense. Our team onboarding time went from 3 weeks to 3 days.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">🏝️</div>
+                    <div class="author-info">
+                        <h4>Michael R.</h4>
+                        <p>Agency Owner, 6-Person Team</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">The commission tracking system paid for itself in the first month. We recovered over $15,000 in overdue commissions we didn't even know were missing.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">🌍</div>
+                    <div class="author-info">
+                        <h4>Jennifer L.</h4>
+                        <p>Independent Advisor, 8 Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="section-header">
+            <p class="section-label">FAQ</p>
+            <h2 class="section-title">Common Questions</h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">How long does implementation take?</button>
+                <div class="faq-answer">
+                    <p>Foundation implementations take 5-7 business days. Professional packages take 10-14 business days. Enterprise implementations are typically 21-30 business days depending on complexity. We'll provide a specific timeline during your discovery call.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What if we already use ClickUp?</button>
+                <div class="faq-answer">
+                    <p>Perfect! We can audit your existing workspace and enhance it with our AI-powered features, or build a new optimized architecture that imports your data. Many of our best clients already had ClickUp—they just needed it to actually work intelligently.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can you integrate with our existing tools?</button>
+                <div class="faq-answer">
+                    <p>Absolutely. We specialize in connecting ClickUp with your full tech stack—email platforms, CRMs, booking systems, accounting software, and travel-specific tools. Our Integration Hub includes pre-built connections for 50+ popular tools plus custom API development.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What's the difference between this and basic ClickUp setup?</button>
+                <div class="faq-answer">
+                    <p>Basic setup organizes your tasks. The Intelligent ClickUp Hub transforms your entire operation with AI-powered workflows, predictive analytics, multi-agent automation, and bespoke architecture designed specifically for luxury travel. It's the difference between a filing cabinet and a command center.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do I need technical knowledge?</button>
+                <div class="faq-answer">
+                    <p>Not at all. We handle all the technical setup, configuration, and AI training. You get comprehensive training and documentation, plus ongoing support. If you can use email, you can use your new system.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is my data secure with AI integrations?</button>
+                <div class="faq-answer">
+                    <p>Security is paramount. We follow strict data protection protocols and never train AI models on your client data. Our ethical AI framework ensures your information stays private and secure. We can discuss specific security requirements during your discovery call.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Travel Business?</h2>
+            <p>Limited to 5 custom implementations per month. Apply now to secure your spot and discover how an intelligent ClickUp Hub can transform your operations.</p>
+            <div class="cta-buttons">
+                <a href="https://cal.com/kady-dennis/clickup-hub-discovery" class="cta-primary" target="_blank">
+                    Book Your Discovery Call
+                    <span>→</span>
+                </a>
+                <a href="/services/" class="cta-secondary">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <span class="crab">🦀</span>
+                    <span>KADY<span style="color: var(--neon-cyan);">DENNIS</span></span>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 300px;">Systems partner for luxury travel advisors. Building intelligent, ethical automation that scales.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="/services/clickup-business-hub.html">ClickUp Business Hub</a></li>
+                    <li><a href="/services/ai-workflow-design.html">AI Workflow Design</a></li>
+                    <li><a href="/services/system-audit.html">System Audit</a></li>
+                    <li><a href="/services/clickup-setup.html">ClickUp Setup</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/resources/">All Resources</a></li>
+                    <li><a href="/freebies/">Free Tools</a></li>
+                    <li><a href="/how-we-work.html">How We Work</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://cal.com/kady-dennis/clickup-hub-discovery" target="_blank">Book a Call</a></li>
+                    <li><a href="mailto:hello@kadydennis.com">hello@kadydennis.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Kady Dennis. Built with 🦀 by crabs who care.</p>
+            <p>Ethical AI • Human-First • Built for Travel</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
