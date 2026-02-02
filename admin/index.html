@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinchy Army Mission Control | Kady Dennis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff6b6b;
+            --accent: #ffd700;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --card: rgba(255,255,255,0.05);
+            --text: #e0e0e0;
+            --text-muted: #888;
+            --success: #00ff88;
+            --warning: #ffd700;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(255,107,107,0.1) 100%);
+            border-bottom: 2px solid var(--primary);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 3em;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .brand-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+        
+        .brand-text .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9em;
+            letter-spacing: 2px;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--card);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .user-info {
+            text-align: right;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .user-role {
+            font-size: 0.8em;
+            color: var(--text-muted);
+        }
+        
+        /* Main Layout */
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr 350px;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .nav-section {
+            margin-bottom: 25px;
+        }
+        
+        .nav-title {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 5px;
+        }
+        
+        .nav-item:hover {
+            background: rgba(0,212,255,0.1);
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(255,107,107,0.2));
+            border-left: 3px solid var(--primary);
+        }
+        
+        .nav-icon {
+            font-size: 1.2em;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .stat-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        
+        .stat-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.85em;
+            margin-top: 5px;
+        }
+        
+        /* Section Cards */
+        .section-card {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Agent Cards */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .agent-card {
+            background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(255,107,107,0.1));
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .agent-card:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+        }
+        
+        .agent-card.active {
+            border-color: var(--success);
+            box-shadow: 0 0 20px rgba(0,255,136,0.2);
+        }
+        
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .agent-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .agent-info h4 {
+            font-size: 0.95em;
+            margin-bottom: 3px;
+        }
+        
+        .agent-role {
+            font-size: 0.75em;
+            color: var(--text-muted);
+        }
+        
+        .agent-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        .status-active {
+            background: rgba(0,255,136,0.2);
+            color: var(--success);
+        }
+        
+        .status-idle {
+            background: rgba(136,136,136,0.2);
+            color: var(--text-muted);
+        }
+        
+        /* Task Board */
+        .task-columns {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .task-column {
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 200px;
+        }
+        
+        .column-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .column-title {
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .column-count {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75em;
+        }
+        
+        .task-item {
+            background: var(--card);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: grab;
+            transition: all 0.3s;
+        }
+        
+        .task-item:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .task-title {
+            font-size: 0.85em;
+            margin-bottom: 8px;
+        }
+        
+        .task-meta {
+            display: flex;
+            gap: 10px;
+            font-size: 0.7em;
+            color: var(--text-muted);
+        }
+        
+        .task-tag {
+            background: rgba(0,212,255,0.2);
+            color: var(--primary);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        /* Right Panel */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .activity-feed {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .activity-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .activity-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            flex-shrink: 0;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-text {
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+        
+        .activity-time {
+            font-size: 0.7em;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        
+        /* Motto Banner */
+        .motto-banner {
+            background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(255,107,107,0.2));
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(0,212,255,0.3);
+        }
+        
+        .motto-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1em;
+            color: var(--primary);
+        }
+        
+        .motto-sub {
+            font-size: 0.75em;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .container {
+                grid-template-columns: 260px 1fr 300px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar, .right-panel {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="brand">
+            <div class="logo">🦀</div>
+            <div class="brand-text">
+                <h1>Pinchy Army Mission Control</h1>
+                <div class="subtitle">AUTONOMOUS AGENT SQUAD // V2.0</div>
+            </div>
+        </div>
+        <div class="user-profile">
+            <div class="user-avatar">KD</div>
+            <div class="user-info">
+                <div class="user-name">Kady Dennis</div>
+                <div class="user-role">Commander in Chief</div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="nav-section">
+                <div class="nav-title">Operations</div>
+                <div class="nav-item active">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">🎯</span>
+                    <span>Missions</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">🤖</span>
+                    <span>Agent Squad</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">📁</span>
+                    <span>Knowledge Base</span>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Monitoring</div>
+                <div class="nav-item">
+                    <span class="nav-icon">📈</span>
+                    <span>Token Usage</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">💰</span>
+                    <span>Cost Tracking</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">⚡</span>
+                    <span>System Health</span>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Resources</div>
+                <div class="nav-item">
+                    <span class="nav-icon">📖</span>
+                    <span>SOUL.md</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">🛡️</span>
+                    <span>Guardrails</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">❓</span>
+                    <span>Help & Docs</span>
+                </div>
+            </div>
+            
+            <div class="motto-banner" style="margin-top: 30px;">
+                <div class="motto-text">"Pinch tight, dive deep, deliver."</div>
+                <div class="motto-sub">— The Pinchy Army Motto</div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Stats Row -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon">🤖</div>
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Active Agents</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">Tasks Done Today</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">In Progress</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-number">$2.40</div>
+                    <div class="stat-label">Today's Cost</div>
+                </div>
+            </div>
+            
+            <!-- Agent Squad Section -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <span>🦀</span>
+                        Pinchy Army Squad Status
+                    </h3>
+                    <span style="color: var(--text-muted); font-size: 0.85em;">All systems operational</span>
+                </div>
+                <div class="agent-grid">
+                    <div class="agent-card active">
+                        <div class="agent-header">
+                            <div class="agent-avatar">🧭</div>
+                            <div class="agent-info">
+                                <h4>Captain</h4>
+                                <div class="agent-role">Project Navigator</div>
+                            </div>
+                        </div>
+                        <span class="agent-status status-active">ON MISSION</span>
+                    </div>
+                    <div class="agent-card active">
+                        <div class="agent-header">
+                            <div class="agent-avatar">🔍</div>
+                            <div class="agent-info">
+                                <h4>Sonar</h4>
+                                <div class="agent-role">Client Research</div>
+                            </div>
+                        </div>
+                        <span class="agent-status status-active">ON MISSION</span>
+                    </div>
+                    <div class="agent-card active">
+                        <div class="agent-header">
+                            <div class="agent-avatar">🪸</div>
+                            <div class="agent-info">
+                                <h4>Reef</h4>
+                                <div class="agent-role">Product Builder</div>
+                            </div>
+                        </div>
+                        <span class="agent-status status-active">ON MISSION</span>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <div class="agent-avatar">🌊</div>
+                            <div class="agent-info">
+                                <h4>Current</h4>
+                                <div class="agent-role">Knowledge Master</div>
+                            </div>
+                        </div>
+                        <span class="agent-status status-idle">STANDBY</span>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <div class="agent-avatar">⚓</div>
+                            <div class="agent-info">
+                                <h4>Harbor</h4>
+                                <div class="agent-role">Operations Guardian</div>
+                            </div>
+                        </div>
+                        <span class="agent-status status-idle">STANDBY</span>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-header">
+                            <div class="agent-avatar">🦀</div>
+                            <div class="agent-info">
+                                <h4>Scuttle</h4>
+                                <div class="agent-role">Admin & Productivity</div>
+                            </div>
+                        </div>
+                        <span class="agent-status status-idle">STANDBY</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Task Board -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <span>📋</span>
+                        Mission Board
+                    </h3>
+                </div>
+                <div class="task-columns">
+                    <div class="task-column">
+                        <div class="column-header">
+                            <span class="column-title">📌 To Do</span>
+                            <span class="column-count">5</span>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-title">🏨 La Jolla Mom Hotel Quoting Automation</div>
+                            <div class="task-meta">
+                                <span class="task-tag">HIGH</span>
+                                <span>Captain</span>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-title">🎨 Remake quiz_cover.jpg</div>
+                            <div class="task-meta">
+                                <span class="task-tag">MED</span>
+                                <span>Reef</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-column">
+                        <div class="column-header">
+                            <span class="column-title">⚡ In Progress</span>
+                            <span class="column-count">6</span>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-title">🦀 AGENT SQUAD: Design Named Agent System</div>
+                            <div class="task-meta">
+                                <span class="task-tag">ACTIVE</span>
+                                <span>Sonar</span>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-title">📊 AGENT SQUAD: Build Daily Standup</div>
+                            <div class="task-meta">
+                                <span class="task-tag">ACTIVE</span>
+                                <span>Captain</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-column">
+                        <div class="column-header">
+                            <span class="column-title">👀 Review</span>
+                            <span class="column-count">3</span>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-title">🚀 Deploy Website</div>
+                            <div class="task-meta">
+                                <span class="task-tag">WAITING</span>
+                                <span>YOU</span>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-title">👤 Profile Photo</div>
+                            <div class="task-meta">
+                                <span class="task-tag">WAITING</span>
+                                <span>YOU</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-column">
+                        <div class="column-header">
+                            <span class="column-title">✅ Done</span>
+                            <span class="column-count">18</span>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-title">✨ SOUL.md v2.0 Adoption</div>
+                            <div class="task-meta">
+                                <span>Just now</span>
+                            </div>
+                        </div>
+                        <div class="task-item">
+                            <div class="task-title">🎯 6 Audit Missions Complete</div>
+                            <div class="task-meta">
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Right Panel -->
+        <aside class="right-panel">
+            <div class="section-card">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <span>🔔</span>
+                        Activity Feed
+                    </h3>
+                </div>
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: rgba(0,255,136,0.2);">✅</div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>Scribe</strong> completed <em>"Write-Collaboration-Story"</em></div>
+                            <div class="activity-time">3 minutes ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: rgba(0,212,255,0.2);">📦</div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>Tinker</strong> packaged <em>"Pinchy Squad skill"</em></div>
+                            <div class="activity-time">8 minutes ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: rgba(255,215,0,0.2);">🧪</div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>Test-Content-Creation</strong> PASSED (4.5/5)</div>
+                            <div class="activity-time">15 minutes ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: rgba(0,255,136,0.2);">✅</div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>Test-Communication</strong> completed 4 scenarios</div>
+                            <div class="activity-time">25 minutes ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background: rgba(255,107,107,0.2);">🎨</div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>Upgrade-Mission-Control-UI</strong> deployed v2</div>
+                            <div class="activity-time">45 minutes ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <span>⏰</span>
+                        Next Standup
+                    </h3>
+                </div>
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 2em; font-weight: 700; color: var(--primary);">8:00 AM</div>
+                    <div style="color: var(--text-muted); font-size: 0.85em; margin-top: 5px;">EST • Auto-generated</div>
+                    <div style="margin-top: 15px; font-size: 0.8em; color: var(--success);">✓ Scheduled</div>
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <span>📊</span>
+                        Daily Stats
+                    </h3>
+                </div>
+                <div style="font-size: 0.9em;">
+                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <span style="color: var(--text-muted);">Tokens In</span>
+                        <span>224,000</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <span style="color: var(--text-muted);">Tokens Out</span>
+                        <span>84,000</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                        <span style="color: var(--text-muted);">Sub-Agents</span>
+                        <span style="color: var(--success);">5 completed</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+                        <span style="color: var(--text-muted);">Est. Savings</span>
+                        <span style="color: var(--success);">$2,173</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
